@@ -1,0 +1,279 @@
+\documentclass[11pt,a4paper]{moderncv}
+
+\usepackage[french]{babel}   % pour dire que le texte est en francais
+%% \setlength{\parindent}{0pt}
+%% \usepackage{enumitem}
+
+%% see also : https://www.latextemplates.com/template/moderncv-cv-and-cover-letter
+
+%% http://blog.madrzejewski.com/blog/2013/01/02/creer-cv-elegant-latex-moderncv/
+% ma pr{\'e}f{\'e}rence en terme de design
+\moderncvtheme[black]{classic}
+% d'autres valeurs possibles pour le style
+%% \moderncvstyle{...}
+%% classic ; casual ; oldstyle ; banking
+% une autre mani{\`e}re de d{\'e}finir la couleur
+%% \moderncvcolor{...}
+% couleurs possibles : 'blue' (par defaut),
+% 'orange', 'green', 'red', 'purple', 'grey' et 'black'
+
+%%%%% %%%%% %%%%% %%%%% %%%%% %%%%% %%%%% %%%%% %%%%% %%%%% %%%%% %%%%% %%%%% %%%%% %%%%% 
+%%%%% %%%%% %%%%% %%%%% %%%%% %%%%% %%%%% %%%%% %%%%% %%%%% %%%%% %%%%% %%%%% %%%%% %%%%% 
+%%%%% %%%%% %%%%% %%%%% %%%%% %%%%% %%%%% %%%%% %%%%% %%%%% %%%%% %%%%% %%%%% %%%%% %%%%% 
+%%%%% %%%%% %%%%% %%%%% %%%%% %%%%% %%%%% %%%%% %%%%% %%%%% %%%%% %%%%% %%%%% %%%%% %%%%% 
+%%%%% %%%%% %%%%% %%%%% %%%%% %%%%% %%%%% %%%%% %%%%% %%%%% %%%%% %%%%% %%%%% %%%%% %%%%% 
+\def\titreGeneralNewLine{General Title}
+\def\titreGeneral{Titre poste CV}
+\def\titreSpecialite{( Spécialité )}
+\def\prenom{ Prénom }
+\def\nom{ Nom }
+\def\prenomNom{\prenom ~\nom }
+\def\adressePhysique{ 1337 Grand Boulevard -- 61337 Section}
+\def\portable{06~00~00~00~00}
+\def\telephonePortable{T{\'e}l{\'e}phone Portable : \portable }
+\def\eMail{ prenom.nom@fournisseur.com }
+\def\pageWeb{ http://www.siteweb.com } 
+\def\eMailTitle{Courriel : \eMail  }
+\def\pageWebTitle{Web : \pageWeb  }
+%% \def\adresseContact{%
+%% 	\scriptsize{\prenomNom  -- \adressePhysique  } \\
+%% 	\scriptsize{\terminalBipper  -- \eMailTitle -- \pageWebTitle} \\
+%% }%
+\def\adresseContact{%
+	\begin{tabular}[h]{l c r}
+		\includegraphics[width=0.5cm]{\logoGliderLeftt } &
+		\begin{minipage}[ht]{0.90\textwidth}
+			\centering
+			\scriptsize{\prenomNom ~-- \adressePhysique -- %% \copyright
+			\includegraphics[width=0.30cm]{\logoCreativeCommon }  \today } \\
+			\scriptsize{\terminalBipper ~-- \telephonePortable} \\
+			\scriptsize{\eMailTitle  ~-- \pageWebTitle} \\
+		\end{minipage} &
+		\includegraphics[width=0.5cm]{\logoGliderRight } \\
+		%% 	&	&	\\
+	\end{tabular}~\\
+}%
+
+%%%%% %%%%% %%%%% %%%%% %%%%% %%%%% %%%%% %%%%% %%%%% %%%%% %%%%% %%%%% %%%%% %%%%% %%%%% 
+%%%%% %%%%% %%%%% %%%%% %%%%% %%%%% %%%%% %%%%% %%%%% %%%%% %%%%% %%%%% %%%%% %%%%% %%%%% 
+%%%%% %%%%% %%%%% %%%%% %%%%% %%%%% %%%%% %%%%% %%%%% %%%%% %%%%% %%%%% %%%%% %%%%% %%%%% 
+%%%%% %%%%% %%%%% %%%%% %%%%% %%%%% %%%%% %%%%% %%%%% %%%%% %%%%% %%%%% %%%%% %%%%% %%%%% 
+%%%%% %%%%% %%%%% %%%%% %%%%% %%%%% %%%%% %%%%% %%%%% %%%%% %%%%% %%%%% %%%%% %%%%% %%%%% 
+\usepackage{lastpage}
+% \AtEndDocument{\label{LastPage}}
+
+\def\logoGliderNorma{img/logo_glider.png}
+\def\logoGliderRight{img/logo-glider-right.png}
+\def\logoGliderLeftt{img/logo-glider-left.png}
+\def\logoCreativeCommon{img/CreativeCommonLogo.jpeg}
+\def\includeLogoGN{\includegraphics[width=0.50cm]{\logoGliderNorma }}
+\def\includeLogoGR{\includegraphics[width=0.50cm]{\logoGliderRight }}
+\def\includeLogoGL{\includegraphics[width=0.50cm]{\logoGliderLeftt }}
+\def\includeLogoCC{\includegraphics[width=0.25cm]{\logoCreativeCommon }}
+
+\pagestyle{fancy}
+\def\makestylefancyContent{%
+	\fancyhf{}
+	\fancyhead[LE]{
+		\includegraphics[width=0.5cm]{\logoGliderLeftt }
+		\hfill
+		\prenomNom 
+		\hfill
+		\titreGeneral  -- \titreSpecialite
+	}
+	\fancyfoot[LE]{
+		\includegraphics[width=0.5cm]{\logoGliderLeftt } \hfill
+		\includeLogoCC  \prenomNom  -- \today \hfill %% \copyright
+		\thepage /\pageref{LastPage}
+	}
+	
+	\fancyhead[RO]{
+		\titreGeneral  -- \titreSpecialite
+		\hfill
+		\prenomNom 
+		\hfill
+		\includegraphics[width=0.5cm]{\logoGliderRight }
+	}
+	\fancyfoot[RO]{
+		\thepage /\pageref{LastPage} \hfill
+		\includeLogoCC  \prenomNom  -- \today \hfill %% \copyright
+		\includegraphics[width=0.5cm]{\logoGliderRight }
+	}
+	\renewcommand{\headrulewidth}{0.25pt}
+	\renewcommand{\footrulewidth}{0.5pt}
+}%
+\makestylefancyContent
+
+
+\def\motsClefs{LaTeX;PDF;hyperlinks;bioinformatique;bio-informatique;bases de donn{\'e}es;SQL;%
+				JAVA;J2EE;Swing;C / C++;Perl;Python;PHP;HTML;CSS;JavaScript;%
+				MySQL;PostgreSQL;ORACLE;data mining / analyse de donn{\'e}es;%
+				UML;algorithmique;techniques de biologie; bio-informatique;%
+				bash;shell;Git;Maven;Mockito;MockNeat;BioJava;BioPerl;BioPython%
+				GNU / Linux (Ubuntu);UNIX;Mac OS X;Windows;%
+				UML;MERISE;G{\'e}nie Logiciel;Tests Unitaires;JUnit%
+				Biochimie;G{\'e}n{\'e}tique;Biologie Cellulaire;%
+				Scrum;eXtreme Programming;M{\'e}thodes Agiles;%
+				Pipeline Pilot;Accelrys;Component;Protocol;%
+				RDF;Resource Description Framework;RML;RDF Mapping Language;Apache Jena;Semantic Web%
+}
+
+% \usepackage{hyperref}
+% \hypersetup
+% {
+	% pdfauthor={\prenomNom}, 
+	% pdfsubject={\titreGeneral ~-- \titreSpecialite},
+	% pdftitle={\titreGeneral ~-- \titreSpecialite},
+	% pdfkeywords={\motsClefs},
+	% pdfcreator={PDFLaTeX (creation)}, 
+	% pdfproducer={PDFLaTeX (production)}
+% }
+%% http://www.andy-roberts.net/writing/latex/pdfs -- for some properties...
+
+% \usepackage[pdftex,
+			% pdfauthor={\prenomNom},
+			% pdftitle={\titreGeneral ~-- \titreSpecialite},
+			% pdfsubject={\titreGeneral ~-- \titreSpecialite},
+			% pdfkeywords={\motsClefs},
+			% pdfproducer={PDFLaTeX (creation)},
+			% pdfcreator={PDFLaTeX (production)}]{hyperref}
+%% https://tex.stackexchange.com/questions/26529/how-can-i-generate-pdf-metadata-from-latex
+
+\AfterPreamble{\hypersetup{
+			pdfauthor={\prenomNom},
+			pdftitle={\titreGeneral ~-- \titreSpecialite},
+			pdfsubject={\titreGeneral ~-- \titreSpecialite},
+			pdfkeywords={\motsClefs},
+			pdfproducer={PDFLaTeX (creation)},
+			pdfcreator={PDFLaTeX (production)}
+			%% urlcolor=blue,
+}}
+%% https://tex.stackexchange.com/questions/79395/option-clash-for-hyperref-package
+
+%%%%% %%%%% %%%%% %%%%% %%%%% %%%%% %%%%% %%%%% %%%%% %%%%% %%%%% %%%%% %%%%% %%%%% %%%%% 
+%%%%% %%%%% %%%%% %%%%% %%%%% %%%%% %%%%% %%%%% %%%%% %%%%% %%%%% %%%%% %%%%% %%%%% %%%%% 
+%%%%% %%%%% %%%%% %%%%% %%%%% %%%%% %%%%% %%%%% %%%%% %%%%% %%%%% %%%%% %%%%% %%%%% %%%%% 
+%%%%% %%%%% %%%%% %%%%% %%%%% %%%%% %%%%% %%%%% %%%%% %%%%% %%%%% %%%%% %%%%% %%%%% %%%%% 
+%%%%% %%%%% %%%%% %%%%% %%%%% %%%%% %%%%% %%%%% %%%%% %%%%% %%%%% %%%%% %%%%% %%%%% %%%%% 
+
+%% \usepackage[top=1.1cm, bottom=1.1cm, left=2cm, right=2cm]{geometry}
+% gauche, haut, droite, bas, entete, ente2txt, pied, txt2pied
+\usepackage{vmargin}
+\setmarginsrb{1.0cm}{0.2cm}{1.0cm}{0.50cm}{15pt}{10pt}{15pt}{45pt}
+
+% Largeur de la colonne pour les dates
+\setlength{\hintscolumnwidth}{2.25cm} %% 2.50cm
+
+%% Une ent{\^e}te classique
+\firstname{\prenom }			%% \firstname{\prenom }
+\familyname{\nom }				%% \familyname{\nom }
+\title{\titreGeneral }			%% \title{\titreGeneral }
+%% \title{\titreGeneral \newline \titreSpecialite} %% titreGeneralNewLine
+\address{\adressePhysique }		%% \address{\adressePhysique }
+\email{\eMail }					%% \email{\eMail }
+\homepage{\pageWeb }			%% \homepage{\pageWeb }
+\mobile{\portable }				%% \mobile{\portable }
+\quote{ QuotationCitation }		%% \quote{ QuotationCitation }
+
+% d'autres valeurs possibles
+%% \phone{00 00 00 00 00}
+%% \fax{00 00 00 00 00}
+%% \photo[64pt][0.4pt]{img/logo_glider.png}
+
+%% http://lataix-sebastien.developpez.com/tutoriels/latex/tutoriel-moderncv/
+% les donn{\'e}es suivantes sont aussi optionnelles donc {\`a} commenter si on n'en veut pas
+%% \phone[mobile]{\portable } %% \phone[mobile]{06~12~34~56~78}
+%% \phone[fixed]{01~01~01~01~01}
+%% \phone[fax]{01~01~01~01~01}
+%% \email{\eMail }
+%% \homepage{\pageWeb }
+\social[linkedin]{ LinkedInProfile }		%% https://www.linkedin.com/in/.../
+\social[github]{ GitHubProfile }			%% https://github.com/...
+%% \social[facebook]{ FaceBookProfile }		%% https://www.facebook.com/...
+\social[twitter]{ TwitterPage }				%% https://twitter.com/...
+%% \extrainfo{informations compl{\'e}mentaires.}
+%% \quote{ \Quotation } 					%% toujours optionnel, se place avant le corps du CV
+
+\begin{document}
+
+	%% \makestylefancyContent
+	\maketitle
+
+\section{Comp{\'e}tences}
+	Introduction Text !!
+% possibilit{\'e} de mettre les entr{\'e}es en deux colonnes 
+%% \cvdoubleitem{ Item }{Description }
+
+\section{Exp{\'e}rience professionnelle}
+%% \cventry{years}{degree/job title}{institution/employer}{localization}{grade}{description}
+
+\cventry{years}{degree/job title}{institution/employer}{localization}{grade}{description}
+
+
+%% \cventry{DATUM}{TITRE}{ENTREPRISE}{CONTRAT}%
+%% 		{\newline INTITULE++}{%
+%% 	\begin{itemize}
+%% 		\item[$\rightarrow$] ELEMENTUN
+%% 		\item[$\bullet$] ELEMENTDEUXETPLUS
+%% 	\end{itemize}}
+
+\cventry{DATUM}{TITRE}{ENTREPRISE}{CONTRAT}%
+		{\newline INTITULE++}{%
+	\begin{itemize}
+		\item[$\rightarrow$] ELEMENTUN
+		\item[$\bullet$] ELEMENTDEUXETPLUS
+	\end{itemize}}
+
+
+
+\section{Formation}
+	%% on peut mettre ici de 3 {\`a} 6 arguments qui peuvent {\^e}tre laiss{\'e}s vides
+	\cventry{Year}{Diploma}{\newline School}{Location}	{}{}{}
+
+\section{Centres d'int{\'e}r{\^e}ts}
+\cvitem{Lectures}{ READINGS }
+\cvitem{SocialGames}{ SOCIALGAMES }
+%% \cvitemwithcomment{Jeux de Soci{\'e}t{\'e}}{Jeux de r{\^o}les, jeux de plateaux. }{Joueur et MJ / Animateur}
+	%% \cvlistdoubleitem{L'Appel De Cthulhu}		{CyberPunk et assimil{\'e}s}
+	%% \cvlistdoubleitem{Sombre / Sombre Z{\'e}ro}	{StarWars : Force et Destin{\'e}e}
+	%% \cvlistdoubleitem{NumenEra}					{Vampire : La Mascarade}
+%% \cvitemwithcomment{Element}{Detail}{Commentaire}
+
+\cventry{Year}{WHAT}{CONTENT}{Location}	{MORE1}{MORE2}{MORE3}
+
+%% ~\\
+
+%% \section{divers}
+%% % plein de choses diff{\'e}rentes pour pr{\'e}senter vos comp{\'e}tences
+%% \cvitemwithcomment{Comp{\'e}tence}{Niveau}{Commentaire}
+%% \cvdoubleitem{Categorie 1}{XXX, YYY, ZZZ}{Categorie 2}{XXX, YYY, ZZZ}
+%% \cvitem{Quelque chose}{Description}
+%% % une liste
+%% \cvlistitem{Item 1}
+%% \cvlistitem{Item 2}
+%% \cvlistitem{Item 3}
+%% % une double liste
+%% \cvlistdoubleitem{Item 1}{Item 3}
+%% \cvlistdoubleitem{Item 2}{Item 4}
+
+
+%% \section{Une section}
+% pour votre cursus scolaire
+%% \cventry{ann{\'e}e--ann{\'e}e}{Diplome}{Institution}{Ville}{\textit{Classe}}{Description}
+% les {} 3 {\`a} 6 sont optionnelles
+% exemple
+%% \cventry{2012 -- 2013}{Licence Professionnelle}{IUT Clermont-Ferrand (63)}{}{}{Sp{\'e}cialit{\'e} Administration et S{\'e}curit{\'e} des R{\'e}seaux}
+% pour une exp{\'e}rience pro
+%% \cventry{ann{\'e}e--ann{\'e}e}{Titre de l'emploi}{Employeur}{Ville}{}{Description de 1 ou 2 lignes.\newline{}%
+% exemple avec une liste (un peu plus complexe)
+%% \cventry{Avril 2012\\{\`a} Octobre 2012}{Administrateur syst{\`e}mes}{Vesalis}{Clermont-Ferrand}{France}{
+%% \begin{itemize}%
+%% \item Mise en place d'une solution de r{\'e}partition de charge sur un serveur IBM Blade Center (~6 serveurs),
+%% \item Proposition d'une architecture de haute disponibilit{\'e} (HA),
+%% \item Changement d'h{\'e}bergeur, r{\'e}installation de toutes les applications et services sur un serveur Windows Server 2008 R2 (configuration d'un SVN, serveur web, base de donn{\'e}es, FTP),
+%% \item Adaptation du code des applications de la soci{\'e}t{\'e} pour le rendre compatible Linux.\newline{}
+%% \end{itemize}}%
+
+\end{document}
+
+
