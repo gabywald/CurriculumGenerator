@@ -1,10 +1,18 @@
 # CurriculumGenerator/Python
 
-Tutoriel et formation Python : 
+## Outils, technologies et autres éléments utilisés
+
+* Python 3
+* Eclipse
+* PyCharm
+* Shell Bash
+* UTF-8
+* pdflatex ("texlive-*")
+
+## Tutoriels et formations Python : 
 * https://docs.python.org/fr/3.5/tutorial/
 * https://fr.wikibooks.org/wiki/Programmation_Python/Exemples_de_scripts
 * https://python.doctor/page-apprendre-programmation-orientee-objet-poo-classes-python-cours-debutants
-
 * https://www.tutorialspoint.com/python/python_command_line_arguments.htm
 * https://python.sdv.univ-paris-diderot.fr/07_fichiers/
 
