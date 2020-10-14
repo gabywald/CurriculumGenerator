@@ -9,6 +9,19 @@
 * UTF-8
 * pdflatex ("texlive-*")
 
+Testé ssous Linux !
+
+## Idées
+
+* Paramètres d'entrée (à préciser)
+
+	- nom
+	- prénom
+	- poste 
+	- citation / quote
+	- liste de compétences
+	- un fichier (CSV de préférence ; JSON ?) regroupant les éléments précédents et également expériences professionnelles, formations... (format interne à définir)
+
 ## Tutoriels et formations Python : 
 * https://docs.python.org/fr/3.5/tutorial/
 * https://fr.wikibooks.org/wiki/Programmation_Python/Exemples_de_scripts
