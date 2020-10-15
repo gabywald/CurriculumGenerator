@@ -19,46 +19,56 @@ print('Argument List:', str(sys.argv) )
 from pathlib import Path
 
 import shutil
-import subprocess
-import os
 
-import configparser
+import random
 
 import mainFunctions
 import curriculumGeneration
 import curriculumData
 
+args = curriculumData.parsingArgs()
+
 ## mainFunctions.main(sys.argv[1:])
 
-## Use a configuration file ! 'sources.ini' !
-parser = configparser.ConfigParser()
-parser.read( "sources.ini" )
-print( parser.sections() )
+curriculumDataObj = curriculumData.loadConfig();
 
-cvStyle = parser[ "bases" ].get( "cvStyle" )
-cvColor = parser[ "bases" ].get( "cvColor" )
-
-print ( parser[ "paths" ].get( "hsList" ) )
-
-hsList				= mainFunctions.readFileToList( parser[ "paths" ].get( "hsList" ) )
-sfList				= mainFunctions.readFileToList( parser[ "paths" ].get( "sfList" ) )
-firstNameList		= mainFunctions.readFileToList( parser[ "paths" ].get( "firstNameList" ) )
-lastNameList		= mainFunctions.readFileToList( parser[ "paths" ].get( "lastNameList" ) )
-contractTypesList	= mainFunctions.readFileToList( parser[ "paths" ].get( "contractTypesList" ) )
-corporationNames	= mainFunctions.readFileToList( parser[ "paths" ].get( "corporationNames" ) )
-
-uplinkCompanyPartOne	= mainFunctions.readFileToList( parser[ "paths" ].get( "uplinkCompanyPartOne" ) )
-uplinkCompanyPartTwo	= mainFunctions.readFileToList( parser[ "paths" ].get( "uplinkCompanyPartTwo" ) )
-uplinkFornames			= mainFunctions.readFileToList( parser[ "paths" ].get( "uplinkFornames" ) )
-uplinkSurnames			= mainFunctions.readFileToList( parser[ "paths" ].get( "uplinkSurnames" ) ) 
-
-print( hsList )
-print( cvStyle )
-print( cvColor )
+print( curriculumDataObj.hsList )
+print( curriculumDataObj.cvStyle )
+print( curriculumDataObj.cvColor )
 
 ## TODO passing these in arguments ?!
-cvStyle = "classic"
-cvColor = "black"
+cvStyle = random.choice( curriculumDataObj.cvStyle ) if args.randomstyle else args.style
+cvColor = random.choice( curriculumDataObj.cvColor ) if args.randomcolor else args.color
+
+print( "CV STYLE : " + cvStyle )
+print( "CV COLOR : " + cvColor )
+
+firstname	= "Anne"
+lastname	= "Onyme"
+
+if ( (hasattr(args, 'firstname')) and (args.firstname != None) ) :
+	firstname	= args.firstname
+else:
+	firstname	= "Anne"
+	
+if ( (hasattr(args, 'lastname')) and (args.lastname != None) ) :
+	lastname	= args.lastname
+else:
+	lastname	= "Onyme"
+	
+print ( firstname )
+print ( lastname )
+
+## print ( curriculumDataObj.firstNameList )
+if (args.randomfirstname) :
+	firstname = random.choice( curriculumDataObj.firstNameList )
+
+## print ( curriculumDataObj.lastNameList )
+if (args.randomlastname) :
+	lastname = random.choice( curriculumDataObj.lastNameList )
+	
+print( "CV firstname: " + firstname )
+print( "CV lastname : " + lastname )
 
 texcurriculumDirectory = "generate/"
 texcurriculumFileName = "curriculumGenerationtest"
@@ -81,7 +91,9 @@ print( "Creating TeX file..." )
 with open( texcurriculumDirectory + texcurriculumFileName + ".tex", 'w') as curriculumGenerationtest:
 	curriculumGenerationtest.write( curriculumGeneration.getLaTeXHeaderPart1(cvColor, cvStyle) )
 	curriculumGenerationtest.write( "\n\n" )
-	curriculumGenerationtest.write( curriculumGeneration.getMinimalVariableDefinitions() + "\n" )
+	curriculumGenerationtest.write( curriculumGeneration.getMinimalVariableDefinitions( 
+		firstname = firstname, lastname = lastname
+	) + "\n" )
 	curriculumGenerationtest.write( curriculumGeneration.getAddressDefinition() + "\n" )
 	curriculumGenerationtest.write( curriculumGeneration.getEMailDefinition() + "\n" )
 	curriculumGenerationtest.write( curriculumGeneration.getWebSiteDefinition() + "\n\n" )
@@ -112,16 +124,8 @@ with open( texcurriculumDirectory + texcurriculumFileName + ".tex", 'w') as curr
 ## TODO continuing / finishing generation of features in document ... 
 
 ## Compiling TeX file to obtain PDF !
-print( "Changing dir to {" + texcurriculumDirectory + "}..." )
-os.chdir( texcurriculumDirectory )
-print( "Compiling TeX file to PDF..." )
-retcode = subprocess.call( "make", shell=True )
-print( retcode )
-print( "Cleaning..." )
-retcode2 = subprocess.call( "make clean", shell=True )
-print( retcode2 )
-print( "Changing dir BACK..." )
-os.chdir( ".." )
+if args.make : 
+	mainFunctions.launcheMakePDFfromLaTeX( directory = texcurriculumDirectory )
 
 print("End of script")
 

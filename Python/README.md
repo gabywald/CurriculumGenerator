@@ -7,7 +7,7 @@
 * PyCharm
 * Shell Bash
 * UTF-8
-* pdflatex ("texlive-*")
+* pdflatex ("texlive-*") ; package "texlive-fonts-extra" in Ubuntu (for 'fontawesome' / "fonts-font-awesome" needed in case of 'casual' résumé style, https://www.ctan.org/pkg/fontawesome "Web-Related Icons")
 
 Testé ssous Linux !
 

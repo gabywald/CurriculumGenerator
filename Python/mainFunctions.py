@@ -11,37 +11,16 @@ __email__		= "gabywald[at]laposte.net"
 __contact__		= "gabywald[at]laposte.net"
 __status__		= "Development"
 
-def readFileToList( filePath ) : 
-	listToReturn = []
-	with open(filePath, 'r') as file : 
-		data = file.read()
-		listToReturn = data.split( "\n" )
-		# print( data )
-	print("End of file ", filePath)
-	return listToReturn
+import sys, getopt, os, subprocess
 
-import sys, getopt
-
-def main(argv):
-	inputfile = ''
-	outputfile = ''
-	try:
-		opts, args = getopt.getopt(argv,"hi:o:",["ifile=","ofile="])
-	except getopt.GetoptError:
-		print('test.py -i <inputfile> -o <outputfile>')
-		sys.exit(2)
-	for opt, arg in opts:
-		if opt == '-h':
-			print('test.py -i <inputfile> -o <outputfile>')
-			sys.exit()
-		elif opt in ("-i", "--ifile"):
-			inputfile = arg
-		elif opt in ("-o", "--ofile"):
-			outputfile = arg
-	print('Input file is "', inputfile)
-	print('Output file is "', outputfile)
-
-if __name__ == "__main__":
-	pass
-	# main(sys.argv[1:])
-	
+def launcheMakePDFfromLaTeX( directory ) : 
+	print( "Changing dir to {" + directory + "}..." )
+	os.chdir( directory )
+	print( "Compiling TeX file to PDF..." )
+	retcode = subprocess.call( "make", shell=True )
+	print( retcode )
+	print( "Cleaning..." )
+	retcode2 = subprocess.call( "make clean", shell=True )
+	print( retcode2 )
+	print( "Changing dir BACK..." )
+	os.chdir( ".." )	

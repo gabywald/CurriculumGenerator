@@ -64,13 +64,15 @@ def getLaTeXHeaderCVStyle(color = "blue") :
 	"""Attempted Argument in "[ 'blue', 'orange', 'green', 'red', 'purple', 'grey', 'black' ]" """ 
 	return "%% \\moderncvcolor{" + color + "}\n" 
 
-def getMinimalVariableDefinitions( general="General Title", title="Titre poste CV", speciality="", firstname="Anne", name="Onyme", cellphone="06~00~00~00~00" ) : 
+def getMinimalVariableDefinitions( general="General Title", title="Titre poste CV", 
+									speciality="", firstname="Anne", lastname="Onyme", 
+									cellphone="06~00~00~00~00" ) : 
 	str = "%% some variable definitions\n"
 	str += "\\def\\titreGeneralNewLine{" + general + "}\n"
 	str += "\\def\\titreGeneral{" + title + "}\n"
 	str += "\\def\\titreSpecialite{" + speciality + "}\n"
 	str += "\\def\\prenom{ " + firstname + " }\n"
-	str += "\\def\\nom{ " + name + " }\n"
+	str += "\\def\\nom{ " + lastname + " }\n"
 	str += "\\def\\prenomNom{\\prenom ~\\nom }\n"
 	str += "\\def\\portable{" + cellphone + "}\n"
 	return str
