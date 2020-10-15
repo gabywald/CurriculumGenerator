@@ -22,28 +22,39 @@ import shutil
 import subprocess
 import os
 
+import configparser
+
 import mainFunctions
 import curriculumGeneration
 import curriculumData
 
 ## mainFunctions.main(sys.argv[1:])
 
-cvStyle = [ 'classic', 'casual', 'oldstyle', 'banking' ]
-cvColor = [ 'blue', 'orange', 'green', 'red', 'purple', 'grey', 'black' ]
+## Use a configuration file ! 'sources.ini' !
+parser = configparser.ConfigParser()
+parser.read( "sources.ini" )
+print( parser.sections() )
 
-hsList = mainFunctions.readFileToList( '../resources/HardSkills.txt' )
-sfList = mainFunctions.readFileToList( '../resources/SoftSkills.txt' )
-firstNameList = mainFunctions.readFileToList( '../resources/NameFirstListing.txt' )
-lastNameList = mainFunctions.readFileToList( '../resources/NameLastListing.txt' )
-contractTypesList = mainFunctions.readFileToList( '../resources/ContractTypes.txt' )
-corporationNames = mainFunctions.readFileToList( '../resources/CorporationsNames.txt' )
+cvStyle = parser[ "bases" ].get( "cvStyle" )
+cvColor = parser[ "bases" ].get( "cvColor" )
 
-uplinkCompanyPartOne = mainFunctions.readFileToList( '../resources/dataUplinkReduced/companyPart1.txt' )
-uplinkCompanyPartTwo = mainFunctions.readFileToList( '../resources/dataUplinkReduced/companyPart2.txt' )
-uplinkFornames = mainFunctions.readFileToList( '../resources/dataUplinkReduced/fornamesComplete.txt' )
-uplinkSurnames = mainFunctions.readFileToList( '../resources/dataUplinkReduced/surnames.txt' )
+print ( parser[ "paths" ].get( "hsList" ) )
 
-## print( hsList )
+hsList				= mainFunctions.readFileToList( parser[ "paths" ].get( "hsList" ) )
+sfList				= mainFunctions.readFileToList( parser[ "paths" ].get( "sfList" ) )
+firstNameList		= mainFunctions.readFileToList( parser[ "paths" ].get( "firstNameList" ) )
+lastNameList		= mainFunctions.readFileToList( parser[ "paths" ].get( "lastNameList" ) )
+contractTypesList	= mainFunctions.readFileToList( parser[ "paths" ].get( "contractTypesList" ) )
+corporationNames	= mainFunctions.readFileToList( parser[ "paths" ].get( "corporationNames" ) )
+
+uplinkCompanyPartOne	= mainFunctions.readFileToList( parser[ "paths" ].get( "uplinkCompanyPartOne" ) )
+uplinkCompanyPartTwo	= mainFunctions.readFileToList( parser[ "paths" ].get( "uplinkCompanyPartTwo" ) )
+uplinkFornames			= mainFunctions.readFileToList( parser[ "paths" ].get( "uplinkFornames" ) )
+uplinkSurnames			= mainFunctions.readFileToList( parser[ "paths" ].get( "uplinkSurnames" ) ) 
+
+print( hsList )
+print( cvStyle )
+print( cvColor )
 
 ## TODO passing these in arguments ?!
 cvStyle = "classic"
