@@ -32,9 +32,12 @@ args = curriculumData.parsingArgs()
 
 curriculumDataObj = curriculumData.loadConfig();
 
-print( curriculumDataObj.hsList )
-print( curriculumDataObj.cvStyle )
-print( curriculumDataObj.cvColor )
+# print( curriculumDataObj.hardList )
+# print( curriculumDataObj.softList )
+# print( curriculumDataObj.jobsList )
+# print( curriculumDataObj.toolList )
+# print( curriculumDataObj.cvStyle )
+# print( curriculumDataObj.cvColor )
 
 ## TODO passing these in arguments ?!
 cvStyle = random.choice( curriculumDataObj.cvStyle ) if args.randomstyle else args.style
@@ -70,6 +73,9 @@ if (args.randomlastname) :
 print( "CV firstname: " + firstname )
 print( "CV lastname : " + lastname )
 
+localListOfSkills = []
+## RODO build complete curriculum ; inspiration from CyberAgeEncylopaedia and Perl scripts associated !
+
 texcurriculumDirectory = "generate/"
 texcurriculumFileName = "curriculumGenerationtest"
 
@@ -103,8 +109,11 @@ with open( texcurriculumDirectory + texcurriculumFileName + ".tex", 'w') as curr
 	curriculumGenerationtest.write( curriculumGeneration.getDefVariables() + "\n\n" )
 	## Starting document here !
 	curriculumGenerationtest.write( "\\begin{document}\n\n\\maketitle\n\n" )
+	## Compétences
 	curriculumGenerationtest.write( "\\section{Comp{\\'e}tences}\nIntroduction Text !!\n\n" )
-	curriculumGenerationtest.write( "%% \\cvdoubleitem{ Item }{Description }\n\n" )
+	curriculumGenerationtest.write( "\cvdoubleitem{ Item1 }{ Description1 }{ Item2 }{ Description2 }\n\n" )
+	curriculumGenerationtest.write( "\cvcomputer{ Item1 }{ Description1 }{ Item2 }{ Description2 }\n\n" )
+	## Professionnal Experiences
 	curriculumGenerationtest.write( "\\section{Exp{\\'e}rience professionnelle}\n\n" )
 	curriculumGenerationtest.write( "\\cventry{years}{degree/job title}{institution/employer}{localization}{grade}{description}\n\n" )
 	curriculumGenerationtest.write( "\\cventry{DATUM}{TITRE}{ENTREPRISE}{CONTRAT}%\n" )
@@ -113,12 +122,15 @@ with open( texcurriculumDirectory + texcurriculumFileName + ".tex", 'w') as curr
 	curriculumGenerationtest.write( "	\\item[$\\rightarrow$] ELEMENTUN\n" )
 	curriculumGenerationtest.write( "	\\item[$\\bullet$] ELEMENTDEUXETPLUS\n" )
 	curriculumGenerationtest.write( "\\end{itemize}}\n\n" )
+	## Traning and ...
 	curriculumGenerationtest.write( "\\section{Formation}\n\n" )
 	curriculumGenerationtest.write( "\\cventry{Year}{Diploma}{\\newline School}{Location}	{}{}{}\n\n" )
+	## Out of Work
 	curriculumGenerationtest.write( "\\section{Centres d'int{\\'e}r{\\^e}ts}\n\n" )
 	curriculumGenerationtest.write( "\\cvitem{Lectures}{ READINGS }\n" )
 	curriculumGenerationtest.write( "\\cvitem{SocialGames}{ SOCIALGAMES }\n" )
 	curriculumGenerationtest.write( "\\cventry{Year}{WHAT}{CONTENT}{Location}	{MORE1}{MORE2}{MORE3}\n\n" )
+	## END of document 
 	curriculumGenerationtest.write( "\\end{document}\n\n" )
 	
 ## TODO continuing / finishing generation of features in document ... 

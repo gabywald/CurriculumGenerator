@@ -29,8 +29,10 @@ class CVData() :
 	def __init__(self,
 				 cvStyle,
 				 cvColor,
-				 hsList,
-				 sfList,
+				 hardList,
+				 softList,
+				 jobsList,
+				 toolList,
 				 firstNameList,
 				 lastNameList,
 				 contractTypesList,
@@ -41,8 +43,10 @@ class CVData() :
 				 uplinkSurnames ):
 		self.cvStyle				= cvStyle
 		self.cvColor				= cvColor
-		self.hsList					= hsList
-		self.sfList					= sfList
+		self.hardList				= hardList
+		self.softList				= softList
+		self.jobsList				= jobsList
+		self.toolList				= toolList
 		self.firstNameList			= firstNameList
 		self.lastNameList			= lastNameList
 		self.contractTypesList		= contractTypesList
@@ -56,8 +60,10 @@ class CVData() :
 		names = [
 			'cvStyle',
 			'cvColor',
-			'hsList',
-			'sfList',
+			'hardList',
+			'softList',
+			'jobsList',
+			'toolList',
 			'firstNameList',
 			'lastNameList',
 			'contractTypesList'
@@ -77,9 +83,11 @@ def loadConfig() :
 	## CV style and color !
 	cvStyle = parser[ "bases" ].get( "cvStyle" ).split(', ')
 	cvColor = parser[ "bases" ].get( "cvColor" ).split(', ')
-	## print ( parser[ "paths" ].get( "hsList" ) )
-	hsList				= readFileToList( parser[ "paths" ].get( "hsList" ) )
-	sfList				= readFileToList( parser[ "paths" ].get( "sfList" ) )
+	## print ( parser[ "paths" ].get( "hardList" ) )
+	hardList				= readFileToList( parser[ "paths" ].get( "hardList" ) )
+	softList				= readFileToList( parser[ "paths" ].get( "softList" ) )
+	jobsList				= readFileToList( parser[ "paths" ].get( "jobsList" ) )
+	toolList				= readFileToList( parser[ "paths" ].get( "toolList" ) )
 	firstNameList		= readFileToList( parser[ "paths" ].get( "firstNameList" ) )
 	lastNameList		= readFileToList( parser[ "paths" ].get( "lastNameList" ) )
 	contractTypesList	= readFileToList( parser[ "paths" ].get( "contractTypesList" ) )
@@ -90,7 +98,7 @@ def loadConfig() :
 	# uplinkFornames		= readFileToList( parser[ "paths" ].get( "uplinkFornames" ) )
 	# uplinkSurnames		= readFileToList( parser[ "paths" ].get( "uplinkSurnames" ) )
 	uplinkCompanyPartOne, uplinkCompanyPartTwo, uplinkFornames, uplinkSurnames = [], [], [], []
-	return CVData( cvStyle, cvColor, hsList, sfList, 
+	return CVData( cvStyle, cvColor, hardList, softList, jobsList, toolList, 
 					firstNameList, lastNameList, contractTypesList, corporationNames, 
 					uplinkCompanyPartOne, uplinkCompanyPartTwo, uplinkFornames, uplinkSurnames )
 
@@ -140,8 +148,6 @@ def parsingArgs() :
 	args = parser.parse_args()
 	print( args )
 	return args
-
-## TODO getting arguments / values
 
 ## TODO random generation according to arguments !!
 

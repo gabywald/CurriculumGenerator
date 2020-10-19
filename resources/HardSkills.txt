@@ -1,10 +1,16 @@
 Java
+Java Swing
+Java EE
+Spring
+Hibernate
+eBean
+Micronaut
 Python
 Python 3
 PHP
 HTML
+HTML 5
 CSS
-Java Swing
 XML
 XSLT
 COBOL
@@ -14,3 +20,22 @@ SmallTalk
 C
 C++
 C / C++
+Objective C
+NoSQL
+SQL
+ORACLE
+PostgresSQL
+MySQL
+JavaScript
+ECMAScript
+Bash
+Shell
+Unix
+Linux
+Mac OS X
+Android
+iOS
+Apache
+Apache Kafka
+Apache Solr
+Selenium

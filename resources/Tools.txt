@@ -1,0 +1,15 @@
+Eclipse
+Visual Studio
+IntelliJ
+Maven
+Git
+SVN
+Jenkins
+Visual Studio
+Selenium
+Mockito
+MockNeat
+JUnit
+Scrum
+Kanban
+SVN (Subversion)
