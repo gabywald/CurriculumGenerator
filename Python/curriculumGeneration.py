@@ -83,8 +83,11 @@ def getAddressDefinition(address = "1337 Grand Boulevard -- 61337 Section") :
 def getEMailDefinition(email = "firstname.lastname@provider.ext") : 
 	return "\\def\\eMail{ " + email + " }\n"
 	
-def getWebSiteDefinition(webpage = " http://www.siteweb.com") : 
+def getWebSiteDefinition(webpage = "http://www.siteweb.com") : 
 	return "\\def\\pageWeb{ " + webpage + " } \n"
+
+def getQuoteDefinition(quote = "Quotation Citation") : 
+	return "\\def\\quotationCitation{ " + quote + " } \n"
 	
 def getFancyStyle() : 
 	str = "%% Fancy Style Defintion (and collateral elements)\n"
@@ -159,7 +162,7 @@ def getDefVariables() :
 	str += "\\email{\\eMail }\n"
 	str += "\\homepage{\\pageWeb }\n"
 	str += "\\mobile{\\portable }\n"
-	str += "\\quote{ QuotationCitation }\n"
+	str += "\\quote{ \\quotationCitation }\n"
 	str += "%% \\phone{00 00 00 00 00}\n"
 	str += "%% \\fax{00 00 00 00 00}\n"
 	str += "%% \\photo[64pt][0.4pt]{img/logo_glider.png}\n"
@@ -168,8 +171,8 @@ def getDefVariables() :
 	str += "%% \\phone[fax]{01~01~01~01~01}\n"
 	str += "\\social[linkedin]{ LinkedInProfile }		%% https://www.linkedin.com/in/.../\n"
 	str += "\\social[github]{ GitHubProfile }			%% https://github.com/...\n"
-	str += "%% \\social[facebook]{ FaceBookProfile }		%% https://www.facebook.com/...\n"
-	str += "\\social[twitter]{ TwitterPage }				%% https://twitter.com/...\n"
+	str += "%% \\social[facebook]{ FaceBookProfile }	%% https://www.facebook.com/...\n"
+	str += "\\social[twitter]{ TwitterPage }			%% https://twitter.com/...\n"
 	str += "%% \\extrainfo{ More Informations (Age...}\n"
 	return str
 

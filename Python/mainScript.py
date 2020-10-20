@@ -17,18 +17,22 @@ print('Number of arguments:', len(sys.argv), 'arguments.' )
 print('Argument List:', str(sys.argv) )
 
 from pathlib import Path
+from datetime import datetime
 
 import shutil
 
 import random
 
-import mainFunctions
+import curriculumMainFunctions
 import curriculumGeneration
 import curriculumData
 
+import Person
+from Person import Person
+
 args = curriculumData.parsingArgs()
 
-## mainFunctions.main(sys.argv[1:])
+## curriculumMainFunctions.main(sys.argv[1:])
 
 curriculumDataObj = curriculumData.loadConfig();
 
@@ -46,38 +50,78 @@ cvColor = random.choice( curriculumDataObj.cvColor ) if args.randomcolor else ar
 print( "CV STYLE : " + cvStyle )
 print( "CV COLOR : " + cvColor )
 
-firstname	= "Anne"
-lastname	= "Onyme"
+personnae = Person()
 
 if ( (hasattr(args, 'firstname')) and (args.firstname != None) ) :
-	firstname	= args.firstname
-else:
-	firstname	= "Anne"
+	personnae.firstname	= args.firstname
 	
 if ( (hasattr(args, 'lastname')) and (args.lastname != None) ) :
-	lastname	= args.lastname
-else:
-	lastname	= "Onyme"
-	
-print ( firstname )
-print ( lastname )
+	personnae.lastname	= args.lastname
 
+if ( (hasattr(args, 'email')) and (args.email != None) ) :
+	personnae.email		= args.email
+	
+if ( (hasattr(args, 'address')) and (args.address != None) ) :
+	personnae.address	= args.address
+	
+if ( (hasattr(args, 'webpage')) and (args.webpage != None) ) :
+	personnae.webpage	= args.webpage
+
+if ( (hasattr(args, 'pseudo')) and (args.pseudo != None) ) :
+	personnae.pseudo	= args.pseudo
+else:
+	personnae.pseudo	= personnae.firstname.lower() + "." + personnae.lastname.lower()
+
+if args.noquote : 
+	personnae.quote		= "NOQUOTE"
+else:
+	if ( (hasattr(args, 'quote')) and (args.quote != None) ) :
+		personnae.quote	= args.quote
+	
 ## print ( curriculumDataObj.firstNameList )
 if (args.randomfirstname) :
-	firstname = random.choice( curriculumDataObj.firstNameList )
+	personnae.firstname = random.choice( curriculumDataObj.firstNameList )
 
 ## print ( curriculumDataObj.lastNameList )
 if (args.randomlastname) :
-	lastname = random.choice( curriculumDataObj.lastNameList )
-	
-print( "CV firstname: " + firstname )
-print( "CV lastname : " + lastname )
+	personnae.lastname = random.choice( curriculumDataObj.lastNameList )
+
+if (personnae.firstname == None) : 
+	personnae.firstname = str(input("First Name? "))
+
+if (personnae.lastname == None) : 
+	personnae.lastname = str(input("Last Name? "))
+
+print( "CV firstname: " + personnae.firstname )
+print( "CV lastname : " + personnae.lastname )
+
+if (personnae.email == None) : 
+	defaultemail = personnae.firstname.lower() + "." + personnae.lastname.lower() + "@gmx.com"
+	personnae.email = str(input("e-mail (default=[%s])?" % defaultemail))
+	if (personnae.email == "default"):
+		personnae.email = defaultemail
+
+if (personnae.quote == None) : 
+	personnae.quote = str(input("quote / citation ?"))
+
+personnae.address = "1337 Grand Boulevard -- 61337 Section 42"
+personnae.webpage = "http://" + personnae.firstname.lower() + "." + personnae.lastname.lower() + ".personnalbranding.com"
 
 localListOfSkills = []
-## RODO build complete curriculum ; inspiration from CyberAgeEncylopaedia and Perl scripts associated !
+## TODO build complete curriculum ; inspiration from CyberAgeEncylopaedia and Perl scripts associated !
+print( personnae )
 
-texcurriculumDirectory = "generate/"
-texcurriculumFileName = "curriculumGenerationtest"
+now = datetime.now()
+print("now =", now)
+dt_string = now.strftime("%Y%m%d_%H%M%S")
+print("date and time =", dt_string)	
+
+texSpecific = dt_string + "_" + personnae.lastname + "_" + personnae.firstname
+
+## texcurriculumDirectory = "generate/"
+## texcurriculumFileName = "curriculumGenerationtest"
+texcurriculumDirectory = texSpecific + "_" + "generate/"
+texcurriculumFileName = dt_string + "_" + personnae.lastname + "_" + personnae.firstname
 
 ## Copy images files directory !!
 path = Path( texcurriculumDirectory )
@@ -97,12 +141,16 @@ print( "Creating TeX file..." )
 with open( texcurriculumDirectory + texcurriculumFileName + ".tex", 'w') as curriculumGenerationtest:
 	curriculumGenerationtest.write( curriculumGeneration.getLaTeXHeaderPart1(cvColor, cvStyle) )
 	curriculumGenerationtest.write( "\n\n" )
+	## personnal data
 	curriculumGenerationtest.write( curriculumGeneration.getMinimalVariableDefinitions( 
-		firstname = firstname, lastname = lastname
+		firstname = personnae.firstname, lastname = personnae.lastname
 	) + "\n" )
-	curriculumGenerationtest.write( curriculumGeneration.getAddressDefinition() + "\n" )
-	curriculumGenerationtest.write( curriculumGeneration.getEMailDefinition() + "\n" )
-	curriculumGenerationtest.write( curriculumGeneration.getWebSiteDefinition() + "\n\n" )
+	curriculumGenerationtest.write( curriculumGeneration.getAddressDefinition(address = personnae.address) + "\n" )
+	curriculumGenerationtest.write( curriculumGeneration.getEMailDefinition(email = personnae.email) + "\n" )
+	curriculumGenerationtest.write( curriculumGeneration.getWebSiteDefinition(webpage = personnae.webpage) + "\n" )
+	curriculumGenerationtest.write( curriculumGeneration.getQuoteDefinition(quote = personnae.quote) + "\n" )
+	curriculumGenerationtest.write( "\n\n" )
+	## more header
 	curriculumGenerationtest.write( curriculumGeneration.getFancyStyle() + "\n\n" )
 	curriculumGenerationtest.write( "\\def\\motsClefs{LaTeX;PDF;Python;Python3...}\n\n" )
 	curriculumGenerationtest.write( curriculumGeneration.getHyperSetup() + "\n\n" )
@@ -137,7 +185,7 @@ with open( texcurriculumDirectory + texcurriculumFileName + ".tex", 'w') as curr
 
 ## Compiling TeX file to obtain PDF !
 if args.make : 
-	mainFunctions.launcheMakePDFfromLaTeX( directory = texcurriculumDirectory )
+	curriculumMainFunctions.launcheMakePDFfromLaTeX( directory = texcurriculumDirectory )
 
 print("End of script")
 

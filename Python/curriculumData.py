@@ -139,6 +139,25 @@ parser.add_argument("-fn", "--firstname",
 parser.add_argument("-ln", "--lastname", 
 	help = "Last Name", 
 	type=str )
+parser.add_argument("-em", "--email", 
+	help = "E-Mail", 
+	type=str )
+parser.add_argument("-ps", "--pseudo", 
+	help = "Pseudonym", 
+	type=str )
+parser.add_argument("-wp", "--webpage", 
+	help = "Web Page / URL", 
+	type=str )
+parser.add_argument("-ad", "--address", 
+	help = "Address (IRL)", 
+	type=str )
+parser.add_argument("-qc", "--quote", 
+	help = "Quote / Citation", 
+	type=str )
+	
+parser.add_argument("-nq", "--noquote", 
+	help = "NO quote / Citation", 
+	action = "store_true" )
 
 parser.add_argument("-m", "--make", 
 	help = "Launch Making of PDF from TeX file", 
