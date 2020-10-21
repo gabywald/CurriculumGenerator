@@ -39,3 +39,5 @@ Apache
 Apache Kafka
 Apache Solr
 Selenium
+Reverse Ingeniering / Ingénierie Inverse
+Documentation

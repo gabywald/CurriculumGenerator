@@ -11,12 +11,13 @@ __email__		= "gabywald[at]laposte.net"
 __contact__		= "gabywald[at]laposte.net"
 __status__		= "Development"
 
-class Person() : 
+class Person( object ) : 
 	def __init__(self,
 				 firstname		= None, lastname	= None, age			= None, 
 				 generaltitle	= None, title		= None, speciality	= None, 
 				 cellphone		= None, address		= None, email		= None, 
-				 webpage		= None, quote		= None, pseudo		= None, ):
+				 webpage		= None, quote		= None, pseudo		= None, 
+				 elements		= None):
 		self.firstname		= firstname
 		self.lastname		= lastname
 		self.age			= age
@@ -29,6 +30,7 @@ class Person() :
 		self.webpage		= webpage
 		self.quote			= quote
 		self.pseudo			= pseudo
+		self.elements		= pseudo
 		self.hardSkills		= []
 		self.softSkills		= []
 		self.jobs			= []
@@ -48,6 +50,7 @@ class Person() :
 			'webpage',
 			'quote',
 			'pseudo',
+			'elements',
 			'hardSkills',
 			'softSkills', 
 			'jobs',
@@ -73,5 +76,6 @@ class Person() :
 		str += "\t WebPage: %s \n" % (self.webpage)
 		str += "\t Quote: %s \n" % (self.quote)
 		str += "\t Pseudo: %s \n" % (self.pseudo)
+		str += "\t Elements: %s \n" % (self.elements)
 		return str
 
