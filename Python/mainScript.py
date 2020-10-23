@@ -17,24 +17,36 @@ print('Number of arguments:', len(sys.argv), 'arguments.' )
 print('Argument List:', str(sys.argv) )
 
 from pathlib import Path
+from datetime import datetime
 
 import shutil
 
 import random
 
-import mainFunctions
+import curriculumMainFunctions
 import curriculumGeneration
 import curriculumData
 
+from curriculumData import CVData
+
+import BiographicTable
+BiographicTable.loadTables()
+
+import Person
+from Person import Person
+
 args = curriculumData.parsingArgs()
 
-## mainFunctions.main(sys.argv[1:])
+## curriculumMainFunctions.main(sys.argv[1:])
 
-curriculumDataObj = curriculumData.loadConfig();
+curriculumDataObj = CVData.loadConfig();
 
-print( curriculumDataObj.hsList )
-print( curriculumDataObj.cvStyle )
-print( curriculumDataObj.cvColor )
+# print( curriculumDataObj.hardList )
+# print( curriculumDataObj.softList )
+# print( curriculumDataObj.jobsList )
+# print( curriculumDataObj.toolList )
+# print( curriculumDataObj.cvStyle )
+# print( curriculumDataObj.cvColor )
 
 ## TODO passing these in arguments ?!
 cvStyle = random.choice( curriculumDataObj.cvStyle ) if args.randomstyle else args.style
@@ -43,35 +55,101 @@ cvColor = random.choice( curriculumDataObj.cvColor ) if args.randomcolor else ar
 print( "CV STYLE : " + cvStyle )
 print( "CV COLOR : " + cvColor )
 
-firstname	= "Anne"
-lastname	= "Onyme"
+personnae = Person()
 
 if ( (hasattr(args, 'firstname')) and (args.firstname != None) ) :
-	firstname	= args.firstname
-else:
-	firstname	= "Anne"
+	personnae.firstname	= args.firstname
 	
 if ( (hasattr(args, 'lastname')) and (args.lastname != None) ) :
-	lastname	= args.lastname
-else:
-	lastname	= "Onyme"
-	
-print ( firstname )
-print ( lastname )
+	personnae.lastname	= args.lastname
 
 ## print ( curriculumDataObj.firstNameList )
 if (args.randomfirstname) :
-	firstname = random.choice( curriculumDataObj.firstNameList )
+	personnae.firstname = random.choice( curriculumDataObj.firstNameList )
 
 ## print ( curriculumDataObj.lastNameList )
 if (args.randomlastname) :
-	lastname = random.choice( curriculumDataObj.lastNameList )
-	
-print( "CV firstname: " + firstname )
-print( "CV lastname : " + lastname )
+	personnae.lastname = random.choice( curriculumDataObj.lastNameList )
 
-texcurriculumDirectory = "generate/"
-texcurriculumFileName = "curriculumGenerationtest"
+if (personnae.firstname == None) : 
+	personnae.firstname = str(input("First Name? "))
+
+if (personnae.lastname == None) : 
+	personnae.lastname = str(input("Last Name? "))
+
+print( "CV firstname: " + personnae.firstname )
+print( "CV lastname : " + personnae.lastname )
+
+if ( (hasattr(args, 'email')) and (args.email != None) ) :
+	personnae.email		= args.email
+	
+if ( (hasattr(args, 'address')) and (args.address != None) ) :
+	personnae.address	= args.address
+	
+if ( (hasattr(args, 'webpage')) and (args.webpage != None) ) :
+	personnae.webpage	= args.webpage
+
+if ( (hasattr(args, 'pseudo')) and (args.pseudo != None) ) :
+	personnae.pseudo	= args.pseudo
+else:
+	personnae.pseudo	= personnae.firstname.lower() + "." + personnae.lastname.lower()
+
+if args.noquote : 
+	personnae.quote		= "NOQUOTE"
+else:
+	if ( (hasattr(args, 'quote')) and (args.quote != None) ) :
+		personnae.quote	= args.quote
+
+if (args.randomelements) :
+	personnae.randomelements = random.randint(1, 20)
+
+if ( (hasattr(args, 'elements')) and (args.elements != None) ) :
+	personnae.elements	= args.elements
+	
+if (personnae.email == None) : 
+	defaultemail	= personnae.firstname.lower() + "." + personnae.lastname.lower() + "@gmx.com"
+	personnae.email	= str(input("e-mail (default=[%s])?" % defaultemail))
+	if (personnae.email == "default"):
+		personnae.email = defaultemail
+
+if (personnae.quote == None) : 
+	personnae.quote = str(input("quote / citation ?"))
+
+if (personnae.elements == None) : 
+	personnae.elements = int(input("number of biographic elements ?"))
+
+if (personnae.address == None) : 
+	personnae.address = "1337 Grand Boulevard -- 61337 Section 42"
+
+if (personnae.webpage == None) : 
+	personnae.webpage = "http://" + personnae.firstname.lower() + "." + personnae.lastname.lower() + ".personnalbranding.com"
+
+localListOfSkills = []
+
+## TODO build complete curriculum ; inspiration from CyberAgeEncylopaedia and Perl scripts associated !
+while True : 
+	futurejob = BiographicTable.selectRandomBiographic()
+	userchoice = str(input("\t Conserver ? [Y/n]"));
+	if ( (userchoice != "N") and (userchoice != "n") ) :
+		personnae.jobs.append( futurejob )
+	if (len( personnae.jobs ) >= personnae.elements) : 
+		break
+
+print ( personnae.jobs )	
+
+print( personnae )
+
+now = datetime.now()
+print("now =", now)
+dt_string = now.strftime("%Y%m%d_%H%M%S")
+print("date and time =", dt_string)	
+
+texSpecific = personnae.lastname + "." + personnae.firstname ## + "_" + dt_string
+
+## texcurriculumDirectory = "generate/"
+## texcurriculumFileName = "curriculumGenerationtest"
+texcurriculumDirectory = texSpecific + "_" + "generate/"
+texcurriculumFileName = texSpecific
 
 ## Copy images files directory !!
 path = Path( texcurriculumDirectory )
@@ -91,41 +169,56 @@ print( "Creating TeX file..." )
 with open( texcurriculumDirectory + texcurriculumFileName + ".tex", 'w') as curriculumGenerationtest:
 	curriculumGenerationtest.write( curriculumGeneration.getLaTeXHeaderPart1(cvColor, cvStyle) )
 	curriculumGenerationtest.write( "\n\n" )
+	## personnal data
 	curriculumGenerationtest.write( curriculumGeneration.getMinimalVariableDefinitions( 
-		firstname = firstname, lastname = lastname
+		firstname = personnae.firstname, lastname = personnae.lastname
 	) + "\n" )
-	curriculumGenerationtest.write( curriculumGeneration.getAddressDefinition() + "\n" )
-	curriculumGenerationtest.write( curriculumGeneration.getEMailDefinition() + "\n" )
-	curriculumGenerationtest.write( curriculumGeneration.getWebSiteDefinition() + "\n\n" )
+	curriculumGenerationtest.write( curriculumGeneration.getAddressDefinition(address = personnae.address) + "\n" )
+	curriculumGenerationtest.write( curriculumGeneration.getEMailDefinition(email = personnae.email) + "\n" )
+	curriculumGenerationtest.write( curriculumGeneration.getWebSiteDefinition(webpage = personnae.webpage) + "\n" )
+	curriculumGenerationtest.write( curriculumGeneration.getQuoteDefinition(quote = personnae.quote) + "\n" )
+	curriculumGenerationtest.write( "\n\n" )
+	## more header
 	curriculumGenerationtest.write( curriculumGeneration.getFancyStyle() + "\n\n" )
 	curriculumGenerationtest.write( "\\def\\motsClefs{LaTeX;PDF;Python;Python3...}\n\n" )
 	curriculumGenerationtest.write( curriculumGeneration.getHyperSetup() + "\n\n" )
 	curriculumGenerationtest.write( curriculumGeneration.getDefVariables() + "\n\n" )
 	## Starting document here !
 	curriculumGenerationtest.write( "\\begin{document}\n\n\\maketitle\n\n" )
+	## Compétences
 	curriculumGenerationtest.write( "\\section{Comp{\\'e}tences}\nIntroduction Text !!\n\n" )
-	curriculumGenerationtest.write( "%% \\cvdoubleitem{ Item }{Description }\n\n" )
+	curriculumGenerationtest.write( "\cvdoubleitem{ Item1 }{ Description1 }{ Item2 }{ Description2 }\n\n" )
+	curriculumGenerationtest.write( "\cvcomputer{ Item1 }{ Description1 }{ Item2 }{ Description2 }\n\n" )
+	## Professionnal Experiences
 	curriculumGenerationtest.write( "\\section{Exp{\\'e}rience professionnelle}\n\n" )
-	curriculumGenerationtest.write( "\\cventry{years}{degree/job title}{institution/employer}{localization}{grade}{description}\n\n" )
+	for eltJOB in personnae.jobs : 
+		corporationName = random.choice( curriculumDataObj.corporationNames )
+		contractType	= random.choice( curriculumDataObj.contractTypesList )
+		## TODO add some skills (hard and soft) to put in description !
+		curriculumGenerationtest.write( "\\cventry{years}{" + corporationName + " (" + eltJOB[1] + ")}{" + eltJOB[0] + "}{" + contractType + "}{\n %% grade \n}{\n %% description \n}\n\n" )
+	curriculumGenerationtest.write( "%% \\cventry{years}{degree/job title}{institution/employer}{localization}{grade}{description}\n\n" )
 	curriculumGenerationtest.write( "\\cventry{DATUM}{TITRE}{ENTREPRISE}{CONTRAT}%\n" )
 	curriculumGenerationtest.write( "	{\\newline INTITULE++}{%\n" )
 	curriculumGenerationtest.write( "\\begin{itemize}\n" )
 	curriculumGenerationtest.write( "	\\item[$\\rightarrow$] ELEMENTUN\n" )
 	curriculumGenerationtest.write( "	\\item[$\\bullet$] ELEMENTDEUXETPLUS\n" )
 	curriculumGenerationtest.write( "\\end{itemize}}\n\n" )
+	## Traning and ...
 	curriculumGenerationtest.write( "\\section{Formation}\n\n" )
 	curriculumGenerationtest.write( "\\cventry{Year}{Diploma}{\\newline School}{Location}	{}{}{}\n\n" )
+	## Out of Work
 	curriculumGenerationtest.write( "\\section{Centres d'int{\\'e}r{\\^e}ts}\n\n" )
 	curriculumGenerationtest.write( "\\cvitem{Lectures}{ READINGS }\n" )
 	curriculumGenerationtest.write( "\\cvitem{SocialGames}{ SOCIALGAMES }\n" )
 	curriculumGenerationtest.write( "\\cventry{Year}{WHAT}{CONTENT}{Location}	{MORE1}{MORE2}{MORE3}\n\n" )
+	## END of document 
 	curriculumGenerationtest.write( "\\end{document}\n\n" )
 	
 ## TODO continuing / finishing generation of features in document ... 
 
 ## Compiling TeX file to obtain PDF !
 if args.make : 
-	mainFunctions.launcheMakePDFfromLaTeX( directory = texcurriculumDirectory )
+	curriculumMainFunctions.launcheMakePDFfromLaTeX( directory = texcurriculumDirectory )
 
 print("End of script")
 
