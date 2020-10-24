@@ -62,10 +62,10 @@
 \usepackage{lastpage}
 % \AtEndDocument{\label{LastPage}}
 
-\def\logoGliderNorma{img/logo_glider.png}
-\def\logoGliderRight{img/logo-glider-right.png}
-\def\logoGliderLeftt{img/logo-glider-left.png}
-\def\logoCreativeCommon{img/CreativeCommonLogo.jpeg}
+\def\logoGliderNorma{../img/logo_glider.png}
+\def\logoGliderRight{../img/logo-glider-right.png}
+\def\logoGliderLeftt{../img/logo-glider-left.png}
+\def\logoCreativeCommon{../img/CreativeCommonLogo.jpeg}
 \def\includeLogoGN{\includegraphics[width=0.50cm]{\logoGliderNorma }}
 \def\includeLogoGR{\includegraphics[width=0.50cm]{\logoGliderRight }}
 \def\includeLogoGL{\includegraphics[width=0.50cm]{\logoGliderLeftt }}
@@ -103,7 +103,6 @@
 	\renewcommand{\footrulewidth}{0.5pt}
 }%
 \makestylefancyContent
-
 
 \def\motsClefs{LaTeX;PDF;hyperlinks;bioinformatique;bio-informatique;bases de donn{\'e}es;SQL;%
 				JAVA;J2EE;Swing;C / C++;Perl;Python;PHP;HTML;CSS;JavaScript;%
@@ -178,7 +177,7 @@
 % d'autres valeurs possibles
 %% \phone{00 00 00 00 00}
 %% \fax{00 00 00 00 00}
-%% \photo[64pt][0.4pt]{img/logo_glider.png}
+%% \photo[64pt][0.4pt]{../img/logo_glider.png}
 
 %% http://lataix-sebastien.developpez.com/tutoriels/latex/tutoriel-moderncv/
 % les donn{\'e}es suivantes sont aussi optionnelles donc {\`a} commenter si on n'en veut pas
@@ -197,47 +196,56 @@
 	%% \makestylefancyContent
 	\maketitle
 
-\section{Comp{\'e}tences}
+\section{Informations}
 	Introduction Text !!~\\
-% possibilit{\'e} de mettre les entr{\'e}es en deux colonnes 
-\cvdoubleitem{ Item1 }{ Description1 }{ Item2 }{ Description2 }
-\cvcomputer{Espagnol}{Bon niveau}{Système \newline d'exploitation}{Microsoft office, Linux}
 
 \section{Exp{\'e}rience professionnelle}
-%% \cventry{years}{degree/job title}{institution/employer}{localization}{grade}{description}
+	%% \cventry{years}{degree/job title}{institution/employer}{localization}{grade}{description}
+	%% \cventry{DATUM}{TITRE}{ENTREPRISE}{CONTRAT}%
+	%% 		{\newline INTITULE++}{%
+	%% 	\begin{itemize}
+	%% 		\item[$\rightarrow$] ELEMENTUN
+	%% 		\item[$\bullet$] ELEMENTDEUXETPLUS
+	%% 	\end{itemize}}
 
-\cventry{years}{degree/job title}{institution/employer}{localization}{grade}{description}
-
-
-%% \cventry{DATUM}{TITRE}{ENTREPRISE}{CONTRAT}%
-%% 		{\newline INTITULE++}{%
-%% 	\begin{itemize}
-%% 		\item[$\rightarrow$] ELEMENTUN
-%% 		\item[$\bullet$] ELEMENTDEUXETPLUS
-%% 	\end{itemize}}
-
-\cventry{DATUM}{TITRE}{ENTREPRISE}{CONTRAT}%
-		{\newline INTITULE++}{%
-	\begin{itemize}
-		\item[$\rightarrow$] ELEMENTUN
-		\item[$\bullet$] ELEMENTDEUXETPLUS
-	\end{itemize}}
-
+	\cventry{DATUM}{TITRE}{ENTREPRISE}{CONTRAT}%
+			{\newline INTITULE++}{%
+		\begin{itemize}
+			\item[$\rightarrow$] ELEMENTUN
+			\item[$\bullet$] ELEMENTDEUXETPLUS
+		\end{itemize}}
 
 \section{Formation}
 	%% on peut mettre ici de 3 {\`a} 6 arguments qui peuvent {\^e}tre laiss{\'e}s vides
 	\cventry{Year}{Diploma}{\newline School}{Location}	{}{}{}
 
-\section{Centres d'int{\'e}r{\^e}ts}
-\cvitem{Lectures}{ READINGS }
-\cvitem{SocialGames}{ SOCIALGAMES }
-%% \cvitemwithcomment{Jeux de Soci{\'e}t{\'e}}{Jeux de r{\^o}les, jeux de plateaux. }{Joueur et MJ / Animateur}
-	%% \cvlistdoubleitem{L'Appel De Cthulhu}		{CyberPunk et assimil{\'e}s}
-	%% \cvlistdoubleitem{Sombre / Sombre Z{\'e}ro}	{StarWars : Force et Destin{\'e}e}
-	%% \cvlistdoubleitem{NumenEra}					{Vampire : La Mascarade}
-%% \cvitemwithcomment{Element}{Detail}{Commentaire}
+\section{Licences et Certifications}
+	\cventry{Year}{Diploma}{\newline School}{Location}	{}{}{}
 
-\cventry{Year}{WHAT}{CONTENT}{Location}	{MORE1}{MORE2}{MORE3}
+\section{Expériences de bénévolat}
+
+\section{Compétences}
+	\cvdoubleitem{ Item1 }{ Description1 }{ Item2 }{ Description2 }
+
+\section{Recommandations}
+	\cvcomputer{ Item1 }{ Description1 }{ Item2 }{ Description2 }
+
+\section{Réalisations}
+	\cvitem{Projets}{ Sur GitHub (par exemple) }
+	\cvitem{Langues}{ Anglais... }
+	\cvitem{Organisations}{ associations... }
+	\cvitem{Publications}{ citations, references... }
+	\cvitem{Lectures}{ READINGS }
+	\cvcomputer{ Item1 }{ Description1 }{ Item2 }{ Description2 }
+
+\section{Centres d'int{\'e}r{\^e}ts}
+	\cvitem{ReadingS}{ READINGS }
+	%% \cvitemwithcomment{Jeux de Soci{\'e}t{\'e}}{Jeux de r{\^o}les, jeux de plateaux. }{Joueur et MJ / Animateur}
+		%% \cvlistdoubleitem{L'Appel De Cthulhu}		{CyberPunk et assimil{\'e}s}
+		%% \cvlistdoubleitem{Sombre / Sombre Z{\'e}ro}	{StarWars : Force et Destin{\'e}e}
+		%% \cvlistdoubleitem{NumenEra}					{Vampire : La Mascarade}
+	%% \cvitemwithcomment{Element}{Detail}{Commentaire}
+	\cventry{Year}{WHAT}{CONTENT}{Location}	{MORE1}{MORE2}{MORE3}
 
 %% ~\\
 
@@ -253,7 +261,6 @@
 %% % une double liste
 %% \cvlistdoubleitem{Item 1}{Item 3}
 %% \cvlistdoubleitem{Item 2}{Item 4}
-
 
 %% \section{Une section}
 % pour votre cursus scolaire
@@ -273,5 +280,3 @@
 %% \end{itemize}}%
 
 \end{document}
-
-
