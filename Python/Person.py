@@ -17,7 +17,7 @@ class Person( object ) :
 				 generaltitle	= None, title		= None, speciality	= None, 
 				 cellphone		= None, address		= None, email		= None, 
 				 webpage		= None, quote		= None, pseudo		= None, 
-				 elements		= None):
+				 elements		= None, trainings	= None):
 		self.firstname		= firstname
 		self.lastname		= lastname
 		self.age			= age
@@ -34,6 +34,7 @@ class Person( object ) :
 		self.hardSkills		= []
 		self.softSkills		= []
 		self.jobs			= []
+		self.trainings		= []
 		self.tool			= []
 	
 	def _get_kwargs(self):
@@ -54,6 +55,7 @@ class Person( object ) :
 			'hardSkills',
 			'softSkills', 
 			'jobs',
+			'trainings',
 			'tool'
 		]
 		return [(name, getattr(self, name)) for name in names]

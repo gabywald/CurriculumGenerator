@@ -91,6 +91,12 @@ def selectRandomBiographic() :
 	print( selected + "::" + moreselect + " // " + domain)
 	return [selected, moreselect, domain]
 
-
+def selectRandomTraining() : 
+	baseTable	= biographictablesDict.get("Formation")
+	selected	= random.choice( baseTable.contents )
+	print ( selected + " => ... " )
+	domain		= random.choice( biographictablesDict.get("Domaine").contents )
+	print( selected + "// " + domain)
+	return [selected, domain]
 
 

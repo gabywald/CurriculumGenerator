@@ -129,10 +129,18 @@ localListOfSkills = []
 ## TODO build complete curriculum ; inspiration from CyberAgeEncylopaedia and Perl scripts associated !
 while True : 
 	futurejob = BiographicTable.selectRandomBiographic()
-	userchoice = str(input("\t Conserver ? [Y/n]"));
+	userchoice = str(input("\t [Travail] Conserver ? [Y/n]"));
 	if ( (userchoice != "N") and (userchoice != "n") ) :
 		personnae.jobs.append( futurejob )
 	if (len( personnae.jobs ) >= personnae.elements) : 
+		break
+		
+while True : 
+	futuretrain = BiographicTable.selectRandomTraining()
+	userchoice = str(input("\t [Formation] Conserver ? [Y/n]"));
+	if ( (userchoice != "N") and (userchoice != "n") ) :
+		personnae.trainings.append( futuretrain )
+	if (len( personnae.trainings ) >= 5) : 
 		break
 
 print ( personnae.jobs )	
@@ -186,31 +194,55 @@ with open( texcurriculumDirectory + texcurriculumFileName + ".tex", 'w') as curr
 	## Starting document here !
 	curriculumGenerationtest.write( "\\begin{document}\n\n\\maketitle\n\n" )
 	## Compétences
-	curriculumGenerationtest.write( "\\section{Comp{\\'e}tences}\nIntroduction Text !!\n\n" )
-	curriculumGenerationtest.write( "\cvdoubleitem{ Item1 }{ Description1 }{ Item2 }{ Description2 }\n\n" )
-	curriculumGenerationtest.write( "\cvcomputer{ Item1 }{ Description1 }{ Item2 }{ Description2 }\n\n" )
+	curriculumGenerationtest.write( "\\section{Comp{\\'e}tences}\n")
+	curriculumGenerationtest.write( "\t Introduction Text !!\n\n" )
+	curriculumGenerationtest.write( "\t \\cvdoubleitem{ Item1 }{ Description1 }{ Item2 }{ Description2 }\n\n" )
+	curriculumGenerationtest.write( "\t \\cvcomputer{ Item1 }{ Description1 }{ Item2 }{ Description2 }\n\n" )
 	## Professionnal Experiences
-	curriculumGenerationtest.write( "\\section{Exp{\\'e}rience professionnelle}\n\n" )
+	curriculumGenerationtest.write( "\\section{Exp{\\'e}rience professionnelle}\n" )
 	for eltJOB in personnae.jobs : 
 		corporationName = random.choice( curriculumDataObj.corporationNames )
 		contractType	= random.choice( curriculumDataObj.contractTypesList )
 		## TODO add some skills (hard and soft) to put in description !
-		curriculumGenerationtest.write( "\\cventry{years}{" + corporationName + " (" + eltJOB[1] + ")}{" + eltJOB[0] + "}{" + contractType + "}{\n %% grade \n}{\n %% description \n}\n\n" )
-	curriculumGenerationtest.write( "%% \\cventry{years}{degree/job title}{institution/employer}{localization}{grade}{description}\n\n" )
-	curriculumGenerationtest.write( "\\cventry{DATUM}{TITRE}{ENTREPRISE}{CONTRAT}%\n" )
-	curriculumGenerationtest.write( "	{\\newline INTITULE++}{%\n" )
-	curriculumGenerationtest.write( "\\begin{itemize}\n" )
-	curriculumGenerationtest.write( "	\\item[$\\rightarrow$] ELEMENTUN\n" )
-	curriculumGenerationtest.write( "	\\item[$\\bullet$] ELEMENTDEUXETPLUS\n" )
-	curriculumGenerationtest.write( "\\end{itemize}}\n\n" )
-	## Traning and ...
-	curriculumGenerationtest.write( "\\section{Formation}\n\n" )
-	curriculumGenerationtest.write( "\\cventry{Year}{Diploma}{\\newline School}{Location}	{}{}{}\n\n" )
-	## Out of Work
+		curriculumGenerationtest.write( "\t \\cventry{years}{" + corporationName + " (" + eltJOB[1] + ")}{" + eltJOB[0] + "}{" + contractType + "}{\n %% grade \n}{\n %% description \n}\n\n" )
+	curriculumGenerationtest.write( "\t %% \\cventry{years}{degree/job title}{institution/employer}{localization}{grade}{description}\n\n" )
+	curriculumGenerationtest.write( "\t \\cventry{DATUM}{TITRE}{ENTREPRISE}{CONTRAT}%\n" )
+	curriculumGenerationtest.write( "\t 	{\\newline INTITULE++}{%\n" )
+	curriculumGenerationtest.write( "\t \\begin{itemize}\n" )
+	curriculumGenerationtest.write( "\t 	\\item[$\\rightarrow$] ELEMENTUN\n" )
+	curriculumGenerationtest.write( "\t 	\\item[$\\bullet$] ELEMENTDEUXETPLUS\n" )
+	curriculumGenerationtest.write( "\t \\end{itemize}}\n\n" )
+	## Training ...
+	curriculumGenerationtest.write( "\\section{Formation}\n" )
+	for eltTraining in personnae.trainings : 
+		corporationName = random.choice( curriculumDataObj.corporationNames )
+		## TODO add some skills (hard and soft) to put in description !
+		curriculumGenerationtest.write( "\t \\cventry{years}{ " + eltTraining[1] + " }{" + eltTraining[0] + "}{ LOCALISATION }{\n %% grade \n}{\n %% description \n}\n\n" )
+	curriculumGenerationtest.write( "\t %% \\cventry{Year}{Diploma}{\\newline School}{Location}	{}{}{}\n\n" )
+	## Certifications ...
+	curriculumGenerationtest.write( "\\section{Licences et Certifications}\n" )
+	curriculumGenerationtest.write( "\t \\cventry{Year}{Diploma}{\newline School}{Location}	{}{}{}\n\n" )
+	## Bénévolat ...
+	curriculumGenerationtest.write( "\\section{Expériences de bénévolat}\n" )
+	curriculumGenerationtest.write( "\t \\cventry{years}{degree/job title}{institution/employer}{localization}{grade}{description}\n\n" )
+	## Compétences ...
+	curriculumGenerationtest.write( "\\section{Compétences}\n" )
+	curriculumGenerationtest.write( "\t \\cvdoubleitem{ Item1 }{ Description1 }{ Item2 }{ Description2 }\n\n" )
+	## Recommandations ...
+	curriculumGenerationtest.write( "\\section{Recommandations}\n" )
+	curriculumGenerationtest.write( "\t \\cvcomputer{ Item1 }{ Description1 }{ Item2 }{ Description2 }\n\n" )
+	## Réalisations :  ...
+	curriculumGenerationtest.write( "\\section{Réalisations}\n" )
+	curriculumGenerationtest.write( "\t \\cvitem{Projets}{ Sur GitHub (par exemple) }\n" )
+	curriculumGenerationtest.write( "\t \\cvitem{Langues}{ Anglais... }\n" )
+	curriculumGenerationtest.write( "\t \\cvitem{Organisations}{ associations... }\n" )
+	curriculumGenerationtest.write( "\t \\cvitem{Publications}{ citations, references... }\n" )
+	curriculumGenerationtest.write( "\t \\cvitem{Lectures}{ READINGS }\n\n" )
+	## Out of Work / Centres d'intérêts
 	curriculumGenerationtest.write( "\\section{Centres d'int{\\'e}r{\\^e}ts}\n\n" )
-	curriculumGenerationtest.write( "\\cvitem{Lectures}{ READINGS }\n" )
-	curriculumGenerationtest.write( "\\cvitem{SocialGames}{ SOCIALGAMES }\n" )
-	curriculumGenerationtest.write( "\\cventry{Year}{WHAT}{CONTENT}{Location}	{MORE1}{MORE2}{MORE3}\n\n" )
+	curriculumGenerationtest.write( "\t \\cvitem{Lectures}{ READINGS }\n" )
+	curriculumGenerationtest.write( "\t \\cvitem{SocialGames}{ SOCIALGAMES }\n" )
+	curriculumGenerationtest.write( "\t \\cventry{Year}{WHAT}{CONTENT}{Location}	{MORE1}{MORE2}{MORE3}\n\n" )
 	## END of document 
 	curriculumGenerationtest.write( "\\end{document}\n\n" )
 	
