@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 # -*- coding: utf-8 -*- ## useless in python 3 ? ; default is unicode ?
 
-__author__		= "Gabriel Chandesris (2020)"
+__author__		= "Gabriel Chandesris"
 __copyright__	= "CC Gabriel Chandesris (2020)"
 __credits__		= ""
 __licence__		= "GNU GENERAL PUBLIC LICENSE v3"
@@ -32,7 +32,7 @@ from curriculumData import CVData
 import BiographicTable
 BiographicTable.loadTables()
 
-import Person
+## import Person
 from Person import Person
 
 args = curriculumData.parsingArgs()
@@ -80,9 +80,6 @@ if (personnae.lastname == None) :
 print( "CV firstname: " + personnae.firstname )
 print( "CV lastname : " + personnae.lastname )
 
-if ( (hasattr(args, 'email')) and (args.email != None) ) :
-	personnae.email		= args.email
-	
 if ( (hasattr(args, 'address')) and (args.address != None) ) :
 	personnae.address	= args.address
 	
@@ -94,17 +91,32 @@ if ( (hasattr(args, 'pseudo')) and (args.pseudo != None) ) :
 else:
 	personnae.pseudo	= personnae.firstname.lower() + "." + personnae.lastname.lower()
 
+if ( (hasattr(args, 'email')) and (args.email != None) ) :
+	if (args.email == 'default'): 
+		args.email = personnae.pseudo + "@gmx.com"
+	personnae.email		= args.email
+
 if args.noquote : 
 	personnae.quote		= "NOQUOTE"
 else:
 	if ( (hasattr(args, 'quote')) and (args.quote != None) ) :
 		personnae.quote	= args.quote
 
-if (args.randomelements) :
-	personnae.randomelements = random.randint(1, 20)
+if (args.randomjobelements) :
+	personnae.jobeltsnb = random.randint(1, 20)
 
-if ( (hasattr(args, 'elements')) and (args.elements != None) ) :
-	personnae.elements	= args.elements
+if ( (hasattr(args, 'jobelements')) and (args.jobelements != None) ) :
+	personnae.jobeltsnb	= args.jobelements
+
+print( personnae.jobeltsnb )
+	
+if (args.randomtrainingelements) :
+	personnae.trainingeltsnb = random.randint(1, 5)
+
+if ( (hasattr(args, 'trainingelements')) and (args.trainingelements != None) ) :
+	personnae.trainingeltsnb	= args.trainingelements
+
+print( personnae.trainingeltsnb )
 	
 if (personnae.email == None) : 
 	defaultemail	= personnae.firstname.lower() + "." + personnae.lastname.lower() + "@gmx.com"
@@ -115,8 +127,11 @@ if (personnae.email == None) :
 if (personnae.quote == None) : 
 	personnae.quote = str(input("quote / citation ?"))
 
-if (personnae.elements == None) : 
-	personnae.elements = int(input("number of biographic elements ?"))
+if (personnae.jobeltsnb == None) : 
+	personnae.jobeltsnb = int(input("Number of Jobs elements ?"))
+
+if (personnae.trainingeltsnb == None) : 
+	personnae.trainingeltsnb = int(input("number of Training elements ?"))
 
 if (personnae.address == None) : 
 	personnae.address = "1337 Grand Boulevard -- 61337 Section 42"
@@ -124,28 +139,29 @@ if (personnae.address == None) :
 if (personnae.webpage == None) : 
 	personnae.webpage = "http://" + personnae.firstname.lower() + "." + personnae.lastname.lower() + ".personnalbranding.com"
 
+print( personnae )
+
 localListOfSkills = []
 
-## TODO build complete curriculum ; inspiration from CyberAgeEncylopaedia and Perl scripts associated !
 while True : 
 	futurejob = BiographicTable.selectRandomBiographic()
-	userchoice = str(input("\t [Travail] Conserver ? [Y/n]"));
+	## TODO indicate remaining to be choosen
+	## TODO the negative choice by default
+	userchoice = str(input("\t [Job] Keep ? [Y/n]"));
 	if ( (userchoice != "N") and (userchoice != "n") ) :
 		personnae.jobs.append( futurejob )
-	if (len( personnae.jobs ) >= personnae.elements) : 
+	if ( len( personnae.jobs ) >= personnae.jobeltsnb) : 
 		break
 		
 while True : 
 	futuretrain = BiographicTable.selectRandomTraining()
-	userchoice = str(input("\t [Formation] Conserver ? [Y/n]"));
+	## TODO indicate remaining to be choosen
+	## TODO the negative choice by default
+	userchoice = str(input("\t [Training] Keep ? [Y/n]"));
 	if ( (userchoice != "N") and (userchoice != "n") ) :
 		personnae.trainings.append( futuretrain )
-	if (len( personnae.trainings ) >= 5) : 
+	if ( len( personnae.trainings ) >= personnae.trainingeltsnb) : 
 		break
-
-print ( personnae.jobs )	
-
-print( personnae )
 
 now = datetime.now()
 print("now =", now)
@@ -177,7 +193,7 @@ print( "Creating TeX file..." )
 with open( texcurriculumDirectory + texcurriculumFileName + ".tex", 'w') as curriculumGenerationtest:
 	curriculumGenerationtest.write( curriculumGeneration.getLaTeXHeaderPart1(cvColor, cvStyle) )
 	curriculumGenerationtest.write( "\n\n" )
-	## personnal data
+	## Personnal Data
 	curriculumGenerationtest.write( curriculumGeneration.getMinimalVariableDefinitions( 
 		firstname = personnae.firstname, lastname = personnae.lastname
 	) + "\n" )
@@ -196,6 +212,7 @@ with open( texcurriculumDirectory + texcurriculumFileName + ".tex", 'w') as curr
 	## Compétences
 	curriculumGenerationtest.write( "\\section{Comp{\\'e}tences}\n")
 	curriculumGenerationtest.write( "\t Introduction Text !!\n\n" )
+	## TODO add some skills (hard and soft) to put in description !
 	curriculumGenerationtest.write( "\t \\cvdoubleitem{ Item1 }{ Description1 }{ Item2 }{ Description2 }\n\n" )
 	curriculumGenerationtest.write( "\t \\cvcomputer{ Item1 }{ Description1 }{ Item2 }{ Description2 }\n\n" )
 	## Professionnal Experiences
@@ -203,7 +220,6 @@ with open( texcurriculumDirectory + texcurriculumFileName + ".tex", 'w') as curr
 	for eltJOB in personnae.jobs : 
 		corporationName = random.choice( curriculumDataObj.corporationNames )
 		contractType	= random.choice( curriculumDataObj.contractTypesList )
-		## TODO add some skills (hard and soft) to put in description !
 		curriculumGenerationtest.write( "\t \\cventry{years}{" + corporationName + " (" + eltJOB[1] + ")}{" + eltJOB[0] + "}{" + contractType + "}{\n %% grade \n}{\n %% description \n}\n\n" )
 	curriculumGenerationtest.write( "\t %% \\cventry{years}{degree/job title}{institution/employer}{localization}{grade}{description}\n\n" )
 	curriculumGenerationtest.write( "\t \\cventry{DATUM}{TITRE}{ENTREPRISE}{CONTRAT}%\n" )
@@ -215,8 +231,6 @@ with open( texcurriculumDirectory + texcurriculumFileName + ".tex", 'w') as curr
 	## Training ...
 	curriculumGenerationtest.write( "\\section{Formation}\n" )
 	for eltTraining in personnae.trainings : 
-		corporationName = random.choice( curriculumDataObj.corporationNames )
-		## TODO add some skills (hard and soft) to put in description !
 		curriculumGenerationtest.write( "\t \\cventry{years}{ " + eltTraining[1] + " }{" + eltTraining[0] + "}{ LOCALISATION }{\n %% grade \n}{\n %% description \n}\n\n" )
 	curriculumGenerationtest.write( "\t %% \\cventry{Year}{Diploma}{\\newline School}{Location}	{}{}{}\n\n" )
 	## Certifications ...
@@ -253,4 +267,3 @@ if args.make :
 	curriculumMainFunctions.launcheMakePDFfromLaTeX( directory = texcurriculumDirectory )
 
 print("End of script")
-

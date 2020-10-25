@@ -1,15 +1,19 @@
 # CurriculumGenerator/Python
 
+*Travaux en cours*
+
+__Si d'autres développeurs veulent participer au projet, n'hésitez pas à vous signaler !__
+
 ## Outils, technologies et autres éléments utilisés
 
-* Python 3
-* Eclipse
-* PyCharm
+* Python 3.8.5
+* script principal : 'mainScript.py'
+* Eclipse / PyCharm
 * Shell Bash
 * UTF-8
 * pdflatex ("texlive-*") ; package "texlive-fonts-extra" in Ubuntu (for 'fontawesome' / "fonts-font-awesome" needed in case of 'casual' résumé style, https://www.ctan.org/pkg/fontawesome "Web-Related Icons")
 
-Testé sous Linux Ubuntu 20.04 !
+Testé sous Linux Ubuntu 20.04
 
 ## Idées
 
@@ -33,7 +37,6 @@ L'objectif premier étant (de mon côté, initiateur du projet) de réviser le P
  * utilisation de listes
  * utilisation de dictionnaire
  * utiliser la génération aléatoire (random)
- * faire de l'appel système
  * Programmation Orientée Objet
  * ...
  
@@ -44,9 +47,9 @@ La première partie étant faite (révisions Python 3, donc) ; ce qui reste à f
 
 __Si d'autres développeurs veulent participer au projet, n'hésitez pas à vous signaler !__
 
-
 ## Tutoriels et formations Python : 
-* https://docs.python.org/fr/3.5/tutorial/
+* https://docs.python.org/fr/3.8/tutorial/
+* https://docs.python.org/fr/3.8/howto/regex.html
 * https://fr.wikibooks.org/wiki/Programmation_Python/Exemples_de_scripts
 * https://python.doctor/page-apprendre-programmation-orientee-objet-poo-classes-python-cours-debutants
 * https://www.tutorialspoint.com/python/python_command_line_arguments.htm
@@ -55,6 +58,7 @@ __Si d'autres développeurs veulent participer au projet, n'hésitez pas à vous
 * https://www.w3schools.com/python/python_dictionaries.asp
 * https://www.geeksforgeeks.org/python-dictionary/
 * https://www.w3schools.com/python/python_regex.asp
-* https://docs.python.org/fr/2.7/howto/regex.html
 
+NOTE : voir utilisation Python Linter (vérifier la validité du code)
 
+NOTE : utiliser str.format() instead of print with '%' ! https://www.w3schools.com/python/ref_string_format.asp

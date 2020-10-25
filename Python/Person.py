@@ -1,23 +1,13 @@
 #!/usr/bin/python3
 # -*- coding: utf-8 -*- 
 
-__author__		= "Gabriel Chandesris (2020)"
-__copyright__	= "CC Gabriel Chandesris (2020)"
-__credits__		= ""
-__licence__		= "GNU GENERAL PUBLIC LICENSE v3"
-__version__		= "0.1.0"
-__maintainer__	= "Gabriel Chandesris"
-__email__		= "gabywald[at]laposte.net"
-__contact__		= "gabywald[at]laposte.net"
-__status__		= "Development"
-
 class Person( object ) : 
 	def __init__(self,
-				 firstname		= None, lastname	= None, age			= None, 
-				 generaltitle	= None, title		= None, speciality	= None, 
-				 cellphone		= None, address		= None, email		= None, 
-				 webpage		= None, quote		= None, pseudo		= None, 
-				 elements		= None, trainings	= None):
+				 firstname		= None, lastname		= None, age			= None, 
+				 generaltitle	= None, title			= None, speciality	= None, 
+				 cellphone		= None, address			= None, email		= None, 
+				 webpage		= None, quote			= None, pseudo		= None, 
+				 jobeltsnb		= None, trainingeltsnb	= None, trainings	= None):
 		self.firstname		= firstname
 		self.lastname		= lastname
 		self.age			= age
@@ -30,7 +20,8 @@ class Person( object ) :
 		self.webpage		= webpage
 		self.quote			= quote
 		self.pseudo			= pseudo
-		self.elements		= pseudo
+		self.jobeltsnb		= jobeltsnb
+		self.trainingeltsnb	= trainingeltsnb
 		self.hardSkills		= []
 		self.softSkills		= []
 		self.jobs			= []
@@ -51,7 +42,8 @@ class Person( object ) :
 			'webpage',
 			'quote',
 			'pseudo',
-			'elements',
+			'jobeltsnb',
+			'trainingeltsnb', 
 			'hardSkills',
 			'softSkills', 
 			'jobs',
@@ -78,6 +70,7 @@ class Person( object ) :
 		str += "\t WebPage: %s \n" % (self.webpage)
 		str += "\t Quote: %s \n" % (self.quote)
 		str += "\t Pseudo: %s \n" % (self.pseudo)
-		str += "\t Elements: %s \n" % (self.elements)
+		str += "\t jobeltsnb: %s \n" % (self.jobeltsnb)
+		str += "\t trainingeltsnb: %s \n" % (self.trainingeltsnb)
 		return str
 
