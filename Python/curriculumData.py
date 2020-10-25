@@ -1,16 +1,6 @@
 #!/usr/bin/python3
 # -*- coding: utf-8 -*- 
 
-__author__		= "Gabriel Chandesris (2020)"
-__copyright__	= "CC Gabriel Chandesris (2020)"
-__credits__		= ""
-__licence__		= "GNU GENERAL PUBLIC LICENSE v3"
-__version__		= "0.1.0"
-__maintainer__	= "Gabriel Chandesris"
-__email__		= "gabywald[at]laposte.net"
-__contact__		= "gabywald[at]laposte.net"
-__status__		= "Development"
-
 import configparser
 
 import argparse
@@ -105,7 +95,6 @@ class CVData( object ) :
 			BiographicTables		= readFileToList( parser[ "paths" ].get( "BiographicTablesTXT" ) )
 			BiographicJobs			= readFileToList( parser[ "paths" ].get( "BiographicJobsTXT" ) )
 			## some other sources
-			print( corporationNames )
 			# uplinkCompanyPartOne	= readFileToList( parser[ "paths" ].get( "uplinkCompanyPartOne" ) )
 			# uplinkCompanyPartTwo	= readFileToList( parser[ "paths" ].get( "uplinkCompanyPartTwo" ) )
 			# uplinkFornames		= readFileToList( parser[ "paths" ].get( "uplinkFornames" ) )
@@ -115,7 +104,7 @@ class CVData( object ) :
 							firstNameList, lastNameList, contractTypesList, corporationNames, 
 							BiographicTables, BiographicJobs, 
 							uplinkCompanyPartOne, uplinkCompanyPartTwo, uplinkFornames, uplinkSurnames )
-		print( self._instance.corporationNames )
+		## print( self._instance.corporationNames )
 		return self._instance
 
 parser = argparse.ArgumentParser(
@@ -171,12 +160,20 @@ parser.add_argument("-qc", "--quote",
 	help = "Quote / Citation", 
 	type=str )
 	
-parser.add_argument("-elt", "--elements", 
-	help = "Number of Biographic Elements", 
+parser.add_argument("-je", "--jobelements", 
+	help = "Number of JOBS Elements", 
+	type=int )
+	
+parser.add_argument("-te", "--trainingelements", 
+	help = "Number of TRAINING Elements", 
 	type=int )
 
-parser.add_argument("-relt", "--randomelements", 
-	help = "Random<number of elements", 
+parser.add_argument("-rje", "--randomjobelements", 
+	help = "Random number of JOB elements", 
+	action = "store_true" )
+
+parser.add_argument("-rte", "--randomtrainingelements", 
+	help = "Random number of TRAINING elements", 
 	action = "store_true" )
 
 parser.add_argument("-nq", "--noquote", 
@@ -191,6 +188,3 @@ def parsingArgs() :
 	args = parser.parse_args()
 	print( args )
 	return args
-
-## TODO random generation according to arguments !!
-

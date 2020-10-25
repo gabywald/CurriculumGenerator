@@ -4,7 +4,6 @@ Table CurriculumGenerator
 	Table StartUp	[StartUp]
 	Table GrandGroupe	[GrandGroupe]
 	Table International	[International]
-	Table Formation	[Formation]
 
 Table Domaine
 	Militaire

@@ -6,6 +6,10 @@ Cette idée afin de permettre de générer facilement un (ou plusieurs) CV, obte
 
 Utile tant professionnellement qu'en "Job Testing" (pour travailler sur les discriminations à l'embauche ?)? 
 
+*Travaux en cours* / __WORK IN PROGRESS"__ pour la partie Python
+
+__Si d'autres développeurs veulent participer au projet, n'hésitez pas à vous signaler !__
+
 Licence : GPLv3
 
 ## Fichiers sources pour des données de génération aléatoire : "resources/"

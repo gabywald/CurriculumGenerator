@@ -1,5 +1,5 @@
 ## naming WITHOUT the extensions [.tex] or [.bib]
-LATEXFILE=sample1
+LATEXFILE=sampleCurriculum
 
 ## the local software...
 CCPDFLA=pdflatex
