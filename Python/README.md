@@ -4,13 +4,17 @@
 
 __Si d'autres développeurs veulent participer au projet, n'hésitez pas à vous signaler !__
 
+L'objectif ici étant principalement de réviser le Python, et plus spécifiquement le Python 3 : le code présent n'est pas significatif de travaux connexes. L'objectif est tout de mee qu'il puisse être repris facilement en Python ou dans un autre langage de programmation. 
+
 ## Outils, technologies et autres éléments utilisés
+
+Ici, certains éléments sont précisés en détail, même si ils semble,net insignifiant à un développeur expérimenté ; de façon à ce qu'un débutant puisse s'y retrouver tout de même sans aucun à priori. 
 
 * Python 3.8.5
 * script principal : 'mainScript.py'
 * Eclipse / PyCharm
 * Shell Bash
-* UTF-8
+* UTF-8 (les sources pythons et les fichiers de configuration)
 * pdflatex ("texlive-*") ; package "texlive-fonts-extra" in Ubuntu (for 'fontawesome' / "fonts-font-awesome" needed in case of 'casual' résumé style, https://www.ctan.org/pkg/fontawesome "Web-Related Icons")
 
 Testé sous Linux Ubuntu 20.04
@@ -58,6 +62,8 @@ __Si d'autres développeurs veulent participer au projet, n'hésitez pas à vous
 * https://www.w3schools.com/python/python_dictionaries.asp
 * https://www.geeksforgeeks.org/python-dictionary/
 * https://www.w3schools.com/python/python_regex.asp
+
+NOTE : approffondir la python DOC !
 
 NOTE : voir utilisation Python Linter (vérifier la validité du code)
 
