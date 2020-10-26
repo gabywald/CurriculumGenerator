@@ -28,30 +28,6 @@ class Person( object ) :
         self.trainings      = []
         self.tool           = []
     
-    def _get_kwargs(self):
-        names = [
-            'firstname',
-            'lastname',
-            'age',
-            'generaltitle',
-            'title',
-            'speciality',
-            'cellphone',
-            'address',
-            'email'
-            'webpage',
-            'quote',
-            'pseudo',
-            'jobeltsnb',
-            'trainingeltsnb', 
-            'hardSkills',
-            'softSkills', 
-            'jobs',
-            'trainings',
-            'tool'
-        ]
-        return [(name, getattr(self, name)) for name in names]
-    
     ## implement it if bug need ! => print( [ <instance>] )
     # def __repr__(self) : 
     #     return "Test a:% s b:% s" % (self.a, self.b)  

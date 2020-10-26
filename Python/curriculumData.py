@@ -3,19 +3,18 @@
 
 import configparser
 
-import argparse
-## from argparse import ArgumentParser
-
 def readFileToList( filePath ) : 
+    """Read file from path indicated in parameter and return it as a list of lines. """
     listToReturn = []
     with open(filePath, 'r') as file : 
         data         = file.read()
         listToReturn = data.split( "\n" )
         # print( data )
-    print("End of file ", filePath)
+    # print("End of file ", filePath)
     return listToReturn
 
 class CVData( object ) :
+    """ Singleton class to regroup datas loaded from configuration. """
     _instance = None
 
     def __init__(self,
@@ -52,27 +51,6 @@ class CVData( object ) :
         self.uplinkFornames         = uplinkFornames
         self.uplinkSurnames         = uplinkSurnames
 
-    def _get_kwargs(self):
-        names = [
-            'cvStyle',
-            'cvColor',
-            'hardList',
-            'softList',
-            'jobsList',
-            'toolList',
-            'firstNameList',
-            'lastNameList',
-            'contractTypesList', 
-            'corporationNames',
-            'BiographicTables',
-            'BiographicJobs',
-            'uplinkCompanyPartOne',
-            'uplinkCompanyPartTwo',
-            'uplinkFornames',
-            'uplinkSurnames'
-        ]
-        return [(name, getattr(self, name)) for name in names]
-
     @classmethod
     def loadConfig( self ) : 
         if self._instance is None : 
@@ -107,84 +85,3 @@ class CVData( object ) :
         ## print( self._instance.corporationNames )
         return self._instance
 
-parser = argparse.ArgumentParser(
-    prog = 'Curriculum Generator', 
-    description = """BEGINNING of help""", 
-    epilog = """END of help""" )
-
-# Some arguments ... 
-parser.add_argument("-s", "--style", 
-    help = "ModernCV Style", 
-    choices = [ 'classic', 'casual', 'oldstyle', 'banking' ], 
-    default = "classic", 
-    type=str )
-parser.add_argument("-c", "--color", 
-    help = "ModernCV Color", 
-    choices = [ 'blue', 'orange', 'green', 'red', 'purple', 'grey', 'black' ], 
-    default = "blue", 
-    type=str )
-
-parser.add_argument("-rs", "--randomstyle", 
-    help = "Random ModernCV Color", 
-    action = "store_true" )
-parser.add_argument("-rc", "--randomcolor", 
-    help = "Random ModernCV Color", 
-    action = "store_true" )
-    
-parser.add_argument("-rfn", "--randomfirstname", 
-    help = "Random First Name", 
-    action = "store_true" )
-parser.add_argument("-rln", "--randomlastname", 
-    help = "Random Last Name", 
-    action = "store_true" )
-    
-parser.add_argument("-fn", "--firstname", 
-    help = "First Name", 
-    type=str )
-parser.add_argument("-ln", "--lastname", 
-    help = "Last Name", 
-    type=str )
-parser.add_argument("-em", "--email", 
-    help = "E-Mail", 
-    type=str )
-parser.add_argument("-ps", "--pseudo", 
-    help = "Pseudonym", 
-    type=str )
-parser.add_argument("-wp", "--webpage", 
-    help = "Web Page / URL", 
-    type=str )
-parser.add_argument("-ad", "--address", 
-    help = "Address (IRL)", 
-    type=str )
-parser.add_argument("-qc", "--quote", 
-    help = "Quote / Citation", 
-    type=str )
-    
-parser.add_argument("-je", "--jobelements", 
-    help = "Number of JOBS Elements", 
-    type=int )
-    
-parser.add_argument("-te", "--trainingelements", 
-    help = "Number of TRAINING Elements", 
-    type=int )
-
-parser.add_argument("-rje", "--randomjobelements", 
-    help = "Random number of JOB elements", 
-    action = "store_true" )
-
-parser.add_argument("-rte", "--randomtrainingelements", 
-    help = "Random number of TRAINING elements", 
-    action = "store_true" )
-
-parser.add_argument("-nq", "--noquote", 
-    help = "NO quote / Citation", 
-    action = "store_true" )
-
-parser.add_argument("-m", "--make", 
-    help = "Launch Making of PDF from TeX file", 
-    action = "store_true" )
-
-def parsingArgs() :
-    args = parser.parse_args()
-    print( args )
-    return args

@@ -13,8 +13,8 @@ __status__        = "Development"
 
 import sys
 
-print('Number of arguments:', len(sys.argv), 'arguments.' )
-print('Argument List:', str(sys.argv) )
+print('(debugging pourposes) Number of arguments:', len(sys.argv), 'arguments.' )
+print('(debugging pourposes) Argument List:', str(sys.argv) )
 
 from pathlib import Path
 from datetime import datetime
@@ -25,19 +25,14 @@ import random
 
 import curriculumMainFunctions
 import curriculumGeneration
-import curriculumData
 
+from Person import Person
 from curriculumData import CVData
 
 import BiographicTable
 BiographicTable.loadTables()
 
-## import Person
-from Person import Person
-
-args = curriculumData.parsingArgs()
-
-## curriculumMainFunctions.main(sys.argv[1:])
+args = curriculumMainFunctions.parsingArgs()
 
 curriculumDataObj = CVData.loadConfig();
 
@@ -81,46 +76,42 @@ print( "CV firstname: " + personnae.firstname )
 print( "CV lastname : " + personnae.lastname )
 
 if ( (hasattr(args, 'address')) and (args.address != None) ) :
-    personnae.address    = args.address
+    personnae.address = args.address
     
 if ( (hasattr(args, 'webpage')) and (args.webpage != None) ) :
-    personnae.webpage    = args.webpage
+    personnae.webpage = args.webpage
 
 if ( (hasattr(args, 'pseudo')) and (args.pseudo != None) ) :
-    personnae.pseudo    = args.pseudo
+    personnae.pseudo = args.pseudo
 else:
-    personnae.pseudo    = personnae.firstname.lower() + "." + personnae.lastname.lower()
+    personnae.pseudo = personnae.firstname.lower() + "." + personnae.lastname.lower()
 
 if ( (hasattr(args, 'email')) and (args.email != None) ) :
     if (args.email == 'default'): 
         args.email = personnae.pseudo + "@gmx.com"
-    personnae.email        = args.email
+    personnae.email = args.email
 
 if args.noquote : 
-    personnae.quote        = "NOQUOTE"
+    personnae.quote = "NOQUOTE"
 else:
     if ( (hasattr(args, 'quote')) and (args.quote != None) ) :
-        personnae.quote    = args.quote
+        personnae.quote = args.quote
 
 if (args.randomjobelements) :
     personnae.jobeltsnb = random.randint(1, 20)
 
 if ( (hasattr(args, 'jobelements')) and (args.jobelements != None) ) :
-    personnae.jobeltsnb    = args.jobelements
+    personnae.jobeltsnb = args.jobelements
 
-print( personnae.jobeltsnb )
-    
 if (args.randomtrainingelements) :
     personnae.trainingeltsnb = random.randint(1, 5)
 
 if ( (hasattr(args, 'trainingelements')) and (args.trainingelements != None) ) :
-    personnae.trainingeltsnb    = args.trainingelements
+    personnae.trainingeltsnb = args.trainingelements
 
-print( personnae.trainingeltsnb )
-    
 if (personnae.email == None) : 
-    defaultemail    = personnae.firstname.lower() + "." + personnae.lastname.lower() + "@gmx.com"
-    personnae.email    = str(input("e-mail (default=[%s])?" % defaultemail))
+    defaultemail = personnae.firstname.lower() + "." + personnae.lastname.lower() + "@gmx.com"
+    personnae.email = str(input("e-mail (default=[%s])?" % defaultemail))
     if (personnae.email == "default"):
         personnae.email = defaultemail
 
@@ -143,31 +134,35 @@ print( personnae )
 
 localListOfSkills = []
 
+## ## Interact with user to choose Jobs (randmoly generated)
 while True : 
     futurejob = BiographicTable.selectRandomBiographic()
     ## TODO indicate remaining to be choosen
-    ## TODO the negative choice by default
+    ## TODO the negative choice by default ?
     userchoice = str(input("\t [Job] Keep ? [Y/n]"));
     if ( (userchoice != "N") and (userchoice != "n") ) :
         personnae.jobs.append( futurejob )
     if ( len( personnae.jobs ) >= personnae.jobeltsnb) : 
         break
-        
+
+## ## Interact with user to choose Training (randmoly generated)
 while True : 
     futuretrain = BiographicTable.selectRandomTraining()
     ## TODO indicate remaining to be choosen
-    ## TODO the negative choice by default
+    ## TODO the negative choice by default ?
     userchoice = str(input("\t [Training] Keep ? [Y/n]"));
     if ( (userchoice != "N") and (userchoice != "n") ) :
         personnae.trainings.append( futuretrain )
     if ( len( personnae.trainings ) >= personnae.trainingeltsnb) : 
         break
 
+## Date_time generation
 now = datetime.now()
 print("now =", now)
 dt_string = now.strftime("%Y%m%d_%H%M%S")
 print("date and time =", dt_string)    
 
+## prefix for directory / filename
 texSpecific = personnae.lastname + "." + personnae.firstname ## + "_" + dt_string
 
 ## texcurriculumDirectory = "generate/"

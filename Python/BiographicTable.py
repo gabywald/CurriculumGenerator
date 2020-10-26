@@ -7,24 +7,18 @@ import re
 import random
 
 class BiographicTable( object ) : 
+    """This class defines Tables Definitions for 'biographic' elements for Curriculum generation. """
+    
     def __init__(self, name = None, comments = None ):
+        """BiographicTable Constructor. """
         self.name = name
         self.comments = comments
         self.contents = []
         self.linksTo  = []
         self.addins   = []
     
-    def _get_kwargs(self):
-        names = [
-            'name',
-            'comments',
-            'contents',
-            'linksTo',
-            'addins'
-        ]
-        return [(name, getattr(self, name)) for name in names]
-    
     def __str__(self) : 
+        """BiographicTable to str. """
         str = "BiographicTable ( % s , % s ) \n"  % (self.name, self.comments)
         str += "\t contents: %s \n" % (self.contents)
         return str
@@ -33,17 +27,12 @@ class BiographicElement( object ) :
     def __init__(self, content, comments ):
         self.content    = content
         self.addins     = []
-    
-    def _get_kwargs(self):
-        names = [
-            'content',
-            'addins'
-        ]
-        return [(name, getattr(self, name)) for name in names]
 
+# A dictionnary of BiographicTable
 biographictablesDict = {}
 
 def loadTables() : 
+    """Load BiographicTables from the configuration. """
     curriculumDataObj = CVData.loadConfig();
     tablesAsTXT  = curriculumDataObj.BiographicTables
     nextTable    = None
@@ -75,17 +64,19 @@ def loadTables() :
         print ( "\t % s" % key )
 
 def selectRandomBiographic() : 
+    """Choose randomly an element from a randomly choosen BiographicTable. """
     baseTable    = biographictablesDict.get("CurriculumGenerator")
-    selected    = random.choice( baseTable.contents )
-    choice        = biographictablesDict.get( selected )
-    moreselect    = random.choice( choice.contents )
-    domain        = random.choice( biographictablesDict.get("Domaine").contents )
+    selected     = random.choice( baseTable.contents )
+    choice       = biographictablesDict.get( selected )
+    moreselect   = random.choice( choice.contents )
+    domain       = random.choice( biographictablesDict.get("Domaine").contents )
     print( selected + "::" + moreselect + " // " + domain)
     return [selected, moreselect, domain]
 
 def selectRandomTraining() : 
-    baseTable    = biographictablesDict.get("Formation")
+    """Choose randomly an elements from the Training table. """
+    baseTable   = biographictablesDict.get("Formation")
     selected    = random.choice( baseTable.contents )
-    domain        = random.choice( biographictablesDict.get("Domaine").contents )
+    domain      = random.choice( biographictablesDict.get("Domaine").contents )
     print( selected + "// " + domain)
     return [selected, domain]
