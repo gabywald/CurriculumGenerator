@@ -20,7 +20,7 @@ from pathlib import Path
 from datetime import datetime
 
 import shutil
-
+import os
 import random
 
 import curriculumMainFunctions
@@ -53,10 +53,10 @@ print( "CV COLOR : " + cvColor )
 personnae = Person()
 
 if ( (hasattr(args, 'firstname')) and (args.firstname != None) ) :
-    personnae.firstname    = args.firstname
+    personnae.firstname = args.firstname
     
 if ( (hasattr(args, 'lastname')) and (args.lastname != None) ) :
-    personnae.lastname    = args.lastname
+    personnae.lastname = args.lastname
 
 ## print ( curriculumDataObj.firstNameList )
 if (args.randomfirstname) :
@@ -175,8 +175,9 @@ path = Path( texcurriculumDirectory )
 if ( path.exists() ) :
     print("Removing some resources...")
     shutil.rmtree( texcurriculumDirectory )
-print( "Copying some resources..." )
-shutil.copytree( "../resources/latexSamples/img/", texcurriculumDirectory + "img/" )
+## print( "Copying some resources..." )
+## shutil.copytree( "../resources/latexSamples/img/", texcurriculumDirectory + "img/" )
+os.mkdir( texcurriculumDirectory )
 
 ## Generate Makefile
 print( "Creating Makefile..." )
