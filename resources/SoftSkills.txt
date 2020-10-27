@@ -9,12 +9,8 @@ Esprit d'analyse
 Rédaction du cahier des charges
 Rédaction des Spécifications
 Méthodes Agiles (Scrum, Kanban)
-UML
-Cycle en V
-Design Patterns
-Modèle MVC
-Modèle du Cycle en V
-Base de données relationnelle
-Gestion de bases de données
-Gestion Entreprôt de Données
-Analyse Fonctionnelle
+Méthodes Agiles (Scrum)
+Méthodes Agiles (Kanban)
+Contacts Transverses
+Transversalité
+Conduite de réunions

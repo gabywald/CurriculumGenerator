@@ -41,3 +41,15 @@ Apache Solr
 Selenium
 Reverse Ingeniering / Ingénierie Inverse
 Documentation
+Javadoc
+Pythondoc
+Doxygen
+UML
+Cycle en V
+Design Patterns
+Modèle MVC
+Modèle du Cycle en V
+Base de données relationnelle
+Gestion de bases de données
+Gestion Entreprôt de Données
+Analyse Fonctionnelle

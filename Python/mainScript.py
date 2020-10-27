@@ -1,15 +1,17 @@
 #!/usr/bin/python3
-# -*- coding: utf-8 -*- ## useless in python 3 ? ; default is unicode ?
+# -*- coding: utf-8 -*- default is unicode in python3 ?
 
-__author__        = "Gabriel Chandesris"
-__copyright__    = "CC Gabriel Chandesris (2020)"
-__credits__        = ""
-__licence__        = "GNU GENERAL PUBLIC LICENSE v3"
-__version__        = "0.1.0"
-__maintainer__    = "Gabriel Chandesris"
-__email__        = "gabywald[at]laposte.net"
-__contact__        = "gabywald[at]laposte.net"
-__status__        = "Development"
+__author__ = "Gabriel Chandesris"
+__copyright__ = "CC Gabriel Chandesris (2020)"
+__credits__ = ""
+__licence__ = "GNU GENERAL PUBLIC LICENSE v3"
+__version__ = "0.1.0"
+__maintainer__ = "Gabriel Chandesris"
+__email__ = "gabywald[at]laposte.net"
+__contact__ = "gabywald[at]laposte.net"
+__status__ = "Development"
+
+## ## ## ## ## Main Script to generate a Curriculum, according to parameters indicated !
 
 import sys
 
@@ -98,6 +100,12 @@ else:
         personnae.quote = args.quote
 
 if (args.randomjobelements) :
+    personnae.skilleltnb = random.randint(1, 20)
+
+if ( (hasattr(args, 'skillelements')) and (args.skillelements != None) ) :
+    personnae.skilleltnb = args.skillelements
+
+if (args.randomjobelements) :
     personnae.jobeltsnb = random.randint(1, 20)
 
 if ( (hasattr(args, 'jobelements')) and (args.jobelements != None) ) :
@@ -118,12 +126,15 @@ if (personnae.email == None) :
 if (personnae.quote == None) : 
     personnae.quote = str(input("quote / citation ?"))
 
+if (personnae.skilleltnb == None) : 
+    personnae.skilleltnb = int(input("Number of Skills elements ?"))
+
 if (personnae.jobeltsnb == None) : 
     personnae.jobeltsnb = int(input("Number of Jobs elements ?"))
 
 if (personnae.trainingeltsnb == None) : 
     personnae.trainingeltsnb = int(input("number of Training elements ?"))
-
+    
 if (personnae.address == None) : 
     personnae.address = "1337 Grand Boulevard -- 61337 Section 42"
 
@@ -132,9 +143,18 @@ if (personnae.webpage == None) :
 
 print( personnae )
 
-localListOfSkills = []
+## ## Interact with user to choose Skills (randomly generated)
+while True : 
+    futureskill = BiographicTable.selectRandomSkill()
+    ## TODO the negative choice by default ?
+    remaining = (personnae.skilleltnb) - len( personnae.skills )
+    userchoice = str(input("\t (remaining: %d ) [Skill] Keep ? [Y/n]" %(remaining) ));
+    if ( (userchoice != "N") and (userchoice != "n") ) :
+        personnae.skills.append( futureskill )
+    if ( len( personnae.skills ) >= personnae.skilleltnb) : 
+        break
 
-## ## Interact with user to choose Jobs (randmoly generated)
+## ## Interact with user to choose Jobs (randomly generated)
 while True : 
     futurejob = BiographicTable.selectRandomBiographic()
     ## TODO the negative choice by default ?
@@ -145,7 +165,7 @@ while True :
     if ( len( personnae.jobs ) >= personnae.jobeltsnb) : 
         break
 
-## ## Interact with user to choose Training (randmoly generated)
+## ## Interact with user to choose Training (randomly generated)
 while True : 
     futuretrain = BiographicTable.selectRandomTraining()
     ## TODO the negative choice by default ?
@@ -198,7 +218,7 @@ with open( texcurriculumDirectory + texcurriculumFileName + ".tex", 'w') as curr
     curriculumGenerationtest.write( curriculumGeneration.getWebSiteDefinition(webpage = personnae.webpage) + "\n" )
     curriculumGenerationtest.write( curriculumGeneration.getQuoteDefinition(quote = personnae.quote) + "\n" )
     curriculumGenerationtest.write( "\n\n" )
-    ## more header
+    ## More header
     curriculumGenerationtest.write( curriculumGeneration.getFancyStyle() + "\n\n" )
     curriculumGenerationtest.write( "\\def\\motsClefs{LaTeX;PDF;Python;Python3...}\n\n" )
     curriculumGenerationtest.write( curriculumGeneration.getHyperSetup() + "\n\n" )
@@ -207,10 +227,16 @@ with open( texcurriculumDirectory + texcurriculumFileName + ".tex", 'w') as curr
     curriculumGenerationtest.write( "\\begin{document}\n\n\\maketitle\n\n" )
     ## Compétences
     curriculumGenerationtest.write( "\\section{Comp{\\'e}tences}\n")
-    curriculumGenerationtest.write( "\t Introduction Text !!\n\n" )
-    ## TODO add some skills (hard and soft) to put in description !
-    curriculumGenerationtest.write( "\t \\cvdoubleitem{ Item1 }{ Description1 }{ Item2 }{ Description2 }\n\n" )
-    curriculumGenerationtest.write( "\t \\cvcomputer{ Item1 }{ Description1 }{ Item2 }{ Description2 }\n\n" )
+    curriculumGenerationtest.write( "\t Introduction Text !!~\\\\ \n\n" )
+    for i in range(0, len(personnae.skills), 4) : 
+    	item1 = personnae.skills[ i + 0 ]
+    	item2 = curriculumMainFunctions.testAndGetInList( i+1, personnae.skills, "--" )
+    	item3 = curriculumMainFunctions.testAndGetInList( i+2, personnae.skills, "--" )
+    	item4 = curriculumMainFunctions.testAndGetInList( i+3, personnae.skills, "--" )
+    	curriculumGenerationtest.write( "\t \\cvcomputer{ %s }{ %s }{ %s }{ %s }\n" %( item1, item2, item3, item4) )
+    # curriculumGenerationtest.write( "\t \\cvdoubleitem{ Item1 }{ Description1 }{ Item2 }{ Description2 }\n" )
+    # curriculumGenerationtest.write( "\t \\cvcomputer{ Item1 }{ Description1 }{ Item2 }{ Description2 }\n" )
+    curriculumGenerationtest.write( "\n" )
     ## Professionnal Experiences
     curriculumGenerationtest.write( "\\section{Exp{\\'e}rience professionnelle}\n" )
     for eltJOB in personnae.jobs : 

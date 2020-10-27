@@ -7,7 +7,8 @@ class Person( object ) :
                  generaltitle    = None, title           = None, speciality   = None, 
                  cellphone       = None, address         = None, email        = None, 
                  webpage         = None, quote           = None, pseudo       = None, 
-                 jobeltsnb       = None, trainingeltsnb  = None, trainings    = None):
+                 jobeltsnb       = None, trainingeltsnb  = None, skilleltnb   = None, 
+                 skills          = None, jobs            = None, trainings    = None):
         self.firstname      = firstname
         self.lastname       = lastname
         self.age            = age
@@ -20,10 +21,12 @@ class Person( object ) :
         self.webpage        = webpage
         self.quote          = quote
         self.pseudo         = pseudo
+        self.skilleltnb     = skilleltnb
         self.jobeltsnb      = jobeltsnb
         self.trainingeltsnb = trainingeltsnb
         self.hardSkills     = []
         self.softSkills     = []
+        self.skills         = []
         self.jobs           = []
         self.trainings      = []
         self.tool           = []
@@ -46,6 +49,7 @@ class Person( object ) :
         str += "\t WebPage: %s \n" % (self.webpage)
         str += "\t Quote: %s \n" % (self.quote)
         str += "\t Pseudo: %s \n" % (self.pseudo)
+        str += "\t skilleltnb: %s \n" % (self.skilleltnb)
         str += "\t jobeltsnb: %s \n" % (self.jobeltsnb)
         str += "\t trainingeltsnb: %s \n" % (self.trainingeltsnb)
         return str

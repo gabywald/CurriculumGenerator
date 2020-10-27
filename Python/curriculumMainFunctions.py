@@ -18,6 +18,14 @@ def launcheMakePDFfromLaTeX( directory ) :
     print( "Changing dir BACK..." )
     os.chdir( ".." )
 
+def testAndGetInList(index, list, alternatevalue) : 
+    item = None
+    if ( index < len( list ) ) : 
+        item = list[ index ]
+    else: 
+        item = alternatevalue
+    return item
+
 ## Below is reading from arguments
 
 parser = argparse.ArgumentParser(
@@ -72,14 +80,22 @@ parser.add_argument("-ad", "--address",
 parser.add_argument("-qc", "--quote", 
     help = "Quote / Citation", 
     type=str )
-    
+
+parser.add_argument("-se", "--skillelements", 
+    help = "Number of SKILL Elements", 
+    type=int )
+
 parser.add_argument("-je", "--jobelements", 
-    help = "Number of JOBS Elements", 
+    help = "Number of JOB Elements", 
     type=int )
     
 parser.add_argument("-te", "--trainingelements", 
     help = "Number of TRAINING Elements", 
     type=int )
+
+parser.add_argument("-rse", "--randomskillelements", 
+    help = "Random number of SKILL elements", 
+    action = "store_true" )
 
 parser.add_argument("-rje", "--randomjobelements", 
     help = "Random number of JOB elements", 

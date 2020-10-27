@@ -80,3 +80,11 @@ def selectRandomTraining() :
     domain      = random.choice( biographictablesDict.get("Domaine").contents )
     print( selected + "// " + domain)
     return [selected, domain]
+
+def selectRandomSkill() : 
+    """Choose randomly an elements from the Skill table. """
+    baseTable1  = biographictablesDict.get("CompetencesTechniques")
+    baseTable2  = biographictablesDict.get("CompetencesRelationnelles")
+    selected    = random.choice( baseTable1.contents + baseTable1.contents )
+    print( selected )
+    return selected

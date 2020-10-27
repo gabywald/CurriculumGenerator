@@ -75,3 +75,78 @@ Table Formation
 	Doctorat
 	Stage Ouvrier
 	Stage de fin d'études
+
+Table CompetencesTechniques
+	Java
+	Java Swing
+	Java EE
+	Spring
+	Hibernate
+	eBean
+	Micronaut
+	Python
+	Python 3
+	PHP
+	HTML
+	HTML 5
+	CSS
+	XML
+	XSLT
+	COBOL
+	FORTRAN
+	Rust
+	SmallTalk
+	C
+	C++
+	C / C++
+	Objective C
+	NoSQL
+	SQL
+	ORACLE
+	PostgresSQL
+	MySQL
+	JavaScript
+	ECMAScript
+	Bash
+	Shell
+	Unix
+	Linux
+	Mac OS X
+	Android
+	iOS
+	Apache
+	Apache Kafka
+	Apache Solr
+	Selenium
+	Reverse Ingeniering / Ingénierie Inverse
+	Documentation
+	Javadoc
+	Pythondoc
+	Doxygen
+	UML
+	Cycle en V
+	Design Patterns
+	Modèle MVC
+	Modèle du Cycle en V
+	Base de données relationnelle
+	Gestion de bases de données
+	Gestion Entreprôt de Données
+	Analyse Fonctionnelle
+
+Table CompetencesRelationnelles
+	LeaderShip
+	Management
+	Sens du Relationnel
+	Gestion de Projet
+	Rigueur et Méthode
+	Conduite de Réunion
+	Reporting
+	Esprit d'analyse
+	Rédaction du cahier des charges
+	Rédaction des Spécifications
+	Méthodes Agiles (Scrum, Kanban)
+	Méthodes Agiles (Scrum)
+	Méthodes Agiles (Kanban)
+	Contacts Transverses
+	Transversalité
+	Conduite de réunions

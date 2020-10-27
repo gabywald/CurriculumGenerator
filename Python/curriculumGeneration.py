@@ -77,7 +77,10 @@ def getWebSiteDefinition(webpage = "http://www.siteweb.com") :
     return "\\def\\pageWeb{ " + webpage + " } \n"
 
 def getQuoteDefinition(quote = "Quotation Citation") : 
-    return "\\def\\quotationCitation{ " + quote + " } \n"
+    if ( (quote != None) and (quote != "NOQUOTE") ): 
+        return "\\def\\quotationCitation{ " + quote + " } \n"
+    else:
+    	return "%% NOQUOTE"
     
 def getFancyStyle() : 
     str = "%% Fancy Style Defintion (and collateral elements)\n"
@@ -152,7 +155,8 @@ def getDefVariables() :
     str += "\\email{\\eMail }\n"
     str += "\\homepage{\\pageWeb }\n"
     str += "\\mobile{\\portable }\n"
-    str += "\\quote{ \\quotationCitation }\n"
+    ## str += "\\quote{ \\quotationCitation }\n"
+    str += "\ifx\quotationCitation\empty\n%\\else\n\\quote{ \\quotationCitation }\n\\fi\n"
     str += "%% \\phone{00 00 00 00 00}\n"
     str += "%% \\fax{00 00 00 00 00}\n"
     str += "%% \\photo[64pt][0.4pt]{img/logo_glider.png}\n"

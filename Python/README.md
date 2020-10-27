@@ -11,7 +11,8 @@ L'objectif ici étant principalement de réviser le Python, et plus spécifiquem
 Ici, certains éléments sont précisés en détail, même si ils semble,net insignifiant à un développeur expérimenté ; de façon à ce qu'un débutant puisse s'y retrouver tout de même sans aucun à priori. 
 
 * Python 3.8.5
-* script principal : 'mainScript.py'
+* __script principal__ : 'mainScript.py'
+* Autre script d'entrée : 'mainWithFile.py' (appelle le précédent à partir d'un fichier)
 * Eclipse / PyCharm
 * Shell Bash
 * UTF-8 (les sources pythons et les fichiers de configuration)
@@ -50,6 +51,36 @@ La première partie étant faite (révisions Python 3, donc) ; ce qui reste à f
 * gestion des centres d'intérêts ; 
 
 __Si d'autres développeurs veulent participer au projet, n'hésitez pas à vous signaler !__
+
+## Exemples de lancement
+
+Une liste des arguments est obtenue avec "./mainScript.py --help". 
+
+* ./mainScript.py -rfn -rln -em default -qc NOQUOTE --make
+
+	- prénom aléatoire (-rfn)
+	- nom aléatoire (-rln)
+	- adresse e-mail par défault (à partir nom et prénom, '-em default') 
+	- NOQUOTE
+	- compilation du CV
+	
+* ./mainScript.py -rfn -rln -em toto@domain.org --noquote
+
+	- prénom aléatoire (-rfn)
+	- nom aléatoire (-rln)
+	- adresse e-mail "toto@domain.org"
+	- NOQUOTE (peut être obtenu avec -nq / --noquote)
+	- compilation du CV (--make)
+	
+* ./mainScript.py -rfn -rln -em toto@domain.org -qc "There is no try" -je 5 -te 3
+
+	- prénom aléatoire (-rfn)
+	- nom aléatoire (-rln)
+	- adresse e-mail "toto@domain.org"
+	- quote "There is no try" ('-qc "There is no try"')
+	- compilation du CV (--make)
+	- 5 expériences professionnelles ('-je 5')
+	- 3 formations ('-te 3')
 
 ## Tutoriels et formations Python : 
 * https://docs.python.org/fr/3.8/tutorial/
