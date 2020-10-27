@@ -137,9 +137,9 @@ localListOfSkills = []
 ## ## Interact with user to choose Jobs (randmoly generated)
 while True : 
     futurejob = BiographicTable.selectRandomBiographic()
-    ## TODO indicate remaining to be choosen
     ## TODO the negative choice by default ?
-    userchoice = str(input("\t [Job] Keep ? [Y/n]"));
+    remaining = (personnae.jobeltsnb) - len( personnae.jobs )
+    userchoice = str(input("\t (remaining: %d ) [Job] Keep ? [Y/n]" %(remaining) ));
     if ( (userchoice != "N") and (userchoice != "n") ) :
         personnae.jobs.append( futurejob )
     if ( len( personnae.jobs ) >= personnae.jobeltsnb) : 
@@ -148,9 +148,9 @@ while True :
 ## ## Interact with user to choose Training (randmoly generated)
 while True : 
     futuretrain = BiographicTable.selectRandomTraining()
-    ## TODO indicate remaining to be choosen
     ## TODO the negative choice by default ?
-    userchoice = str(input("\t [Training] Keep ? [Y/n]"));
+    remaining = (personnae.trainingeltsnb) - len( personnae.trainings )
+    userchoice = str(input("\t (remaining: %d ) [Training] Keep ? [Y/n]" %(remaining) ) )
     if ( (userchoice != "N") and (userchoice != "n") ) :
         personnae.trainings.append( futuretrain )
     if ( len( personnae.trainings ) >= personnae.trainingeltsnb) : 
