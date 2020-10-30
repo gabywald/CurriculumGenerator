@@ -13,5 +13,93 @@ __status__ = "Development"
 
 ## ## ## ## ## Main script to generate several Curriculum according to file passed in parameter
 
-# TODO format and reading of the file !
+import sys
 
+import curriculumData
+
+from Person import Person
+
+def is_integer( n ):
+    try:
+        res = int( n )
+        print( res )
+        return True
+    except ValueError:
+        print ("not str: " + n )
+        return False
+
+print('(debugging purposes) Number of arguments:', len(sys.argv), 'arguments.' )
+print('(debugging purposes) Argument List:', str(sys.argv) )
+
+if (len(sys.argv) < 2):
+    print("Please gives one argument: path to the file !")
+    exit(1)
+
+path2file = sys.argv[1]
+
+fileContent = curriculumData.readFileToList( path2file );
+
+## print( fileContent )
+
+for line in fileContent : 
+    if ( not line.startswith( "#" ) ) :
+        lineSplitter = line.split( "\t" )
+        cvStyle = lineSplitter[ 0 ]
+        cvColor = lineSplitter[ 1 ]
+        ## skills = lineSplitter[10], 
+        ## jobs = lineSplitter[11], 
+        ## trainings = lineSplitter[12]
+        nbskills = 0
+        nbjobs = 0
+        nbtrainings = 0
+        lstskills = []
+        lstjobs = []
+        lsttrainings = []
+        if (is_integer( lineSplitter[10] ) ) : 
+            nbskills = int( lineSplitter[10] )
+        else : 
+            lstskills = lineSplitter[10].split( ";" )
+            print( lstskills )
+        if (is_integer( lineSplitter[11] ) ) : 
+            nbjobs = int( lineSplitter[11] )
+        else : 
+            lstjobs = lineSplitter[11].split( ";" )
+            print( lstjobs )
+        if (is_integer( lineSplitter[12] ) ) : 
+            nbtrainings = int( lineSplitter[12] )
+        else : 
+            lsttrainings = lineSplitter[12].split( ";" )
+            print( lsttrainings )
+        personnae = Person( 
+            firstname = lineSplitter[2], 
+            lastname = lineSplitter[3], 
+            extrainfo = lineSplitter[4], 
+            address = lineSplitter[5], 
+            pseudo = lineSplitter[6], 
+            webpage = lineSplitter[7], 
+            email = lineSplitter[8], 
+            quote = lineSplitter[9], 
+            jobeltsnb = nbjobs, 
+            trainingeltsnb = nbtrainings, 
+            skilleltnb = nbskills, 
+            skills = lstskills, 
+            jobs = lstjobs, 
+            trainings = lsttrainings )
+        print( personnae )
+        cmd = "./mainScript "
+        cmd += "--style %s --color %s " %(cvStyle, cvColor)
+        cmd += "-fn %s -ln %s " %(personnae.firstname, personnae.lastname)
+        cmd += "--email %s --pseudo %s " %(personnae.email, personnae.pseudo)
+        cmd += "--webpage %s --address %s " %(personnae.webpage, personnae.address)
+        cmd += "--quote %s --extrainfo %s " %(personnae.quote, personnae.extrainfo)
+        if ( (personnae.jobeltsnb != 0) 
+                and (personnae.trainingeltsnb != 0) 
+                and (personnae.skilleltnb != 0) ) : 
+            cmd += "-se %d -je %d -te %d " %(personnae.jobeltsnb, personnae.trainingeltsnb, personnae.skilleltnb)
+            cmd += "--allyes "
+        else:
+            cmd += ""
+            ## TODO arguments accepting list of {jobs;trainings;skills}
+        
+        print ( cmd + "\n" )
+        ## retcode = subprocess.call( cmd, shell=True )

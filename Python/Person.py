@@ -9,7 +9,7 @@ class Person( object ) :
                  webpage         = None, quote           = None, pseudo       = None, 
                  extrainfo       = None, 
                  jobeltsnb       = None, trainingeltsnb  = None, skilleltnb   = None, 
-                 skills          = None, jobs            = None, trainings    = None):
+                 skills          = [], jobs              = [], trainings      = []):
         self.firstname      = firstname
         self.lastname       = lastname
         self.age            = age
@@ -28,9 +28,9 @@ class Person( object ) :
         self.trainingeltsnb = trainingeltsnb
         self.hardSkills     = []
         self.softSkills     = []
-        self.skills         = []
-        self.jobs           = []
-        self.trainings      = []
+        self.skills         = skills
+        self.jobs           = jobs
+        self.trainings      = trainings
         self.tool           = []
     
     ## implement it if bug need ! => print( [ <instance>] )
@@ -55,5 +55,8 @@ class Person( object ) :
         str += "\t skilleltnb: %s \n" % (self.skilleltnb)
         str += "\t jobeltsnb: %s \n" % (self.jobeltsnb)
         str += "\t trainingeltsnb: %s \n" % (self.trainingeltsnb)
+        str += "\t skills: %s \n" % (self.skills)
+        str += "\t jobs: %s \n" % (self.jobs)
+        str += "\t trainings: %s \n" % (self.trainings)
         return str
 
