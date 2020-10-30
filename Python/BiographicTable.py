@@ -83,8 +83,9 @@ def selectRandomTraining() :
 
 def selectRandomSkill() : 
     """Choose randomly an elements from the Skill table. """
-    baseTable1  = biographictablesDict.get("CompetencesTechniques")
-    baseTable2  = biographictablesDict.get("CompetencesRelationnelles")
-    selected    = random.choice( baseTable1.contents + baseTable1.contents )
+    curriculumDataObj = CVData.loadConfig();
+    baseTable1 = CVData._instance.hardList
+    baseTable2 = CVData._instance.softList 
+    selected = random.choice( baseTable1 + baseTable2 )
     print( selected )
     return selected
