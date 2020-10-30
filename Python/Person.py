@@ -7,6 +7,7 @@ class Person( object ) :
                  generaltitle    = None, title           = None, speciality   = None, 
                  cellphone       = None, address         = None, email        = None, 
                  webpage         = None, quote           = None, pseudo       = None, 
+                 extrainfo       = None, 
                  jobeltsnb       = None, trainingeltsnb  = None, skilleltnb   = None, 
                  skills          = None, jobs            = None, trainings    = None):
         self.firstname      = firstname
@@ -20,6 +21,7 @@ class Person( object ) :
         self.email          = email
         self.webpage        = webpage
         self.quote          = quote
+        self.extrainfo      = extrainfo
         self.pseudo         = pseudo
         self.skilleltnb     = skilleltnb
         self.jobeltsnb      = jobeltsnb
@@ -48,6 +50,7 @@ class Person( object ) :
         str += "\t eMail: %s \n" % (self.email)
         str += "\t WebPage: %s \n" % (self.webpage)
         str += "\t Quote: %s \n" % (self.quote)
+        str += "\t Extra Info: %s \n" % (self.extrainfo)
         str += "\t Pseudo: %s \n" % (self.pseudo)
         str += "\t skilleltnb: %s \n" % (self.skilleltnb)
         str += "\t jobeltsnb: %s \n" % (self.jobeltsnb)

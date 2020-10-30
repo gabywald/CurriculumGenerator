@@ -82,6 +82,33 @@ Une liste des arguments est obtenue avec "./mainScript.py --help".
 	- 5 expériences professionnelles ('-je 5')
 	- 3 formations ('-te 3')
 
+* ./mainScript.py -rfn -rln -em default -qc NOQUOTE -je 4 -te 3 -se 10 -ya -nei
+
+	- prénom aléatoire (-rfn)
+	- nom aléatoire (-rln)
+	- adresse e-mail par défault (à partir nom et prénom, '-em default') 
+	- NOQUOTE
+	- compilation du CV
+	- 5 expériences professionnelles ('-je 5')
+	- 3 formations ('-te 3')
+	- 10 compétences ('-se 10')
+	- acceptation automatique de la sélectyion aléatoire ('-ya')
+	- Pas d'information complémentaire ('-nei')
+
+* ./mainScript.py -rfn -rln -em default -nqc -je 4 -te 3 -se 10 -ya -ei "42 ans"
+
+	- prénom aléatoire (-rfn)
+	- nom aléatoire (-rln)
+	- adresse e-mail par défault (à partir nom et prénom, '-em default') 
+	- NOQUOTE ('nqc')
+	- compilation du CV
+	- 5 expériences professionnelles ('-je 5')
+	- 3 formations ('-te 3')
+	- 10 compétences ('-se 10')
+	- acceptation automatique de la sélectyion aléatoire ('-ya')
+	- Inforrmation en plus "42 ans" ('-ei "42 ans"')
+
+
 ## Tutoriels et formations Python : 
 * https://docs.python.org/fr/3.8/tutorial/
 * https://docs.python.org/fr/3.8/howto/regex.html

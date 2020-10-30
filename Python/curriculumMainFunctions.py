@@ -26,7 +26,9 @@ def testAndGetInList(index, list, alternatevalue) :
         item = alternatevalue
     return item
 
+##### ##### ##### ##### ##### ##### 
 ## Below is reading from arguments
+##### ##### ##### ##### ##### ##### 
 
 parser = argparse.ArgumentParser(
     prog = 'Curriculum Generator', 
@@ -80,6 +82,9 @@ parser.add_argument("-ad", "--address",
 parser.add_argument("-qc", "--quote", 
     help = "Quote / Citation", 
     type=str )
+parser.add_argument("-ei", "--extrainfo", 
+    help = "Extra Info (i.e. age, for exemple)", 
+    type=str )
 
 parser.add_argument("-se", "--skillelements", 
     help = "Number of SKILL Elements", 
@@ -92,7 +97,7 @@ parser.add_argument("-je", "--jobelements",
 parser.add_argument("-te", "--trainingelements", 
     help = "Number of TRAINING Elements", 
     type=int )
-
+    
 parser.add_argument("-rse", "--randomskillelements", 
     help = "Random number of SKILL elements", 
     action = "store_true" )
@@ -105,12 +110,20 @@ parser.add_argument("-rte", "--randomtrainingelements",
     help = "Random number of TRAINING elements", 
     action = "store_true" )
 
-parser.add_argument("-nq", "--noquote", 
+parser.add_argument("-nqc", "--noquote", 
+    help = "NO quote / Citation", 
+    action = "store_true" )
+
+parser.add_argument("-nei", "--noextrainfo", 
     help = "NO quote / Citation", 
     action = "store_true" )
 
 parser.add_argument("-m", "--make", 
     help = "Launch Making of PDF from TeX file", 
+    action = "store_true" )
+
+parser.add_argument("-ya", "--allyes", 
+    help = "Automatically yes for generated elements / questions", 
     action = "store_true" )
 
 def parsingArgs() :

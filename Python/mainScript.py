@@ -15,8 +15,8 @@ __status__ = "Development"
 
 import sys
 
-print('(debugging pourposes) Number of arguments:', len(sys.argv), 'arguments.' )
-print('(debugging pourposes) Argument List:', str(sys.argv) )
+print('(debugging purposes) Number of arguments:', len(sys.argv), 'arguments.' )
+print('(debugging purposes) Argument List:', str(sys.argv) )
 
 from pathlib import Path
 from datetime import datetime
@@ -98,6 +98,12 @@ if args.noquote :
 else:
     if ( (hasattr(args, 'quote')) and (args.quote != None) ) :
         personnae.quote = args.quote
+        
+if args.noextrainfo : 
+    personnae.extrainfo = "NOEXTRAINFO"
+else:
+    if ( (hasattr(args, 'extrainfo')) and (args.extrainfo != None) ) :
+        personnae.extrainfo = args.extrainfo
 
 if (args.randomjobelements) :
     personnae.skilleltnb = random.randint(1, 20)
@@ -126,6 +132,9 @@ if (personnae.email == None) :
 if (personnae.quote == None) : 
     personnae.quote = str(input("quote / citation ?"))
 
+if (personnae.extrainfo == None) : 
+    personnae.extrainfo = str(input("extra info ?"))
+
 if (personnae.skilleltnb == None) : 
     personnae.skilleltnb = int(input("Number of Skills elements ?"))
 
@@ -139,7 +148,7 @@ if (personnae.address == None) :
     personnae.address = "1337 Grand Boulevard -- 61337 Section 42"
 
 if (personnae.webpage == None) : 
-    personnae.webpage = "http://" + personnae.firstname.lower() + "." + personnae.lastname.lower() + ".personnalbranding.com"
+    personnae.webpage = personnae.firstname.lower() + "." + personnae.lastname.lower() + ".personnalbranding.com"
 
 print( personnae )
 
@@ -148,7 +157,11 @@ while True :
     futureskill = BiographicTable.selectRandomSkill()
     ## TODO the negative choice by default ?
     remaining = (personnae.skilleltnb) - len( personnae.skills )
-    userchoice = str(input("\t (remaining: %d ) [Skill] Keep ? [Y/n]" %(remaining) ));
+    userchoice = None
+    if ( args.allyes ) : 
+        userchoice = "Y"
+    else : 
+        userchoice = str(input("\t (remaining: %d ) [Skill] Keep ? [Y/n]" %(remaining) ));
     if ( (userchoice != "N") and (userchoice != "n") ) :
         personnae.skills.append( futureskill )
     if ( len( personnae.skills ) >= personnae.skilleltnb) : 
@@ -159,7 +172,11 @@ while True :
     futurejob = BiographicTable.selectRandomBiographic()
     ## TODO the negative choice by default ?
     remaining = (personnae.jobeltsnb) - len( personnae.jobs )
-    userchoice = str(input("\t (remaining: %d ) [Job] Keep ? [Y/n]" %(remaining) ));
+    userchoice = None
+    if ( args.allyes ) : 
+        userchoice = "Y"
+    else : 
+        userchoice = str(input("\t (remaining: %d ) [Job] Keep ? [Y/n]" %(remaining) ));
     if ( (userchoice != "N") and (userchoice != "n") ) :
         personnae.jobs.append( futurejob )
     if ( len( personnae.jobs ) >= personnae.jobeltsnb) : 
@@ -170,7 +187,11 @@ while True :
     futuretrain = BiographicTable.selectRandomTraining()
     ## TODO the negative choice by default ?
     remaining = (personnae.trainingeltsnb) - len( personnae.trainings )
-    userchoice = str(input("\t (remaining: %d ) [Training] Keep ? [Y/n]" %(remaining) ) )
+    userchoice = None
+    if ( args.allyes ) : 
+        userchoice = "Y"
+    else : 
+        userchoice = str(input("\t (remaining: %d ) [Training] Keep ? [Y/n]" %(remaining) ) )
     if ( (userchoice != "N") and (userchoice != "n") ) :
         personnae.trainings.append( futuretrain )
     if ( len( personnae.trainings ) >= personnae.trainingeltsnb) : 
@@ -217,6 +238,7 @@ with open( texcurriculumDirectory + texcurriculumFileName + ".tex", 'w') as curr
     curriculumGenerationtest.write( curriculumGeneration.getEMailDefinition(email = personnae.email) + "\n" )
     curriculumGenerationtest.write( curriculumGeneration.getWebSiteDefinition(webpage = personnae.webpage) + "\n" )
     curriculumGenerationtest.write( curriculumGeneration.getQuoteDefinition(quote = personnae.quote) + "\n" )
+    curriculumGenerationtest.write( curriculumGeneration.getExtraInformation(extrainfo = personnae.extrainfo) + "\n" )
     curriculumGenerationtest.write( "\n\n" )
     ## More header
     curriculumGenerationtest.write( curriculumGeneration.getFancyStyle() + "\n\n" )
