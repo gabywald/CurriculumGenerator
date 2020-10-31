@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 # -*- coding: utf-8 -*- 
 
+# Person class [hold an details of a person]
 class Person( object ) : 
     def __init__(self,
                  firstname       = None, lastname        = None, age          = None, 
