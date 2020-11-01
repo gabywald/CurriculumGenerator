@@ -26,6 +26,26 @@ def testAndGetInList(index, list, alternatevalue) :
         item = alternatevalue
     return item
 
+def askForInt( txtmsg ) : 
+    data = None
+    while ( data == None ):
+        try:
+            data = int(input( txtmsg ))
+        except ValueError:
+            print("Please enter digits")
+    return data
+
+def askForStrNotEmpty( txtmsg ) : 
+    data = None
+    while ( ( data == None ) or (data == '') ):
+        try:
+            data = str(input( txtmsg ))
+        except ValueError:
+            print("Please enter not empty alphanumerics")
+        if ( data == '' ) : 
+            print("Please enter not empty alphanumerics")
+    return data
+
 ##### ##### ##### ##### ##### ##### 
 ## Below is reading from arguments
 ##### ##### ##### ##### ##### ##### 

@@ -69,10 +69,10 @@ if (args.randomlastname) :
     personnae.lastname = random.choice( curriculumDataObj.lastNameList )
 
 if (personnae.firstname == None) : 
-    personnae.firstname = str(input("First Name? "))
+	personnae.firstname = curriculumMainFunctions.askForStrNotEmpty( "First Name? " )
 
 if (personnae.lastname == None) : 
-    personnae.lastname = str(input("Last Name? "))
+    personnae.lastname = curriculumMainFunctions.askForStrNotEmpty( "Last Name? " )
 
 print( "CV firstname: " + personnae.firstname )
 print( "CV lastname : " + personnae.lastname )
@@ -130,19 +130,19 @@ if (personnae.email == None) :
         personnae.email = defaultemail
 
 if (personnae.quote == None) : 
-    personnae.quote = str(input("quote / citation ?"))
+    personnae.quote = curriculumMainFunctions.askForStrNotEmpty( "quote / citation ?" )
 
 if (personnae.extrainfo == None) : 
-    personnae.extrainfo = str(input("extra info ?"))
+    personnae.extrainfo = curriculumMainFunctions.askForStrNotEmpty( "extra info ?" )
 
 if (personnae.skilleltnb == None) : 
-    personnae.skilleltnb = int(input("Number of Skills elements ?"))
+    personnae.skilleltnb = curriculumMainFunctions.askForInt( "Number of Skills elements ?" )
 
 if (personnae.jobeltsnb == None) : 
-    personnae.jobeltsnb = int(input("Number of Jobs elements ?"))
+    personnae.jobeltsnb = curriculumMainFunctions.askForInt( "Number of Jobs elements ?" )
 
 if (personnae.trainingeltsnb == None) : 
-    personnae.trainingeltsnb = int(input("number of Training elements ?"))
+    personnae.trainingeltsnb = curriculumMainFunctions.askForInt( "Number of Training elements ?" )
     
 if (personnae.address == None) : 
     personnae.address = "1337 Grand Boulevard -- 61337 Section 42"
@@ -242,6 +242,7 @@ with open( texcurriculumDirectory + texcurriculumFileName + ".tex", 'w') as curr
     curriculumGenerationtest.write( "\n\n" )
     ## More header
     curriculumGenerationtest.write( curriculumGeneration.getFancyStyle() + "\n\n" )
+    ## TODO print personnae.skills in keywords !
     curriculumGenerationtest.write( "\\def\\motsClefs{LaTeX;PDF;Python;Python3...}\n\n" )
     curriculumGenerationtest.write( curriculumGeneration.getHyperSetup() + "\n\n" )
     curriculumGenerationtest.write( curriculumGeneration.getDefVariables() + "\n\n" )
