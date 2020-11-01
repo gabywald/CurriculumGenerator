@@ -1,26 +1,28 @@
 #!/usr/bin/python3
-# -*- coding: utf-8 -*- ## useless in python 3 ? ; default is unicode ?
+# -*- coding: utf-8 -*- default is unicode in python3 ?
 
-__author__        = "Gabriel Chandesris"
-__copyright__    = "CC Gabriel Chandesris (2020)"
-__credits__        = ""
-__licence__        = "GNU GENERAL PUBLIC LICENSE v3"
-__version__        = "0.1.0"
-__maintainer__    = "Gabriel Chandesris"
-__email__        = "gabywald[at]laposte.net"
-__contact__        = "gabywald[at]laposte.net"
-__status__        = "Development"
+__author__ = "Gabriel Chandesris"
+__copyright__ = "CC Gabriel Chandesris (2020)"
+__credits__ = ""
+__licence__ = "GNU GENERAL PUBLIC LICENSE v3"
+__version__ = "0.1.0"
+__maintainer__ = "Gabriel Chandesris"
+__email__ = "gabywald[at]laposte.net"
+__contact__ = "gabywald[at]laposte.net"
+__status__ = "Development"
+
+## ## ## ## ## Main Script to generate a Curriculum, according to parameters indicated !
 
 import sys
 
-print('(debugging pourposes) Number of arguments:', len(sys.argv), 'arguments.' )
-print('(debugging pourposes) Argument List:', str(sys.argv) )
+print('(debugging purposes) Number of arguments:', len(sys.argv), 'arguments.' )
+print('(debugging purposes) Argument List:', str(sys.argv) )
 
 from pathlib import Path
 from datetime import datetime
 
 import shutil
-
+import os
 import random
 
 import curriculumMainFunctions
@@ -53,10 +55,10 @@ print( "CV COLOR : " + cvColor )
 personnae = Person()
 
 if ( (hasattr(args, 'firstname')) and (args.firstname != None) ) :
-    personnae.firstname    = args.firstname
+    personnae.firstname = args.firstname
     
 if ( (hasattr(args, 'lastname')) and (args.lastname != None) ) :
-    personnae.lastname    = args.lastname
+    personnae.lastname = args.lastname
 
 ## print ( curriculumDataObj.firstNameList )
 if (args.randomfirstname) :
@@ -67,10 +69,10 @@ if (args.randomlastname) :
     personnae.lastname = random.choice( curriculumDataObj.lastNameList )
 
 if (personnae.firstname == None) : 
-    personnae.firstname = str(input("First Name? "))
+	personnae.firstname = curriculumMainFunctions.askForStrNotEmpty( "First Name? " )
 
 if (personnae.lastname == None) : 
-    personnae.lastname = str(input("Last Name? "))
+    personnae.lastname = curriculumMainFunctions.askForStrNotEmpty( "Last Name? " )
 
 print( "CV firstname: " + personnae.firstname )
 print( "CV lastname : " + personnae.lastname )
@@ -96,6 +98,18 @@ if args.noquote :
 else:
     if ( (hasattr(args, 'quote')) and (args.quote != None) ) :
         personnae.quote = args.quote
+        
+if args.noextrainfo : 
+    personnae.extrainfo = "NOEXTRAINFO"
+else:
+    if ( (hasattr(args, 'extrainfo')) and (args.extrainfo != None) ) :
+        personnae.extrainfo = args.extrainfo
+
+if (args.randomjobelements) :
+    personnae.skilleltnb = random.randint(1, 20)
+
+if ( (hasattr(args, 'skillelements')) and (args.skillelements != None) ) :
+    personnae.skilleltnb = args.skillelements
 
 if (args.randomjobelements) :
     personnae.jobeltsnb = random.randint(1, 20)
@@ -116,41 +130,68 @@ if (personnae.email == None) :
         personnae.email = defaultemail
 
 if (personnae.quote == None) : 
-    personnae.quote = str(input("quote / citation ?"))
+    personnae.quote = curriculumMainFunctions.askForStrNotEmpty( "quote / citation ?" )
+
+if (personnae.extrainfo == None) : 
+    personnae.extrainfo = curriculumMainFunctions.askForStrNotEmpty( "extra info ?" )
+
+if (personnae.skilleltnb == None) : 
+    personnae.skilleltnb = curriculumMainFunctions.askForInt( "Number of Skills elements ?" )
 
 if (personnae.jobeltsnb == None) : 
-    personnae.jobeltsnb = int(input("Number of Jobs elements ?"))
+    personnae.jobeltsnb = curriculumMainFunctions.askForInt( "Number of Jobs elements ?" )
 
 if (personnae.trainingeltsnb == None) : 
-    personnae.trainingeltsnb = int(input("number of Training elements ?"))
-
+    personnae.trainingeltsnb = curriculumMainFunctions.askForInt( "Number of Training elements ?" )
+    
 if (personnae.address == None) : 
     personnae.address = "1337 Grand Boulevard -- 61337 Section 42"
 
 if (personnae.webpage == None) : 
-    personnae.webpage = "http://" + personnae.firstname.lower() + "." + personnae.lastname.lower() + ".personnalbranding.com"
+    personnae.webpage = personnae.firstname.lower() + "." + personnae.lastname.lower() + ".personnalbranding.com"
 
 print( personnae )
 
-localListOfSkills = []
+## ## Interact with user to choose Skills (randomly generated)
+while True : 
+    futureskill = BiographicTable.selectRandomSkill()
+    ## TODO the negative choice by default ?
+    remaining = (personnae.skilleltnb) - len( personnae.skills )
+    userchoice = None
+    if ( args.allyes ) : 
+        userchoice = "Y"
+    else : 
+        userchoice = str(input("\t (remaining: %d ) [Skill] Keep ? [Y/n]" %(remaining) ));
+    if ( (userchoice != "N") and (userchoice != "n") ) :
+        personnae.skills.append( futureskill )
+    if ( len( personnae.skills ) >= personnae.skilleltnb) : 
+        break
 
-## ## Interact with user to choose Jobs (randmoly generated)
+## ## Interact with user to choose Jobs (randomly generated)
 while True : 
     futurejob = BiographicTable.selectRandomBiographic()
-    ## TODO indicate remaining to be choosen
     ## TODO the negative choice by default ?
-    userchoice = str(input("\t [Job] Keep ? [Y/n]"));
+    remaining = (personnae.jobeltsnb) - len( personnae.jobs )
+    userchoice = None
+    if ( args.allyes ) : 
+        userchoice = "Y"
+    else : 
+        userchoice = str(input("\t (remaining: %d ) [Job] Keep ? [Y/n]" %(remaining) ));
     if ( (userchoice != "N") and (userchoice != "n") ) :
         personnae.jobs.append( futurejob )
     if ( len( personnae.jobs ) >= personnae.jobeltsnb) : 
         break
 
-## ## Interact with user to choose Training (randmoly generated)
+## ## Interact with user to choose Training (randomly generated)
 while True : 
     futuretrain = BiographicTable.selectRandomTraining()
-    ## TODO indicate remaining to be choosen
     ## TODO the negative choice by default ?
-    userchoice = str(input("\t [Training] Keep ? [Y/n]"));
+    remaining = (personnae.trainingeltsnb) - len( personnae.trainings )
+    userchoice = None
+    if ( args.allyes ) : 
+        userchoice = "Y"
+    else : 
+        userchoice = str(input("\t (remaining: %d ) [Training] Keep ? [Y/n]" %(remaining) ) )
     if ( (userchoice != "N") and (userchoice != "n") ) :
         personnae.trainings.append( futuretrain )
     if ( len( personnae.trainings ) >= personnae.trainingeltsnb) : 
@@ -175,8 +216,9 @@ path = Path( texcurriculumDirectory )
 if ( path.exists() ) :
     print("Removing some resources...")
     shutil.rmtree( texcurriculumDirectory )
-print( "Copying some resources..." )
-shutil.copytree( "../resources/latexSamples/img/", texcurriculumDirectory + "img/" )
+## print( "Copying some resources..." )
+## shutil.copytree( "../resources/latexSamples/img/", texcurriculumDirectory + "img/" )
+os.mkdir( texcurriculumDirectory )
 
 ## Generate Makefile
 print( "Creating Makefile..." )
@@ -196,9 +238,11 @@ with open( texcurriculumDirectory + texcurriculumFileName + ".tex", 'w') as curr
     curriculumGenerationtest.write( curriculumGeneration.getEMailDefinition(email = personnae.email) + "\n" )
     curriculumGenerationtest.write( curriculumGeneration.getWebSiteDefinition(webpage = personnae.webpage) + "\n" )
     curriculumGenerationtest.write( curriculumGeneration.getQuoteDefinition(quote = personnae.quote) + "\n" )
+    curriculumGenerationtest.write( curriculumGeneration.getExtraInformation(extrainfo = personnae.extrainfo) + "\n" )
     curriculumGenerationtest.write( "\n\n" )
-    ## more header
+    ## More header
     curriculumGenerationtest.write( curriculumGeneration.getFancyStyle() + "\n\n" )
+    ## TODO print personnae.skills in keywords !
     curriculumGenerationtest.write( "\\def\\motsClefs{LaTeX;PDF;Python;Python3...}\n\n" )
     curriculumGenerationtest.write( curriculumGeneration.getHyperSetup() + "\n\n" )
     curriculumGenerationtest.write( curriculumGeneration.getDefVariables() + "\n\n" )
@@ -206,10 +250,16 @@ with open( texcurriculumDirectory + texcurriculumFileName + ".tex", 'w') as curr
     curriculumGenerationtest.write( "\\begin{document}\n\n\\maketitle\n\n" )
     ## Compétences
     curriculumGenerationtest.write( "\\section{Comp{\\'e}tences}\n")
-    curriculumGenerationtest.write( "\t Introduction Text !!\n\n" )
-    ## TODO add some skills (hard and soft) to put in description !
-    curriculumGenerationtest.write( "\t \\cvdoubleitem{ Item1 }{ Description1 }{ Item2 }{ Description2 }\n\n" )
-    curriculumGenerationtest.write( "\t \\cvcomputer{ Item1 }{ Description1 }{ Item2 }{ Description2 }\n\n" )
+    curriculumGenerationtest.write( "\t Introduction Text !!~\\\\ \n\n" )
+    for i in range(0, len(personnae.skills), 4) : 
+    	item1 = personnae.skills[ i + 0 ]
+    	item2 = curriculumMainFunctions.testAndGetInList( i+1, personnae.skills, "--" )
+    	item3 = curriculumMainFunctions.testAndGetInList( i+2, personnae.skills, "--" )
+    	item4 = curriculumMainFunctions.testAndGetInList( i+3, personnae.skills, "--" )
+    	curriculumGenerationtest.write( "\t \\cvcomputer{ %s }{ %s }{ %s }{ %s }\n" %( item1, item2, item3, item4) )
+    # curriculumGenerationtest.write( "\t \\cvdoubleitem{ Item1 }{ Description1 }{ Item2 }{ Description2 }\n" )
+    # curriculumGenerationtest.write( "\t \\cvcomputer{ Item1 }{ Description1 }{ Item2 }{ Description2 }\n" )
+    curriculumGenerationtest.write( "\n" )
     ## Professionnal Experiences
     curriculumGenerationtest.write( "\\section{Exp{\\'e}rience professionnelle}\n" )
     for eltJOB in personnae.jobs : 

@@ -18,7 +18,37 @@ def launcheMakePDFfromLaTeX( directory ) :
     print( "Changing dir BACK..." )
     os.chdir( ".." )
 
+def testAndGetInList(index, list, alternatevalue) : 
+    item = None
+    if ( index < len( list ) ) : 
+        item = list[ index ]
+    else: 
+        item = alternatevalue
+    return item
+
+def askForInt( txtmsg ) : 
+    data = None
+    while ( data == None ):
+        try:
+            data = int(input( txtmsg ))
+        except ValueError:
+            print("Please enter digits")
+    return data
+
+def askForStrNotEmpty( txtmsg ) : 
+    data = None
+    while ( ( data == None ) or (data == '') ):
+        try:
+            data = str(input( txtmsg ))
+        except ValueError:
+            print("Please enter not empty alphanumerics")
+        if ( data == '' ) : 
+            print("Please enter not empty alphanumerics")
+    return data
+
+##### ##### ##### ##### ##### ##### 
 ## Below is reading from arguments
+##### ##### ##### ##### ##### ##### 
 
 parser = argparse.ArgumentParser(
     prog = 'Curriculum Generator', 
@@ -72,14 +102,25 @@ parser.add_argument("-ad", "--address",
 parser.add_argument("-qc", "--quote", 
     help = "Quote / Citation", 
     type=str )
-    
+parser.add_argument("-ei", "--extrainfo", 
+    help = "Extra Info (i.e. age, for exemple)", 
+    type=str )
+
+parser.add_argument("-se", "--skillelements", 
+    help = "Number of SKILL Elements", 
+    type=int )
+
 parser.add_argument("-je", "--jobelements", 
-    help = "Number of JOBS Elements", 
+    help = "Number of JOB Elements", 
     type=int )
     
 parser.add_argument("-te", "--trainingelements", 
     help = "Number of TRAINING Elements", 
     type=int )
+    
+parser.add_argument("-rse", "--randomskillelements", 
+    help = "Random number of SKILL elements", 
+    action = "store_true" )
 
 parser.add_argument("-rje", "--randomjobelements", 
     help = "Random number of JOB elements", 
@@ -89,12 +130,20 @@ parser.add_argument("-rte", "--randomtrainingelements",
     help = "Random number of TRAINING elements", 
     action = "store_true" )
 
-parser.add_argument("-nq", "--noquote", 
+parser.add_argument("-nqc", "--noquote", 
+    help = "NO quote / Citation", 
+    action = "store_true" )
+
+parser.add_argument("-nei", "--noextrainfo", 
     help = "NO quote / Citation", 
     action = "store_true" )
 
 parser.add_argument("-m", "--make", 
     help = "Launch Making of PDF from TeX file", 
+    action = "store_true" )
+
+parser.add_argument("-ya", "--allyes", 
+    help = "Automatically yes for generated elements / questions", 
     action = "store_true" )
 
 def parsingArgs() :

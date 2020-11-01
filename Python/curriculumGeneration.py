@@ -71,22 +71,31 @@ def getAddressDefinition(address = "1337 Grand Boulevard -- 61337 Section") :
     return "\\def\\adressePhysique{ " + address + " }\n"
 
 def getEMailDefinition(email = "firstname.lastname@provider.ext") : 
-    return "\\def\\eMail{ " + email + " }\n"
+    return "\\def\\eMail{" + email + "}\n"
     
-def getWebSiteDefinition(webpage = "http://www.siteweb.com") : 
-    return "\\def\\pageWeb{ " + webpage + " } \n"
+def getWebSiteDefinition(webpage = "www.siteweb.com") : 
+    return "\\def\\pageWeb{" + webpage + "} \n"
 
-def getQuoteDefinition(quote = "Quotation Citation") : 
-    return "\\def\\quotationCitation{ " + quote + " } \n"
+def getQuoteDefinition(quote = "NOQUOTE") : 
+    if ( (quote != None) and (quote != "NOQUOTE") ): 
+        return "\\def\\quotationCitation{ " + quote + " } \n"
+    else:
+    	return "%% NOQUOTE"
+    	
+def getExtraInformation(extrainfo = "NOEXTRAINFO") : 
+    if ( (extrainfo != None) and (extrainfo != "NOEXTRAINFO") ): 
+        return "\\def\\extrainfoDATA{ " + extrainfo + " } \n"
+    else:
+    	return "%% NOEXTRAINFO"
     
 def getFancyStyle() : 
     str = "%% Fancy Style Defintion (and collateral elements)\n"
     str += "\\usepackage{lastpage}\n"
     str += "\n"
-    str += "\\def\\logoGliderNorma{img/logo_glider.png}\n"
-    str += "\\def\\logoGliderRight{img/logo-glider-right.png}\n"
-    str += "\\def\\logoGliderLeftt{img/logo-glider-left.png}\n"
-    str += "\\def\\logoCreativeCommon{img/CreativeCommonLogo.jpeg}\n"
+    str += "\\def\\logoGliderNorma{../../resources/latexSamples/img/logo_glider.png}\n"
+    str += "\\def\\logoGliderRight{../../resources/latexSamples/img/logo-glider-right.png}\n"
+    str += "\\def\\logoGliderLeftt{../../resources/latexSamples/img/logo-glider-left.png}\n"
+    str += "\\def\\logoCreativeCommon{../../resources/latexSamples/img/CreativeCommonLogo.jpeg}\n"
     str += "\\def\\includeLogoGN{\\includegraphics[width=0.50cm]{\\logoGliderNorma }}\n"
     str += "\\def\\includeLogoGR{\\includegraphics[width=0.50cm]{\\logoGliderRight }}\n"
     str += "\\def\\includeLogoGL{\\includegraphics[width=0.50cm]{\\logoGliderLeftt }}\n"
@@ -104,7 +113,7 @@ def getFancyStyle() :
     str += "\t}\n"
     str += "\t\\fancyfoot[LE]{\n"
     str += "\t\\includegraphics[width=0.5cm]{\\logoGliderLeftt } \\hfill\n"
-    str += "\t\t\\includeLogoCC  \\prenomNom  -- \\today -- \\emph{Curriculum Generator (Python)} \\hfill %% \\copyright\n"
+    str += "\t\t\\includeLogoCC \\today -- \\emph{Curriculum Generator (Python)} \\hfill %% \\copyright\n"
     str += "\t\t\\thepage /\\pageref{LastPage}\n"
     str += "\t}\n"
     str += "\n"
@@ -117,7 +126,7 @@ def getFancyStyle() :
     str += "\t}\n"
     str += "\t\\fancyfoot[RO]{\n"
     str += "\t\t\\thepage /\\pageref{LastPage} \\hfill\n"
-    str += "\t\t\\includeLogoCC  \\prenomNom  -- \\today -- \\emph{Curriculum Generator (Python)} \\hfill %% \\copyright\n"
+    str += "\t\t\\includeLogoCC \\today -- \\emph{Curriculum Generator (Python)} \\hfill %% \\copyright\n"
     str += "\t\t\\includegraphics[width=0.5cm]{\\logoGliderRight }\n"
     str += "\t}\n"
     str += "\t\\renewcommand{\\headrulewidth}{0.25pt}\n"
@@ -152,17 +161,18 @@ def getDefVariables() :
     str += "\\email{\\eMail }\n"
     str += "\\homepage{\\pageWeb }\n"
     str += "\\mobile{\\portable }\n"
-    str += "\\quote{ \\quotationCitation }\n"
+    ## str += "\\quote{ \\quotationCitation }\n"
+    str += "\\ifdefined\\quotationCitation\n\\quote{ \\quotationCitation }\\fi\n"
+    str += "\\ifdefined\\extrainfoDATA\n\\extrainfo{ \\extrainfoDATA }\\fi\n"
     str += "%% \\phone{00 00 00 00 00}\n"
     str += "%% \\fax{00 00 00 00 00}\n"
     str += "%% \\photo[64pt][0.4pt]{img/logo_glider.png}\n"
     str += "%% \\phone[mobile]{\\portable } %% \\phone[mobile]{06~12~34~56~78}\n"
     str += "%% \\phone[fixed]{01~01~01~01~01}\n"
     str += "%% \\phone[fax]{01~01~01~01~01}\n"
-    str += "\\social[linkedin]{ LinkedInProfile }        %% https://www.linkedin.com/in/.../\n"
-    str += "\\social[github]{ GitHubProfile }            %% https://github.com/...\n"
-    str += "%% \\social[facebook]{ FaceBookProfile }    %% https://www.facebook.com/...\n"
-    str += "\\social[twitter]{ TwitterPage }            %% https://twitter.com/...\n"
-    str += "%% \\extrainfo{ More Informations (Age...}\n"
+    str += "%% \\social[linkedin]{LinkedInProfile}    %% https://www.linkedin.com/in/.../\n"
+    str += "%% \\social[github]{GitHubProfile}        %% https://github.com/...\n"
+    str += "%% \\social[facebook]{FaceBookProfile}    %% https://www.facebook.com/...\n"
+    str += "%% \\social[twitter]{TwitterPage}         %% https://twitter.com/...\n"
     return str
 

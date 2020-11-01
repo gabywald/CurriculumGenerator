@@ -80,3 +80,12 @@ def selectRandomTraining() :
     domain      = random.choice( biographictablesDict.get("Domaine").contents )
     print( selected + "// " + domain)
     return [selected, domain]
+
+def selectRandomSkill() : 
+    """Choose randomly an elements from the Skill table. """
+    curriculumDataObj = CVData.loadConfig();
+    baseTable1 = CVData._instance.hardList
+    baseTable2 = CVData._instance.softList 
+    selected = random.choice( baseTable1 + baseTable2 )
+    print( selected )
+    return selected

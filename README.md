@@ -24,3 +24,14 @@ Une des idées principales de départ est de générer aléatoirement (ou pas, e
 * Noms d'entreprises, instituts, associations...
 
 Le contenu de ces fichiers est à adapter en fonction de l'usage, ils permettent déjà d'obtenir de bons exemples de contenu. 
+
+## Sources pour les contenus
+
+Pour les noms d'entreprises et slogans, secteurs d'acivités : 
+* Nanochrome, NanoChrome² et Nanodex (Par John Grümph)
+* CyberPunk 2020, CyberPunk Red (Mike Pondsmith et al.)
+* Séries TV *DarkAngel* et *Kyle XY*
+
+Également pour la génération de quelques autres noms : 
+* Uplink "Hacker Elite" (Introversion Software) et "mods" associés
+

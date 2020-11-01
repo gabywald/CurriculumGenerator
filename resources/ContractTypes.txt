@@ -3,3 +3,4 @@ CDI
 Stage
 Intérim
 Mission
+Freelance

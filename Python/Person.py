@@ -7,7 +7,9 @@ class Person( object ) :
                  generaltitle    = None, title           = None, speciality   = None, 
                  cellphone       = None, address         = None, email        = None, 
                  webpage         = None, quote           = None, pseudo       = None, 
-                 jobeltsnb       = None, trainingeltsnb  = None, trainings    = None):
+                 extrainfo       = None, 
+                 jobeltsnb       = None, trainingeltsnb  = None, skilleltnb   = None, 
+                 skills          = [], jobs              = [], trainings      = []):
         self.firstname      = firstname
         self.lastname       = lastname
         self.age            = age
@@ -19,13 +21,16 @@ class Person( object ) :
         self.email          = email
         self.webpage        = webpage
         self.quote          = quote
+        self.extrainfo      = extrainfo
         self.pseudo         = pseudo
+        self.skilleltnb     = skilleltnb
         self.jobeltsnb      = jobeltsnb
         self.trainingeltsnb = trainingeltsnb
         self.hardSkills     = []
         self.softSkills     = []
-        self.jobs           = []
-        self.trainings      = []
+        self.skills         = skills
+        self.jobs           = jobs
+        self.trainings      = trainings
         self.tool           = []
     
     ## implement it if bug need ! => print( [ <instance>] )
@@ -45,8 +50,13 @@ class Person( object ) :
         str += "\t eMail: %s \n" % (self.email)
         str += "\t WebPage: %s \n" % (self.webpage)
         str += "\t Quote: %s \n" % (self.quote)
+        str += "\t Extra Info: %s \n" % (self.extrainfo)
         str += "\t Pseudo: %s \n" % (self.pseudo)
+        str += "\t skilleltnb: %s \n" % (self.skilleltnb)
         str += "\t jobeltsnb: %s \n" % (self.jobeltsnb)
         str += "\t trainingeltsnb: %s \n" % (self.trainingeltsnb)
+        str += "\t skills: %s \n" % (self.skills)
+        str += "\t jobs: %s \n" % (self.jobs)
+        str += "\t trainings: %s \n" % (self.trainings)
         return str
 
