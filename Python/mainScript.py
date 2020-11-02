@@ -31,9 +31,6 @@ import curriculumGeneration
 from Person import Person
 from curriculumData import CVData
 
-import BiographicTable
-BiographicTable.loadTables()
-
 args = curriculumMainFunctions.parsingArgs()
 
 curriculumDataObj = CVData.loadConfig();
@@ -55,33 +52,16 @@ print( "CV COLOR : " + cvColor )
 personnae = Person()
 
 ## ## ## ## ## Data From Arguments
-if ( (hasattr(args, 'firstname')) and (args.firstname != None) ) :
-    personnae.firstname = args.firstname
+personnae.firstname = curriculumMainFunctions.checkArgsAndReturn( args, 'firstname', args.firstname )
+personnae.lastname = curriculumMainFunctions.checkArgsAndReturn( args, 'lastname', args.lastname )
+personnae.generaltitle = curriculumMainFunctions.checkArgsAndReturn( args, 'generaltitle', args.generaltitle )
+personnae.title = curriculumMainFunctions.checkArgsAndReturn( args, 'title', args.title )
+personnae.speciality = curriculumMainFunctions.checkArgsAndReturn( args, 'speciality', args.speciality )
+personnae.cellphone = curriculumMainFunctions.checkArgsAndReturn( args, 'cellphone', args.cellphone )
+personnae.address = curriculumMainFunctions.checkArgsAndReturn( args, 'address', args.address )
+personnae.webpage = curriculumMainFunctions.checkArgsAndReturn( args, 'webpage', args.webpage )
+personnae.cellphone = curriculumMainFunctions.checkArgsAndReturn( args, 'cellphone', args.cellphone )
     
-if ( (hasattr(args, 'lastname')) and (args.lastname != None) ) :
-    personnae.lastname = args.lastname
-
-if ( (hasattr(args, 'generaltitle')) and (args.generaltitle != None) ) :
-    personnae.generaltitle = args.generaltitle
-
-if ( (hasattr(args, 'title')) and (args.title != None) ) :
-    personnae.title = args.title
-
-if ( (hasattr(args, 'speciality')) and (args.speciality != None) ) :
-    personnae.speciality = args.speciality
-
-if ( (hasattr(args, 'cellphone')) and (args.cellphone != None) ) :
-    personnae.cellphone = args.cellphone
-
-if ( (hasattr(args, 'address')) and (args.address != None) ) :
-    personnae.address = args.address
-
-if ( (hasattr(args, 'cellphone')) and (args.cellphone != None) ) :
-    personnae.cellphone = args.cellphone
-    
-if ( (hasattr(args, 'webpage')) and (args.webpage != None) ) :
-    personnae.webpage = args.webpage
-
 if args.noquote : 
     personnae.quote = "NOQUOTE"
 else:
@@ -91,8 +71,7 @@ else:
 if args.noextrainfo : 
     personnae.extrainfo = "NOEXTRAINFO"
 else:
-    if ( (hasattr(args, 'extrainfo')) and (args.extrainfo != None) ) :
-        personnae.extrainfo = args.extrainfo
+    personnae.extrainfo = curriculumMainFunctions.checkArgsAndReturn( args, 'extrainfo', args.extrainfo )
 
 if ( (hasattr(args, 'listskillelements')) and (args.listskillelements != None) ) :
     personnae.skilleltnb = 0
@@ -111,20 +90,19 @@ if ( (hasattr(args, 'listtrainingelements')) and (args.listtrainingelements != N
 if (args.randomjobelements) :
     personnae.skilleltnb = random.randint(1, 20)
 
-if ( (hasattr(args, 'skillelements')) and (args.skillelements != None) ) :
-    personnae.skilleltnb = args.skillelements
-
 if (args.randomjobelements) :
     personnae.jobeltsnb = random.randint(1, 20)
-
-if ( (hasattr(args, 'jobelements')) and (args.jobelements != None) ) :
-    personnae.jobeltsnb = args.jobelements
 
 if (args.randomtrainingelements) :
     personnae.trainingeltsnb = random.randint(1, 5)
 
-if ( (hasattr(args, 'trainingelements')) and (args.trainingelements != None) ) :
-    personnae.trainingeltsnb = args.trainingelements
+personnae.skilleltnb = curriculumMainFunctions.checkArgsAndReturn( args, 'skillelements', args.skillelements )
+personnae.jobeltsnb = curriculumMainFunctions.checkArgsAndReturn( args, 'jobelements', args.jobelements )
+personnae.trainingeltsnb = curriculumMainFunctions.checkArgsAndReturn( args, 'trainingelements', args.trainingelements )
+
+print (personnae.skilleltnb )
+print (personnae.jobeltsnb )
+print (personnae.trainingeltsnb )
 
 ## ## ## ## ## Random Generation Part 1
 ## Random Generation of First Name
@@ -173,16 +151,16 @@ else:
     personnae.pseudo = personnae.firstname.lower() + "." + personnae.lastname.lower()
 
 ## EMail Generation (from pseudo) of from Arguments
+defaultemail = personnae.pseudo + "@gmx.com"
+
 if ( (hasattr(args, 'email')) and (args.email != None) ) :
-    if (args.email == 'default'): 
-        args.email = personnae.pseudo + "@gmx.com"
     personnae.email = args.email
 
 if (personnae.email == None) : 
-    defaultemail = personnae.pseudo + "@gmx.com"
-    personnae.email = str(input("e-mail (default=[%s])?" % defaultemail))
-    if (personnae.email == "default"):
-        personnae.email = defaultemail
+    personnae.email = curriculumMainFunctions.askForStrNotEmpty( "e-mail (default=[%s])?" % defaultemail )
+
+if (personnae.email == "default"):
+    personnae.email = defaultemail
 
 ## ## ## ## ## Generation Part 2
 if (personnae.address == None) : 
@@ -196,50 +174,10 @@ if (personnae.webpage == None) :
 
 print( personnae )
 
-## ## Interact with user to choose Skills (randomly generated)
-while ( len( personnae.skills ) < personnae.skilleltnb) : 
-    futureskill = BiographicTable.selectRandomSkill()
-    ## TODO the negative choice by default ?
-    remaining = (personnae.skilleltnb) - len( personnae.skills )
-    userchoice = None
-    if ( args.allyes ) : 
-        userchoice = "Y"
-    else : 
-        userchoice = str(input("\t (remaining: %d ) [Skill] Keep ? [Y/n]" %(remaining) ));
-    if ( (userchoice != "N") and (userchoice != "n") ) :
-        personnae.skills.append( futureskill )
-    if ( len( personnae.skills ) >= personnae.skilleltnb) : 
-        break
-
-## ## Interact with user to choose Jobs (randomly generated)
-while ( len( personnae.jobs ) < personnae.jobeltsnb) : 
-    futurejob = BiographicTable.selectRandomBiographic()
-    ## TODO the negative choice by default ?
-    remaining = (personnae.jobeltsnb) - len( personnae.jobs )
-    userchoice = None
-    if ( args.allyes ) : 
-        userchoice = "Y"
-    else : 
-        userchoice = str(input("\t (remaining: %d ) [Job] Keep ? [Y/n]" %(remaining) ));
-    if ( (userchoice != "N") and (userchoice != "n") ) :
-        personnae.jobs.append( futurejob )
-    if ( len( personnae.jobs ) >= personnae.jobeltsnb) : 
-        break
-
-## ## Interact with user to choose Training (randomly generated)
-while ( len( personnae.trainings ) < personnae.trainingeltsnb) : 
-    futuretrain = BiographicTable.selectRandomTraining()
-    ## TODO the negative choice by default ?
-    remaining = (personnae.trainingeltsnb) - len( personnae.trainings )
-    userchoice = None
-    if ( args.allyes ) : 
-        userchoice = "Y"
-    else : 
-        userchoice = str(input("\t (remaining: %d ) [Training] Keep ? [Y/n]" %(remaining) ) )
-    if ( (userchoice != "N") and (userchoice != "n") ) :
-        personnae.trainings.append( futuretrain )
-    if ( len( personnae.trainings ) >= personnae.trainingeltsnb) : 
-        break
+## ## Interact with user to choose Skills / Jobs / Trainings (randomly generated)
+curriculumMainFunctions.interactionSelection( personnae.skills, personnae.skilleltnb, args.allyes, "Skills" )
+curriculumMainFunctions.interactionSelection( personnae.jobs, personnae.jobeltsnb, args.allyes, "Job" )
+curriculumMainFunctions.interactionSelection( personnae.trainings, personnae.trainingeltsnb, args.allyes, "Training" )
 
 print( personnae )
 

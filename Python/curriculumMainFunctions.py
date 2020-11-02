@@ -6,6 +6,9 @@ import sys, getopt, os, subprocess
 import argparse
 ## from argparse import ArgumentParser
 
+import BiographicTable
+BiographicTable.loadTables()
+
 def launcheMakePDFfromLaTeX( directory ) : 
     print( "Changing dir to {" + directory + "}..." )
     os.chdir( directory )
@@ -25,6 +28,34 @@ def testAndGetInList(index, list, alternatevalue) :
     else: 
         item = alternatevalue
     return item
+
+def checkArgsAndReturn( args, name, argsValue ) : 
+    if ( (hasattr(args, name)) and (argsValue != None) ) : 
+        return argsValue
+    return None
+
+def interactionSelection( elementsList, nbElements, allyes, strDom) : 
+    while ( len( elementsList ) < nbElements) : 
+        futurevalue = None
+        if (strDom == "Skills") : 
+            futurevalue = BiographicTable.selectRandomSkill()
+        elif (strDom == "Job") : 
+            futurevalue = BiographicTable.selectRandomBiographic()
+        elif (strDom == "Training") : 
+            futurevalue = BiographicTable.selectRandomTraining()
+        else : 
+        	break
+        ## TODO the negative choice by default ?
+        remaining = (nbElements) - len( elementsList )
+        userchoice = None
+        if ( allyes ) : 
+            userchoice = "Y"
+        else : 
+            userchoice = str(input("\t (remaining: %d ) [%s] Keep ? [Y/n]" %(remaining, strDom) ));
+        if ( (userchoice != "N") and (userchoice != "n") ) :
+            elementsList.append( futurevalue )
+        if ( len( elementsList ) >= nbElements) : 
+            break
 
 def askForInt( txtmsg ) : 
     data = None
