@@ -27,8 +27,8 @@ Table Domaine
 	Banque
 	Finance
 	Assurance
-	Criminel	[Domaine]
-	     
+	Criminel
+
 Table FinDeContrat
 	Démission
 	Rupture Conventionnelle

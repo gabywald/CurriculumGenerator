@@ -73,6 +73,10 @@ if args.noextrainfo :
 else:
     personnae.extrainfo = curriculumMainFunctions.checkArgsAndReturn( args, 'extrainfo', args.extrainfo )
 
+personnae.skilleltnb = curriculumMainFunctions.checkArgsAndReturn( args, 'skillelements', args.skillelements )
+personnae.jobeltsnb = curriculumMainFunctions.checkArgsAndReturn( args, 'jobelements', args.jobelements )
+personnae.trainingeltsnb = curriculumMainFunctions.checkArgsAndReturn( args, 'trainingelements', args.trainingelements )
+
 if ( (hasattr(args, 'listskillelements')) and (args.listskillelements != None) ) :
     personnae.skilleltnb = 0
     print ( args.listskillelements )
@@ -95,10 +99,6 @@ if (args.randomjobelements) :
 
 if (args.randomtrainingelements) :
     personnae.trainingeltsnb = random.randint(1, 5)
-
-personnae.skilleltnb = curriculumMainFunctions.checkArgsAndReturn( args, 'skillelements', args.skillelements )
-personnae.jobeltsnb = curriculumMainFunctions.checkArgsAndReturn( args, 'jobelements', args.jobelements )
-personnae.trainingeltsnb = curriculumMainFunctions.checkArgsAndReturn( args, 'trainingelements', args.trainingelements )
 
 print (personnae.skilleltnb )
 print (personnae.jobeltsnb )
@@ -171,8 +171,6 @@ if (personnae.cellphone == None) :
 
 if (personnae.webpage == None) : 
     personnae.webpage = personnae.firstname.lower() + "." + personnae.lastname.lower() + ".personnalbranding.com"
-
-print( personnae )
 
 ## ## Interact with user to choose Skills / Jobs / Trainings (randomly generated)
 curriculumMainFunctions.interactionSelection( personnae.skills, personnae.skilleltnb, args.allyes, "Skills" )

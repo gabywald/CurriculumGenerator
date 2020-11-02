@@ -14,7 +14,7 @@ __status__ = "Development"
 ## ## ## ## ## Main script to generate several Curriculum according to file passed in parameter
 
 import sys
-
+import subprocess
 import curriculumData
 
 from Person import Person
@@ -91,7 +91,7 @@ for line in fileContent :
             trainings = lsttrainings )
         print( personnae )
         ## Build Command to call build of Curriculum !
-        cmd = "./mainScript "
+        cmd = "./mainScript.py "
         cmd += "--style %s --color %s " %(cvStyle, cvColor)
         cmd += "-fn %s -ln %s " %(personnae.firstname, personnae.lastname)
         cmd += "--email %s --pseudo %s " %(personnae.email, personnae.pseudo)
@@ -101,19 +101,20 @@ for line in fileContent :
         cmd += "--title \"%s\" " %( personnae.title )
         cmd += "--speciality \"%s\" " %( personnae.speciality )
         if ( len( personnae.skills ) != 0) : 
-            cmd += "--lse \"%s\" " %( ";".join(personnae.skills) )
+            cmd += "-lse \"%s\" " %( ";".join(personnae.skills) )
         if ( len( personnae.jobs ) != 0) :
-            cmd += "--lje \"%s\" " %( ";".join(personnae.jobs) )
+            cmd += "-lje \"%s\" " %( ";".join(personnae.jobs) )
         if ( len( personnae.trainings ) != 0) :
-            cmd += "--lte \"%s\" " %( ";".join(personnae.trainings) )
+            cmd += "-lte \"%s\" " %( ";".join(personnae.trainings) )
         if ( (personnae.jobeltsnb != 0) 
                 and (personnae.trainingeltsnb != 0) 
                 and (personnae.skilleltnb != 0) ) : 
-            cmd += "-se %d -je %d -te %d " %(personnae.jobeltsnb, personnae.trainingeltsnb, personnae.skilleltnb)
+            cmd += "--jobelements %d " %( personnae.jobeltsnb )
+            cmd += "--trainingelements %d " %( personnae.trainingeltsnb )
+            cmd += "--skillelements %d " %( personnae.skilleltnb )
             cmd += "--allyes "
         else:
             cmd += ""
-            ## TODO arguments accepting list of {jobs;trainings;skills}
-        
         print ( cmd + "\n" )
-        ## retcode = subprocess.call( cmd, shell=True )
+        retcode = subprocess.call( cmd, shell=True )
+        personnae = None
