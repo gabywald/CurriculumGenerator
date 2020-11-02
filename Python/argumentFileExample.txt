@@ -1,3 +1,3 @@
-## CVstyle	CVcolor	FirstName	LastName	Age	PhysicalAddress	Pseudo	WebSite	email	quote	skills	jobs	trainings
-oldstyle	green	Albertine	Nonymous	42 ans	Postal Box 1337	A.Nonym	NOSITE	a@n.org	NOQUOTE	20	5	3
-banking	orange	Anne	Onymous	38 ans	Postal Box 1337	Ann.Onym	null.org	a@n.org	NOQUOTE	JAVA;C++;SQL	Militech (Stage)	Autodidacte
+## CVstyle	CVcolor	FirstName	LastName	Age	PhysicalAddress	Pseudo	WebSite	email	quote	skills	jobs	trainings	Cell Phone	General Title	Title	Speciality
+oldstyle	green	Albertine	Nonymous	42 ans	Postal Box 1337	A.Nonym	NOSITE	a@n.org	NOQUOTE	20	5	3	Generated Profile	Generated	---
+banking	orange	Anne	Onymous	38 ans	Postal Box 1337	Ann.Onym	null.org	a@n.org	NOQUOTE	JAVA;C++;SQL	Militech (Stage)	Autodidacte	Mercenaire IT	Freelance IT	Développement logiciel

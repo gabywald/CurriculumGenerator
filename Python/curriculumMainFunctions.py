@@ -80,6 +80,16 @@ parser.add_argument("-rfn", "--randomfirstname",
 parser.add_argument("-rln", "--randomlastname", 
     help = "Random Last Name", 
     action = "store_true" )
+
+parser.add_argument("-gt", "--generaltitle", 
+    help = "General Title", 
+    type=str )
+parser.add_argument("-ti", "--title", 
+    help = "Title", 
+    type=str )
+parser.add_argument("-sp", "--speciality", 
+    help = "Speciality", 
+    type=str )
     
 parser.add_argument("-fn", "--firstname", 
     help = "First Name", 
@@ -99,6 +109,9 @@ parser.add_argument("-wp", "--webpage",
 parser.add_argument("-ad", "--address", 
     help = "Address (IRL)", 
     type=str )
+parser.add_argument("-cp", "--cellphone", 
+    help = "Cell Phone", 
+    type=str )
 parser.add_argument("-qc", "--quote", 
     help = "Quote / Citation", 
     type=str )
@@ -109,26 +122,32 @@ parser.add_argument("-ei", "--extrainfo",
 parser.add_argument("-se", "--skillelements", 
     help = "Number of SKILL Elements", 
     type=int )
-
 parser.add_argument("-je", "--jobelements", 
     help = "Number of JOB Elements", 
     type=int )
-    
 parser.add_argument("-te", "--trainingelements", 
     help = "Number of TRAINING Elements", 
     type=int )
-    
+
 parser.add_argument("-rse", "--randomskillelements", 
     help = "Random number of SKILL elements", 
     action = "store_true" )
-
 parser.add_argument("-rje", "--randomjobelements", 
     help = "Random number of JOB elements", 
     action = "store_true" )
-
 parser.add_argument("-rte", "--randomtrainingelements", 
     help = "Random number of TRAINING elements", 
     action = "store_true" )
+
+parser.add_argument("-lse", "--listskillelements", 
+    help = "List of SKILL elements", 
+    type=str )
+parser.add_argument("-lje", "--listjobelements", 
+    help = "List of JOB elements", 
+    type=str )
+parser.add_argument("-lte", "--listtrainingelements", 
+    help = "List of TRAINING elements", 
+    type=str )
 
 parser.add_argument("-nqc", "--noquote", 
     help = "NO quote / Citation", 

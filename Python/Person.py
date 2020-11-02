@@ -3,16 +3,14 @@
 
 class Person( object ) : 
     def __init__(self,
-                 firstname       = None, lastname        = None, age          = None, 
+                 firstname       = None, lastname        = None, extrainfo    = None, 
                  generaltitle    = None, title           = None, speciality   = None, 
                  cellphone       = None, address         = None, email        = None, 
                  webpage         = None, quote           = None, pseudo       = None, 
-                 extrainfo       = None, 
                  jobeltsnb       = None, trainingeltsnb  = None, skilleltnb   = None, 
                  skills          = [], jobs              = [], trainings      = []):
         self.firstname      = firstname
         self.lastname       = lastname
-        self.age            = age
         self.generaltitle   = generaltitle
         self.title          = title
         self.speciality     = speciality
@@ -40,8 +38,6 @@ class Person( object ) :
     ## implement for str representation ! => print( [ <instance>] )
     def __str__(self) : 
         str = "Person ( % s , % s ) \n"  % (self.lastname, self.firstname)
-        if (self.age != None) : 
-            str += "\t % s years\n" % (self.age)
         str += "\t General Title: %s \n" % (self.generaltitle)
         str += "\t Title: %s \n" % (self.title)
         str += "\t Speciality: %s \n" % (self.speciality)
@@ -55,8 +51,14 @@ class Person( object ) :
         str += "\t skilleltnb: %s \n" % (self.skilleltnb)
         str += "\t jobeltsnb: %s \n" % (self.jobeltsnb)
         str += "\t trainingeltsnb: %s \n" % (self.trainingeltsnb)
-        str += "\t skills: %s \n" % (self.skills)
-        str += "\t jobs: %s \n" % (self.jobs)
-        str += "\t trainings: %s \n" % (self.trainings)
+        str += "\t skills: %d \n" % ( len( self.skills ) )
+        for elt in self.skills : 
+            str += "\t\t %s \n" % ( elt )
+        str += "\t jobs: %s \n" % ( len( self.jobs ) )
+        for elt in self.jobs : 
+            str += "\t\t %s \n" % ( elt )
+        str += "\t trainings: %s \n" % ( len( self.trainings ) )
+        for elt in self.trainings : 
+            str += "\t\t %s \n" % ( elt )
         return str
 

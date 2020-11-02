@@ -22,10 +22,9 @@ from Person import Person
 def is_integer( n ):
     try:
         res = int( n )
-        print( res )
         return True
     except ValueError:
-        print ("not str: " + n )
+        ## print ("not int: " + n )
         return False
 
 print('(debugging purposes) Number of arguments:', len(sys.argv), 'arguments.' )
@@ -55,21 +54,23 @@ for line in fileContent :
         lstskills = []
         lstjobs = []
         lsttrainings = []
+        ## Parsing ListS {Skillms;Jobs;Trainings} !
         if (is_integer( lineSplitter[10] ) ) : 
             nbskills = int( lineSplitter[10] )
         else : 
             lstskills = lineSplitter[10].split( ";" )
-            print( lstskills )
+            ## print( lstskills )
         if (is_integer( lineSplitter[11] ) ) : 
             nbjobs = int( lineSplitter[11] )
         else : 
             lstjobs = lineSplitter[11].split( ";" )
-            print( lstjobs )
+            ## print( lstjobs )
         if (is_integer( lineSplitter[12] ) ) : 
             nbtrainings = int( lineSplitter[12] )
         else : 
             lsttrainings = lineSplitter[12].split( ";" )
-            print( lsttrainings )
+            ## print( lsttrainings )
+        ## Instanciate Person !
         personnae = Person( 
             firstname = lineSplitter[2], 
             lastname = lineSplitter[3], 
@@ -79,6 +80,9 @@ for line in fileContent :
             webpage = lineSplitter[7], 
             email = lineSplitter[8], 
             quote = lineSplitter[9], 
+            generaltitle = lineSplitter[13], 
+            title = lineSplitter[14], 
+            speciality = lineSplitter[15], 
             jobeltsnb = nbjobs, 
             trainingeltsnb = nbtrainings, 
             skilleltnb = nbskills, 
@@ -86,12 +90,22 @@ for line in fileContent :
             jobs = lstjobs, 
             trainings = lsttrainings )
         print( personnae )
+        ## Build Command to call build of Curriculum !
         cmd = "./mainScript "
         cmd += "--style %s --color %s " %(cvStyle, cvColor)
         cmd += "-fn %s -ln %s " %(personnae.firstname, personnae.lastname)
         cmd += "--email %s --pseudo %s " %(personnae.email, personnae.pseudo)
-        cmd += "--webpage %s --address %s " %(personnae.webpage, personnae.address)
-        cmd += "--quote %s --extrainfo %s " %(personnae.quote, personnae.extrainfo)
+        cmd += "--webpage %s --address \"%s\" " %(personnae.webpage, personnae.address)
+        cmd += "--quote \"%s\" --extrainfo \"%s\" " %(personnae.quote, personnae.extrainfo)
+        cmd += "--generaltitle \"%s\" " %( personnae.generaltitle )
+        cmd += "--title \"%s\" " %( personnae.title )
+        cmd += "--speciality \"%s\" " %( personnae.speciality )
+        if ( len( personnae.skills ) != 0) : 
+            cmd += "--lse \"%s\" " %( ";".join(personnae.skills) )
+        if ( len( personnae.jobs ) != 0) :
+            cmd += "--lje \"%s\" " %( ";".join(personnae.jobs) )
+        if ( len( personnae.trainings ) != 0) :
+            cmd += "--lte \"%s\" " %( ";".join(personnae.trainings) )
         if ( (personnae.jobeltsnb != 0) 
                 and (personnae.trainingeltsnb != 0) 
                 and (personnae.skilleltnb != 0) ) : 

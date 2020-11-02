@@ -54,44 +54,33 @@ print( "CV COLOR : " + cvColor )
 
 personnae = Person()
 
+## ## ## ## ## Data From Arguments
 if ( (hasattr(args, 'firstname')) and (args.firstname != None) ) :
     personnae.firstname = args.firstname
     
 if ( (hasattr(args, 'lastname')) and (args.lastname != None) ) :
     personnae.lastname = args.lastname
 
-## print ( curriculumDataObj.firstNameList )
-if (args.randomfirstname) :
-    personnae.firstname = random.choice( curriculumDataObj.firstNameList )
+if ( (hasattr(args, 'generaltitle')) and (args.generaltitle != None) ) :
+    personnae.generaltitle = args.generaltitle
 
-## print ( curriculumDataObj.lastNameList )
-if (args.randomlastname) :
-    personnae.lastname = random.choice( curriculumDataObj.lastNameList )
+if ( (hasattr(args, 'title')) and (args.title != None) ) :
+    personnae.title = args.title
 
-if (personnae.firstname == None) : 
-	personnae.firstname = curriculumMainFunctions.askForStrNotEmpty( "First Name? " )
+if ( (hasattr(args, 'speciality')) and (args.speciality != None) ) :
+    personnae.speciality = args.speciality
 
-if (personnae.lastname == None) : 
-    personnae.lastname = curriculumMainFunctions.askForStrNotEmpty( "Last Name? " )
-
-print( "CV firstname: " + personnae.firstname )
-print( "CV lastname : " + personnae.lastname )
+if ( (hasattr(args, 'cellphone')) and (args.cellphone != None) ) :
+    personnae.cellphone = args.cellphone
 
 if ( (hasattr(args, 'address')) and (args.address != None) ) :
     personnae.address = args.address
+
+if ( (hasattr(args, 'cellphone')) and (args.cellphone != None) ) :
+    personnae.cellphone = args.cellphone
     
 if ( (hasattr(args, 'webpage')) and (args.webpage != None) ) :
     personnae.webpage = args.webpage
-
-if ( (hasattr(args, 'pseudo')) and (args.pseudo != None) ) :
-    personnae.pseudo = args.pseudo
-else:
-    personnae.pseudo = personnae.firstname.lower() + "." + personnae.lastname.lower()
-
-if ( (hasattr(args, 'email')) and (args.email != None) ) :
-    if (args.email == 'default'): 
-        args.email = personnae.pseudo + "@gmx.com"
-    personnae.email = args.email
 
 if args.noquote : 
     personnae.quote = "NOQUOTE"
@@ -105,6 +94,20 @@ else:
     if ( (hasattr(args, 'extrainfo')) and (args.extrainfo != None) ) :
         personnae.extrainfo = args.extrainfo
 
+if ( (hasattr(args, 'listskillelements')) and (args.listskillelements != None) ) :
+    personnae.skilleltnb = 0
+    print ( args.listskillelements )
+    personnae.skills = args.listskillelements.split(";")
+
+if ( (hasattr(args, 'listjobelements')) and (args.listjobelements != None) ) :
+    personnae.jobeltsnb = 0
+    personnae.jobs = args.listjobelements.split(";")
+
+if ( (hasattr(args, 'listtrainingelements')) and (args.listtrainingelements != None) ) :
+    personnae.trainingeltsnb = 0
+    personnae.trainings = args.listtrainingelements.split(";")
+
+## ## ## Random numbers for {Skills;Jobs;Trainings} number of elements
 if (args.randomjobelements) :
     personnae.skilleltnb = random.randint(1, 20)
 
@@ -123,11 +126,30 @@ if (args.randomtrainingelements) :
 if ( (hasattr(args, 'trainingelements')) and (args.trainingelements != None) ) :
     personnae.trainingeltsnb = args.trainingelements
 
-if (personnae.email == None) : 
-    defaultemail = personnae.firstname.lower() + "." + personnae.lastname.lower() + "@gmx.com"
-    personnae.email = str(input("e-mail (default=[%s])?" % defaultemail))
-    if (personnae.email == "default"):
-        personnae.email = defaultemail
+## ## ## ## ## Random Generation Part 1
+## Random Generation of First Name
+if (args.randomfirstname) :
+    personnae.firstname = random.choice( curriculumDataObj.firstNameList )
+
+## Random Generation of Last Name
+if (args.randomlastname) :
+    personnae.lastname = random.choice( curriculumDataObj.lastNameList )
+
+## ## ## ## ## Interaction with user Part 1
+if (personnae.firstname == None) : 
+	personnae.firstname = curriculumMainFunctions.askForStrNotEmpty( "First Name? " )
+
+if (personnae.lastname == None) : 
+    personnae.lastname = curriculumMainFunctions.askForStrNotEmpty( "Last Name? " )
+
+if (personnae.generaltitle == None) : 
+    personnae.generaltitle = curriculumMainFunctions.askForStrNotEmpty( "General Title? " )
+
+if (personnae.title == None) : 
+    personnae.title = curriculumMainFunctions.askForStrNotEmpty( "Title? " )
+
+if (personnae.speciality == None) : 
+    personnae.speciality = curriculumMainFunctions.askForStrNotEmpty( "Speciality? " )
 
 if (personnae.quote == None) : 
     personnae.quote = curriculumMainFunctions.askForStrNotEmpty( "quote / citation ?" )
@@ -143,9 +165,31 @@ if (personnae.jobeltsnb == None) :
 
 if (personnae.trainingeltsnb == None) : 
     personnae.trainingeltsnb = curriculumMainFunctions.askForInt( "Number of Training elements ?" )
-    
+
+## Pseudo From Arguments OR generated from {First Name + Last Name}
+if ( (hasattr(args, 'pseudo')) and (args.pseudo != None) ) :
+    personnae.pseudo = args.pseudo
+else:
+    personnae.pseudo = personnae.firstname.lower() + "." + personnae.lastname.lower()
+
+## EMail Generation (from pseudo) of from Arguments
+if ( (hasattr(args, 'email')) and (args.email != None) ) :
+    if (args.email == 'default'): 
+        args.email = personnae.pseudo + "@gmx.com"
+    personnae.email = args.email
+
+if (personnae.email == None) : 
+    defaultemail = personnae.pseudo + "@gmx.com"
+    personnae.email = str(input("e-mail (default=[%s])?" % defaultemail))
+    if (personnae.email == "default"):
+        personnae.email = defaultemail
+
+## ## ## ## ## Generation Part 2
 if (personnae.address == None) : 
     personnae.address = "1337 Grand Boulevard -- 61337 Section 42"
+
+if (personnae.cellphone == None) : 
+    personnae.cellphone = "06~12~34~56~78"
 
 if (personnae.webpage == None) : 
     personnae.webpage = personnae.firstname.lower() + "." + personnae.lastname.lower() + ".personnalbranding.com"
@@ -153,7 +197,7 @@ if (personnae.webpage == None) :
 print( personnae )
 
 ## ## Interact with user to choose Skills (randomly generated)
-while True : 
+while ( len( personnae.skills ) < personnae.skilleltnb) : 
     futureskill = BiographicTable.selectRandomSkill()
     ## TODO the negative choice by default ?
     remaining = (personnae.skilleltnb) - len( personnae.skills )
@@ -168,7 +212,7 @@ while True :
         break
 
 ## ## Interact with user to choose Jobs (randomly generated)
-while True : 
+while ( len( personnae.jobs ) < personnae.jobeltsnb) : 
     futurejob = BiographicTable.selectRandomBiographic()
     ## TODO the negative choice by default ?
     remaining = (personnae.jobeltsnb) - len( personnae.jobs )
@@ -183,7 +227,7 @@ while True :
         break
 
 ## ## Interact with user to choose Training (randomly generated)
-while True : 
+while ( len( personnae.trainings ) < personnae.trainingeltsnb) : 
     futuretrain = BiographicTable.selectRandomTraining()
     ## TODO the negative choice by default ?
     remaining = (personnae.trainingeltsnb) - len( personnae.trainings )
@@ -196,6 +240,8 @@ while True :
         personnae.trainings.append( futuretrain )
     if ( len( personnae.trainings ) >= personnae.trainingeltsnb) : 
         break
+
+print( personnae )
 
 ## Date_time generation
 now = datetime.now()
@@ -242,8 +288,7 @@ with open( texcurriculumDirectory + texcurriculumFileName + ".tex", 'w') as curr
     curriculumGenerationtest.write( "\n\n" )
     ## More header
     curriculumGenerationtest.write( curriculumGeneration.getFancyStyle() + "\n\n" )
-    ## TODO print personnae.skills in keywords !
-    curriculumGenerationtest.write( "\\def\\motsClefs{LaTeX;PDF;Python;Python3...}\n\n" )
+    curriculumGenerationtest.write( "\\def\\motsClefs{LaTeX;PDF;Python;Python3;" + ";".join(personnae.skills) + "}\n\n" )
     curriculumGenerationtest.write( curriculumGeneration.getHyperSetup() + "\n\n" )
     curriculumGenerationtest.write( curriculumGeneration.getDefVariables() + "\n\n" )
     ## Starting document here !
@@ -280,7 +325,7 @@ with open( texcurriculumDirectory + texcurriculumFileName + ".tex", 'w') as curr
     curriculumGenerationtest.write( "\t %% \\cventry{Year}{Diploma}{\\newline School}{Location}    {}{}{}\n\n" )
     ## Certifications ...
     curriculumGenerationtest.write( "\\section{Licences et Certifications}\n" )
-    curriculumGenerationtest.write( "\t \\cventry{Year}{Diploma}{\newline School}{Location}    {}{}{}\n\n" )
+    curriculumGenerationtest.write( "\t \\cventry{Year}{Diploma}{\\newline School}{Location}    {}{}{}\n\n" )
     ## Bénévolat ...
     curriculumGenerationtest.write( "\\section{Expériences de bénévolat}\n" )
     curriculumGenerationtest.write( "\t \\cventry{years}{degree/job title}{institution/employer}{localization}{grade}{description}\n\n" )
