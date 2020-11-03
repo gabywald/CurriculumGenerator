@@ -12,9 +12,14 @@ __contact__ = "gabywald[at]laposte.net"
 __status__ = "Development"
 
 ## ## ## ## ## Main script to generate several Curriculum according to file passed in parameter
+## ## ## TODO File Format Definition to be precised !
 
-import sys
+import os, sys, shutil
+import glob
 import subprocess
+
+from pathlib import Path
+
 import curriculumData
 
 from Person import Person
@@ -115,6 +120,23 @@ for line in fileContent :
             cmd += "--allyes "
         else:
             cmd += ""
+        cmd+= "--make "
         print ( cmd + "\n" )
         retcode = subprocess.call( cmd, shell=True )
         personnae = None
+
+directory4outputs = "generated/"
+path = Path( directory4outputs )
+if ( path.exists() ) :
+    shutil.rmtree( directory4outputs )
+os.mkdir( directory4outputs )
+
+listing = glob.glob( "*_generate/*.pdf" )
+print( listing )
+for pdffile in listing:
+    shutil.copy(pdffile, directory4outputs)
+
+listing2remove = glob.glob( "*_generate/" )
+for dir2rm in listing2remove : 
+    subprocess.call( dir2rm, shell=True )
+

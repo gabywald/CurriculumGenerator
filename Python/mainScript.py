@@ -13,23 +13,20 @@ __status__ = "Development"
 
 ## ## ## ## ## Main Script to generate a Curriculum, according to parameters indicated !
 
-import sys
-
-print('(debugging purposes) Number of arguments:', len(sys.argv), 'arguments.' )
-print('(debugging purposes) Argument List:', str(sys.argv) )
+import os, sys, shutil
+import random
 
 from pathlib import Path
 from datetime import datetime
-
-import shutil
-import os
-import random
 
 import curriculumMainFunctions
 import curriculumGeneration
 
 from Person import Person
 from curriculumData import CVData
+
+print('(debugging purposes) Number of arguments:', len(sys.argv), 'arguments.' )
+print('(debugging purposes) Argument List:', str(sys.argv) )
 
 args = curriculumMainFunctions.parsingArgs()
 
@@ -193,7 +190,7 @@ texSpecific = personnae.lastname + "." + personnae.firstname ## + "_" + dt_strin
 texcurriculumDirectory = texSpecific + "_" + "generate/"
 texcurriculumFileName = texSpecific
 
-## Copy images files directory !!
+## Workiong on Output Directory (for one curriculum)
 path = Path( texcurriculumDirectory )
 if ( path.exists() ) :
     print("Removing some resources...")
@@ -214,7 +211,9 @@ with open( texcurriculumDirectory + texcurriculumFileName + ".tex", 'w') as curr
     curriculumGenerationtest.write( "\n\n" )
     ## Personnal Data
     curriculumGenerationtest.write( curriculumGeneration.getMinimalVariableDefinitions( 
-        firstname = personnae.firstname, lastname = personnae.lastname
+        firstname = personnae.firstname, lastname = personnae.lastname, 
+        cellphone = personnae.cellphone, general = personnae.generaltitle, 
+        title = personnae.title, speciality = personnae.speciality
     ) + "\n" )
     curriculumGenerationtest.write( curriculumGeneration.getAddressDefinition(address = personnae.address) + "\n" )
     curriculumGenerationtest.write( curriculumGeneration.getEMailDefinition(email = personnae.email) + "\n" )
@@ -232,12 +231,15 @@ with open( texcurriculumDirectory + texcurriculumFileName + ".tex", 'w') as curr
     ## Compétences
     curriculumGenerationtest.write( "\\section{Comp{\\'e}tences}\n")
     curriculumGenerationtest.write( "\t Introduction Text !!~\\\\ \n\n" )
-    for i in range(0, len(personnae.skills), 4) : 
-    	item1 = personnae.skills[ i + 0 ]
-    	item2 = curriculumMainFunctions.testAndGetInList( i+1, personnae.skills, "--" )
-    	item3 = curriculumMainFunctions.testAndGetInList( i+2, personnae.skills, "--" )
-    	item4 = curriculumMainFunctions.testAndGetInList( i+3, personnae.skills, "--" )
-    	curriculumGenerationtest.write( "\t \\cvcomputer{ %s }{ %s }{ %s }{ %s }\n" %( item1, item2, item3, item4) )
+    for i in range(0, len(personnae.skills), 2) : 
+        item1 = personnae.skills[ i + 0 ]
+        item1p = "Precisions"
+        item2 = curriculumMainFunctions.testAndGetInList( i+1, personnae.skills, "--" )
+        if (item2 != "--") : 
+            item2p = "Precisions"
+        else:
+            item2p = "--"
+        curriculumGenerationtest.write( "\t \\cvcomputer{ %s }{ %s }{ %s }{ %s }\n" %( item1, item1p, item2, item2p) )
     # curriculumGenerationtest.write( "\t \\cvdoubleitem{ Item1 }{ Description1 }{ Item2 }{ Description2 }\n" )
     # curriculumGenerationtest.write( "\t \\cvcomputer{ Item1 }{ Description1 }{ Item2 }{ Description2 }\n" )
     curriculumGenerationtest.write( "\n" )
@@ -286,8 +288,6 @@ with open( texcurriculumDirectory + texcurriculumFileName + ".tex", 'w') as curr
     ## END of document 
     curriculumGenerationtest.write( "\\end{document}\n\n" )
     
-## TODO continuing / finishing generation of features in document ... 
-
 ## Compiling TeX file to obtain PDF !
 if args.make : 
     curriculumMainFunctions.launcheMakePDFfromLaTeX( directory = texcurriculumDirectory )

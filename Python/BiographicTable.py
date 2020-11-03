@@ -59,9 +59,9 @@ def loadTables() :
     if (nextTable != None) : 
         biographictablesDict[ nextTable.name ] = nextTable 
     ## print( biographictablesDict )
-    print( "Available Tables: " )
-    for key in biographictablesDict : 
-        print ( "\t % s" % key )
+    ## print( "Available Tables: " )
+    ## for key in biographictablesDict : 
+    ##     print ( "\t % s" % key )
 
 def selectRandomBiographic() : 
     """Choose randomly an element from a randomly choosen BiographicTable. """
