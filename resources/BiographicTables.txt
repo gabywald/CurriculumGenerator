@@ -37,7 +37,7 @@ Table FinDeContrat
 	Licenciement Pour Faute
 
 Table SSII/ESN
-	Mission TMA (Tierce Maintenance Applicative)
+	Mission TMA -- Tierce Maintenance Applicative
 	Mission en Finance
 	Mission Banque
 	Mission Assurance

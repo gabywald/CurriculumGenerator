@@ -30,7 +30,7 @@ print('(debugging purposes) Argument List:', str(sys.argv) )
 
 args = curriculumMainFunctions.parsingArgs()
 
-curriculumDataObj = CVData.loadConfig();
+curriculumDataObj = CVData.loadConfig()
 
 # print( curriculumDataObj.hardList )
 # print( curriculumDataObj.softList )
@@ -81,11 +81,13 @@ if ( (hasattr(args, 'listskillelements')) and (args.listskillelements != None) )
 
 if ( (hasattr(args, 'listjobelements')) and (args.listjobelements != None) ) :
     personnae.jobeltsnb = 0
-    personnae.jobs = args.listjobelements.split(";")
+    for elt in args.listjobelements.split(";") : 
+        personnae.jobs.append( elt.split("::") )
 
 if ( (hasattr(args, 'listtrainingelements')) and (args.listtrainingelements != None) ) :
     personnae.trainingeltsnb = 0
-    personnae.trainings = args.listtrainingelements.split(";")
+    for elt in args.listtrainingelements.split(";") : 
+        personnae.trainings.append( elt.split("::") )
 
 ## ## ## Random numbers for {Skills;Jobs;Trainings} number of elements
 if (args.randomjobelements) :
@@ -228,9 +230,9 @@ with open( texcurriculumDirectory + texcurriculumFileName + ".tex", 'w') as curr
     curriculumGenerationtest.write( curriculumGeneration.getDefVariables() + "\n\n" )
     ## Starting document here !
     curriculumGenerationtest.write( "\\begin{document}\n\n\\maketitle\n\n" )
-    ## Compétences
-    curriculumGenerationtest.write( "\\section{Comp{\\'e}tences}\n")
-    curriculumGenerationtest.write( "\t Introduction Text !!~\\\\ \n\n" )
+    ## Compétences ...
+    curriculumGenerationtest.write( "\\section{Comp{\\'e}tences}\n" )
+    curriculumGenerationtest.write( "\t%% \\cvdoubleitem{ Item1 }{ Description1 }{ Item2 }{ Description2 }\n\n" )
     for i in range(0, len(personnae.skills), 2) : 
         item1 = personnae.skills[ i + 0 ]
         item1p = "Precisions"
@@ -243,12 +245,16 @@ with open( texcurriculumDirectory + texcurriculumFileName + ".tex", 'w') as curr
     # curriculumGenerationtest.write( "\t \\cvdoubleitem{ Item1 }{ Description1 }{ Item2 }{ Description2 }\n" )
     # curriculumGenerationtest.write( "\t \\cvcomputer{ Item1 }{ Description1 }{ Item2 }{ Description2 }\n" )
     curriculumGenerationtest.write( "\n" )
+    ## Introduction
+    curriculumGenerationtest.write( "\\section{Introduction}\n")
+    curriculumGenerationtest.write( "\t Introduction Text !!~\\\\ \n\n" )
     ## Professionnal Experiences
     curriculumGenerationtest.write( "\\section{Exp{\\'e}rience professionnelle}\n" )
-    for eltJOB in personnae.jobs : 
-        corporationName = random.choice( curriculumDataObj.corporationNames )
+    for eltJob in personnae.jobs : 
+        ## TODO make these random selections earlier !! (corporation name and contract type !)
+        corporationName = CVData.getRandomCorporationName()
         contractType    = random.choice( curriculumDataObj.contractTypesList )
-        curriculumGenerationtest.write( "\t \\cventry{years}{" + corporationName + " (" + eltJOB[1] + ")}{" + eltJOB[0] + "}{" + contractType + "}{\n %% grade \n}{\n %% description \n}\n\n" )
+        curriculumGenerationtest.write( "\t \\cventry{years}{" + corporationName + " (" + eltJob[1] + ")}{" + eltJob[0] + "}{" + contractType + "}{\n %% grade \n}{\n %% description \n}\n\n" )
     curriculumGenerationtest.write( "\t %% \\cventry{years}{degree/job title}{institution/employer}{localization}{grade}{description}\n\n" )
     curriculumGenerationtest.write( "\t \\cventry{DATUM}{TITRE}{ENTREPRISE}{CONTRAT}%\n" )
     curriculumGenerationtest.write( "\t     {\\newline INTITULE++}{%\n" )
@@ -267,9 +273,6 @@ with open( texcurriculumDirectory + texcurriculumFileName + ".tex", 'w') as curr
     ## Bénévolat ...
     curriculumGenerationtest.write( "\\section{Expériences de bénévolat}\n" )
     curriculumGenerationtest.write( "\t \\cventry{years}{degree/job title}{institution/employer}{localization}{grade}{description}\n\n" )
-    ## Compétences ...
-    curriculumGenerationtest.write( "\\section{Compétences}\n" )
-    curriculumGenerationtest.write( "\t \\cvdoubleitem{ Item1 }{ Description1 }{ Item2 }{ Description2 }\n\n" )
     ## Recommandations ...
     curriculumGenerationtest.write( "\\section{Recommandations}\n" )
     curriculumGenerationtest.write( "\t \\cvcomputer{ Item1 }{ Description1 }{ Item2 }{ Description2 }\n\n" )
