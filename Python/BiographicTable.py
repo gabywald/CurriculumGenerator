@@ -62,6 +62,7 @@ def loadTables() :
     ## print( "Available Tables: " )
     ## for key in biographictablesDict : 
     ##     print ( "\t % s" % key )
+    return biographictablesDict
 
 def selectRandomBiographic() : 
     """Choose randomly an element from a randomly choosen BiographicTable. """
@@ -69,11 +70,11 @@ def selectRandomBiographic() :
     selected     = random.choice( baseTable.contents )
     choice       = biographictablesDict.get( selected )
     moreselect   = random.choice( choice.contents )
-    domain       = random.choice( biographictablesDict.get("Domaine").contents )
-    corporationName = CVData.getRandomCorporationName()
+    ## domain       = random.choice( biographictablesDict.get("Domaine").contents )
+    corporation  = CVData.getRandomCorporationName()
     contractType    = CVData.getRandomContractType()
-    print( selected + "::" + moreselect + " // " + domain + " ( " + corporationName + ", " + contractType + " )" )
-    return [selected, moreselect, domain, corporationName, contractType]
+    print( selected + "::" + moreselect + " // " + corporation[1] + " ( " + corporation[0] + ", " + contractType + " )" )
+    return [selected, moreselect, corporation[1], corporation[0], contractType]
 
 def selectRandomTraining() : 
     """Choose randomly an elements from the Training table. """

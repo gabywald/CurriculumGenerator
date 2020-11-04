@@ -29,7 +29,7 @@ Le contenu de ces fichiers est à adapter en fonction de l'usage, ils permettent
 
 Pour les noms d'entreprises et slogans, secteurs d'acivités : 
 * Nanochrome, NanoChrome² et Nanodex (Par John Grümph)
-* CyberPunk 2020, CyberPunk Red (Mike Pondsmith et al.)
+* CyberPunk 2020, CyberPunk Red (Mike Pondsmith et al.) à compléter avec données de la liste présente ici : https://cyberpunk.fandom.com/wiki/Category:Cyberpunk_2020_Corporations
 * Séries TV *DarkAngel* et *Kyle XY*
 
 Également pour la génération de quelques autres noms : 

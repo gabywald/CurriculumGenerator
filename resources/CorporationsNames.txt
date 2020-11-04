@@ -1,21 +1,32 @@
-Arasaka
-Militech
-TraumaTeam
-MadaCorp -- <<Art, Science, Technology>>
-Manticore -- Military Research
-IBBC -- International Britsh Banking Company
-GROUPE RICHELIEU -- Technological Investment
-ASCLEPIA <<Heal The World>>
-WAKUWKU Social Networking
-SAIBEONMJA <<The Feature's Feature>>
-STAVRO's Guns
-FIRST CORPORATED
-ARCATEOM <<What is best in life?>>
-ULKAWENA INDUSTRIES Manufacturing
-LUCRECIA Trust Fund
-EIKI Energies
-LATIMER BERING Industries
-KATSU Transports
-WINTER FASHION
-GLASSPERFECT Mercenaries
-HONGSE Technologies
+Arasaka	Sécurité, Banque, Industrie
+Militech	Armement, Véhicule, Mercenariat
+Trauma Team International	Santé, secours aux personnes
+Matsushima-Kiroshi Optics	Industrie Optique
+Kang Tao	Armement
+Euro Business Machines	Matériel Informatique
+Biotechnica	Ingénierie Génétique, Recherche Biochimique et Microbiologique
+Soviet World Oil Industries	Pétrochimie, Industrie Lourde, Énergie
+Network News 54	Journaux, Télévision
+BioMass Laboratories Group	Réalité Virtuelle, Lpoisirs Virtuels
+Orbital Air	Jeux Vidéos
+Carolli	Robotique
+Brennan	Production de Motos
+Replitech	Génétique, Biotechnologies
+MadaCorp <<Art, Science, Technology>>	Recherche Et Développement
+Manticore	Recherche Militaire
+IBBC -- International British Banking Company	Banque
+GROUPE RICHELIEU	Investissement Technologique
+ASCLEPIA <<Heal The World>>	Pharmaceutique
+WAKUWKU	Réseau Social
+SAIBEONMJA <<The Feature's Feature>>	Logiciels
+STAVRO's Guns	Armement
+FIRST CORPORATED	Pharmaceutique
+ARCATEOM <<What is best in life?>>	Vente au détail
+ULKAWENA INDUSTRIES	Industrie
+LUCRECIA	Fond d'Investissement
+EIKI	Energies
+LATIMER BERING	Industrie
+KATSU	Transports
+WINTER FASHION	Vêteemnts de mode
+GLASSPERFECT	Mercenariat
+HONGSE	High Tech
