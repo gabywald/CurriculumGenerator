@@ -249,10 +249,7 @@ with open( texcurriculumDirectory + texcurriculumFileName + ".tex", 'w') as curr
     ## Professionnal Experiences
     curriculumGenerationtest.write( "\\section{Exp{\\'e}rience professionnelle}\n" )
     for eltJob in personnae.jobs : 
-        ## TODO make these random selections earlier !! (corporation name and contract type !)
-        corporationName = CVData.getRandomCorporationName()
-        contractType    = random.choice( curriculumDataObj.contractTypesList )
-        curriculumGenerationtest.write( "\t \\cventry{years}{" + corporationName + " (" + eltJob[1] + ")}{" + eltJob[0] + "}{" + contractType + "}{\n %% grade \n}{\n %% description \n}\n\n" )
+        curriculumGenerationtest.write( "\t \\cventry{years}{%s (%s)}{%s}{%s}{%s}{\n JobDescription \n}\n\n" %( eltJob[3], eltJob[2], eltJob[0], eltJob[4], eltJob[1] ) ) 
     curriculumGenerationtest.write( "\t %% \\cventry{years}{degree/job title}{institution/employer}{localization}{grade}{description}\n\n" )
     curriculumGenerationtest.write( "\t %% \\cventry{DATUM}{TITRE}{ENTREPRISE}{CONTRAT}%\n" )
     curriculumGenerationtest.write( "\t %% \t{\\newline INTITULE++}{%\n" )

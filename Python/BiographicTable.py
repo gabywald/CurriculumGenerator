@@ -70,8 +70,10 @@ def selectRandomBiographic() :
     choice       = biographictablesDict.get( selected )
     moreselect   = random.choice( choice.contents )
     domain       = random.choice( biographictablesDict.get("Domaine").contents )
-    print( selected + "::" + moreselect + " // " + domain)
-    return [selected, moreselect, domain]
+    corporationName = CVData.getRandomCorporationName()
+    contractType    = CVData.getRandomContractType()
+    print( selected + "::" + moreselect + " // " + domain + " ( " + corporationName + ", " + contractType + " )" )
+    return [selected, moreselect, domain, corporationName, contractType]
 
 def selectRandomTraining() : 
     """Choose randomly an elements from the Training table. """
@@ -80,7 +82,7 @@ def selectRandomTraining() :
     domain      = random.choice( biographictablesDict.get("Domaine").contents )
     ## print( "::".join( biographictablesDict.get("Domaine").contents ) )
     print( selected + " // " + domain)
-    return [selected, domain]
+    return [ domain, selected ]
 
 def selectRandomSkill() : 
     """Choose randomly an elements from the Skill table. """

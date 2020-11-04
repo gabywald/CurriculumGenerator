@@ -95,3 +95,7 @@ class CVData( object ) :
         else : 
     	    return random.choice( self._instance.uplinkCompanyPartOne ) \
     	        + " " + random.choice( self._instance.uplinkCompanyPartTwo )
+    
+    @classmethod
+    def getRandomContractType( self ) : 
+        return random.choice( self._instance.contractTypesList )

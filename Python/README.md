@@ -106,7 +106,7 @@ Une liste des arguments est obtenue avec "./mainScript.py --help".
 	- acceptation automatique de la sélection aléatoire ('-ya')
 	- Inforrmation en plus "42 ans" ('-ei "42 ans"')
 
-* ./mainScript.py -lse "A;B;C" -rfn -rln -ti title -gt "general title" -sp speciality -nq -nei -se 1 -je 5 -te 3 --email default -ya -lje "International::Recrutement::Publication" -lte "Autodidacte::Programmation;Autoformation::Création d'Entreprise"
+* ./mainScript.py -lse "Domain::A, B, C;Other::---" -rfn -rln -ti title -gt "general title" -sp speciality -nq -nei -se 1 -je 5 -te 3 --email default -ya -lje "International::Recrutement::Publication::Panopticon::Stage" -lte "Autodidacte::Programmation;Autoformation::Création d'Entreprise"
 
 
 	- prénom aléatoire ('-rfn')
@@ -119,8 +119,8 @@ Une liste des arguments est obtenue avec "./mainScript.py --help".
 	- 3 formations ('-te 3')
 	- 10 compétences ('-se 10')
 	- acceptation automatique de la sélectyion aléatoire ('-ya')
-	- liste prédéfinie des compétences ('-lse "A;B;C"')
-	- liste prédéfinie des expériences professionnelles ('-lje "International::Recrutement::Publication"')
+	- liste prédéfinie des compétences ('-lse "Domain::A, B, C;Other::---"')
+	- liste prédéfinie des expériences professionnelles ('-lje "International::Recrutement::Publication::Panopticon::Stage"')
 	- liste prédéfinie des formations ('-lte "Autodidacte::Programmation;Autoformation::Création d'Entreprise"')
 	- Titre général du CV ('-gt "general title"')
 	- Titre ('-ti title')
