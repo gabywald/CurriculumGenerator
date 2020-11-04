@@ -1,55 +1,23 @@
-Java
-Java Swing
-Java EE
-Spring
-Hibernate
-eBean
-Micronaut
-Python
-Python 3
-PHP
-HTML
-HTML 5
-CSS
-XML
-XSLT
-COBOL
-FORTRAN
-Rust
-SmallTalk
-C
-C++
-C / C++
-Objective C
-NoSQL
-SQL
-ORACLE
-PostgresSQL
-MySQL
-JavaScript
-ECMAScript
-Bash
-Shell
-Unix
-Linux
-Mac OS X
-Android
-iOS
-Apache
-Apache Kafka
-Apache Solr
-Selenium
-Reverse Ingeniering / Ingénierie Inverse
-Documentation
-Javadoc
-Pythondoc
-Doxygen
-UML
-Cycle en V
-Design Patterns
-Modèle MVC
-Modèle du Cycle en V
-Base de données relationnelle
-Gestion de bases de données
-Gestion Entreprôt de Données
-Analyse Fonctionnelle
+Java	Java Swing, Java EE, Spring, Hibernate, eBean, Micronaut
+Python	---
+Python 3 ---
+Web	PHP, HTML, HTML 5, CSS, JavaScript, ECMAScript
+XML	XML, XHTML, XSLT
+COBOL	---
+FORTRAN	---
+Rust	---
+SmallTalk	---
+C / C++	---
+Objective C	---
+Bases de données	NoSQL, Base de données relationnelle, indexation, Entrepôt de données, Data Lake
+Shell	Bash, ksh, PowerShell
+Systèmes d'exploitation	Windows, Unix, Linux, Mac OS X, Androis, iOS
+Apache	Serveur Web Apache
+Big Data	Apacxhe Kafka, Apache Solr
+Tests Unitaires	Selenium, JUnit
+Reverse Ingeniering	Ingénierie Inverse
+Documentation	Javadoc, Pythondoc, Doxygen
+Conception	UML, MERISE, Analyse Fonctionnelle
+Développement logiciel	Cycle en V, Agile, Scrum, Kanban
+Modèles de développement	Modèle MVC, Cycle en V
+Outils	WebScrapping, Machine Learning, Intelligence Artificielle 

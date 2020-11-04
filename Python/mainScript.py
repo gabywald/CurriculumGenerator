@@ -5,7 +5,7 @@ __author__ = "Gabriel Chandesris"
 __copyright__ = "CC Gabriel Chandesris (2020)"
 __credits__ = ""
 __licence__ = "GNU GENERAL PUBLIC LICENSE v3"
-__version__ = "0.1.0"
+__version__ = "0.2.0"
 __maintainer__ = "Gabriel Chandesris"
 __email__ = "gabywald[at]laposte.net"
 __contact__ = "gabywald[at]laposte.net"
@@ -39,7 +39,7 @@ curriculumDataObj = CVData.loadConfig()
 # print( curriculumDataObj.cvStyle )
 # print( curriculumDataObj.cvColor )
 
-## TODO passing these in arguments ?!
+## cvStyle and cvColor are random if argument indicates it, otherwise as selected
 cvStyle = random.choice( curriculumDataObj.cvStyle ) if args.randomstyle else args.style
 cvColor = random.choice( curriculumDataObj.cvColor ) if args.randomcolor else args.color
 
@@ -77,7 +77,8 @@ personnae.trainingeltsnb = curriculumMainFunctions.checkArgsAndReturn( args, 'tr
 if ( (hasattr(args, 'listskillelements')) and (args.listskillelements != None) ) :
     personnae.skilleltnb = 0
     print ( args.listskillelements )
-    personnae.skills = args.listskillelements.split(";")
+    for elt in args.listskillelements.split(";") : 
+        personnae.skills.append( elt.split("::") )
 
 if ( (hasattr(args, 'listjobelements')) and (args.listjobelements != None) ) :
     personnae.jobeltsnb = 0
@@ -225,7 +226,9 @@ with open( texcurriculumDirectory + texcurriculumFileName + ".tex", 'w') as curr
     curriculumGenerationtest.write( "\n\n" )
     ## More header
     curriculumGenerationtest.write( curriculumGeneration.getFancyStyle() + "\n\n" )
-    curriculumGenerationtest.write( "\\def\\motsClefs{LaTeX;PDF;Python;Python3;" + ";".join(personnae.skills) + "}\n\n" )
+    ## ## Get first items of sublits, to put in in keywords
+    lstSkills = list(list(zip(*personnae.skills))[0])
+    curriculumGenerationtest.write( "\\def\\motsClefs{LaTeX;PDF;Python;Python3;" + ";".join( lstSkills ) + "}\n\n" )
     curriculumGenerationtest.write( curriculumGeneration.getHyperSetup() + "\n\n" )
     curriculumGenerationtest.write( curriculumGeneration.getDefVariables() + "\n\n" )
     ## Starting document here !
@@ -235,19 +238,14 @@ with open( texcurriculumDirectory + texcurriculumFileName + ".tex", 'w') as curr
     curriculumGenerationtest.write( "\t%% \\cvdoubleitem{ Item1 }{ Description1 }{ Item2 }{ Description2 }\n\n" )
     for i in range(0, len(personnae.skills), 2) : 
         item1 = personnae.skills[ i + 0 ]
-        item1p = "Precisions"
-        item2 = curriculumMainFunctions.testAndGetInList( i+1, personnae.skills, "--" )
-        if (item2 != "--") : 
-            item2p = "Precisions"
-        else:
-            item2p = "--"
-        curriculumGenerationtest.write( "\t \\cvcomputer{ %s }{ %s }{ %s }{ %s }\n" %( item1, item1p, item2, item2p) )
+        item2 = curriculumMainFunctions.testAndGetInList( i+1, personnae.skills, "---" )
+        curriculumGenerationtest.write( "\t \\cvcomputer{ %s }{ %s }{ %s }{ %s }\n" %( item1[0], item1[1], item2[0], item2[1], ) )
     # curriculumGenerationtest.write( "\t \\cvdoubleitem{ Item1 }{ Description1 }{ Item2 }{ Description2 }\n" )
     # curriculumGenerationtest.write( "\t \\cvcomputer{ Item1 }{ Description1 }{ Item2 }{ Description2 }\n" )
     curriculumGenerationtest.write( "\n" )
     ## Introduction
     curriculumGenerationtest.write( "\\section{Introduction}\n")
-    curriculumGenerationtest.write( "\t Introduction Text !!~\\\\ \n\n" )
+    curriculumGenerationtest.write( "\t IntroductionText~\\\\ \n\n" )
     ## Professionnal Experiences
     curriculumGenerationtest.write( "\\section{Exp{\\'e}rience professionnelle}\n" )
     for eltJob in personnae.jobs : 
@@ -256,12 +254,12 @@ with open( texcurriculumDirectory + texcurriculumFileName + ".tex", 'w') as curr
         contractType    = random.choice( curriculumDataObj.contractTypesList )
         curriculumGenerationtest.write( "\t \\cventry{years}{" + corporationName + " (" + eltJob[1] + ")}{" + eltJob[0] + "}{" + contractType + "}{\n %% grade \n}{\n %% description \n}\n\n" )
     curriculumGenerationtest.write( "\t %% \\cventry{years}{degree/job title}{institution/employer}{localization}{grade}{description}\n\n" )
-    curriculumGenerationtest.write( "\t \\cventry{DATUM}{TITRE}{ENTREPRISE}{CONTRAT}%\n" )
-    curriculumGenerationtest.write( "\t     {\\newline INTITULE++}{%\n" )
-    curriculumGenerationtest.write( "\t \\begin{itemize}\n" )
-    curriculumGenerationtest.write( "\t     \\item[$\\rightarrow$] ELEMENTUN\n" )
-    curriculumGenerationtest.write( "\t     \\item[$\\bullet$] ELEMENTDEUXETPLUS\n" )
-    curriculumGenerationtest.write( "\t \\end{itemize}}\n\n" )
+    curriculumGenerationtest.write( "\t %% \\cventry{DATUM}{TITRE}{ENTREPRISE}{CONTRAT}%\n" )
+    curriculumGenerationtest.write( "\t %% \t{\\newline INTITULE++}{%\n" )
+    curriculumGenerationtest.write( "\t %% \\begin{itemize}\n" )
+    curriculumGenerationtest.write( "\t %% \t\\item[$\\rightarrow$] ELEMENTUN\n" )
+    curriculumGenerationtest.write( "\t %% \t\\item[$\\bullet$] ELEMENTDEUXETPLUS\n" )
+    curriculumGenerationtest.write( "\t %% \\end{itemize}}\n\n" )
     ## Training ...
     curriculumGenerationtest.write( "\\section{Formation}\n" )
     for eltTraining in personnae.trainings : 
@@ -274,8 +272,8 @@ with open( texcurriculumDirectory + texcurriculumFileName + ".tex", 'w') as curr
     curriculumGenerationtest.write( "\\section{Expériences de bénévolat}\n" )
     curriculumGenerationtest.write( "\t \\cventry{years}{degree/job title}{institution/employer}{localization}{grade}{description}\n\n" )
     ## Recommandations ...
-    curriculumGenerationtest.write( "\\section{Recommandations}\n" )
-    curriculumGenerationtest.write( "\t \\cvcomputer{ Item1 }{ Description1 }{ Item2 }{ Description2 }\n\n" )
+    curriculumGenerationtest.write( "%% \\section{Recommandations}\n" )
+    curriculumGenerationtest.write( "%% \t \\cvcomputer{ Item1 }{ Description1 }{ Item2 }{ Description2 }\n\n" )
     ## Réalisations :  ...
     curriculumGenerationtest.write( "\\section{Réalisations}\n" )
     curriculumGenerationtest.write( "\t \\cvitem{Projets}{ Sur GitHub (par exemple) }\n" )
@@ -286,8 +284,8 @@ with open( texcurriculumDirectory + texcurriculumFileName + ".tex", 'w') as curr
     ## Out of Work / Centres d'intérêts
     curriculumGenerationtest.write( "\\section{Centres d'int{\\'e}r{\\^e}ts}\n\n" )
     curriculumGenerationtest.write( "\t \\cvitem{Lectures}{ READINGS }\n" )
-    curriculumGenerationtest.write( "\t \\cvitem{SocialGames}{ SOCIALGAMES }\n" )
-    curriculumGenerationtest.write( "\t \\cventry{Year}{WHAT}{CONTENT}{Location}    {MORE1}{MORE2}{MORE3}\n\n" )
+    curriculumGenerationtest.write( "\t \\cvitem{Jeux Sociaux}{ SOCIALGAMES }\n" )
+    curriculumGenerationtest.write( "\t %% \\cventry{YEAR}{WHAT}{CONTENT}{Location}{MORE1}{MORE2}{MORE3}\n\n" )
     ## END of document 
     curriculumGenerationtest.write( "\\end{document}\n\n" )
     

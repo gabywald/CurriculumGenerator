@@ -89,4 +89,5 @@ def selectRandomSkill() :
     baseTable2 = CVData._instance.softList 
     selected = random.choice( baseTable1 + baseTable2 )
     print( selected )
-    return selected
+     ## return [ selected, "---" ]
+    return selected.split( "\t" )

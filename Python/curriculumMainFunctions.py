@@ -22,11 +22,11 @@ def launcheMakePDFfromLaTeX( directory ) :
     os.chdir( ".." )
 
 def testAndGetInList(index, list, alternatevalue) : 
-    item = None
+    item = [ None, None ]
     if ( index < len( list ) ) : 
         item = list[ index ]
     else: 
-        item = alternatevalue
+        item = [ alternatevalue, alternatevalue ]
     return item
 
 def checkArgsAndReturn( args, name, argsValue ) : 
@@ -53,9 +53,8 @@ def interactionSelection( elementsList, nbElements, allyes, strDom) :
         else : 
             userchoice = str(input("\t (remaining: %d ) [%s] Keep ? [Y/n]" %(remaining, strDom) ));
         if ( (userchoice != "N") and (userchoice != "n") ) :
-            elementsList.append( futurevalue )
-        if ( len( elementsList ) >= nbElements) : 
-            break
+            if futurevalue not in elementsList: 
+                elementsList.append( futurevalue )
 
 def askForInt( txtmsg ) : 
     data = None
