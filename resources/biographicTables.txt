@@ -46,11 +46,15 @@ Table Formation
 	Prépa Intégrée
 	Grande École (Ingénieur)
 	Licence
+	Licence Professionnelle
 	Master Recherche
 	Master Professionnel
 	Doctorat
 	Stage Ouvrier
 	Stage de fin d'études
+	Baccalauréat Général
+	Baccalauréat Technique
+	Baccalauréat Professionnel 
 
 Table Domaine
 	Militaire
@@ -75,3 +79,23 @@ Table Domaine
 	Finance
 	Assurance
 	Criminel
+
+Table Localisation
+	Paris
+	Marseille
+	Lyon
+	Nantes
+	Bordeaux
+	Bali
+	Bangkok
+	Beijing
+	Tokyo
+	Seattle
+	Bamako
+	Moscou
+	Mexico
+	Hong Kong
+	Los Angeles
+	Night City
+	New York
+	San Francisco

@@ -262,7 +262,7 @@ with open( texcurriculumDirectory + texcurriculumFileName + ".tex", 'w') as curr
     ## Training ...
     curriculumGenerationtest.write( "\\section{Formation}\n" )
     for eltTraining in personnae.trainings : 
-        curriculumGenerationtest.write( "\t \\cventry{years}{ " + eltTraining[1] + " }{" + eltTraining[0] + "}{ LOCALISATION }{\n %% grade \n}{\n %% description \n}\n\n" )
+        curriculumGenerationtest.write( "\t \\cventry{years}{%s}{%s}{%s}{\n %% grade \n}{\n %% description \n}\n\n" %(  eltTraining[1], eltTraining[0], eltTraining[2]  ) )
     curriculumGenerationtest.write( "\t %% \\cventry{Year}{Diploma}{\\newline School}{Location}    {}{}{}\n\n" )
     ## Certifications ...
     curriculumGenerationtest.write( "\\section{Licences et Certifications}\n" )
@@ -272,17 +272,16 @@ with open( texcurriculumDirectory + texcurriculumFileName + ".tex", 'w') as curr
     curriculumGenerationtest.write( "\t \\cventry{years}{degree/job title}{institution/employer}{localization}{grade}{description}\n\n" )
     ## Recommandations ...
     curriculumGenerationtest.write( "%% \\section{Recommandations}\n" )
-    curriculumGenerationtest.write( "%% \t \\cvcomputer{ Item1 }{ Description1 }{ Item2 }{ Description2 }\n\n" )
+    curriculumGenerationtest.write( "%% \t \\cvitem{ Item1 }{ Description1 }\n\n" )
     ## Réalisations :  ...
     curriculumGenerationtest.write( "\\section{Réalisations}\n" )
     curriculumGenerationtest.write( "\t \\cvitem{Projets}{ GitHub }\n" )
     curriculumGenerationtest.write( "\t \\cvitem{Organisations}{ associations... }\n" )
-    curriculumGenerationtest.write( "\t \\cvitem{Publications}{ citations, references... }\n" )
+    curriculumGenerationtest.write( "\t \\cvitem{Publications}{ citations, references... }\n\n" )
     ## Out of Work / Centres d'intérêts
-    curriculumGenerationtest.write( "\\section{Centres d'int{\\'e}r{\\^e}ts}\n\n" )
+    curriculumGenerationtest.write( "\\section{Centres d'int{\\'e}r{\\^e}ts}\n" )
     curriculumGenerationtest.write( "\t \\cvitem{Lectures}{ Science-Fiction, Policier, Fantasy... }\n" )
     curriculumGenerationtest.write( "\t \\cvitem{Jeux Sociaux}{ Jeux de Rôle, Jeux de plateau, e-sport }\n" )
-    curriculumGenerationtest.write( "\t %% \\cventry{YEAR}{WHAT}{CONTENT}{Location}{MORE1}{MORE2}{MORE3}\n\n" )
     ## END of document 
     curriculumGenerationtest.write( "\\end{document}\n\n" )
     

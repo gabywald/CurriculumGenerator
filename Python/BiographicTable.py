@@ -34,7 +34,7 @@ biographictablesDict = {}
 def loadTables() : 
     """Load BiographicTables from the configuration. """
     curriculumDataObj = CVData.loadConfig();
-    tablesAsTXT  = curriculumDataObj.BiographicTables
+    tablesAsTXT  = curriculumDataObj.biographicTables
     nextTable    = None
     for line in tablesAsTXT:
         resultTableHead       = re.match( "^Table (.*?)(\t(.*?))?$", line)
@@ -81,9 +81,10 @@ def selectRandomTraining() :
     baseTable   = biographictablesDict.get("Formation")
     selected    = random.choice( baseTable.contents )
     domain      = random.choice( biographictablesDict.get("Domaine").contents )
+    location    = random.choice( biographictablesDict.get("Localisation").contents )
     ## print( "::".join( biographictablesDict.get("Domaine").contents ) )
-    print( selected + " // " + domain)
-    return [ domain, selected ]
+    print( selected + " // " + domain + " // " + location )
+    return [ domain, selected, location ]
 
 def selectRandomSkill() : 
     """Choose randomly an elements from the Skill table. """

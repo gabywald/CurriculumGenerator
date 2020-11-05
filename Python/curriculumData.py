@@ -31,8 +31,8 @@ class CVData( object ) :
                  contractTypesList,
                  corporationNames,
                  corporationDomains,
-                 BiographicTables, 
-                 BiographicJobs, 
+                 biographicTables, 
+                 biographicJobs, 
                  uplinkCompanyPartOne,
                  uplinkCompanyPartTwo,
                  uplinkFornames,
@@ -48,8 +48,8 @@ class CVData( object ) :
         self.contractTypesList      = contractTypesList
         self.corporationNames       = corporationNames
         self.corporationDomains     = corporationDomains
-        self.BiographicTables       = BiographicTables
-        self.BiographicJobs         = BiographicJobs
+        self.biographicTables       = biographicTables
+        self.biographicJobs         = biographicJobs
         self.uplinkCompanyPartOne   = uplinkCompanyPartOne
         self.uplinkCompanyPartTwo   = uplinkCompanyPartTwo
         self.uplinkFornames         = uplinkFornames
@@ -75,8 +75,8 @@ class CVData( object ) :
             contractTypesList       = readFileToList( parser[ "paths" ].get( "contractTypesList" ) )
             corporationNames        = readFileToList( parser[ "paths" ].get( "corporationNames" ) )
             corporationDomains      = readFileToList( parser[ "paths" ].get( "corporationDomains" ) )
-            BiographicTables        = readFileToList( parser[ "paths" ].get( "BiographicTablesTXT" ) )
-            BiographicJobs          = readFileToList( parser[ "paths" ].get( "BiographicJobsTXT" ) )
+            biographicTables        = readFileToList( parser[ "paths" ].get( "biographicTablesTXT" ) )
+            biographicJobs          = readFileToList( parser[ "paths" ].get( "biographicJobsTXT" ) )
             ## some other sources
             uplinkCompanyPartOne = readFileToList( parser[ "paths" ].get( "uplinkCompanyPartOne" ) )
             uplinkCompanyPartTwo = readFileToList( parser[ "paths" ].get( "uplinkCompanyPartTwo" ) )
@@ -87,7 +87,7 @@ class CVData( object ) :
             self._instance = CVData( cvStyle, cvColor, hardList, softList, jobsList, toolList, 
                             firstNameList, lastNameList, contractTypesList, 
                             corporationNames, corporationDomains, 
-                            BiographicTables, BiographicJobs, 
+                            biographicTables, biographicJobs, 
                             uplinkCompanyPartOne, uplinkCompanyPartTwo, uplinkFornames, uplinkSurnames )
         ## print( self._instance.corporationNames )
         return self._instance
@@ -101,7 +101,6 @@ class CVData( object ) :
     	        + " " + random.choice( self._instance.uplinkCompanyPartTwo )
     	    elt2 = random.choice( self._instance.corporationDomains )
     	    return [ elt1, elt2 ]
-    	        
     
     @classmethod
     def getRandomContractType( self ) : 
