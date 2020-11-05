@@ -2,6 +2,7 @@
 # -*- coding: utf-8 -*- 
 
 import configparser
+import random
 
 def readFileToList( filePath ) : 
     """Read file from path indicated in parameter and return it as a list of lines. """
@@ -9,8 +10,9 @@ def readFileToList( filePath ) :
     with open(filePath, 'r') as file : 
         data         = file.read()
         listToReturn = data.split( "\n" )
-        # print( data )
-    # print("End of file ", filePath)
+        ## print( data )
+    ## print("End of file ", filePath)
+    ## print( listToReturn )
     return listToReturn
 
 class CVData( object ) :
@@ -28,8 +30,9 @@ class CVData( object ) :
                  lastNameList,
                  contractTypesList,
                  corporationNames,
-                 BiographicTables, 
-                 BiographicJobs, 
+                 corporationDomains,
+                 biographicTables, 
+                 biographicJobs, 
                  uplinkCompanyPartOne,
                  uplinkCompanyPartTwo,
                  uplinkFornames,
@@ -44,8 +47,9 @@ class CVData( object ) :
         self.lastNameList           = lastNameList
         self.contractTypesList      = contractTypesList
         self.corporationNames       = corporationNames
-        self.BiographicTables       = BiographicTables
-        self.BiographicJobs         = BiographicJobs
+        self.corporationDomains     = corporationDomains
+        self.biographicTables       = biographicTables
+        self.biographicJobs         = biographicJobs
         self.uplinkCompanyPartOne   = uplinkCompanyPartOne
         self.uplinkCompanyPartTwo   = uplinkCompanyPartTwo
         self.uplinkFornames         = uplinkFornames
@@ -70,18 +74,34 @@ class CVData( object ) :
             lastNameList            = readFileToList( parser[ "paths" ].get( "lastNameList" ) )
             contractTypesList       = readFileToList( parser[ "paths" ].get( "contractTypesList" ) )
             corporationNames        = readFileToList( parser[ "paths" ].get( "corporationNames" ) )
-            BiographicTables        = readFileToList( parser[ "paths" ].get( "BiographicTablesTXT" ) )
-            BiographicJobs          = readFileToList( parser[ "paths" ].get( "BiographicJobsTXT" ) )
+            corporationDomains      = readFileToList( parser[ "paths" ].get( "corporationDomains" ) )
+            biographicTables        = readFileToList( parser[ "paths" ].get( "biographicTablesTXT" ) )
+            biographicJobs          = readFileToList( parser[ "paths" ].get( "biographicJobsTXT" ) )
             ## some other sources
-            # uplinkCompanyPartOne  = readFileToList( parser[ "paths" ].get( "uplinkCompanyPartOne" ) )
-            # uplinkCompanyPartTwo  = readFileToList( parser[ "paths" ].get( "uplinkCompanyPartTwo" ) )
-            # uplinkFornames        = readFileToList( parser[ "paths" ].get( "uplinkFornames" ) )
-            # uplinkSurnames        = readFileToList( parser[ "paths" ].get( "uplinkSurnames" ) )
-            uplinkCompanyPartOne, uplinkCompanyPartTwo, uplinkFornames, uplinkSurnames = [], [], [], []
+            uplinkCompanyPartOne = readFileToList( parser[ "paths" ].get( "uplinkCompanyPartOne" ) )
+            uplinkCompanyPartTwo = readFileToList( parser[ "paths" ].get( "uplinkCompanyPartTwo" ) )
+            # uplinkFornames = readFileToList( parser[ "paths" ].get( "uplinkFornames" ) )
+            # uplinkSurnames = readFileToList( parser[ "paths" ].get( "uplinkSurnames" ) )
+            ## uplinkCompanyPartOne, uplinkCompanyPartTwo = [], []
+            uplinkFornames, uplinkSurnames = [], []
             self._instance = CVData( cvStyle, cvColor, hardList, softList, jobsList, toolList, 
-                            firstNameList, lastNameList, contractTypesList, corporationNames, 
-                            BiographicTables, BiographicJobs, 
+                            firstNameList, lastNameList, contractTypesList, 
+                            corporationNames, corporationDomains, 
+                            biographicTables, biographicJobs, 
                             uplinkCompanyPartOne, uplinkCompanyPartTwo, uplinkFornames, uplinkSurnames )
         ## print( self._instance.corporationNames )
         return self._instance
-
+    
+    @classmethod
+    def getRandomCorporationName( self ) : 
+        if (random.randint(1, 100) % 2 == 0) : 
+            return random.choice( self._instance.corporationNames ).split( "\t" )
+        else : 
+    	    elt1 = random.choice( self._instance.uplinkCompanyPartOne ) \
+    	        + " " + random.choice( self._instance.uplinkCompanyPartTwo )
+    	    elt2 = random.choice( self._instance.corporationDomains )
+    	    return [ elt1, elt2 ]
+    
+    @classmethod
+    def getRandomContractType( self ) : 
+        return random.choice( self._instance.contractTypesList )

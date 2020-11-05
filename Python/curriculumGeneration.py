@@ -1,6 +1,14 @@
 #!/usr/bin/python3
 # -*- coding: utf-8 -*- 
 
+def getLaTeXHeaderCVStyle(style = "classic") :
+    """Attempted Argument in "[ 'classic', 'casual', 'oldstyle', 'banking' ]" """ 
+    return "\\moderncvstyle{" + style + "}\n" 
+
+def getLaTeXHeaderCVStyle(color = "blue") :
+    """Attempted Argument in "[ 'blue', 'orange', 'green', 'red', 'purple', 'grey', 'black' ]" """ 
+    return "%% \\moderncvcolor{" + color + "}\n" 
+
 def getMakefileContent( texfilename ) : 
     str = "## naming WITHOUT the extensions [.tex] or [.bib]\n"
     str += "LATEXFILE=" + texfilename + "\n\n"
@@ -46,17 +54,9 @@ def getLaTeXHeaderPart1(color = "blue", style = "classic") :
     str += "%% \\moderncvcolor{...}\n" 
     return str
 
-def getLaTeXHeaderCVStyle(style = "classic") :
-    """Attempted Argument in "[ 'classic', 'casual', 'oldstyle', 'banking' ]" """ 
-    return "\\moderncvstyle{" + style + "}\n" 
-
-def getLaTeXHeaderCVStyle(color = "blue") :
-    """Attempted Argument in "[ 'blue', 'orange', 'green', 'red', 'purple', 'grey', 'black' ]" """ 
-    return "%% \\moderncvcolor{" + color + "}\n" 
-
-def getMinimalVariableDefinitions( general="General Title", title="Titre poste CV", 
-                                    speciality="", firstname="Anne", lastname="Onyme", 
-                                    cellphone="06~00~00~00~00" ) : 
+def getMinimalVariableDefinitions( general = "General Title", title = "Titre poste CV", 
+                                    speciality = "", firstname = "Anne", lastname = "Onyme", 
+                                    cellphone = "06~00~00~00~00" ) : 
     str = "%% some variable definitions\n"
     str += "\\def\\titreGeneralNewLine{" + general + "}\n"
     str += "\\def\\titreGeneral{" + title + "}\n"
@@ -143,7 +143,7 @@ def getHyperSetup() :
     str += "\t\tpdfsubject={\\titreGeneral ~-- \\titreSpecialite },\n"
     str += "\t\tpdfkeywords={\\motsClefs },\n"
     str += "\t\tpdfproducer={PDFLaTeX (creation)},\n"
-    str += "\t\tpdfcreator={PDFLaTeX (production)}\n"
+    str += "\t\tpdfcreator={Curriculum Generator}\n"
     str += "\t\t%% urlcolor=blue,\n"
     str += "}}\n\n"
     str += "\\usepackage{vmargin}\n"

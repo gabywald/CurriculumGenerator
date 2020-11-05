@@ -6,25 +6,55 @@ import sys, getopt, os, subprocess
 import argparse
 ## from argparse import ArgumentParser
 
+import BiographicTable
+BiographicTable.loadTables()
+
 def launcheMakePDFfromLaTeX( directory ) : 
     print( "Changing dir to {" + directory + "}..." )
     os.chdir( directory )
     print( "Compiling TeX file to PDF..." )
-    retcode = subprocess.call( "make", shell=True )
+    retcode = subprocess.call( "make", stdin=None, stdout=subprocess.DEVNULL, stderr=None, shell=True )
     print( retcode )
     print( "Cleaning..." )
-    retcode2 = subprocess.call( "make clean", shell=True )
+    retcode2 = subprocess.call( "make clean", stdin=None, stdout=subprocess.DEVNULL, stderr=None, shell=True)
     print( retcode2 )
     print( "Changing dir BACK..." )
     os.chdir( ".." )
 
 def testAndGetInList(index, list, alternatevalue) : 
-    item = None
+    item = [ None, None ]
     if ( index < len( list ) ) : 
         item = list[ index ]
     else: 
-        item = alternatevalue
+        item = [ alternatevalue, alternatevalue ]
     return item
+
+def checkArgsAndReturn( args, name, argsValue ) : 
+    if ( (hasattr(args, name)) and (argsValue != None) ) : 
+        return argsValue
+    return None
+
+def interactionSelection( elementsList, nbElements, allyes, strDom) : 
+    while ( len( elementsList ) < nbElements) : 
+        futurevalue = None
+        if (strDom == "Skills") : 
+            futurevalue = BiographicTable.selectRandomSkill()
+        elif (strDom == "Job") : 
+            futurevalue = BiographicTable.selectRandomBiographic()
+        elif (strDom == "Training") : 
+            futurevalue = BiographicTable.selectRandomTraining()
+        else : 
+        	break
+        ## TODO the negative choice by default ?
+        remaining = (nbElements) - len( elementsList )
+        userchoice = None
+        if ( allyes ) : 
+            userchoice = "Y"
+        else : 
+            userchoice = str(input("\t (remaining: %d ) [%s] Keep ? [Y/n]" %(remaining, strDom) ));
+        if ( (userchoice != "N") and (userchoice != "n") ) :
+            if futurevalue not in elementsList: 
+                elementsList.append( futurevalue )
 
 def askForInt( txtmsg ) : 
     data = None
@@ -80,6 +110,16 @@ parser.add_argument("-rfn", "--randomfirstname",
 parser.add_argument("-rln", "--randomlastname", 
     help = "Random Last Name", 
     action = "store_true" )
+
+parser.add_argument("-gt", "--generaltitle", 
+    help = "General Title", 
+    type=str )
+parser.add_argument("-ti", "--title", 
+    help = "Title", 
+    type=str )
+parser.add_argument("-sp", "--speciality", 
+    help = "Speciality", 
+    type=str )
     
 parser.add_argument("-fn", "--firstname", 
     help = "First Name", 
@@ -99,6 +139,9 @@ parser.add_argument("-wp", "--webpage",
 parser.add_argument("-ad", "--address", 
     help = "Address (IRL)", 
     type=str )
+parser.add_argument("-cp", "--cellphone", 
+    help = "Cell Phone", 
+    type=str )
 parser.add_argument("-qc", "--quote", 
     help = "Quote / Citation", 
     type=str )
@@ -109,26 +152,32 @@ parser.add_argument("-ei", "--extrainfo",
 parser.add_argument("-se", "--skillelements", 
     help = "Number of SKILL Elements", 
     type=int )
-
 parser.add_argument("-je", "--jobelements", 
     help = "Number of JOB Elements", 
     type=int )
-    
 parser.add_argument("-te", "--trainingelements", 
     help = "Number of TRAINING Elements", 
     type=int )
-    
+
 parser.add_argument("-rse", "--randomskillelements", 
     help = "Random number of SKILL elements", 
     action = "store_true" )
-
 parser.add_argument("-rje", "--randomjobelements", 
     help = "Random number of JOB elements", 
     action = "store_true" )
-
 parser.add_argument("-rte", "--randomtrainingelements", 
     help = "Random number of TRAINING elements", 
     action = "store_true" )
+
+parser.add_argument("-lse", "--listskillelements", 
+    help = "List of SKILL elements", 
+    type=str )
+parser.add_argument("-lje", "--listjobelements", 
+    help = "List of JOB elements", 
+    type=str )
+parser.add_argument("-lte", "--listtrainingelements", 
+    help = "List of TRAINING elements", 
+    type=str )
 
 parser.add_argument("-nqc", "--noquote", 
     help = "NO quote / Citation", 

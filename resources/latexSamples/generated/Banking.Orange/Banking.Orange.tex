@@ -1,0 +1,180 @@
+%% HEADER PART 1 of LaTeX Curriculum file
+\documentclass[11pt,a4paper]{moderncv}
+\usepackage[french]{babel}
+\moderncvtheme[orange]{banking}
+%% \moderncvstyle{...}
+%% \moderncvcolor{...}
+
+
+%% some variable definitions
+\def\titreGeneralNewLine{Mercenaire IT}
+\def\titreGeneral{Freelance IT}
+\def\titreSpecialite{Développement logiciel}
+\def\prenom{ Orange }
+\def\nom{ Banking }
+\def\prenomNom{\prenom ~\nom }
+\def\portable{06~12~34~56~78}
+
+\def\adressePhysique{ Postal Box 1337 }
+
+\def\eMail{a@n.org}
+
+\def\pageWeb{null.org} 
+
+%% NOQUOTE
+\def\extrainfoDATA{ 38 ans } 
+
+
+
+%% Fancy Style Defintion (and collateral elements)
+\usepackage{lastpage}
+
+\def\logoGliderNorma{../../img/logo_glider.png}
+\def\logoGliderRight{../../img/logo-glider-right.png}
+\def\logoGliderLeftt{../../img/logo-glider-left.png}
+\def\logoCreativeCommon{../../img/CreativeCommonLogo.jpeg}
+\def\includeLogoGN{\includegraphics[width=0.50cm]{\logoGliderNorma }}
+\def\includeLogoGR{\includegraphics[width=0.50cm]{\logoGliderRight }}
+\def\includeLogoGL{\includegraphics[width=0.50cm]{\logoGliderLeftt }}
+\def\includeLogoCC{\includegraphics[width=0.25cm]{\logoCreativeCommon }}
+
+\pagestyle{fancy}
+\def\makestylefancyContent{%
+	\fancyhf{}
+	\fancyhead[LE]{
+		\includegraphics[width=0.5cm]{\logoGliderLeftt }
+		\hfill
+		\prenomNom 
+		\hfill
+		\titreGeneral  -- \titreSpecialite
+	}
+	\fancyfoot[LE]{
+	\includegraphics[width=0.5cm]{\logoGliderLeftt } \hfill
+		\includeLogoCC \today -- \emph{Curriculum Generator (Python)} \hfill %% \copyright
+		\thepage /\pageref{LastPage}
+	}
+
+	\fancyhead[RO]{
+		\titreGeneral  -- \titreSpecialite
+		\hfill
+		\prenomNom 
+		\hfill
+		\includegraphics[width=0.5cm]{\logoGliderRight }
+	}
+	\fancyfoot[RO]{
+		\thepage /\pageref{LastPage} \hfill
+		\includeLogoCC \today -- \emph{Curriculum Generator (Python)} \hfill %% \copyright
+		\includegraphics[width=0.5cm]{\logoGliderRight }
+	}
+	\renewcommand{\headrulewidth}{0.25pt}
+	\renewcommand{\footrulewidth}{0.5pt}
+}%
+\makestylefancyContent
+
+
+\def\motsClefs{LaTeX;PDF;Python;Python3;JAVA;SQL;C / C++;Swing, Spring, Hibernate;MySQL, Oracle, Postgres;---}
+
+%% Some SetUp
+\AfterPreamble{\hypersetup{
+		pdfauthor={\prenomNom},
+		pdftitle={\titreGeneral ~-- \titreSpecialite },
+		pdfsubject={\titreGeneral ~-- \titreSpecialite },
+		pdfkeywords={\motsClefs },
+		pdfproducer={PDFLaTeX (creation)},
+		pdfcreator={Curriculum Generator}
+		%% urlcolor=blue,
+}}
+
+\usepackage{vmargin}
+\setmarginsrb{1.0cm}{0.2cm}{1.0cm}{0.50cm}{15pt}{10pt}{15pt}{45pt}
+\setlength{\hintscolumnwidth}{2.25cm}
+
+
+%% Defines Some attempted Values
+\firstname{\prenom }
+\familyname{\nom }
+\title{\titreGeneral }
+%% \title{\titreGeneral \newline \titreSpecialite}
+\address{\adressePhysique }
+\email{\eMail }
+\homepage{\pageWeb }
+\mobile{\portable }
+\ifdefined\quotationCitation
+\quote{ \quotationCitation }\fi
+\ifdefined\extrainfoDATA
+\extrainfo{ \extrainfoDATA }\fi
+%% \phone{00 00 00 00 00}
+%% \fax{00 00 00 00 00}
+%% \photo[64pt][0.4pt]{img/logo_glider.png}
+%% \phone[mobile]{\portable } %% \phone[mobile]{06~12~34~56~78}
+%% \phone[fixed]{01~01~01~01~01}
+%% \phone[fax]{01~01~01~01~01}
+%% \social[linkedin]{LinkedInProfile}    %% https://www.linkedin.com/in/.../
+%% \social[github]{GitHubProfile}        %% https://github.com/...
+%% \social[facebook]{FaceBookProfile}    %% https://www.facebook.com/...
+%% \social[twitter]{TwitterPage}         %% https://twitter.com/...
+
+
+\begin{document}
+
+\maketitle
+
+%% \section{Introduction}
+	 IntroductionText~\\ 
+
+\section{Comp{\'e}tences}
+	%% \cvdoubleitem{ Item1 }{ Description1 }{ Item2 }{ Description2 }
+
+	 \cvcomputer{ JAVA }{ Swing, Spring, Hibernate }{ SQL }{ MySQL, Oracle, Postgres }
+	 \cvcomputer{ C / C++ }{ --- }{ --- }{ --- }
+	 \cvitem{Langues}{ Anglais, Arabe, Chinois... }
+
+\section{Exp{\'e}rience professionnelle}
+	 \cventry{years}{Panopticon (Publication)}{International}{Stage}{Recrutement}{
+ JobDescription 
+}
+
+	 %% \cventry{years}{degree/job title}{institution/employer}{localization}{grade}{description}
+
+	 %% \cventry{DATUM}{TITRE}{ENTREPRISE}{CONTRAT}%
+	 %% 	{\newline INTITULE++}{%
+	 %% \begin{itemize}
+	 %% 	\item[$\rightarrow$] ELEMENTUN
+	 %% 	\item[$\bullet$] ELEMENTDEUXETPLUS
+	 %% \end{itemize}}
+
+\section{Formation}
+	 \cventry{years}{ Programmation }{Autodidacte}{ Bali }{
+ %% grade 
+}{
+ %% description 
+}
+
+	 \cventry{years}{ Création d'Entreprise }{Autoformation}{ Night City }{
+ %% grade 
+}{
+ %% description 
+}
+
+	 %% \cventry{Year}{Diploma}{\newline School}{Location}    {}{}{}
+
+\section{Licences et Certifications}
+	 \cventry{Year}{Diploma}{\newline School}{Location}    {}{}{}
+
+\section{Expériences de bénévolat}
+	 \cventry{years}{degree/job title}{institution/employer}{localization}{grade}{description}
+
+%% \section{Recommandations}
+%% 	 \cvitem{ Item1 }{ Description1 }
+
+\section{Réalisations}
+	 \cvitem{Projets}{ GitHub }
+	 \cvitem{Organisations}{ associations... }
+	 \cvitem{Publications}{ citations, references... }
+	 
+\section{Centres d'int{\'e}r{\^e}ts}
+	 \cvitem{Lectures}{ Science-Fiction, Policier, Fantasy... }
+	 \cvitem{Jeux Sociaux}{ Jeux de Rôle, Jeux de plateau, e-sport }
+
+\end{document}
+

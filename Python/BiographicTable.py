@@ -34,7 +34,7 @@ biographictablesDict = {}
 def loadTables() : 
     """Load BiographicTables from the configuration. """
     curriculumDataObj = CVData.loadConfig();
-    tablesAsTXT  = curriculumDataObj.BiographicTables
+    tablesAsTXT  = curriculumDataObj.biographicTables
     nextTable    = None
     for line in tablesAsTXT:
         resultTableHead       = re.match( "^Table (.*?)(\t(.*?))?$", line)
@@ -59,9 +59,10 @@ def loadTables() :
     if (nextTable != None) : 
         biographictablesDict[ nextTable.name ] = nextTable 
     ## print( biographictablesDict )
-    print( "Available Tables: " )
-    for key in biographictablesDict : 
-        print ( "\t % s" % key )
+    ## print( "Available Tables: " )
+    ## for key in biographictablesDict : 
+    ##     print ( "\t % s" % key )
+    return biographictablesDict
 
 def selectRandomBiographic() : 
     """Choose randomly an element from a randomly choosen BiographicTable. """
@@ -69,17 +70,21 @@ def selectRandomBiographic() :
     selected     = random.choice( baseTable.contents )
     choice       = biographictablesDict.get( selected )
     moreselect   = random.choice( choice.contents )
-    domain       = random.choice( biographictablesDict.get("Domaine").contents )
-    print( selected + "::" + moreselect + " // " + domain)
-    return [selected, moreselect, domain]
+    ## domain       = random.choice( biographictablesDict.get("Domaine").contents )
+    corporation  = CVData.getRandomCorporationName()
+    contractType    = CVData.getRandomContractType()
+    print( selected + "::" + moreselect + " // " + corporation[1] + " ( " + corporation[0] + ", " + contractType + " )" )
+    return [selected, moreselect, corporation[1], corporation[0], contractType]
 
 def selectRandomTraining() : 
     """Choose randomly an elements from the Training table. """
     baseTable   = biographictablesDict.get("Formation")
     selected    = random.choice( baseTable.contents )
     domain      = random.choice( biographictablesDict.get("Domaine").contents )
-    print( selected + "// " + domain)
-    return [selected, domain]
+    location    = random.choice( biographictablesDict.get("Localisation").contents )
+    ## print( "::".join( biographictablesDict.get("Domaine").contents ) )
+    print( selected + " // " + domain + " // " + location )
+    return [ domain, selected, location ]
 
 def selectRandomSkill() : 
     """Choose randomly an elements from the Skill table. """
@@ -88,4 +93,5 @@ def selectRandomSkill() :
     baseTable2 = CVData._instance.softList 
     selected = random.choice( baseTable1 + baseTable2 )
     print( selected )
-    return selected
+     ## return [ selected, "---" ]
+    return selected.split( "\t" )

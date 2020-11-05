@@ -5,15 +5,20 @@ __author__ = "Gabriel Chandesris"
 __copyright__ = "CC Gabriel Chandesris (2020)"
 __credits__ = ""
 __licence__ = "GNU GENERAL PUBLIC LICENSE v3"
-__version__ = "0.1.0"
+__version__ = "0.3.0"
 __maintainer__ = "Gabriel Chandesris"
 __email__ = "gabywald[at]laposte.net"
 __contact__ = "gabywald[at]laposte.net"
 __status__ = "Development"
 
 ## ## ## ## ## Main script to generate several Curriculum according to file passed in parameter
+## ## ## TODO File Format Definition to be precised !
 
-import sys
+import os, sys, shutil
+import glob
+import subprocess
+
+from pathlib import Path
 
 import curriculumData
 
@@ -22,10 +27,9 @@ from Person import Person
 def is_integer( n ):
     try:
         res = int( n )
-        print( res )
         return True
     except ValueError:
-        print ("not str: " + n )
+        ## print ("not int: " + n )
         return False
 
 print('(debugging purposes) Number of arguments:', len(sys.argv), 'arguments.' )
@@ -55,21 +59,23 @@ for line in fileContent :
         lstskills = []
         lstjobs = []
         lsttrainings = []
+        ## Parsing ListS {Skillms;Jobs;Trainings} !
         if (is_integer( lineSplitter[10] ) ) : 
             nbskills = int( lineSplitter[10] )
         else : 
             lstskills = lineSplitter[10].split( ";" )
-            print( lstskills )
+            ## print( lstskills )
         if (is_integer( lineSplitter[11] ) ) : 
             nbjobs = int( lineSplitter[11] )
         else : 
             lstjobs = lineSplitter[11].split( ";" )
-            print( lstjobs )
+            ## print( lstjobs )
         if (is_integer( lineSplitter[12] ) ) : 
             nbtrainings = int( lineSplitter[12] )
         else : 
             lsttrainings = lineSplitter[12].split( ";" )
-            print( lsttrainings )
+            ## print( lsttrainings )
+        ## Instanciate Person !
         personnae = Person( 
             firstname = lineSplitter[2], 
             lastname = lineSplitter[3], 
@@ -79,6 +85,9 @@ for line in fileContent :
             webpage = lineSplitter[7], 
             email = lineSplitter[8], 
             quote = lineSplitter[9], 
+            generaltitle = lineSplitter[13], 
+            title = lineSplitter[14], 
+            speciality = lineSplitter[15], 
             jobeltsnb = nbjobs, 
             trainingeltsnb = nbtrainings, 
             skilleltnb = nbskills, 
@@ -86,20 +95,48 @@ for line in fileContent :
             jobs = lstjobs, 
             trainings = lsttrainings )
         print( personnae )
-        cmd = "./mainScript "
+        ## Build Command to call build of Curriculum !
+        cmd = "./mainScript.py "
         cmd += "--style %s --color %s " %(cvStyle, cvColor)
         cmd += "-fn %s -ln %s " %(personnae.firstname, personnae.lastname)
         cmd += "--email %s --pseudo %s " %(personnae.email, personnae.pseudo)
-        cmd += "--webpage %s --address %s " %(personnae.webpage, personnae.address)
-        cmd += "--quote %s --extrainfo %s " %(personnae.quote, personnae.extrainfo)
+        cmd += "--webpage %s --address \"%s\" " %(personnae.webpage, personnae.address)
+        cmd += "--quote \"%s\" --extrainfo \"%s\" " %(personnae.quote, personnae.extrainfo)
+        cmd += "--generaltitle \"%s\" " %( personnae.generaltitle )
+        cmd += "--title \"%s\" " %( personnae.title )
+        cmd += "--speciality \"%s\" " %( personnae.speciality )
+        if ( len( personnae.skills ) != 0) : 
+            cmd += "-lse \"%s\" " %( ";".join(personnae.skills) )
+        if ( len( personnae.jobs ) != 0) :
+            cmd += "-lje \"%s\" " %( ";".join(personnae.jobs) )
+        if ( len( personnae.trainings ) != 0) :
+            cmd += "-lte \"%s\" " %( ";".join(personnae.trainings) )
         if ( (personnae.jobeltsnb != 0) 
                 and (personnae.trainingeltsnb != 0) 
                 and (personnae.skilleltnb != 0) ) : 
-            cmd += "-se %d -je %d -te %d " %(personnae.jobeltsnb, personnae.trainingeltsnb, personnae.skilleltnb)
+            cmd += "--jobelements %d " %( personnae.jobeltsnb )
+            cmd += "--trainingelements %d " %( personnae.trainingeltsnb )
+            cmd += "--skillelements %d " %( personnae.skilleltnb )
             cmd += "--allyes "
         else:
             cmd += ""
-            ## TODO arguments accepting list of {jobs;trainings;skills}
-        
+        cmd+= "--make "
         print ( cmd + "\n" )
-        ## retcode = subprocess.call( cmd, shell=True )
+        retcode = subprocess.call( cmd, shell=True )
+        personnae = None
+
+directory4outputs = "generated/"
+path = Path( directory4outputs )
+if ( path.exists() ) :
+    shutil.rmtree( directory4outputs )
+os.mkdir( directory4outputs )
+
+listing = glob.glob( "*_generate/*.pdf" )
+print( listing )
+for pdffile in listing:
+    shutil.copy(pdffile, directory4outputs)
+
+listing2remove = glob.glob( "*_generate/" )
+for dir2rm in listing2remove : 
+    subprocess.call( dir2rm, shell=True )
+

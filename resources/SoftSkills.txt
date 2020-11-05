@@ -1,16 +1,6 @@
-LeaderShip
-Management
-Sens du Relationnel
-Gestion de Projet
-Rigueur et Méthode
-Conduite de Réunion
-Reporting
-Esprit d'analyse
-Rédaction du cahier des charges
-Rédaction des Spécifications
-Méthodes Agiles (Scrum, Kanban)
-Méthodes Agiles (Scrum)
-Méthodes Agiles (Kanban)
-Contacts Transverses
-Transversalité
-Conduite de réunions
+Management	LeaderShip, Gestion d'équipe, Répartition de tâches, Gestion de Projet, Reporting
+Relationnel	Contacts, Prise de contacts
+Travail d'équipe	Rigueur et Méthode, Conduite de Réunion, Esprit d'analyse
+Rédaction	Cahier des charges, Spécifications, Tickets
+Méthodes Agiles	Scrum, Kanban, 
+Transversalité	Contact, Planification, Conduite de réunions

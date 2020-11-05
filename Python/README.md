@@ -58,37 +58,36 @@ Une liste des arguments est obtenue avec "./mainScript.py --help".
 
 * ./mainScript.py -rfn -rln -em default -qc NOQUOTE --make
 
-	- prénom aléatoire (-rfn)
-	- nom aléatoire (-rln)
+	- prénom aléatoire ('-rfn')
+	- nom aléatoire ('-rln')
 	- adresse e-mail par défault (à partir nom et prénom, '-em default') 
-	- NOQUOTE
-	- compilation du CV
+	- NOQUOTE ('-qc NOQUOTE')
+	- compilation du CV ('--make')
 	
 * ./mainScript.py -rfn -rln -em toto@domain.org --noquote
 
-	- prénom aléatoire (-rfn)
-	- nom aléatoire (-rln)
+	- prénom aléatoire ('-rfn')
+	- nom aléatoire ('-rln')
 	- adresse e-mail "toto@domain.org"
 	- NOQUOTE (peut être obtenu avec -nq / --noquote)
 	- compilation du CV (--make)
 	
 * ./mainScript.py -rfn -rln -em toto@domain.org -qc "There is no try" -je 5 -te 3
 
-	- prénom aléatoire (-rfn)
-	- nom aléatoire (-rln)
+	- prénom aléatoire ('-rfn')
+	- nom aléatoire ('-rln')
 	- adresse e-mail "toto@domain.org"
 	- quote "There is no try" ('-qc "There is no try"')
-	- compilation du CV (--make)
+	- compilation du CV ('--make')
 	- 5 expériences professionnelles ('-je 5')
 	- 3 formations ('-te 3')
 
 * ./mainScript.py -rfn -rln -em default -qc NOQUOTE -je 4 -te 3 -se 10 -ya -nei
 
-	- prénom aléatoire (-rfn)
-	- nom aléatoire (-rln)
+	- prénom aléatoire ('-rfn')
+	- nom aléatoire ('-rln')
 	- adresse e-mail par défault (à partir nom et prénom, '-em default') 
 	- NOQUOTE
-	- compilation du CV
 	- 5 expériences professionnelles ('-je 5')
 	- 3 formations ('-te 3')
 	- 10 compétences ('-se 10')
@@ -97,17 +96,35 @@ Une liste des arguments est obtenue avec "./mainScript.py --help".
 
 * ./mainScript.py -rfn -rln -em default -nqc -je 4 -te 3 -se 10 -ya -ei "42 ans"
 
-	- prénom aléatoire (-rfn)
-	- nom aléatoire (-rln)
+	- prénom aléatoire ('-rfn')
+	- nom aléatoire ('-rln')
 	- adresse e-mail par défault (à partir nom et prénom, '-em default') 
-	- NOQUOTE ('nqc')
+	- NOQUOTE ('-nqc')
+	- 5 expériences professionnelles ('-je 5')
+	- 3 formations ('-te 3')
+	- 10 compétences ('-se 10')
+	- acceptation automatique de la sélection aléatoire ('-ya')
+	- Inforrmation en plus "42 ans" ('-ei "42 ans"')
+
+* ./mainScript.py -lse "Domain::A, B, C;Other::---" -rfn -rln -ti title -gt "general title" -sp speciality -nq -nei -se 1 -je 5 -te 3 --email default -ya -lje "International::Recrutement::Publication::Panopticon::Stage" -lte "Autodidacte::Programmation;Autoformation::Création d'Entreprise"
+
+
+	- prénom aléatoire ('-rfn')
+	- nom aléatoire ('-rln')
+	- adresse e-mail par défault (à partir nom et prénom, '-em default') 
+	- NOQUOTE ('-nqc')
+	- NOEXTRAINFO ('-nei')
 	- compilation du CV
 	- 5 expériences professionnelles ('-je 5')
 	- 3 formations ('-te 3')
 	- 10 compétences ('-se 10')
 	- acceptation automatique de la sélectyion aléatoire ('-ya')
-	- Inforrmation en plus "42 ans" ('-ei "42 ans"')
-
+	- liste prédéfinie des compétences ('-lse "Domain::A, B, C;Other::---"')
+	- liste prédéfinie des expériences professionnelles ('-lje "International::Recrutement::Publication::Panopticon::Stage"')
+	- liste prédéfinie des formations ('-lte "Autodidacte::Programmation;Autoformation::Création d'Entreprise"')
+	- Titre général du CV ('-gt "general title"')
+	- Titre ('-ti title')
+	- Spécialité ('-sp speciality')
 
 ## Tutoriels et formations Python : 
 * https://docs.python.org/fr/3.8/tutorial/

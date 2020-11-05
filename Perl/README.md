@@ -1,2 +1,0 @@
-# CurriculumGenerator/Perl
-

@@ -5,44 +5,20 @@ Table CurriculumGenerator
 	Table GrandGroupe	[GrandGroupe]
 	Table International	[International]
 
-Table Domaine
-	Militaire
-	Pharmaceutique
-	Religieux
-	Logiciel
-	Publication
-	Édition
-	Livraison
-	Transports
-	Véhicules
-	Loisirs
-	Vente au détail
-	Fabrication
-	Communications
-	Énergie
-	Fournisseur de matériel
-	Publicitaire / Relations Publiques
-	Radio / Télévision
-	Équipement Informatique
-	Banque
-	Finance
-	Assurance
-	Criminel	[Domaine]
-	     
+Table SSII/ESN
+	Mission TMA -- Tierce Maintenance Applicative
+	Mission en Finance
+	Mission Banque
+	Mission Assurance
+	Intercontrat
+	Intercontrat	[FinDeContrat]
+
 Table FinDeContrat
 	Démission
 	Rupture Conventionnelle
 	Départ Anticipé
 	Licenciement Économique
 	Licenciement Pour Faute
-
-Table SSII/ESN
-	Mission TMA (Tierce Maintenance Applicative)
-	Mission en Finance
-	Mission Banque
-	Mission Assurance
-	Intercontrat
-	Intercontrat	[FinDeContrat]
 
 Table PME
 	Analyse De Données
@@ -70,8 +46,56 @@ Table Formation
 	Prépa Intégrée
 	Grande École (Ingénieur)
 	Licence
+	Licence Professionnelle
 	Master Recherche
 	Master Professionnel
 	Doctorat
 	Stage Ouvrier
 	Stage de fin d'études
+	Baccalauréat Général
+	Baccalauréat Technique
+	Baccalauréat Professionnel 
+
+Table Domaine
+	Militaire
+	Pharmaceutique
+	Religieux
+	Logiciel
+	Publication
+	Édition
+	Livraison
+	Transports
+	Véhicules
+	Loisirs
+	Vente au détail
+	Fabrication
+	Communications
+	Énergie
+	Fournisseur de matériel
+	Publicitaire / Relations Publiques
+	Radio / Télévision
+	Équipement Informatique
+	Banque
+	Finance
+	Assurance
+	Criminel
+
+Table Localisation
+	Paris
+	Marseille
+	Lyon
+	Nantes
+	Bordeaux
+	Bali
+	Bangkok
+	Beijing
+	Tokyo
+	Seattle
+	Bamako
+	Moscou
+	Mexico
+	Hong Kong
+	Los Angeles
+	Night City
+	New York
+	San Francisco
