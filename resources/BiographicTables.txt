@@ -5,37 +5,6 @@ Table CurriculumGenerator
 	Table GrandGroupe	[GrandGroupe]
 	Table International	[International]
 
-Table Domaine
-	Militaire
-	Pharmaceutique
-	Religieux
-	Logiciel
-	Publication
-	Édition
-	Livraison
-	Transports
-	Véhicules
-	Loisirs
-	Vente au détail
-	Fabrication
-	Communications
-	Énergie
-	Fournisseur de matériel
-	Publicitaire / Relations Publiques
-	Radio / Télévision
-	Équipement Informatique
-	Banque
-	Finance
-	Assurance
-	Criminel
-
-Table FinDeContrat
-	Démission
-	Rupture Conventionnelle
-	Départ Anticipé
-	Licenciement Économique
-	Licenciement Pour Faute
-
 Table SSII/ESN
 	Mission TMA -- Tierce Maintenance Applicative
 	Mission en Finance
@@ -43,6 +12,13 @@ Table SSII/ESN
 	Mission Assurance
 	Intercontrat
 	Intercontrat	[FinDeContrat]
+
+Table FinDeContrat
+	Démission
+	Rupture Conventionnelle
+	Départ Anticipé
+	Licenciement Économique
+	Licenciement Pour Faute
 
 Table PME
 	Analyse De Données
@@ -75,3 +51,27 @@ Table Formation
 	Doctorat
 	Stage Ouvrier
 	Stage de fin d'études
+
+Table Domaine
+	Militaire
+	Pharmaceutique
+	Religieux
+	Logiciel
+	Publication
+	Édition
+	Livraison
+	Transports
+	Véhicules
+	Loisirs
+	Vente au détail
+	Fabrication
+	Communications
+	Énergie
+	Fournisseur de matériel
+	Publicitaire / Relations Publiques
+	Radio / Télévision
+	Équipement Informatique
+	Banque
+	Finance
+	Assurance
+	Criminel
