@@ -5,7 +5,7 @@ __author__ = "Gabriel Chandesris"
 __copyright__ = "CC Gabriel Chandesris (2020)"
 __credits__ = ""
 __licence__ = "GNU GENERAL PUBLIC LICENSE v3"
-__version__ = "0.2.0"
+__version__ = "0.3.0"
 __maintainer__ = "Gabriel Chandesris"
 __email__ = "gabywald[at]laposte.net"
 __contact__ = "gabywald[at]laposte.net"
@@ -235,7 +235,8 @@ with open( texcurriculumDirectory + texcurriculumFileName + ".tex", 'w') as curr
     ## Starting document here !
     curriculumGenerationtest.write( "\\begin{document}\n\n\\maketitle\n\n" )
     ## Introduction
-    curriculumGenerationtest.write( "\\section{Introduction}\n")
+    ## ## ## TODO "Introduction Text" generation ??
+    curriculumGenerationtest.write( "%% \\section{Introduction}\n")
     curriculumGenerationtest.write( "\t IntroductionText~\\\\ \n\n" )
     ## Compétences ...
     curriculumGenerationtest.write( "\\section{Comp{\\'e}tences}\n" )
@@ -263,22 +264,26 @@ with open( texcurriculumDirectory + texcurriculumFileName + ".tex", 'w') as curr
     curriculumGenerationtest.write( "\\section{Formation}\n" )
     for eltTraining in personnae.trainings : 
         curriculumGenerationtest.write( "\t \\cventry{years}{%s}{%s}{%s}{\n %% grade \n}{\n %% description \n}\n\n" %(  eltTraining[1], eltTraining[0], eltTraining[2]  ) )
-    curriculumGenerationtest.write( "\t %% \\cventry{Year}{Diploma}{\\newline School}{Location}    {}{}{}\n\n" )
+    curriculumGenerationtest.write( "\t %% \\cventry{Year}{Diploma}{School}{Location}    {}{}{}\n\n" )
     ## Certifications ...
     curriculumGenerationtest.write( "\\section{Licences et Certifications}\n" )
     curriculumGenerationtest.write( "\t \\cventry{Year}{Diploma}{\\newline School}{Location}    {}{}{}\n\n" )
     ## Bénévolat ...
+    ## ## ## TODO "Bénévolat" generation ??
     curriculumGenerationtest.write( "\\section{Expériences de bénévolat}\n" )
-    curriculumGenerationtest.write( "\t \\cventry{years}{degree/job title}{institution/employer}{localization}{grade}{description}\n\n" )
+    curriculumGenerationtest.write( "\t \\cventry{years}{jobtitle}{institution}{localization}{status}{description}\n\n" )
     ## Recommandations ...
+    ## ## ## TODO "Recommandations" generation ??
     curriculumGenerationtest.write( "%% \\section{Recommandations}\n" )
-    curriculumGenerationtest.write( "%% \t \\cvitem{ Item1 }{ Description1 }\n\n" )
-    ## Réalisations :  ...
+    curriculumGenerationtest.write( "%% \t \\cvitem{ Item }{ Content }\n\n" )
+    ## Réalisations ...
+    ## ## ## TODO "Réalisations" generation ??
     curriculumGenerationtest.write( "\\section{Réalisations}\n" )
     curriculumGenerationtest.write( "\t \\cvitem{Projets}{ GitHub }\n" )
-    curriculumGenerationtest.write( "\t \\cvitem{Organisations}{ associations... }\n" )
-    curriculumGenerationtest.write( "\t \\cvitem{Publications}{ citations, references... }\n\n" )
+    curriculumGenerationtest.write( "\t \\cvitem{Organisations}{ associations }\n" )
+    curriculumGenerationtest.write( "\t \\cvitem{Publications}{ citations }\n\n" )
     ## Out of Work / Centres d'intérêts
+    ## ## ## TODO "Interests out of the work" generation ??
     curriculumGenerationtest.write( "\\section{Centres d'int{\\'e}r{\\^e}ts}\n" )
     curriculumGenerationtest.write( "\t \\cvitem{Lectures}{ Science-Fiction, Policier, Fantasy... }\n" )
     curriculumGenerationtest.write( "\t \\cvitem{Jeux Sociaux}{ Jeux de Rôle, Jeux de plateau, e-sport }\n" )
