@@ -148,7 +148,7 @@ def getHyperSetup() :
     str += "}}\n\n"
     str += "\\usepackage{vmargin}\n"
     str += "\\setmarginsrb{1.0cm}{0.2cm}{1.0cm}{0.50cm}{15pt}{10pt}{15pt}{45pt}\n"
-    str += "\\setlength{\hintscolumnwidth}{2.25cm}\n"
+    str += "%% \\setlength{\hintscolumnwidth}{2.25cm}\n"
     return str
 
 def getDefVariables() : 

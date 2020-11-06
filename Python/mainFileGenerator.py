@@ -44,10 +44,14 @@ for i in range(0, numberOfPersonnae) :
     personnae.webpage = personnae.pseudo + ".personnalbranding.com"
     personnae.address = "PostalBox%d" %i
     personnae.cellphone = "06~78~34~12~56"
+    ## Others
+    personnae.quote = "NOQUOTE"
+    numberOfYears = random.randint(20, 70)
+    personnae.extrainfo = "%d ans" %( numberOfYears )
     ## {Skills;Jobs;Trainings} elements
-    personnae.skilleltnb = random.randint(1, 10)
-    personnae.jobeltsnb = random.randint(1,  5)
-    personnae.trainingeltsnb = random.randint(1, 5)
+    personnae.skilleltnb = random.randint(1, int(numberOfYears / 5) )
+    personnae.jobeltsnb = random.randint(1, int(numberOfYears / 5) )
+    personnae.trainingeltsnb = random.randint(1, int(numberOfYears / 5) )
     curriculumMainFunctions.interactionSelection( personnae.skills, personnae.skilleltnb, True, "Skills" )
     curriculumMainFunctions.interactionSelection( personnae.jobs, personnae.jobeltsnb, True, "Job" )
     curriculumMainFunctions.interactionSelection( personnae.trainings, personnae.trainingeltsnb, True, "Training" )
@@ -56,10 +60,9 @@ for i in range(0, numberOfPersonnae) :
     personnae.generaltitle = "%s (%s)" %( threePieces[0], threePieces[2] )
     personnae.title = threePieces[1]
     personnae.speciality = threePieces[2]
-    ## Others
-    personnae.quote = "NOQUOTE"
     str = random.choice( curriculumDataObj.cvStyle ) + "\t"
     str += random.choice( curriculumDataObj.cvColor ) + "\t"
     str += personnae.export()
+    numberOfYears = None
     print( str )
 
