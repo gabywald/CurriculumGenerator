@@ -127,6 +127,31 @@ NOTE 2 : Couleur de CV parmi les suivantes {blue,orange,green,red,purple,grey,bl
 * 'jobs' : <base>::<thématique>::<domaine d'activité>::<nom entreprise>::<type de contrat>
 * 'trainings' : <Type de Formation>::<Thématique>::<Localisation>
 
+### Script principal 'mainFileGenerator.py'
+
+Un argument optionnel pour ce script : le nombre de profils à générer. 
+
+Ce script génère le fichier d'entrée pour 'mainWithFile.py'. 
+
+## Cas d'utilisation / Cas d'usage
+
+Environnement Python 3.8 doit être installé. 
+
+Les scripts doivent être executables. 
+
+```
+./mainFileGenerator.py 5 > exportPersonnae.txt
+
+./mainWithFile.py exportPersonnae.txt
+
+```
+
+On obtient ainsi 5 Curriculum / CV générés en LaTeX et compilés en PDF. 
+* Un répertoire "<prénom>.<nom>_generated" pour chacun des profils 
+* Un répertoire "generated" contenant les PDF produits
+
+Le fichier 'exportPersonnae.txt' est modifiable, ainsi que les fichiers '.tex', afin de compléter et modifier les contenus (commande 'make' dans le répertoire dédié pour générer à nouveau le PDF). 
+
 	
 ## "En l'état" (octobre et novembre 2020)
 
