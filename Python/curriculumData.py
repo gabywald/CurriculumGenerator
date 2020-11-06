@@ -61,7 +61,7 @@ class CVData( object ) :
             ## Use a configuration file ! 'sources.ini' !
             parser = configparser.ConfigParser()
             parser.read( "sources.ini" )
-            print( parser.sections() )
+            # print( parser.sections() )
             ## CV style and color !
             cvStyle = parser[ "bases" ].get( "cvStyle" ).split(', ')
             cvColor = parser[ "bases" ].get( "cvColor" ).split(', ')

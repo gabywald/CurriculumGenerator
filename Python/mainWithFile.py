@@ -12,7 +12,6 @@ __contact__ = "gabywald[at]laposte.net"
 __status__ = "Development"
 
 ## ## ## ## ## Main script to generate several Curriculum according to file passed in parameter
-## ## ## TODO File Format Definition to be precised !
 
 import os, sys, shutil
 import glob

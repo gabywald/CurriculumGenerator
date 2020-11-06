@@ -13,6 +13,7 @@ Ici, certains éléments sont précisés en détail, même si ils semble,net ins
 * Python 3.8.5
 * __script principal__ : 'mainScript.py'
 * Autre script d'entrée : 'mainWithFile.py' (appelle le précédent à partir d'un fichier)
+* Autre script d'entrée : 'mainFileGenertor.py' (génère fichier pour le précédent)
 * Eclipse / PyCharm
 * Shell Bash
 * UTF-8 (les sources pythons et les fichiers de configuration)
@@ -20,20 +21,114 @@ Ici, certains éléments sont précisés en détail, même si ils semble,net ins
 
 Testé sous Linux Ubuntu 20.04
 
-## Idées
+## Paramètres d'entrée
 
-* Paramètres d'entrée (à préciser)
+### Script principal 'mainScript.py'
 
-	- nom
-	- prénom
-	- poste 
-	- citation / quote
-	- liste de compétences
-	- un fichier (CSV de préférence ; JSON ?) regroupant les éléments précédents et également expériences professionnelles, formations... (format interne à définir)
-	- fichiers plats avec noms d'entreprises ("corporations"), générées ou non à la volée
-	- ...
+```
+./mainScript.py --help
+usage: Curriculum Generator [-h] [-s {classic,casual,oldstyle,banking}]
+                            [-c {blue,orange,green,red,purple,grey,black}] [-rs] [-rc] [-rfn]
+                            [-rln] [-gt GENERALTITLE] [-ti TITLE] [-sp SPECIALITY] [-fn FIRSTNAME]
+                            [-ln LASTNAME] [-em EMAIL] [-ps PSEUDO] [-wp WEBPAGE] [-ad ADDRESS]
+                            [-cp CELLPHONE] [-qc QUOTE] [-ei EXTRAINFO] [-se SKILLELEMENTS]
+                            [-je JOBELEMENTS] [-te TRAININGELEMENTS] [-rse] [-rje] [-rte]
+                            [-lse LISTSKILLELEMENTS] [-lje LISTJOBELEMENTS]
+                            [-lte LISTTRAININGELEMENTS] [-nqc] [-nei] [-m] [-ya]
+
+BEGINNING of help
+
+optional arguments:
+  -h, --help            show this help message and exit
+  -s {classic,casual,oldstyle,banking}, --style {classic,casual,oldstyle,banking}
+                        ModernCV Style
+  -c {blue,orange,green,red,purple,grey,black}, --color {blue,orange,green,red,purple,grey,black}
+                        ModernCV Color
+  -rs, --randomstyle    Random ModernCV Color
+  -rc, --randomcolor    Random ModernCV Color
+  -rfn, --randomfirstname
+                        Random First Name
+  -rln, --randomlastname
+                        Random Last Name
+  -gt GENERALTITLE, --generaltitle GENERALTITLE
+                        General Title
+  -ti TITLE, --title TITLE
+                        Title
+  -sp SPECIALITY, --speciality SPECIALITY
+                        Speciality
+  -fn FIRSTNAME, --firstname FIRSTNAME
+                        First Name
+  -ln LASTNAME, --lastname LASTNAME
+                        Last Name
+  -em EMAIL, --email EMAIL
+                        E-Mail
+  -ps PSEUDO, --pseudo PSEUDO
+                        Pseudonym
+  -wp WEBPAGE, --webpage WEBPAGE
+                        Web Page / URL
+  -ad ADDRESS, --address ADDRESS
+                        Address (IRL)
+  -cp CELLPHONE, --cellphone CELLPHONE
+                        Cell Phone
+  -qc QUOTE, --quote QUOTE
+                        Quote / Citation
+  -ei EXTRAINFO, --extrainfo EXTRAINFO
+                        Extra Info (i.e. age, for exemple)
+  -se SKILLELEMENTS, --skillelements SKILLELEMENTS
+                        Number of SKILL Elements
+  -je JOBELEMENTS, --jobelements JOBELEMENTS
+                        Number of JOB Elements
+  -te TRAININGELEMENTS, --trainingelements TRAININGELEMENTS
+                        Number of TRAINING Elements
+  -rse, --randomskillelements
+                        Random number of SKILL elements
+  -rje, --randomjobelements
+                        Random number of JOB elements
+  -rte, --randomtrainingelements
+                        Random number of TRAINING elements
+  -lse LISTSKILLELEMENTS, --listskillelements LISTSKILLELEMENTS
+                        List of SKILL elements
+  -lje LISTJOBELEMENTS, --listjobelements LISTJOBELEMENTS
+                        List of JOB elements
+  -lte LISTTRAININGELEMENTS, --listtrainingelements LISTTRAININGELEMENTS
+                        List of TRAINING elements
+  -nqc, --noquote       NO quote / Citation
+  -nei, --noextrainfo   NO quote / Citation
+  -m, --make            Launch Making of PDF from TeX file
+  -ya, --allyes         Automatically yes for generated elements / questions
+
+END of help
+```
+
+NOTES : 
+* pour les éléments *se, *je et *te (Compétence, Travails, Formations // Skills / Jobs / Trainings), les listes fournies sont prioritaires sur les nombres et la sélection aléatoire ; 
+* fonctionenent en binôme : {qc;nqc}, {ei;nei}, les négatifs sont prioritaires ; 
+* 'allyes' (ya) permet une sélection automatiques des éléments générés aléatoirement ; 
+* email et pseudo acceptent une valeur 'default' (généré à partir nom et prénom). 
+* ... 
+
+Les informations non fournies par les arguments sont demandés de façon 'interactive' (attente saisie utilisateur), excepté : adresse, e-mail et numéro de téléphone portable. 
+
+### Script principal 'mainWithFile.py'
+
+Ce script attend un argument : le chemin d'aaccès au fichier d'entrée. 
+
+Le format attendu est le suivant, chaque contenu de colonne est séparé par une tabulation ('\t') : 
+
+CVstyle|CVcolor|FirstName|LastName|Age|PhysicalAddress|Pseudo|WebSite|email|quote|skills|jobs|trainings|Cell Phone|General Title|Title|Speciality
+:---|:---|:---|:---|:---|:---|:---|:---|:---|:---|:---|:---|:---|:---|:---|:---|:---
+Note 1 |Note 2 |	|	|	|	|	|	|	|	|	|	|	|	|	|	|	       
+
+NOTE 1 : Style de CV parmi les suivants {classic,casual,oldstyle,banking}
+NOTE 2 : Couleur de CV parmi les suivantes {blue,orange,green,red,purple,grey,black}
+
+**Formats particuliers : skills, jobs, trainings** : si plusieurs fois pour un même élément, séparer par des ';' (point-virgules)
+* 'skills' : <groupe de compétences>::<compétences associées>
+* 'jobs' : <base>::<thématique>::<domaine d'activité>::<nom entreprise>::<type de contrat>
+* 'trainings' : <Type de Formation>::<Thématique>::<Localisation>
+
 	
-## "En l'état" (23/10/2020)
+## "En l'état" (octobre et novembre 2020)
 
 L'objectif premier étant (de mon côté, initiateur du projet) de réviser le Python et surtout Python 3 pour les éléments suivants : 
  * lecture de fichiers
@@ -49,6 +144,8 @@ La première partie étant faite (révisions Python 3, donc) ; ce qui reste à f
 * dates des étapes professionnelles ; 
 * gestion fine des formations (autodidactes acceptés !) ; 
 * gestion des centres d'intérêts ; 
+
+Plusieurs scripts pour aider à générer les CV, ainsi que plusieurs scripts d'entrée pour faciliter l'usage. 
 
 __Si d'autres développeurs veulent participer au projet, n'hésitez pas à vous signaler !__
 
@@ -121,7 +218,7 @@ Une liste des arguments est obtenue avec "./mainScript.py --help".
 	- acceptation automatique de la sélectyion aléatoire ('-ya')
 	- liste prédéfinie des compétences ('-lse "Domain::A, B, C;Other::---"')
 	- liste prédéfinie des expériences professionnelles ('-lje "International::Recrutement::Publication::Panopticon::Stage"')
-	- liste prédéfinie des formations ('-lte "Autodidacte::Programmation;Autoformation::Création d'Entreprise"')
+	- liste prédéfinie des formations ('-lte "Autodidacte::Programmation::Bali;Autoformation::Création d'Entreprise::Night City"')
 	- Titre général du CV ('-gt "general title"')
 	- Titre ('-ti title')
 	- Spécialité ('-sp speciality')

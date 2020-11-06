@@ -25,8 +25,8 @@ import curriculumGeneration
 from Person import Person
 from curriculumData import CVData
 
-print('(debugging purposes) Number of arguments:', len(sys.argv), 'arguments.' )
-print('(debugging purposes) Argument List:', str(sys.argv) )
+## print('(debugging purposes) Number of arguments:', len(sys.argv), 'arguments.' )
+## print('(debugging purposes) Argument List:', str(sys.argv) )
 
 args = curriculumMainFunctions.parsingArgs()
 
