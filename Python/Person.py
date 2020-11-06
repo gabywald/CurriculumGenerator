@@ -61,4 +61,20 @@ class Person( object ) :
         for elt in self.trainings : 
             str += "\t\t %s \n" % ( elt )
         return str
+    
+    def export( self ) : 
+        str = self.lastname + "\t" + self.firstname + "\t"
+        str += "generated" + "\t"
+        str += self.address + "\t" + self.pseudo + "\t"
+        str += self.webpage + "\t" + self.email + "\t"
+        str += self.quote + "\t"
+        str += ";".join( map("::".join, self.skills) ) + "\t"
+        str += ";".join( map("::".join, self.jobs) ) + "\t"
+        str += ";".join( map("::".join, self.trainings) ) + "\t"
+        str += self.generaltitle + "\t"
+        str += self.title + "\t"
+        str += self.speciality + "\t"
+        str += self.cellphone + "\t"
+        return str
+
 

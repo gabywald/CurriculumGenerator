@@ -54,7 +54,7 @@ personnae.lastname = curriculumMainFunctions.checkArgsAndReturn( args, 'lastname
 personnae.generaltitle = curriculumMainFunctions.checkArgsAndReturn( args, 'generaltitle', args.generaltitle )
 personnae.title = curriculumMainFunctions.checkArgsAndReturn( args, 'title', args.title )
 personnae.speciality = curriculumMainFunctions.checkArgsAndReturn( args, 'speciality', args.speciality )
-personnae.cellphone = curriculumMainFunctions.checkArgsAndReturn( args, 'cellphone', args.cellphone )
+personnae.email = curriculumMainFunctions.checkArgsAndReturn( args, 'email', args.email )
 personnae.address = curriculumMainFunctions.checkArgsAndReturn( args, 'address', args.address )
 personnae.webpage = curriculumMainFunctions.checkArgsAndReturn( args, 'webpage', args.webpage )
 personnae.cellphone = curriculumMainFunctions.checkArgsAndReturn( args, 'cellphone', args.cellphone )
@@ -153,9 +153,6 @@ else:
 ## EMail Generation (from pseudo) of from Arguments
 defaultemail = personnae.pseudo + "@gmx.com"
 
-if ( (hasattr(args, 'email')) and (args.email != None) ) :
-    personnae.email = args.email
-
 if (personnae.email == None) : 
     personnae.email = curriculumMainFunctions.askForStrNotEmpty( "e-mail (default=[%s])?" % defaultemail )
 
@@ -170,7 +167,7 @@ if (personnae.cellphone == None) :
     personnae.cellphone = "06~12~34~56~78"
 
 if (personnae.webpage == None) : 
-    personnae.webpage = personnae.firstname.lower() + "." + personnae.lastname.lower() + ".personnalbranding.com"
+    personnae.webpage = personnae.pseudo + ".personnalbranding.com"
 
 ## ## Interact with user to choose Skills / Jobs / Trainings (randomly generated)
 curriculumMainFunctions.interactionSelection( personnae.skills, personnae.skilleltnb, args.allyes, "Skills" )

@@ -45,7 +45,7 @@ fileContent = curriculumData.readFileToList( path2file );
 ## print( fileContent )
 
 for line in fileContent : 
-    if ( not line.startswith( "#" ) ) :
+    if ( ( not line.startswith( "#" ) ) and (line != "") ) :
         lineSplitter = line.split( "\t" )
         cvStyle = lineSplitter[ 0 ]
         cvColor = lineSplitter[ 1 ]
@@ -87,6 +87,7 @@ for line in fileContent :
             generaltitle = lineSplitter[13], 
             title = lineSplitter[14], 
             speciality = lineSplitter[15], 
+            cellphone = lineSplitter[16], 
             jobeltsnb = nbjobs, 
             trainingeltsnb = nbtrainings, 
             skilleltnb = nbskills, 
@@ -104,6 +105,7 @@ for line in fileContent :
         cmd += "--generaltitle \"%s\" " %( personnae.generaltitle )
         cmd += "--title \"%s\" " %( personnae.title )
         cmd += "--speciality \"%s\" " %( personnae.speciality )
+        cmd += "--cellphone \"%s\" " %( personnae.cellphone )
         if ( len( personnae.skills ) != 0) : 
             cmd += "-lse \"%s\" " %( ";".join(personnae.skills) )
         if ( len( personnae.jobs ) != 0) :

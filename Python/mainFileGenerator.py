@@ -12,4 +12,54 @@ __contact__ = "gabywald[at]laposte.net"
 __status__ = "Development"
 
 ## ## ## ## ## Main script to generate file passed in parameter in dedicated script
-## TODO mainFileGenerator.py 
+
+import sys, random
+
+import curriculumMainFunctions
+
+from Person import Person
+from curriculumData import CVData
+
+numberOfPersonnae = None
+
+if (len(sys.argv) < 2) : 
+    numberOfPersonnae = random.randint(1, 100)
+else : 
+    try : 
+        numberOfPersonnae = int(sys.argv[1])
+    except ValueError:
+        numberOfPersonnae = curriculumMainFunctions.askForInt( "Number of Person to generate ? " )
+    
+print ( "## numberOfPersonnae: %d" %( numberOfPersonnae ) )
+
+for i in range(0, numberOfPersonnae) : 
+    personnae = Person()
+    curriculumDataObj = CVData.loadConfig()
+    ## First Name and Last Name
+    personnae.firstname = random.choice( curriculumDataObj.firstNameList )
+    personnae.lastname = random.choice( curriculumDataObj.lastNameList )
+    ## Pseudo and associated values (email, website) and address and cellphone
+    personnae.pseudo = personnae.firstname.lower() + "." + personnae.lastname.lower()
+    personnae.email = personnae.pseudo + "@gmx.com"
+    personnae.webpage = personnae.pseudo + ".personnalbranding.com"
+    personnae.address = "PostalBox%d" %i
+    personnae.cellphone = "06~78~34~12~56"
+    ## {Skills;Jobs;Trainings} elements
+    personnae.skilleltnb = random.randint(1, 10)
+    personnae.jobeltsnb = random.randint(1,  5)
+    personnae.trainingeltsnb = random.randint(1, 5)
+    curriculumMainFunctions.interactionSelection( personnae.skills, personnae.skilleltnb, True, "Skills" )
+    curriculumMainFunctions.interactionSelection( personnae.jobs, personnae.jobeltsnb, True, "Job" )
+    curriculumMainFunctions.interactionSelection( personnae.trainings, personnae.trainingeltsnb, True, "Training" )
+    ## General Title, Title and Speciality
+    threePieces = curriculumDataObj.getRandomJob()
+    personnae.generaltitle = "%s (%s)" %( threePieces[0], threePieces[2] )
+    personnae.title = threePieces[1]
+    personnae.speciality = threePieces[2]
+    ## Others
+    personnae.quote = "NOQUOTE"
+    str = random.choice( curriculumDataObj.cvStyle ) + "\t"
+    str += random.choice( curriculumDataObj.cvColor ) + "\t"
+    str += personnae.export()
+    print( str )
+

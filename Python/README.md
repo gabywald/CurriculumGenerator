@@ -115,7 +115,7 @@ Ce script attend un argument : le chemin d'aaccès au fichier d'entrée.
 
 Le format attendu est le suivant, chaque contenu de colonne est séparé par une tabulation ('\t') : 
 
-CVstyle|CVcolor|FirstName|LastName|Age|PhysicalAddress|Pseudo|WebSite|email|quote|skills|jobs|trainings|Cell Phone|General Title|Title|Speciality
+CVstyle|CVcolor|FirstName|LastName|Age|PhysicalAddress|Pseudo|WebSite|email|quote|skills|jobs|trainings|General Title|Title|Speciality
 :---|:---|:---|:---|:---|:---|:---|:---|:---|:---|:---|:---|:---|:---|:---|:---|:---
 Note 1 |Note 2 |	|	|	|	|	|	|	|	|	|	|	|	|	|	|	       
 

@@ -73,7 +73,7 @@ def selectRandomBiographic() :
     ## domain       = random.choice( biographictablesDict.get("Domaine").contents )
     corporation  = CVData.getRandomCorporationName()
     contractType    = CVData.getRandomContractType()
-    print( selected + "::" + moreselect + " // " + corporation[1] + " ( " + corporation[0] + ", " + contractType + " )" )
+    ## print( selected + "::" + moreselect + " // " + corporation[1] + " ( " + corporation[0] + ", " + contractType + " )" )
     return [selected, moreselect, corporation[1], corporation[0], contractType]
 
 def selectRandomTraining() : 
@@ -82,8 +82,7 @@ def selectRandomTraining() :
     selected    = random.choice( baseTable.contents )
     domain      = random.choice( biographictablesDict.get("Domaine").contents )
     location    = random.choice( biographictablesDict.get("Localisation").contents )
-    ## print( "::".join( biographictablesDict.get("Domaine").contents ) )
-    print( selected + " // " + domain + " // " + location )
+    ## print( selected + " // " + domain + " // " + location )
     return [ domain, selected, location ]
 
 def selectRandomSkill() : 
@@ -92,6 +91,5 @@ def selectRandomSkill() :
     baseTable1 = CVData._instance.hardList
     baseTable2 = CVData._instance.softList 
     selected = random.choice( baseTable1 + baseTable2 )
-    print( selected )
-     ## return [ selected, "---" ]
+    ## print( selected )
     return selected.split( "\t" )

@@ -1,6 +1,6 @@
-Ingénieur	[d'Études;Développement;Système;CyberSécurité]	Conception;Java;C++;C;Python;Perl;Design Pattern
-Chef de Projet	[Logiciel;Informatique]	Conception;Management
-Architecte	[Informatique;Bases De Données]	Conception;Bases De Données;SQL;
-Formateur	[Informatique]	Conception;Design Pattern
-Technicien	[Maintenance;Système]	Développement logiciel
-Développeur	[Logiciel]	Conception;Java;C++;C;Python;Perl;Design Pattern
+Ingénieur	d'Études;Développement;Système;CyberSécurité	Conception;Java;C++;C;Python;Perl;Design Pattern
+Chef de Projet	Logiciel;Informatique	Conception;Management
+Architecte	Informatique;Bases De Données	Conception;Bases De Données;SQL;Logiciel
+Formateur	Informatique;	Conception;Java;C++;C;Python;Perl;Design Pattern
+Technicien	Maintenance;Système;	Développement logiciel;Système
+Développeur	Logiciel	Conception;Java;C++;C;Python;Perl;Design Pattern

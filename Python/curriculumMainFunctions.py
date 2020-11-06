@@ -51,7 +51,8 @@ def interactionSelection( elementsList, nbElements, allyes, strDom) :
         if ( allyes ) : 
             userchoice = "Y"
         else : 
-            userchoice = str(input("\t (remaining: %d ) [%s] Keep ? [Y/n]" %(remaining, strDom) ));
+            print ( futurevalue )
+            userchoice = str(input("\t (remaining: %d ) [%s] Keep ? [Y/n]" %(remaining, strDom) ))
         if ( (userchoice != "N") and (userchoice != "n") ) :
             if futurevalue not in elementsList: 
                 elementsList.append( futurevalue )

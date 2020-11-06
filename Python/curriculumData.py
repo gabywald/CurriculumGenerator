@@ -105,3 +105,11 @@ class CVData( object ) :
     @classmethod
     def getRandomContractType( self ) : 
         return random.choice( self._instance.contractTypesList )
+    
+    @classmethod
+    def getRandomJob( self ) : 
+        selection = random.choice( self._instance.biographicJobs ).split( "\t" )
+        generalTitle = selection[0] + " " + random.choice( selection[1].split(";") )
+        title = generalTitle
+        speciality = random.choice( selection[2].split(";") )
+        return [ generalTitle, title, speciality ]
