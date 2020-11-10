@@ -259,6 +259,9 @@ Une liste des arguments est obtenue avec "./mainScript.py --help".
 * https://www.w3schools.com/python/python_dictionaries.asp
 * https://www.geeksforgeeks.org/python-dictionary/
 * https://www.w3schools.com/python/python_regex.asp
+* PEP 8 : https://www.python.org/dev/peps/pep-0008/
+* PEP 20 : https://www.python.org/dev/peps/pep-0020/ => Zen Of Python and Easter Egg !
+* "Conventions de syntaxe en python" : http://all4dev.libre-entreprise.org/index.php/Conventions_de_syntaxe_en_python
 
 NOTE : approffondir la python DOC !
 

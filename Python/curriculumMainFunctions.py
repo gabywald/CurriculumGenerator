@@ -1,7 +1,10 @@
 #!/usr/bin/python3
 # -*- coding: utf-8 -*- 
 
-import sys, getopt, os, subprocess
+import sys
+import getopt
+import os
+import subprocess
 
 import argparse
 ## from argparse import ArgumentParser

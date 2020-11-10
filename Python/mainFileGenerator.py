@@ -13,7 +13,8 @@ __status__ = "Development"
 
 ## ## ## ## ## Main script to generate file passed in parameter in dedicated script
 
-import sys, random
+import sys
+import random
 
 import curriculumMainFunctions
 

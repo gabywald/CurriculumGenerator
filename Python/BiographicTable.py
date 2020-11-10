@@ -1,10 +1,12 @@
 #!/usr/bin/python3
 # -*- coding: utf-8 -*- 
 
-import curriculumData
-from curriculumData import CVData
 import re
 import random
+
+import curriculumData
+from curriculumData import CVData
+
 
 class BiographicTable( object ) : 
     """This class defines Tables Definitions for 'biographic' elements for Curriculum generation. """

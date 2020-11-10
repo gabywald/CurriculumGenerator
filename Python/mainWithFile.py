@@ -13,7 +13,9 @@ __status__ = "Development"
 
 ## ## ## ## ## Main script to generate several Curriculum according to file passed in parameter
 
-import os, sys, shutil
+import os
+import sys
+import shutil
 import glob
 import subprocess
 

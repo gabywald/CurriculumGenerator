@@ -13,7 +13,9 @@ __status__ = "Development"
 
 ## ## ## ## ## Main Script to generate a Curriculum, according to parameters indicated !
 
-import os, sys, shutil
+import os
+import sys
+import shutil
 import random
 
 from pathlib import Path
