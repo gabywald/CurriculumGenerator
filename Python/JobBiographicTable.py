@@ -7,12 +7,11 @@ import random
 import curriculumData
 from curriculumData import CVData
 
-
-class BiographicTable( object ) : 
+class JobBiographicTable( object ) : 
     """This class defines Tables Definitions for 'biographic' elements for Curriculum generation. """
     
     def __init__(self, name = None, comments = None ):
-        """BiographicTable Constructor. """
+        """JobBiographicTable Constructor. """
         self.name = name
         self.comments = comments
         self.contents = []
@@ -20,21 +19,16 @@ class BiographicTable( object ) :
         self.addins   = []
     
     def __str__(self) : 
-        """BiographicTable to str. """
-        str = "BiographicTable ( % s , % s ) \n"  % (self.name, self.comments)
+        """JobBiographicTable to str. """
+        str = "JobBiographicTable ( % s , % s ) \n"  % (self.name, self.comments)
         str += "\t contents: %s \n" % (self.contents)
         return str
 
-class BiographicElement( object ) : 
-    def __init__(self, content, comments ):
-        self.content    = content
-        self.addins     = []
-
-# A dictionnary of BiographicTable
-biographictablesDict = {}
+# A dictionnary of JobBiographicTable
+JobBiographicTablesDict = {}
 
 def loadTables() : 
-    """Load BiographicTables from the configuration. """
+    """Load JobBiographicTables from the configuration. """
     curriculumDataObj = CVData.loadConfig();
     tablesAsTXT  = curriculumDataObj.biographicTables
     nextTable    = None
@@ -43,10 +37,10 @@ def loadTables() :
         resultTableContent    = re.match( "^\t(Table )?(.*?)(\t\[(.*?)\])?(\t\{(.*?)\})?$", line )
         if (resultTableHead != None) : 
             if (nextTable != None) : 
-                biographictablesDict[ nextTable.name ] = nextTable
+                JobBiographicTablesDict[ nextTable.name ] = nextTable
             ## print( resultTableHead.groups() )
             ## print( resultTableHead.groups()[0] )
-            nextTable = BiographicTable( resultTableHead.groups()[0], resultTableHead.groups()[1] )
+            nextTable = JobBiographicTable( resultTableHead.groups()[0], resultTableHead.groups()[1] )
         elif (resultTableContent != None) : 
             nextTable.contents.append( resultTableContent.groups()[1] )
             if ( resultTableContent.groups()[3] != None ) : 
@@ -59,20 +53,20 @@ def loadTables() :
                 nextTable.linksTo.append( "" )
     # Last Table insertion
     if (nextTable != None) : 
-        biographictablesDict[ nextTable.name ] = nextTable 
-    ## print( biographictablesDict )
+        JobBiographicTablesDict[ nextTable.name ] = nextTable 
+    ## print( JobBiographicTablesDict )
     ## print( "Available Tables: " )
-    ## for key in biographictablesDict : 
+    ## for key in JobBiographicTablesDict : 
     ##     print ( "\t % s" % key )
-    return biographictablesDict
+    return JobBiographicTablesDict
 
 def selectRandomBiographic() : 
-    """Choose randomly an element from a randomly choosen BiographicTable. """
-    baseTable    = biographictablesDict.get("CurriculumGenerator")
+    """Choose randomly an element from a randomly choosen JobBiographicTable. """
+    baseTable    = JobBiographicTablesDict.get("CurriculumGenerator")
     selected     = random.choice( baseTable.contents )
-    choice       = biographictablesDict.get( selected )
+    choice       = JobBiographicTablesDict.get( selected )
     moreselect   = random.choice( choice.contents )
-    ## domain       = random.choice( biographictablesDict.get("Domaine").contents )
+    ## domain       = random.choice( JobBiographicTablesDict.get("Domaine").contents )
     corporation  = CVData.getRandomCorporationName()
     contractType    = CVData.getRandomContractType()
     ## print( selected + "::" + moreselect + " // " + corporation[1] + " ( " + corporation[0] + ", " + contractType + " )" )
@@ -80,10 +74,10 @@ def selectRandomBiographic() :
 
 def selectRandomTraining() : 
     """Choose randomly an elements from the Training table. """
-    baseTable   = biographictablesDict.get("Formation")
+    baseTable   = JobBiographicTablesDict.get("Formation")
     selected    = random.choice( baseTable.contents )
-    domain      = random.choice( biographictablesDict.get("Domaine").contents )
-    location    = random.choice( biographictablesDict.get("Localisation").contents )
+    domain      = random.choice( JobBiographicTablesDict.get("Domaine").contents )
+    location    = random.choice( JobBiographicTablesDict.get("Localisation").contents )
     ## print( selected + " // " + domain + " // " + location )
     return [ domain, selected, location ]
 

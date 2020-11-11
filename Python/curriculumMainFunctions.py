@@ -7,10 +7,9 @@ import os
 import subprocess
 
 import argparse
-## from argparse import ArgumentParser
 
-import BiographicTable
-BiographicTable.loadTables()
+import JobBiographicTable
+JobBiographicTable.loadTables()
 
 def launcheMakePDFfromLaTeX( directory ) : 
     print( "Changing dir to {" + directory + "}..." )
@@ -41,11 +40,11 @@ def interactionSelection( elementsList, nbElements, allyes, strDom) :
     while ( len( elementsList ) < nbElements) : 
         futurevalue = None
         if (strDom == "Skills") : 
-            futurevalue = BiographicTable.selectRandomSkill()
+            futurevalue = JobBiographicTable.selectRandomSkill()
         elif (strDom == "Job") : 
-            futurevalue = BiographicTable.selectRandomBiographic()
+            futurevalue = JobBiographicTable.selectRandomBiographic()
         elif (strDom == "Training") : 
-            futurevalue = BiographicTable.selectRandomTraining()
+            futurevalue = JobBiographicTable.selectRandomTraining()
         else : 
         	break
         ## TODO the negative choice by default ?
