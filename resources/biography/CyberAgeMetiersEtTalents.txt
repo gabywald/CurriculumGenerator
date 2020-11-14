@@ -1,0 +1,15 @@
+BladeRunner	Connaissance du milieu de la rue;Filature;Discrétion;Droit mondial;Armes normales
+CyberTek	Chimie;Droit mondial;Electronique;Génétique;Gestion;Informatique;Mathématiques chaotiques;Médecine;Nanotechnologies;Onirologie;Recherche sur HyperNet;Technomécanique;Travail en milieu sous-marin;Travail en milieu spatial
+HoloReporter	Interview;Animation;Entregent;Connaissance des médias;Connaissance d'un milieu[*];Holographie;Radiocoms
+Intermédiaire (receleur, dealer)	Entregent;Commerce;Connaissance du milieu de la rue;Arme légère;Observation;Connaissance de la Police
+Jackeur	Piratage;Informatique;Recherche sur HyperNet;Connaissance du milieu des Jackeurs
+Mercenaire	Armes lourdes;Explosifs;Conduite d'engins lourds;Connaissance du milieu des Mercenaires;Armes normales
+Pilote (HoverTank / ...)	Conduite d'engins lourds;Pilotage;Conduite automobile;Technomécanique;Connaissance des milieux des techniciens;Armes légères
+Contrebandier	Conduite d'engins lourds;Pilotage;Conduite automobile;Technomécanique;Connaissance des milieux des techniciens;Armes légères
+Pilote de Voile Solaire	Conduite d'engins spéciaux;Pilotage d'engins volants;Connaissance du milieu du showbiz;Survie en milieu spatial
+Rêveur	Onirisme;Culture générale;Comédie;Connaissance du milieu du showbiz
+Rônin	Connaissance du milieu de la rue;Techniques de pénétration;Techniques d'élimination;Armes légères;Armes normales
+Yakuza	Connaissance du milieu des Yakuzas;Connaissance des Jeux;Techniques d'élimination;Arts martiaux
+Wampire	Connaissance du milieu de la rue;Médecine[-2];Camouflage;Armes légères
+Pilote	Conduite d'engins lourds;Pilotage;Conduite automobile;Technomécanique;Connaissance des milieux des techniciens;Armes légères
+Gang	Connaissance du milieu de la rue;Camouflage;Armes légères

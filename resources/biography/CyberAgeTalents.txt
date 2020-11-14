@@ -1,0 +1,56 @@
+Armes légères	-2
+Armes normales	-2
+Armes lourdes	-2
+Arts martiaux	X
+Bâtiment	X
+Camouflage	X
+Chimie	X
+Commerce	-2
+Conduite automobile	-4
+Conduite d'engins lourds	-4
+Connaissance du milieu de la rue	-4
+Connaissance du milieu des Yakuzas	-4
+Connaissance du milieu du showbiz	-4
+Connaissance des milieux des techniciens	-4
+Connaissance du milieu des Mercenaires	-4
+Connaissance du milieu des Jackeurs	-4
+Connaissance des médias	-4
+Connaissance des Jeux	-4
+Connaissance d'un milieu	-4	[showbiz;médias;terrorisme;yakuza;gangs;espace;mercenaires;jackeurs]
+Culture générale	-2
+Déplacement spatial	-4
+Droit mondial	X
+Discrétion	-4
+Entregent	-2
+Explosifs	X
+Filature	-2
+Gestion	X
+Holographie	X
+Radiocoms	X
+Informatique	X
+Interview	-2
+Animation	-2
+Lire	-2
+Ecrire	-2
+Mathématiques chaotiques	X
+Médecine	X
+Nanotechnologies	X
+Onirisme	-2
+Onirologie	X
+Pilotage	X
+Piratage	X
+Plongée	X
+Pratiques shamaniques	-4
+Recherche sur HyperNet	-2
+Serrurerie	X
+Survie sous-marine	-4
+Survie dans l'espace	-4
+Survie en milieu spécial	-4	[jungle;arctique;espace;fonds sous-marin;villes modernes]
+Techniques de pénétration	X
+Techniques d'élimination	X
+Techniques spécialisées	-4	[plongée;déplacement en gravité zéro;prestidigitation;tricherie;tech. élimination -- poison;tech. élimination -- accident;tech. élimination -- points faible du corps humain;tech. pénétration -- repérage des caméras;tech. pénétration -- neutralisation d'alarme]
+Technomécanique	X
+Travail en milieu sous-marin	-4
+Travail en milieu spatial	X
+Electronique	-4
+Génétique	X
