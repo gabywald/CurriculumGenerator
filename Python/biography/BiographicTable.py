@@ -43,7 +43,7 @@ class BiographicTable( object ) :
         if (tables != None) : 
             return tables
         tables = {}
-        data = ModuleHelper.loadConfig( fileInConfig )
+        data = ModuleHelper.loadFileConfig( fileInConfig )
         nextTable = None
         nextSubTable = None
         for line in data : 
@@ -77,7 +77,7 @@ class BiographicTable( object ) :
         if (self._jobsToSkills != None) : 
             return self._jobsToSkills
         self._jobsToSkills = {}
-        data = ModuleHelper.loadConfig( "metiersEtTalentsCyberAge" )
+        data = ModuleHelper.loadFileConfig( "metiersEtTalentsCyberAge" )
         nextTable = None
         for line in data : 
             resultTableHead = re.match( "^(.*?)\t(.*?)$", line)
@@ -95,7 +95,7 @@ class BiographicTable( object ) :
         if (self._skills != None) : 
             return self._skills
         self._skills = {}
-        data = ModuleHelper.loadConfig( "talentsCyberAge" )
+        data = ModuleHelper.loadFileConfig( "talentsCyberAge" )
         nextTable = None
         for line in data : 
             resultTableHead = re.match( "^(.*?)\t(.*?)(\t\[(.*?)\])?$", line)
