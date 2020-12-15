@@ -6,7 +6,6 @@ Cette idée afin de permettre de générer facilement un (ou plusieurs) CV, obte
 
 Utile tant professionnellement qu'en "Job Testing" (pour travailler sur les discriminations à l'embauche ?)? 
 
-*Travaux en cours* / __WORK IN PROGRESS"__ pour la partie Python
 
 __Si d'autres développeurs veulent participer au projet, n'hésitez pas à vous signaler !__
 
@@ -40,4 +39,28 @@ Pour les noms d'entreprises et slogans, secteurs d'acivités :
 
 Également pour la génération de quelques autres noms : 
 * Uplink "Hacker Elite" (Introversion Software) et "mods" associés
+
+## Autres ressources et idées
+
+### Sites de recrutement 
+
+* www.pole-emploi.fr
+* www.apec.fr
+* fr.linkedin.com
+* www.talent.io
+* www.fiftytalents.com
+* www.caremploi.fr
+* www.monster.fr
+
+### Lettres de motivation
+
+* https://www.journaldunet.fr/management/guide-du-management/1200753-lettre-de-motivation-exemple-modele-gratuit-a-telecharger-et-comment-la-faire/
+* www.himp.com ??
+* ...
+
+### Un peu de "Web Scrapping" / "Web Scraping"
+
+ * https://zenscrape.com/web-scraping-with-python/
+ * https://devopscube.com/python-web-scrapping/
+ * https://oxylabs.io/blog/python-web-scraping
 
