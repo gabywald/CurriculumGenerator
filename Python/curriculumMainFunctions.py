@@ -187,7 +187,7 @@ parser.add_argument("-nqc", "--noquote",
     action = "store_true" )
 
 parser.add_argument("-nei", "--noextrainfo", 
-    help = "NO quote / Citation", 
+    help = "NO extra info", 
     action = "store_true" )
 
 parser.add_argument("-m", "--make", 

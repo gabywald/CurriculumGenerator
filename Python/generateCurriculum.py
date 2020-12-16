@@ -132,10 +132,10 @@ if (personnae.speciality == None) :
     personnae.speciality = curriculumMainFunctions.askForStrNotEmpty( "Speciality? " )
 
 if (personnae.quote == None) : 
-    personnae.quote = curriculumMainFunctions.askForStrNotEmpty( "quote / citation ?" )
+    personnae.quote = curriculumMainFunctions.askForStrNotEmpty( "quote / citation ? ('NOQUOTE' for nothing) " )
 
 if (personnae.extrainfo == None) : 
-    personnae.extrainfo = curriculumMainFunctions.askForStrNotEmpty( "extra info ?" )
+    personnae.extrainfo = curriculumMainFunctions.askForStrNotEmpty( "extra info ? ('NOEXTRAINFO' for nothing) " )
 
 if (personnae.skilleltnb == None) : 
     personnae.skilleltnb = curriculumMainFunctions.askForInt( "Number of Skills elements ?" )

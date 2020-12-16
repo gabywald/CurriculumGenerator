@@ -11,8 +11,8 @@ L'objectif ici étant principalement de réviser le Python, et plus spécifiquem
 Ici, certains éléments sont précisés en détail, même si ils semble,net insignifiant à un développeur expérimenté ; de façon à ce qu'un débutant puisse s'y retrouver tout de même sans aucun à priori. 
 
 * Python 3.8.5
-* __script principal__ : 'mainScript.py'
-* Autre script d'entrée : 'mainWithFile.py' (appelle le précédent à partir d'un fichier)
+* __script principal__ : 'generateCurriculum.py'
+* Autre script d'entrée : 'generateFromParameterFile.py' (appelle le précédent à partir d'un fichier)
 * Autre script d'entrée : 'mainFileGenertor.py' (génère fichier pour le précédent)
 * Eclipse / PyCharm
 * Shell Bash
@@ -23,10 +23,10 @@ Testé sous Linux Ubuntu 20.04
 
 ## Paramètres d'entrée
 
-### Script principal 'mainScript.py'
+### Script principal 'generateCurriculum.py'
 
 ```
-./mainScript.py --help
+./generateCurriculum.py --help
 usage: Curriculum Generator [-h] [-s {classic,casual,oldstyle,banking}]
                             [-c {blue,orange,green,red,purple,grey,black}] [-rs] [-rc] [-rfn]
                             [-rln] [-gt GENERALTITLE] [-ti TITLE] [-sp SPECIALITY] [-fn FIRSTNAME]
@@ -109,29 +109,36 @@ NOTES :
 
 Les informations non fournies par les arguments sont demandés de façon 'interactive' (attente saisie utilisateur), excepté : adresse, e-mail et numéro de téléphone portable. 
 
-### Script principal 'mainWithFile.py'
+### Script principal 'generateFromParameterFile.py'
 
 Ce script attend un argument : le chemin d'aaccès au fichier d'entrée. 
 
+Voir le fichier exemple :  _argumentParameterFileExample.txt_ . 
+
 Le format attendu est le suivant, chaque contenu de colonne est séparé par une tabulation ('\t') : 
 
+
+----------------------------
 CVstyle|CVcolor|FirstName|LastName|Age|PhysicalAddress|Pseudo|WebSite|email|quote|skills|jobs|trainings|General Title|Title|Speciality
 :---|:---|:---|:---|:---|:---|:---|:---|:---|:---|:---|:---|:---|:---|:---|:---|:---
 Note 1 |Note 2 |	|	|	|	|	|	|	|	|	|	|	|	|	|	|	       
 
+----------------------------
+
 NOTE 1 : Style de CV parmi les suivants {classic,casual,oldstyle,banking}
+
 NOTE 2 : Couleur de CV parmi les suivantes {blue,orange,green,red,purple,grey,black}
 
 **Formats particuliers : skills, jobs, trainings** : si plusieurs fois pour un même élément, séparer par des ';' (point-virgules)
-* 'skills' : <groupe de compétences>::<compétences associées>
-* 'jobs' : <base>::<thématique>::<domaine d'activité>::<nom entreprise>::<type de contrat>
-* 'trainings' : <Type de Formation>::<Thématique>::<Localisation>
+* 'skills' : groupe de compétences::compétences associées
+* 'jobs' : base::thématique::domaine d'activité::nom entreprise::type de contrat
+* 'trainings' : Type de Formation::Thématique::Localisation
 
-### Script principal 'mainFileGenerator.py'
+### Script principal 'generateParameterFile.py'
 
 Un argument optionnel pour ce script : le nombre de profils à générer. 
 
-Ce script génère le fichier d'entrée pour 'mainWithFile.py'. 
+Ce script génère le fichier d'entrée pour 'generateFromParameterFile.py'. 
 
 ## Cas d'utilisation / Cas d'usage
 
@@ -140,9 +147,9 @@ Environnement Python 3.8 doit être installé.
 Les scripts doivent être executables. 
 
 ```
-./mainFileGenerator.py 5 > exportPersonnae.txt
+./generateParameterFile.py 5 > exportPersonnae.txt
 
-./mainWithFile.py exportPersonnae.txt
+./generateFromParameterFile.py exportPersonnae.txt
 
 ```
 
@@ -153,7 +160,7 @@ On obtient ainsi 5 Curriculum / CV générés en LaTeX et compilés en PDF.
 Le fichier 'exportPersonnae.txt' est modifiable, ainsi que les fichiers '.tex', afin de compléter et modifier les contenus (commande 'make' dans le répertoire dédié pour générer à nouveau le PDF). 
 
 	
-## "En l'état" (octobre et novembre 2020)
+## "En l'état" (octobre -> décembre 2020)
 
 L'objectif premier étant (de mon côté, initiateur du projet) de réviser le Python et surtout Python 3 pour les éléments suivants : 
  * lecture de fichiers
@@ -174,11 +181,18 @@ Plusieurs scripts pour aider à générer les CV, ainsi que plusieurs scripts d'
 
 __Si d'autres développeurs veulent participer au projet, n'hésitez pas à vous signaler !__
 
+Revue en décembre 2020 : 
+ * Renommage des scripts ( => "generate*") ; 
+ * Ajout documentation (dans ce fichier README.md) ; 
+ * ...
+
 ## Exemples de lancement
 
-Une liste des arguments est obtenue avec "./mainScript.py --help". 
+### generateCurriculum
 
-* ./mainScript.py -rfn -rln -em default -qc NOQUOTE --make
+Une liste des arguments est obtenue avec "./generateCurriculum.py --help". 
+
+* ./generateCurriculum.py -rfn -rln -em default -qc NOQUOTE --make
 
 	- prénom aléatoire ('-rfn')
 	- nom aléatoire ('-rln')
@@ -186,7 +200,7 @@ Une liste des arguments est obtenue avec "./mainScript.py --help".
 	- NOQUOTE ('-qc NOQUOTE')
 	- compilation du CV ('--make')
 	
-* ./mainScript.py -rfn -rln -em toto@domain.org --noquote
+* ./generateCurriculum.py -rfn -rln -em toto@domain.org --noquote
 
 	- prénom aléatoire ('-rfn')
 	- nom aléatoire ('-rln')
@@ -194,7 +208,7 @@ Une liste des arguments est obtenue avec "./mainScript.py --help".
 	- NOQUOTE (peut être obtenu avec -nq / --noquote)
 	- compilation du CV (--make)
 	
-* ./mainScript.py -rfn -rln -em toto@domain.org -qc "There is no try" -je 5 -te 3
+* ./generateCurriculum.py -rfn -rln -em toto@domain.org -qc "There is no try" -je 5 -te 3
 
 	- prénom aléatoire ('-rfn')
 	- nom aléatoire ('-rln')
@@ -204,7 +218,7 @@ Une liste des arguments est obtenue avec "./mainScript.py --help".
 	- 5 expériences professionnelles ('-je 5')
 	- 3 formations ('-te 3')
 
-* ./mainScript.py -rfn -rln -em default -qc NOQUOTE -je 4 -te 3 -se 10 -ya -nei
+* ./generateCurriculum.py -rfn -rln -em default -qc NOQUOTE -je 4 -te 3 -se 10 -ya -nei
 
 	- prénom aléatoire ('-rfn')
 	- nom aléatoire ('-rln')
@@ -216,7 +230,7 @@ Une liste des arguments est obtenue avec "./mainScript.py --help".
 	- acceptation automatique de la sélectyion aléatoire ('-ya')
 	- Pas d'information complémentaire ('-nei')
 
-* ./mainScript.py -rfn -rln -em default -nqc -je 4 -te 3 -se 10 -ya -ei "42 ans"
+* ./generateCurriculum.py -rfn -rln -em default -nqc -je 4 -te 3 -se 10 -ya -ei "42 ans"
 
 	- prénom aléatoire ('-rfn')
 	- nom aléatoire ('-rln')
@@ -228,7 +242,7 @@ Une liste des arguments est obtenue avec "./mainScript.py --help".
 	- acceptation automatique de la sélection aléatoire ('-ya')
 	- Inforrmation en plus "42 ans" ('-ei "42 ans"')
 
-* ./mainScript.py -lse "Domain::A, B, C;Other::---" -rfn -rln -ti title -gt "general title" -sp speciality -nq -nei -se 1 -je 5 -te 3 --email default -ya -lje "International::Recrutement::Publication::Panopticon::Stage" -lte "Autodidacte::Programmation;Autoformation::Création d'Entreprise"
+* ./generateCurriculum.py -lse "Domain::A, B, C;Other::---" -rfn -rln -ti title -gt "general title" -sp speciality -nq -nei -se 1 -je 5 -te 3 --email default -ya -lje "International::Recrutement::Publication::Panopticon::Stage" -lte "Autodidacte::Programmation;Autoformation::Création d'Entreprise"
 
 
 	- prénom aléatoire ('-rfn')
@@ -247,6 +261,14 @@ Une liste des arguments est obtenue avec "./mainScript.py --help".
 	- Titre général du CV ('-gt "general title"')
 	- Titre ('-ti title')
 	- Spécialité ('-sp speciality')
+
+### generateFromParameterFile.py et generateParameterFile.py
+
+* _generateFromParameterFile.py_   Ce script est conçu pour générer une série de CV / Curriculum à partir d'un fichier d'entrée fournit en paramètre. 
+
+ * _generateParameterFile.py_   Ce script est conçu pour générer le fichier d'entrée du script 'generateFromParameterFile.py'
+ 
+ * Voir les Cas d'utilisation / Cas d'usage pour le lancemernt de ces scripts. 
 
 ## Tutoriels et formations Python : 
 * https://docs.python.org/fr/3.8/tutorial/
