@@ -270,6 +270,10 @@ Une liste des arguments est obtenue avec "./generateCurriculum.py --help".
  
  * Voir les Cas d'utilisation / Cas d'usage pour le lancemernt de ces scripts. 
 
+## "Biograph[y|ic] Generation"
+
+
+
 ## Tutoriels et formations Python : 
 * https://docs.python.org/fr/3.8/tutorial/
 * https://docs.python.org/fr/3.8/howto/regex.html

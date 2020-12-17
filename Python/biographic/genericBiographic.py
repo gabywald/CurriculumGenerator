@@ -15,19 +15,24 @@ __status__ = "Development"
 
 import random
 
-from BiographicTable import BiographicTable
-from BiographicTable import selectRandomBiographic
-from BiographicTable import selectBiographicElements
+from BiographicSelection import selectRandomBiographic
+from BiographicSelection import selectBiographicElements
+from BiographicDataLoad import BiographicDataLoad
 
-biotables = BiographicTable.loadBiographicsTables()
-jobs = BiographicTable.loadJobsToSkills()
-skills = BiographicTable.loadSkills()
+## from BiographicTable import BiographicTable
+biotables = BiographicDataLoad.loadBiographicsTables()
+## from BiographicJob import BiographicJob
+jobs = BiographicDataLoad.loadJobsToSkills()
+## from BiographicSkill import BiographicSkill
+skills = BiographicDataLoad.loadSkills()
 
 ## print( biotables )
 ## print( selectRandomBiographic( biotables ) )
+
 ## print( jobs )
 ## for elt in jobs : 
 ##     print( jobs[ elt ] )
+
 ## print( skills )
 ## for elt in skills : 
 ##     print( skills[ elt ] )
@@ -62,10 +67,4 @@ for elt in res :
         else :
             print( "\t%s" %( item ) )
 
-## TODO avoid double results
-## TODO better treatment of jobs ('metiers')
-## TODO better treatment of equipments, software ('logiciels')
-## TODO better treatment of GodFather's ('Parrain')
-## TODO better treatment of debts (debtTo & debtFrom)
-## TODO better treatment of some elements ('credit', ...)
 
