@@ -1,31 +1,28 @@
 Table Equipement
-	OEil artificiel	[OEil-artificiel]
-	Câblage de combat	[Cablage-de-combat]
-	Câblage auditif	[Cablage-auditif]
-	G.O.S.T. (modèle de combat si deux fois celui-ci). 
-	Broche de type A ou B et un caillou au choix. 
-	Broche de type A ou B et un caillou au choix. 
+	Ordinateur	[ordinateur]
+	Logiciel	[Logiciel]
+	Licence	[Licence]
+	Certification	[Certification]
+	Formation	[Formation]
 
-Table OEil-artificiel
-	Acquisiteur de cible. Avec Interface radio sur une arme. Interface sous-cutanée à acheter en sus. 
-	Vision infrarouge. 
-	Amplificateur d'image. 
-	Téléobjectif. 
-	Enregistreur vidéo. 
-	Radar. 
+Table Ordinateur
+	Ordinateur Portable
+	Ordinateur Fixe
+	Ghost Computer (ordinateur dans le 'cloud')
 
-Table Cablage-de-combat
-	Broche de type A ou B. Quatre (4) cailloux de maniement d'armes. 
-	Câblage musculaire. 
-	Câblage nerveux (vitesse). 
-	MétaGriffes. 
-	Ejecteur de gaz. 
-	Prothèse ou membre blindé. 
+Table Logiciel
+	Logiciel de conception 3D
+	Logiciel de CAO
 
-Table Cablage-auditif
-	Réseau téléphonique. 
-	Scanner Radio. 
-	Détecteur électronique. 
-	Enregistreur audio. 
-	Talkie-Walkie. 
-	{Deux équipements auditifs}	[Cablage-auditif]
+Table Licence
+	Licence de Suite Bureautique (à vie)
+
+Table Certification
+	Certification Microsoft (au choix)
+	Certification Base De Données
+	Certification CyberSécurité
+
+Table Formation
+	Études d'ingénieur
+	Remise à niveau (langage de programmation au choix)
+

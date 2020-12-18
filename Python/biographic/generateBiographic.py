@@ -59,11 +59,8 @@ for elt in res :
                 else : 
                     jobSkill = jobs[ job ]
                     skill = skills[ random.choice( jobSkill.skills ) ]
-                level = skill.level
-                if (val != '*'):
-                    level = val
-                    ## NOTE value here !!
-                print( "\t%s\t%s\t%s" %( skill.name, level, skill.possibilities ) )
+            level = skill.level
+            print( "\t%s\t%s\t%s" %( skill.name, level, skill.possibilities ) )
         else :
             print( "\t%s" %( item ) )
 

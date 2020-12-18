@@ -1,185 +1,107 @@
 Table d'Orientation
-	Table Espace-Venise	[Espace-Venise]
-	Table Network	[Network]
-	Table Jackeur	[Jackeur]
-	Table BladeRunner	[BladeRunner]
-	Table Divers	[Divers]
-	Table Gangs	[Gangs]
-	Table Divers	[Divers]
-	Table Yakuza	[Yakuza]
-	Table Rônin	[Rônin]
-	Table TechnoBloc	[TechnoBloc]
-	Table Wampire-Rêveur	[Wampire-Rêveur]
+	Table Formation	[Formation]
+	Table SSII/ESN	[SSII/ESN]
+	Table PME	[PME]
+	Table StartUp	[StartUp]
+	Table GrandGroupe	[GrandGroupe]
+	Table International	[International]
 
-Table Romance
-	Votre liaison vous trahit. Vous la haïssez. 
-	Vous vous fâchez. Vous vous quittez en bons termes. 
-	Vous vous quittez. Mais vous restez en bons termes. 
-	Votre liaison disparaît. Vous en êtes toujours amoureux(se). Peut-être reviendra-t-elle (il) ? 
-	Vous trahissez votre liaison. Elle (Il) vous hait. 
-	Votre liaison meurt.	[RomanceMeurt]
+Table FinDeContrat
+	Démission
+	Rupture Conventionnelle
+	Départ Anticipé
+	Licenciement Économique
+	Licenciement Pour Faute
 
-Table RomanceMeurt
-	Dans un accident. Vous en avez un immense chagrin. 
-	Suite à un suicide. Vous en avez un immense chagrin. 
-	Suite à une overdose. Vous détestez les dealers. 
-	Assassiné(e) par un gang. Vous préparez une vengeance. 
-	Assassiné(e) par des yakuzas. Vous préparez une vengeance. 
-	Assassiné(e) dans une guerre privée. Vous préparez peut-être une vengeance contre les Mercs responsables. 
+Table SSII/ESN	[]	{}
+	Mission TMA -- Tierce Maintenance Applicative	{talent:*}
+	Mission en Finance	{talent:*}
+	Mission Banque	{talent:*}
+	Mission Assurance	{talent:*}
+	Intercontrat	{talent:*}
+	Intercontrat	[FinDeContrat]	{talent:*}
 
-Table Prison
-	Vous êtes emprisonné(e) pour un an dans un MurMorgue. Vous gagnez au choix l'un des talents suivants : {talent:(Couture=+1||Tricot=+1||Cuisine=+1||Nettoyage=+1||SavoirVivre=+0}.
-	Vous êtes emprisonné(e) dans un pénitencier. Vous vous évadez au bout de deux ans.  
-	Vous êtes emprisonné(e) dans un pénitencier. Vous tentez de vous évader et vous échouez. Vous sortez au bout de trois ans. 	[Cicatrices]
-	Vous passez trois ans sur un astéroïde minier. 	[Cicatrices]
-	Vous passez trois ans sur un astéroïde minier. 	{talent:Déplacement spatial=1;talent:Survie dans l'espace=1;Resistance-1}
-	Vous passez cinq ans en mine sous-marine. 	{talent:Plongée=+1;talent:Survie sous-marine=+1;Coeur-1}
+Table PME	[]	{}
+	Analyse De Données	{talent:Analyste Bases De Données=*}
+	Développement logiciel interne	{talent:Développeur=*}
+	Refonte logiciel interne	{métier:Chef de Projet=+1;talent:Développeur=*;talent:Chef de Projet=*}
+	Maintenance logiciel interne	{talent:Développeur=*}
+	Adaptation et configuration d'un logiciel aux besoins internes	{talent:Technicien=*}
 
-Table Cicatrices
-		[Cicatrices-localisation]+[Cicatrices-gravité]
+Table StartUp	[]	{}
+	Projet BlockChain (Smart Contract...)	{talent:*}
+	Projet FinTech	{talent:*}
+	Projet Marketing	{talent:*}
 
-Table Cicatrices-localisation
-	Tête. 
-	Torse. 
-	Bras gauche. 
-	Bras droit. 
-	Jambe gauche. 
-	Jambe droite. 
+Table GrandGroupe	[]	{}
+	Analyse De Données	{talent:Analyste Bases De Données=*}
+	Logiciel RH	{métier:Chef de Projet=+1;talent:*}
+	Logiciel RH	{métier:Architecte+1;talent:*}
+	Logiciel RH	{métier:Développeur=+1;talent:*}
+	Logiciel Comptabilité	{métier:Chef de Projet=+1;talent:*}
+	Logiciel Comptabilité	{métier:Architecte+1;talent:*}
+	Logiciel Comptabilité	{métier:Développeur=+1;talent:*}
 
-Table Cicatrices-gravité
-	À peine visible. 
-	Cicatrice normale. 
-	Cicatrice normale. 
-	Cicatrice normale. 
-	Cicatrice très visible et profonde. 
-	Perte d'une partie ou totalité du membre. Pose d'une prothèse de remplacement. 
+Table International	[]	{}
+	Développment local	{talent:*}
+	Recrutement	{talent:*}
+	Recherche Et Développement	{talent:*;talent:*;talent:*}
 
-Table Espace-Venise	[Donne accès au métier de Cybertek, dans des domaines variés. ]	{métier:CyberTek}
-	Vous faites naufrage en plein espace. Vous restez un an et demi en Synthivers. 	{EquilibrePsychique-=1;talent:CyberTek=*;métier:CyberTek=+1}
-	Vous passez plusieurs mois dans une Venise. 	{talent:CyberTek=*;métier:CyberTek=+1}
-	Vous signez un contrat de mineur pour deux ans en Espace profond. 	{talent:CyberTek=*;talent:CyberTek=*;métier:CyberTek=+1;EquipementCybernetique=*}
-	Vous êtes engagé(e) pour un travail temporaire dans une Venise. 	{talent:CyberTek=*;métier:CyberTek=+1;EquipementCybernetique=*}
-	Vous passez plusieurs mois sur une base spatiale. 	{talent:CyberTek=*;métier:CyberTek=+1;EquipementCybernetique=*}
-	Vous suivez une formation à la Fondation comme mécanicien spatial. 	{talent:CyberTek=*;talent:CyberTek=*;métier:CyberTek=+1;Parrain:Fondation Spatiale}
-	Dans une Venise, vous avez une liaison avec une Sirène (ou un Triton). 	[Romance]	{Parrain:Venise}
-	À la suite d'une bonne affaire, vous achetez une petite usine à soma, en bord de mer. Revenu mensuel net de 6 000 crédits ! 	{talent:CyberTek=*}
-	Vous devenez plongeur pendant quelques mois. 	{talent:CyberTek=*;métier:CyberTek=+1;EquipementCybernetique=*}
-	Un(e) Phase II a failli vous tuer. Si vous le (la) croiser, vous essayerez de vous venger. 
-	Vous faites naufrage en pleine mer. Vous n'êtes récupéré(e) qu'un mois après, sur une île presque déserte. 	{RegneAnimal||RegneMineral||RegneVegetal+=1}
+Table Formation	[]	{}
+	[Formation]CPGE (Classe Préparatoire aux Grandes Écoles)	{Equipement=*;talent:*;talent:*}
+	[Formation]Prépa Intégrée	{Equipement=*;talent:*;talent:*}
+	[Formation]Grande École (Ingénieur)	{Equipement=*;talent:*;talent:*}
+	[Formation]Licence	{talent:*;talent:*}
+	[Formation]Licence Professionnelle	{talent:*;talent:*}
+	[Formation]Master Recherche	{Equipement=*;talent:*;talent:*}
+	[Formation]Master Professionnel	{Equipement=*;talent:*;talent:*}
+	[Formation]Doctorat	{talent:*;talent:*}
+	[Formation]Stage Ouvrier	{talent:*}
+	[Formation]Stage de fin d'études	{talent:*;talent:*}
+	[Formation]Baccalauréat Général	{talent:*}
+	[Formation]Baccalauréat Technique	{talent:*;talent:*}
+	[Formation]Baccalauréat Professionnel 	{talent:*;talent:*;talent:*}
 
-Table Network	[Donne accès au métier d'holoreporter ou de pilote de voile solaire. ]	{métier:Holoreporter;métier:Pilote de Voile Solaire}
-	Vous participez à une action terroriste. 	{Parrain:Mercenaire;talent:Mercenaire=*}
-	Vous avez une liaison avec un(e) HoloReporter. 	[Romance]	{Parrain:HoloReporter}
-	Vous devenez Pilote de voile Solaire. 	{talent:Pilote=*;métier:Pilote de Voile Solaire=+1;EquipementCybernetique=*}
-	Vous participez à une Chasse. 	{EquipementCybernetique=*;talent:*}
-	vous êtes la cible d'une Chasse. Vous tuez votre Chasseur. 	{talent:*;talent:*}
-	Vous réalisez une vidéo sur un attentat terroriste qui est diffusé sur un Network. 	{talent:HoloReporter=*;métier:Holoreporter=+1;EquipementCybernetique=*}
-	Vous avez une liaison avec un(e) terroriste. 	[Romance]	{Parrain:Terrorisme Publicitaire}
-	Vous avez une liaison avec un(e) Pilote (Voile Solaire ou HoverTank). 	[Romance]	{Parrain:Pilote}
-	Vous contractez une dette vis-à-vis d'un groupe terroriste. Il peut vous demander son remboursement à tout moment. 	{debtTo:Terrorisme Publicitaire}
-	Un groupe terroriste a une dette vis-à-vis de vous. Vous pouvez lui demander un service. 	{debtFrom:Terrorisme Publicitaire}
-	Vous êtes victime d'un attentat terroriste. 	[Cicatrices]
+Table Domaine	[]	{}
+	Militaire
+	Pharmaceutique
+	Religieux
+	Logiciel
+	Publication
+	Édition
+	Livraison
+	Transports
+	Véhicules
+	Loisirs
+	Vente au détail
+	Fabrication
+	Communications
+	Énergie
+	Fournisseur de matériel
+	Publicitaire / Relations Publiques
+	Radio / Télévision
+	Équipement Informatique
+	Banque
+	Finance
+	Assurance
+	Criminel
 
-Table Jackeur	[Donne accès au métier de jackeur. ]	{métier:Jackeur}
-	Une Dactyle vous éduque. 	{talent:Jackeur=*;talent:Jackeur=*;Parrain:Jackeur||Dactyle;métier:Jackeur=+1}
-	Vous échappez de justesse à un logiciel tueur. 	{EquilibrePsychique-=1;métier:Jackeur=+1}
-	Un Jackeur a essayé de vous entuber. Vous essayerez de vous venger de lui. 
-	Un de vos amis Jackeur vous a laissé un programme BriseGlace (au choix) avant de partir dans l'espace. 	{logiciel:BriseGlace=*}
-	Vous travaillez pour un Jackeur fortuné qui vous paye en nature. Vous récupérez un programme au choix (sauf BriseGlace). 	{logiciel=*[except BriseGlace];EquipementCybernetique=*;métier:Jackeur=+1}
-	Vous devenez l'ami d'un Jackeur qui meurt après un combat en Matrice / Cyberespace. Vous récupérez sa Console. 	{XX}
-	Vous vous faites un ennemi d'un Jackeur. Il peut chercher à vous attaquer s'il vous rencontre dans la Matrice / le REZO. 
-	Vous avez une liaison avec un(e) Jackeur. 	 [Romance]
-	Vous contractez une dette vis-à-vis d'un Jackeur. Il peut vous demander son remboursement à tout moment. 	{debtTo:Jackeur}
-	Un Jackeur a une dette vis-à-vis de vous. Vous pouvez lui demander un service. 	{debtFrom:Jackeur}
-	Sans le vouloir, vous aidez une Intelligence Artificielle. Elle vous contacte et dit qu'elle pourra vous aider une fois, lorsque vous le désirerez, dans la Matrice / le REZO. 
-
-Table BladeRunner	[Donne accès au métier de bladerunner. ]	{métier:BladeRunner}
-	Vous faites équipe plusieurs mois avec un(e) BladeRunner. 	[Romance]	{talent:BladeRunner=*;talent:BladeRunner=*;Parrain:BladeRunner;métier:BladeRunner=+1}
-	Un(e) BladeRunner vous enseigne ce qu'il (elle) sait. 	{talent:BladeRunner=*;talent:BladeRunner=*;Parrain:BladeRunner;métier:BladeRunner=+1}
-	Vous êtes arrêté par un(e) BladeRunner. 	[Prison]
-	Lors d'une opération mercenaire, vous êtes trahi(e) par un(e) BladeRunner. Vous vous en sortez. 	[Cicatrices]
-	Vous avez une liaison avec un(e) BladeRunner. 	[Romance]	{Parrain:BladeRunner}
-	Une agence de Mercs vous apprend les rudiments du métier de BladeRunner. 	{EquipementCybernetique=*;talent:BladeRunner=*;métier:BladeRunner=+1}
-	Vous tuez un(e) BladeRunner. 	[Cicatrices]
-	Vous êtes poursuivi(e) par un BladeRunner. Il peut vous rattraper à tout moment. 
-	Vous contractez une dette vis-à-vis d'un BladeRunner. Il peut vous demander son remboursement à tout moment. 	{debtTo:BladeRunner}
-	Un BladeRunner a une dette vis-à-vis de vous. Vous pouvez lui demander un service. 	{Parrain:BladeRunner;debtFrom:BladeRunner}
-	Une agence de détectives vous apprend les rudiments du métier de BladeRunner. 	{EquipementCybernetique=*;talent:BladeRunner=*;métier:BladeRunner=+1}
-
-Table Divers	[]	{}
-	Vous perdez votre famille lorsque vous êtes très jeune. 
-	Vous participez à une course d'hovertanks. 	{talent:Pilote=all}
-	Vous gagnez lors d'un concours l'arme personnelle de votre choix. 	{arme:légère=*}
-	Vous gagnez un séjour d'un mois sur les Îles de la Lune. 	{talent:CyberTek=*}
-	Vous vous droguez durement. 	{EquilibrePsychique-=1}
-	Vous gagnez 50 000 crédits en pariant sur une course de voiles solaires. 	{credit:+50000}
-	Vous devenez célèbre pendant 2 semaines. À vous d'en inventer la raison. 
-	Vous avez un très grave accident. 	[Cicatrices]
-	Vous gagnez lors d'un concours, n'importe quel type de cablage (sauf cablage total). 	{cablage=*[except total]}
-	Vous passez votre jeunesse dans une très bonne école. 	{talent:*;talent:*}
-	Vous êtes testeur d'onirogrammes pendant un an. Vous avez une broche de type C et six cailloux d'onirogramme. 	{EquipementCybernetique=BrocheTypeC;Cailloux=Onirogramme[6]} 
-
-Table Gangs	[]	{}
-	Vous passez une partie de votre adolescence dans un Gang. 	{talent:Gang=*;Parrain:Gang}
-	Vous devenez l'ennemi d'un chef de Gang. Faites attention quand vous passez sur son territoire. 
-	Vous devenez l'ami d'un chef de Gang. 	{Parrain:Chef de Gang}
-	Des Yakuzas remarquent vos capacités. 	[Yakuza]
-	Vous contractez une dette vis-à-vis d'un chef de Gang. Il peut vous demander son remboursement à tout moment. 	{debtTo:Chef de Gang}
-	Un chef de Gang a une dette vis-à-vis de vous. Vous pouvez lui demander un service. 	{Parrain:Chef de Gang;debtFrom:Gang}
-	Vous tombez amoureux(se) d'un membre de Gang. 	[Romance]	{Parrain:Membre de Gang}
-	Vous êtes blessé(e) dans un combat de rue. 	[Cicatrices]
-	Vous devenez chef de Gang pendant quelques mois. Vous pouvez faire appel aux anciens membres du Gang. 	{EquipementCybernetique=*;talent:Gang=*;talent:Gang=*}
-	Vous êtes arrêté(e) par une milice de TechnoBloc pour activités illégales au sein d'un Gang. 	[Prison]
-	Vous passez une partie de votre adolescence dans un Gang. 	{talent:Gang=*;Parrain:Gang}
-
-Table Yakuza	[Donne accès à l'appartenance au yakuza. ]	{affiliation:yakuza}
-	Un Yakuza a failli vous tuer. Vous essayez de vous venger et tenterez de le tuer s'il croise votre chemin. 
-	Un Yakuza vous enseigne ce qu'il (elle) sait. 	{talent:Yakuza=*;Parrain:Yakuza;métier:Yakuza=+1}
-	Vous êtes arrêté(e) à la place d'un Yakuza. 	[Prison]	{debtFrom:Yakuza;métier:Yakuza=+1}
-	Vous êtes trahi(e) par un Yakuza qui manque de vous tuer. 	[Cicatrices]	{métier:Yakuza=-1}
-	Vous êtes victime d'une arnaque Yakuza sur des paris. Vous commencez l'aventure sans le sou. 	{credit:0}
-	Vous devenez Yakuza pendant quelques mois. 	{métier:Yakuza=+1;EquipementCybernetique=*;Parrain:Yakuza;talent:Yakuza=*}
-	Vous tuez un yakuza. 	[Cicatrices]	{métier:Yakuza=-1}
-	Un contrat a été lancé sur vous par les Yakuzas. Ils peuvent vous rattraper à tout moment. 	{métier:Yakuza=-1}
-	Vous contractez une dette vis-à-vis d'un Yakuza. Il peut vous demander son remboursement à tout moment. 	{debtTo:Yakuza}
-	Un Yakuza a une dette vis-à-vis de vous. Vous pouvez lui demander un service. 	{Parrain:Yakuza;debtFrom:Yakuza}
-	Vous travaillez un temps pour le Yakuza, puis vous le désertez. Il vous est désormais impossible de travailler pour le Yakuza. 	{talent:Yakuza=*;métier:Yakuza=-1}
-
-Table Rônin	[Donne accès au métier de rônin ou de mercenaire. ]	{métier:Rônin;métier:Mercenaire}
-	Vous cherchez à vous venger d'un Rônin. 
-	Un Rônin vous enseigne ce qu'il (elle) sait. 	{talent:Rônin=*;Parrain:Rônin;métier:Rônin=+1}
-	Vous êtes blessé(e) lors d'une Guerre Privée. 	[Cicatrices]
-	Vous êtes trahi(e) par une Mercenaire. Vous cherchez à vous venger. 	[Cicatrices]
-	Vous avez une liaison avec un(e) Rônin. 	[Romance]	{Parrain:Rônin}
-	Vous devenez Mercenaire pendant quelques mois. 	{métier:Mercenaire=+1;talent:Mercenaire=*;talent:Mercenaire=*;EquipementCybernetique=*}
-	Vous tuez un Rônin. 	[Cicatrices]
-	Vous êtes poursuivi(e) par un Rônin. Il peut vous rattraper à tout moment. 
-	Vous contractez une dette vis-à-vis d'un Rônin. Il peut vous demander son remboursement à tout moment. 	{debtTo:Rônin}
-	Un Rônin a une dette vis-à-vis de vous. Vous pouvez lui demander un service. 	{Parrain:Rônin;debtFrom:Rônin}
-	Vous devenez Mercenaire pendant quelques mois dans une Force très côtée. 		{métier:Mercenaire=+1;EquipementCybernetique=*;Parrain:Mercenaire;talent:Mercenaire=*;talent:Mercenaire=*}
-
-Table TechnoBloc	[Donne accès au métier de cybertek. ]	{métier:CyberTek}
-	Vous êtes viré(e) de votre TechnoBloc. 	[TechnoBloc]
-	Vous êtes exfiltré(e) de votre TechnoBloc. 	[Cicatrices]	{métier:CyberTek=+1;EquipementCybernetique=*;talent:CyberTek=*;talent:CyberTek=*}
-	Vous vous faites des relations dans votre TechnoBloc. 	{Parrain:TechnoBloc}
-	Vous vous faites des ennemis dans votre TechnoBloc. 
-	Vous accédez à un poste de cadre dans votre TechnoBloc. 	{métier:CyberTek=+1;EquipementCybernetique=*;talent:CyberTek=*;talent:CyberTek=*;Parrain:TechnoBloc}
-	Vous accédez à un poste de cadre dans votre TechnoBloc. 	{métier:CyberTek=+1;EquipementCybernetique=*;talent:CyberTek=*;talent:CyberTek=*;Parrain:TechnoBloc}
-	Votre TechnoBloc vous offre un cablage gratuit. 	{EquipementCybernetique=*}
-	Votre TechnoBloc vous offre un cablage gratuit. 	{EquipementCybernetique=*}
-	Vous aidez un ami à s'exfiltrer de son TechnoBloc. Il vous en est redevable. 	{debtFrom:CyberTek}
-	Vous avez une liaison avec un(e) cadre d'un TechnoBloc. 	[Romance]	{Parrain:TechnoBloc}
-	Vous êtes viré(e) de votre TechnoBloc. 	[TechnoBloc]
-
-Table Wampire-Rêveur	[Donne accès aux métiers de réveur ou de wampire. ]	{métier:Rêveur;métier:Wampire}
-	Vous vendez vos rêves pendant quelques mois. 	{EquilibrePsychique-=1;Onirisme=+1;métier:Rêveur=+1;EquipementCybernetique=*}
-	Un ami rêveur devient fou. Vous ne supportez plus les usines à rêves. 
-	Vous tuez un wampire. 
-	Un de vos amis est tué par un Wampire. Vous les détestez. 
-	Vous cédez un de vos organes à un Wampire. 	{Corps-=1}
-	Vous exfiltrez un de vos amis d'une usine à rêves. 
-	Vous exercez le métier de Wampire pendant quelques mois.	{métier:Wampire=+1;Parrain:Wampire;talent:Wampire=*}
-	Vous avez une liaison avec un(e) Rêveur.	[Romance]
-	Vous contractez une dette vis-à-vis d'un Wampire. Il peut vous demander son remboursement à tout moment. 	{debtTo:Wampire}
-	Un Wampire a une dette vis-à-vis de vous. Vous pouvez lui demander un service. 	{Parrain:Wampire;debtFrom:Wampire}
-	Vous devenez pendant quelques mois une star des usines à rêves. Vous vous échappez. Vous possédez 30 000 000 de crédits. Votre équilibre psychique est au minimum (remontée possible avec traitement psychiatrique). Vous ne supportez pas l'idée que l'on puisse vous rajouter un équipement cybernétique. 	{credit:30000000;EquilibrePsychique=1;Esprit-=1;Onirisme=+2;ConnaissanceMedias=+1}
+Table Localisation	[]	{}
+	Paris
+	Marseille
+	Lyon
+	Nantes
+	Bordeaux
+	Bali
+	Bangkok
+	Beijing
+	Tokyo
+	Seattle
+	Bamako
+	Moscou
+	Mexico
+	Hong Kong
+	Los Angeles
+	Night City
+	New York
+	San Francisco
