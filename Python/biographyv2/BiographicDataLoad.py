@@ -83,7 +83,7 @@ class BiographicDataLoad( object ) :
         data = ModuleHelper.loadFileConfig( "talentsCyberAge" )
         nextTable = None
         for line in data : 
-            resultTableHead = re.match( "^(.*?)\t(.*?)(\t(.*?))?$", line)
+            resultTableHead = re.match( "^(.*?)\t(.*?)(\t\[(.*?)\])?$", line)
             if (resultTableHead != None) : 
                 if (nextTable != None) : 
                     self._skills[ nextTable.name ] = nextTable

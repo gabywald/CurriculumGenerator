@@ -21,10 +21,6 @@ from BiographicDataLoad import BiographicDataLoad
 
 from Person import Person
 
-from CurriculumData import CVData
-
-curriculumDataObj = CVData.loadConfig()
-
 ## from BiographicTable import BiographicTable
 biotables = BiographicDataLoad.loadBiographicsTables()
 ## from BiographicJob import BiographicJob
@@ -43,11 +39,6 @@ skills = BiographicDataLoad.loadSkills()
 ## for elt in skills : 
 ##     print( skills[ elt ] )
 
-personnae = Person()
-
-personnae.extrainfo	= "NOEXTRAINFO"
-personnae.quote		= "NOQUOTE"
-
 numberOfResults = 10
 
 res = selectBiographicElements( numberOfResults )
@@ -63,8 +54,7 @@ for elt in res :
                 val = item[item.index("=")+1:]
                 skill = None
                 if (val == "all") : 
-                    for elt in jobs[ job ].skills : 
-                        skill = skills[ elt ]
+                    for skill in skills : 
                         print( "\t%s\t%s\t%s" %( skill.name, skill.level, skill.possibilities ) )
                 elif (val != "*") : 
                     skill = skills[ job ]
@@ -73,7 +63,5 @@ for elt in res :
                     skill = skills[ random.choice( jobSkill.skills ) ]
             print( "\t%s\t%s\t%s" %( skill.name, skill.level, skill.possibilities ) )
         else :
-            print( "\t%s +++++" %( item ) )
+            print( "\t%s" %( item ) )
 
-
-## TODO generate curriculum from chat is done here !!

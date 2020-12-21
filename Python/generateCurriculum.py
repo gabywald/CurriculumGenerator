@@ -102,9 +102,9 @@ if (args.randomjobelements) :
 if (args.randomtrainingelements) :
     personnae.trainingeltsnb = random.randint(1, 5)
 
-print (personnae.skilleltnb )
-print (personnae.jobeltsnb )
-print (personnae.trainingeltsnb )
+print ( personnae.skilleltnb )
+print ( personnae.jobeltsnb )
+print ( personnae.trainingeltsnb )
 
 ## ## ## ## ## Random Generation Part 1
 ## Random Generation of First Name
@@ -192,7 +192,7 @@ texSpecific = personnae.lastname + "." + personnae.firstname ## + "_" + dt_strin
 texcurriculumDirectory = texSpecific + "_" + "generate/"
 texcurriculumFileName = texSpecific
 
-## Workiong on Output Directory (for one curriculum)
+## Working on Output Directory (for one curriculum)
 path = Path( texcurriculumDirectory )
 if ( path.exists() ) :
     print("Removing some resources...")

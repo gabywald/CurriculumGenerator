@@ -1,27 +1,27 @@
-Java	1	Java 8, Java 11, Java Swing, Java EE, Spring, Hibernate, eBean, Micronaut
-Scripting	1	Python, Python3, Perl, Bash, Shell
-Web	1	PHP, HTML, HTML 5, CSS, JavaScript, ECMAScript
-XML	1	XML, XHTML, XSLT
-Langages de programmation	1	Java, C / C++, COBOL, FORTRAN, Rust, SmallTalk, Obkjective C, Python, Python3, Perl, Bash, Shell
-Bases De Données	1	NoSQL, Base de données relationnelle, Indexation, Entrepôt de données, Data Lake
-Shell	1	Bash, ksh, PowerShell
-Systèmes d'exploitation	1	Windows, Unix, Linux, Mac OS X, Android, iOS
-Systèmes	1	Windows, Unix, Linux, Mac OS X, Android, iOS
+Java	1	Java 8;Java 11;Java Swing;Java EE;Spring;Hibernate;eBean;Micronaut
+Scripting	1	Python;Python3;Perl;Bash;Shell
+Web	1	PHP;HTML;HTML 5;CSS;JavaScript;ECMAScript
+XML	1	XML;XHTML;XSLT
+Langages de programmation	1	Java;C / C++;COBOL;FORTRAN;Rust;SmallTalk;Obkjective C;Python;Python3;Perl;Bash;Shell
+Bases De Données	1	NoSQL;Base de données relationnelle;Indexation;Entrepôt de données;Data Lake
+Shell	1	Bash;ksh;PowerShell
+Systèmes d'exploitation	1	Windows;Unix;Linux;Mac OS X;Android;iOS
+Systèmes	1	Windows;Unix;Linux;Mac OS X;Android;iOS
 Apache	1	Serveur Web Apache
-Big Data	1	Apache Kafka, Apache Solr, SciKit Learn, Pandas, 
-Tests Unitaires	1	Selenium, JUnit
-Reverse Ingeniering	1	Ingénierie Inverse, Analyse logicielle, 
-Documentation	1	Javadoc, Pythondoc, Doxygen
-Conception	1	UML, MERISE, Analyse Fonctionnelle
-Développement logiciel	1	Cycle en V, Agile, Scrum, Kanban
-Modèles de développement	1	Modèle MVC, Cycle en V, Scrum, Agile, Kanban, Méthodes Agiles
-Outils	1	WebScrapping, Machine Learning, Intelligence Artificielle 
-Management	1	LeaderShip, Gestion d'équipe, Répartition de tâches, Gestion de Projet, Reporting
-Relationnel	1	Contacts, Prise de contacts
-Travail d'équipe	1	Rigueur et Méthode, Conduite de Réunion, Esprit d'analyse
-Rédaction	1	Cahier des charges, Spécifications, Tickets
-Méthodes Agiles	1	Scrum, Kanban, 
-Transversalité	1	Contact, Planification, Conduite de réunions
+Big Data	1	Apache Kafka;Apache Solr;SciKit Learn;Pandas;
+Tests Unitaires	1	Selenium;JUnit
+Reverse Ingeniering	1	Ingénierie Inverse;Analyse logicielle;
+Documentation	1	Javadoc;Pythondoc;Doxygen
+Conception	1	UML;MERISE;Analyse Fonctionnelle
+Développement logiciel	1	Cycle en V;Agile;Scrum;Kanban
+Modèles de développement	1	Modèle MVC;Cycle en V;Scrum;Agile;Kanban;Méthodes Agiles
+Outils	1	WebScrapping;Machine Learning;Intelligence Artificielle 
+Management	1	LeaderShip;Gestion d'équipe;Répartition de tâches;Gestion de Projet;Reporting
+Relationnel	1	Contacts;Prise de contacts
+Travail d'équipe	1	Rigueur et Méthode;Conduite de Réunion;Esprit d'analyse
+Rédaction	1	Cahier des charges;Spécifications;Tickets
+Méthodes Agiles	1	Scrum;Kanban;
+Transversalité	1	Contact;Planification;Conduite de réunions
 Design Pattern	1
 Architecture	1
 Développement logiciel	1
@@ -32,7 +32,7 @@ Java EE	1
 Spring	1
 Hibernate	1
 eBean	1
-Micronaut
+Micronaut	1
 Python	1
 Python3	1
 Perl	1

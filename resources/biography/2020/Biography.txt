@@ -35,9 +35,9 @@ Table StartUp	[]	{}
 
 Table GrandGroupe	[]	{}
 	Analyse De Données	{talent:Analyste Bases De Données=*}
-	Logiciel RH	{métier:Chef de Projet=+1;talent:*}
-	Logiciel RH	{métier:Architecte+1;talent:*}
-	Logiciel RH	{métier:Développeur=+1;talent:*}
+	Logiciel RH	{métier:Chef de Projet=+1;talent:Chef de Projet=all;talent:*}
+	Logiciel RH	{métier:Architecte+1;talent:Architecte=all;talent:*}
+	Logiciel RH	{métier:Développeur=+1;talent:Développeur=all;talent:*}
 	Logiciel Comptabilité	{métier:Chef de Projet=+1;talent:*}
 	Logiciel Comptabilité	{métier:Architecte+1;talent:*}
 	Logiciel Comptabilité	{métier:Développeur=+1;talent:*}
