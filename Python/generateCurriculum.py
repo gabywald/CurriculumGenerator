@@ -13,24 +13,21 @@ __status__ = "Development"
 
 ## ## ## ## ## Main Script to generate a Curriculum, according to parameters indicated !
 
-import os
 import sys
 import shutil
 import random
 
-from pathlib import Path
-from datetime import datetime
-
-import curriculumMainFunctions
-import curriculumGeneration
+import CurriculumMainFunctions
+import CurriculumGeneration
 
 from Person import Person
-from curriculumData import CVData
+from CurriculumData import CVData
+from CurriculumLaTeXGenerator import generateLaTeX
 
 ## print('(debugging purposes) Number of arguments:', len(sys.argv), 'arguments.' )
 ## print('(debugging purposes) Argument List:', str(sys.argv) )
 
-args = curriculumMainFunctions.parsingArgs()
+args = CurriculumMainFunctions.parsingArgs()
 
 curriculumDataObj = CVData.loadConfig()
 
@@ -51,15 +48,15 @@ print( "CV COLOR : " + cvColor )
 personnae = Person()
 
 ## ## ## ## ## Data From Arguments
-personnae.firstname = curriculumMainFunctions.checkArgsAndReturn( args, 'firstname', args.firstname )
-personnae.lastname = curriculumMainFunctions.checkArgsAndReturn( args, 'lastname', args.lastname )
-personnae.generaltitle = curriculumMainFunctions.checkArgsAndReturn( args, 'generaltitle', args.generaltitle )
-personnae.title = curriculumMainFunctions.checkArgsAndReturn( args, 'title', args.title )
-personnae.speciality = curriculumMainFunctions.checkArgsAndReturn( args, 'speciality', args.speciality )
-personnae.email = curriculumMainFunctions.checkArgsAndReturn( args, 'email', args.email )
-personnae.address = curriculumMainFunctions.checkArgsAndReturn( args, 'address', args.address )
-personnae.webpage = curriculumMainFunctions.checkArgsAndReturn( args, 'webpage', args.webpage )
-personnae.cellphone = curriculumMainFunctions.checkArgsAndReturn( args, 'cellphone', args.cellphone )
+personnae.firstname = CurriculumMainFunctions.checkArgsAndReturn( args, 'firstname', args.firstname )
+personnae.lastname = CurriculumMainFunctions.checkArgsAndReturn( args, 'lastname', args.lastname )
+personnae.generaltitle = CurriculumMainFunctions.checkArgsAndReturn( args, 'generaltitle', args.generaltitle )
+personnae.title = CurriculumMainFunctions.checkArgsAndReturn( args, 'title', args.title )
+personnae.speciality = CurriculumMainFunctions.checkArgsAndReturn( args, 'speciality', args.speciality )
+personnae.email = CurriculumMainFunctions.checkArgsAndReturn( args, 'email', args.email )
+personnae.address = CurriculumMainFunctions.checkArgsAndReturn( args, 'address', args.address )
+personnae.webpage = CurriculumMainFunctions.checkArgsAndReturn( args, 'webpage', args.webpage )
+personnae.cellphone = CurriculumMainFunctions.checkArgsAndReturn( args, 'cellphone', args.cellphone )
     
 if args.noquote : 
     personnae.quote = "NOQUOTE"
@@ -70,11 +67,11 @@ else:
 if args.noextrainfo : 
     personnae.extrainfo = "NOEXTRAINFO"
 else:
-    personnae.extrainfo = curriculumMainFunctions.checkArgsAndReturn( args, 'extrainfo', args.extrainfo )
+    personnae.extrainfo = CurriculumMainFunctions.checkArgsAndReturn( args, 'extrainfo', args.extrainfo )
 
-personnae.skilleltnb = curriculumMainFunctions.checkArgsAndReturn( args, 'skillelements', args.skillelements )
-personnae.jobeltsnb = curriculumMainFunctions.checkArgsAndReturn( args, 'jobelements', args.jobelements )
-personnae.trainingeltsnb = curriculumMainFunctions.checkArgsAndReturn( args, 'trainingelements', args.trainingelements )
+personnae.skilleltnb = CurriculumMainFunctions.checkArgsAndReturn( args, 'skillelements', args.skillelements )
+personnae.jobeltsnb = CurriculumMainFunctions.checkArgsAndReturn( args, 'jobelements', args.jobelements )
+personnae.trainingeltsnb = CurriculumMainFunctions.checkArgsAndReturn( args, 'trainingelements', args.trainingelements )
 
 if ( (hasattr(args, 'listskillelements')) and (args.listskillelements != None) ) :
     personnae.skilleltnb = 0
@@ -117,34 +114,34 @@ if (args.randomlastname) :
 
 ## ## ## ## ## Interaction with user Part 1
 if (personnae.firstname == None) : 
-	personnae.firstname = curriculumMainFunctions.askForStrNotEmpty( "First Name? " )
+	personnae.firstname = CurriculumMainFunctions.askForStrNotEmpty( "First Name? " )
 
 if (personnae.lastname == None) : 
-    personnae.lastname = curriculumMainFunctions.askForStrNotEmpty( "Last Name? " )
+    personnae.lastname = CurriculumMainFunctions.askForStrNotEmpty( "Last Name? " )
 
 if (personnae.generaltitle == None) : 
-    personnae.generaltitle = curriculumMainFunctions.askForStrNotEmpty( "General Title? " )
+    personnae.generaltitle = CurriculumMainFunctions.askForStrNotEmpty( "General Title? " )
 
 if (personnae.title == None) : 
-    personnae.title = curriculumMainFunctions.askForStrNotEmpty( "Title? " )
+    personnae.title = CurriculumMainFunctions.askForStrNotEmpty( "Title? " )
 
 if (personnae.speciality == None) : 
-    personnae.speciality = curriculumMainFunctions.askForStrNotEmpty( "Speciality? " )
+    personnae.speciality = CurriculumMainFunctions.askForStrNotEmpty( "Speciality? " )
 
 if (personnae.quote == None) : 
-    personnae.quote = curriculumMainFunctions.askForStrNotEmpty( "quote / citation ? ('NOQUOTE' for nothing) " )
+    personnae.quote = CurriculumMainFunctions.askForStrNotEmpty( "quote / citation ? ('NOQUOTE' for nothing) " )
 
 if (personnae.extrainfo == None) : 
-    personnae.extrainfo = curriculumMainFunctions.askForStrNotEmpty( "extra info ? ('NOEXTRAINFO' for nothing) " )
+    personnae.extrainfo = CurriculumMainFunctions.askForStrNotEmpty( "extra info ? ('NOEXTRAINFO' for nothing) " )
 
 if (personnae.skilleltnb == None) : 
-    personnae.skilleltnb = curriculumMainFunctions.askForInt( "Number of Skills elements ?" )
+    personnae.skilleltnb = CurriculumMainFunctions.askForInt( "Number of Skills elements ?" )
 
 if (personnae.jobeltsnb == None) : 
-    personnae.jobeltsnb = curriculumMainFunctions.askForInt( "Number of Jobs elements ?" )
+    personnae.jobeltsnb = CurriculumMainFunctions.askForInt( "Number of Jobs elements ?" )
 
 if (personnae.trainingeltsnb == None) : 
-    personnae.trainingeltsnb = curriculumMainFunctions.askForInt( "Number of Training elements ?" )
+    personnae.trainingeltsnb = CurriculumMainFunctions.askForInt( "Number of Training elements ?" )
 
 ## Pseudo From Arguments OR generated from {First Name + Last Name}
 if ( (hasattr(args, 'pseudo')) and (args.pseudo != None) ) :
@@ -156,7 +153,7 @@ else:
 defaultemail = personnae.pseudo + "@gmx.com"
 
 if (personnae.email == None) : 
-    personnae.email = curriculumMainFunctions.askForStrNotEmpty( "e-mail (default=[%s])?" % defaultemail )
+    personnae.email = CurriculumMainFunctions.askForStrNotEmpty( "e-mail (default=[%s])?" % defaultemail )
 
 if (personnae.email == "default"):
     personnae.email = defaultemail
@@ -172,125 +169,16 @@ if (personnae.webpage == None) :
     personnae.webpage = personnae.pseudo + ".personnalbranding.com"
 
 ## ## Interact with user to choose Skills / Jobs / Trainings (randomly generated)
-curriculumMainFunctions.interactionSelection( personnae.skills, personnae.skilleltnb, args.allyes, "Skills" )
-curriculumMainFunctions.interactionSelection( personnae.jobs, personnae.jobeltsnb, args.allyes, "Job" )
-curriculumMainFunctions.interactionSelection( personnae.trainings, personnae.trainingeltsnb, args.allyes, "Training" )
+CurriculumMainFunctions.interactionSelection( personnae.skills, personnae.skilleltnb, args.allyes, "Skills" )
+CurriculumMainFunctions.interactionSelection( personnae.jobs, personnae.jobeltsnb, args.allyes, "Job" )
+CurriculumMainFunctions.interactionSelection( personnae.trainings, personnae.trainingeltsnb, args.allyes, "Training" )
 
 print( personnae )
 
-## Date_time generation
-now = datetime.now()
-print("now =", now)
-dt_string = now.strftime("%Y%m%d_%H%M%S")
-print("date and time =", dt_string)    
-
-## prefix for directory / filename
-texSpecific = personnae.lastname + "." + personnae.firstname ## + "_" + dt_string
-
-## texcurriculumDirectory = "generate/"
-## texcurriculumFileName = "curriculumGenerationtest"
-texcurriculumDirectory = texSpecific + "_" + "generate/"
-texcurriculumFileName = texSpecific
-
-## Working on Output Directory (for one curriculum)
-path = Path( texcurriculumDirectory )
-if ( path.exists() ) :
-    print("Removing some resources...")
-    shutil.rmtree( texcurriculumDirectory )
-## print( "Copying some resources..." )
-## shutil.copytree( "../resources/latexSamples/img/", texcurriculumDirectory + "img/" )
-os.mkdir( texcurriculumDirectory )
-
-## Generate Makefile
-print( "Creating Makefile..." )
-with open( texcurriculumDirectory + "Makefile", 'w') as makefile:
-    makefile.write( curriculumGeneration.getMakefileContent( texcurriculumFileName ) )
-
-## Generate the TeX file
-print( "Creating TeX file..." )
-with open( texcurriculumDirectory + texcurriculumFileName + ".tex", 'w') as curriculumGenerationtest:
-    curriculumGenerationtest.write( curriculumGeneration.getLaTeXHeaderPart1(cvColor, cvStyle) )
-    curriculumGenerationtest.write( "\n\n" )
-    ## Personnal Data
-    curriculumGenerationtest.write( curriculumGeneration.getMinimalVariableDefinitions( 
-        firstname = personnae.firstname, lastname = personnae.lastname, 
-        cellphone = personnae.cellphone, general = personnae.generaltitle, 
-        title = personnae.title, speciality = personnae.speciality
-    ) + "\n" )
-    curriculumGenerationtest.write( curriculumGeneration.getAddressDefinition(address = personnae.address) + "\n" )
-    curriculumGenerationtest.write( curriculumGeneration.getEMailDefinition(email = personnae.email) + "\n" )
-    curriculumGenerationtest.write( curriculumGeneration.getWebSiteDefinition(webpage = personnae.webpage) + "\n" )
-    curriculumGenerationtest.write( curriculumGeneration.getQuoteDefinition(quote = personnae.quote) + "\n" )
-    curriculumGenerationtest.write( curriculumGeneration.getExtraInformation(extrainfo = personnae.extrainfo) + "\n" )
-    curriculumGenerationtest.write( "\n\n" )
-    ## More header
-    curriculumGenerationtest.write( curriculumGeneration.getFancyStyle() + "\n\n" )
-    ## ## Get first items of sublits, to put in in keywords
-    lstSkills0 = list(list(zip(*personnae.skills))[0])
-    lstSkills1 = list(list(zip(*personnae.skills))[1])
-    curriculumGenerationtest.write( "\\def\\motsClefs{LaTeX;PDF;Python;Python3;" + ";".join( lstSkills0 ) + ";" + ";".join( lstSkills1 ) + "}\n\n" )
-    curriculumGenerationtest.write( curriculumGeneration.getHyperSetup() + "\n\n" )
-    curriculumGenerationtest.write( curriculumGeneration.getDefVariables() + "\n\n" )
-    ## Starting document here !
-    curriculumGenerationtest.write( "\\begin{document}\n\n\\maketitle\n\n" )
-    ## Introduction
-    ## ## ## TODO "Introduction Text" generation ??
-    curriculumGenerationtest.write( "%% \\section{Introduction}\n")
-    curriculumGenerationtest.write( "\t IntroductionText~\\\\ \n\n" )
-    ## Compétences ...
-    curriculumGenerationtest.write( "\\section{Comp{\\'e}tences}\n" )
-    curriculumGenerationtest.write( "\t%% \\cvdoubleitem{ Item1 }{ Description1 }{ Item2 }{ Description2 }\n\n" )
-    for i in range(0, len(personnae.skills), 2) : 
-        item1 = personnae.skills[ i + 0 ]
-        item2 = curriculumGeneration.testAndGetInList( i+1, personnae.skills, "---" )
-        curriculumGenerationtest.write( "\t \\cvcomputer{ %s }{ %s }{ %s }{ %s }\n" %( item1[0], item1[1], item2[0], item2[1], ) )
-    curriculumGenerationtest.write( "\t \\cvitem{Langues}{ Anglais, Arabe, Chinois... }\n" )
-    # curriculumGenerationtest.write( "\t \\cvdoubleitem{ Item1 }{ Description1 }{ Item2 }{ Description2 }\n" )
-    # curriculumGenerationtest.write( "\t \\cvcomputer{ Item1 }{ Description1 }{ Item2 }{ Description2 }\n" )
-    curriculumGenerationtest.write( "\n" )
-    ## Professionnal Experiences
-    curriculumGenerationtest.write( "\\section{Exp{\\'e}rience professionnelle}\n" )
-    for eltJob in personnae.jobs : 
-        curriculumGenerationtest.write( "\t \\cventry{years}{%s (%s)}{%s}{%s}{%s}{\n JobDescription \n}\n\n" %( eltJob[3], eltJob[2], eltJob[0], eltJob[4], eltJob[1] ) ) 
-    curriculumGenerationtest.write( "\t %% \\cventry{years}{degree/job title}{institution/employer}{localization}{grade}{description}\n\n" )
-    curriculumGenerationtest.write( "\t %% \\cventry{DATUM}{TITRE}{ENTREPRISE}{CONTRAT}%\n" )
-    curriculumGenerationtest.write( "\t %% \t{\\newline INTITULE++}{%\n" )
-    curriculumGenerationtest.write( "\t %% \\begin{itemize}\n" )
-    curriculumGenerationtest.write( "\t %% \t\\item[$\\rightarrow$] ELEMENTUN\n" )
-    curriculumGenerationtest.write( "\t %% \t\\item[$\\bullet$] ELEMENTDEUXETPLUS\n" )
-    curriculumGenerationtest.write( "\t %% \\end{itemize}}\n\n" )
-    ## Training ...
-    curriculumGenerationtest.write( "\\section{Formation}\n" )
-    for eltTraining in personnae.trainings : 
-        curriculumGenerationtest.write( "\t \\cventry{years}{%s}{%s}{%s}{\n %% grade \n}{\n %% description \n}\n\n" %(  eltTraining[1], eltTraining[0], eltTraining[2]  ) )
-    curriculumGenerationtest.write( "\t %% \\cventry{Year}{Diploma}{School}{Location}    {}{}{}\n\n" )
-    ## Certifications ...
-    curriculumGenerationtest.write( "\\section{Licences et Certifications}\n" )
-    curriculumGenerationtest.write( "\t \\cventry{Year}{Diploma}{\\newline School}{Location}    {}{}{}\n\n" )
-    ## Bénévolat ...
-    ## ## ## TODO "Bénévolat" generation ??
-    curriculumGenerationtest.write( "\\section{Expériences de bénévolat}\n" )
-    curriculumGenerationtest.write( "\t \\cventry{years}{jobtitle}{institution}{localization}{status}{description}\n\n" )
-    ## Recommandations ...
-    ## ## ## TODO "Recommandations" generation ??
-    curriculumGenerationtest.write( "%% \\section{Recommandations}\n" )
-    curriculumGenerationtest.write( "%% \t \\cvitem{ Item }{ Content }\n\n" )
-    ## Réalisations ...
-    ## ## ## TODO "Réalisations" generation ??
-    curriculumGenerationtest.write( "\\section{Réalisations}\n" )
-    curriculumGenerationtest.write( "\t \\cvitem{Projets}{ GitHub }\n" )
-    curriculumGenerationtest.write( "\t \\cvitem{Organisations}{ associations }\n" )
-    curriculumGenerationtest.write( "\t \\cvitem{Publications}{ citations }\n\n" )
-    ## Out of Work / Centres d'intérêts
-    ## ## ## TODO "Interests out of the work" generation ??
-    curriculumGenerationtest.write( "\\section{Centres d'int{\\'e}r{\\^e}ts}\n" )
-    curriculumGenerationtest.write( "\t \\cvitem{Lectures}{ Science-Fiction, Policier, Fantasy... }\n" )
-    curriculumGenerationtest.write( "\t \\cvitem{Jeux Sociaux}{ Jeux de Rôle, Jeux de plateau, e-sport }\n" )
-    ## END of document 
-    curriculumGenerationtest.write( "\\end{document}\n\n" )
+generateLaTeX( personnae )
     
 ## Compiling TeX file to obtain PDF !
 if args.make : 
-    curriculumMainFunctions.launcheMakePDFfromLaTeX( directory = texcurriculumDirectory )
+    CurriculumMainFunctions.launcheMakePDFfromLaTeX( directory = texcurriculumDirectory )
 
 print("End of script")

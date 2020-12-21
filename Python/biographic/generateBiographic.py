@@ -74,13 +74,17 @@ def addskill( skill ) :
             personnae.skills.append( [ skill.name, ", ".join( skill.possibilities ) ] )
 
 for elt in res : 
-    jobOrTraing = elt.contents[1]
+    jobOrTrains = elt.contents[1]
+    moreselect = elt.contents[0][len("Table "):]
     trainingTAG = "[Formation]"
-    print( "%s " %( jobOrTraing ) )
-    if (jobOrTraing.startswith( trainingTAG ) ) : 
-        personnae.trainings.append( jobOrTraing[len(trainingTAG):len(jobOrTraing)] )
+    print( "%s " %( jobOrTrains ) )
+    corporation  = CVData.getRandomCorporationName()
+    contractType = CVData.getRandomContractType()
+    if (jobOrTrains.startswith( trainingTAG ) ) : 
+        selected     = jobOrTrains[len(trainingTAG):]
+        personnae.trainings.append( [corporation[0], selected, corporation[1], corporation[0], contractType] )
     else : 
-        personnae.jobs.append( jobOrTraing )
+        personnae.jobs.append( [jobOrTrains, moreselect, corporation[1], corporation[0], contractType] )
     for item in elt.addins : 
         if (item.startswith( "talent:" ) ) : 
             if (item == "talent:*"):
