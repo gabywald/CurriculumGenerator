@@ -1,14 +1,6 @@
 #!/usr/bin/python3
 # -*- coding: utf-8 -*- 
 
-def testAndGetInList(index, list, alternatevalue) : 
-    item = [ None, None ]
-    if ( index < len( list ) ) : 
-        item = list[ index ]
-    else: 
-        item = [ alternatevalue, alternatevalue ]
-    return item
-
 def getLaTeXHeaderCVStyle(style = "classic") :
     """Attempted Argument in "[ 'classic', 'casual', 'oldstyle', 'banking' ]" """ 
     return "\\moderncvstyle{" + style + "}\n" 

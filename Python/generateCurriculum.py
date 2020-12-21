@@ -242,7 +242,7 @@ with open( texcurriculumDirectory + texcurriculumFileName + ".tex", 'w') as curr
     curriculumGenerationtest.write( "\t%% \\cvdoubleitem{ Item1 }{ Description1 }{ Item2 }{ Description2 }\n\n" )
     for i in range(0, len(personnae.skills), 2) : 
         item1 = personnae.skills[ i + 0 ]
-        item2 = curriculumMainFunctions.testAndGetInList( i+1, personnae.skills, "---" )
+        item2 = curriculumGeneration.testAndGetInList( i+1, personnae.skills, "---" )
         curriculumGenerationtest.write( "\t \\cvcomputer{ %s }{ %s }{ %s }{ %s }\n" %( item1[0], item1[1], item2[0], item2[1], ) )
     curriculumGenerationtest.write( "\t \\cvitem{Langues}{ Anglais, Arabe, Chinois... }\n" )
     # curriculumGenerationtest.write( "\t \\cvdoubleitem{ Item1 }{ Description1 }{ Item2 }{ Description2 }\n" )

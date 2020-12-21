@@ -23,14 +23,6 @@ def launcheMakePDFfromLaTeX( directory ) :
     print( "Changing dir BACK..." )
     os.chdir( ".." )
 
-def testAndGetInList(index, list, alternatevalue) : 
-    item = [ None, None ]
-    if ( index < len( list ) ) : 
-        item = list[ index ]
-    else: 
-        item = [ alternatevalue, alternatevalue ]
-    return item
-
 def checkArgsAndReturn( args, name, argsValue ) : 
     if ( (hasattr(args, name)) and (argsValue != None) ) : 
         return argsValue

@@ -22,6 +22,7 @@ from BiographicDataLoad import BiographicDataLoad
 from Person import Person
 
 from CurriculumData import CVData
+from CurriculumLaTeXGenerator import generateLaTeX
 
 curriculumDataObj = CVData.loadConfig()
 
@@ -48,16 +49,43 @@ personnae = Person()
 personnae.extrainfo	= "NOEXTRAINFO"
 personnae.quote		= "NOQUOTE"
 
+personnae.firstname = random.choice( curriculumDataObj.firstNameList )
+personnae.lastname = random.choice( curriculumDataObj.lastNameList )
+personnae.pseudo = personnae.firstname.lower() + "." + personnae.lastname.lower()
+defaultemail = personnae.pseudo + "@gmx.com"
+personnae.email = defaultemail
+personnae.address = "1337 Grand Boulevard -- 61337 Section 42"
+personnae.cellphone = "06~12~34~56~78"
+personnae.webpage = personnae.pseudo + ".personnalbranding.com"
+
+personnae.title = "Title"
+personnae.generaltitle = "General Title"
+personnae.speciality = "Speciality"
+
 numberOfResults = 10
 
 res = selectBiographicElements( numberOfResults )
 
+def addskill( skill ) : 
+    if skill not in personnae.skills: 
+        if (skill.possibilities == None) : 
+            personnae.skills.append( [ skill.name, "---" ] )
+        else:
+            personnae.skills.append( [ skill.name, ", ".join( skill.possibilities ) ] )
+
 for elt in res : 
-    print( "%s " %( elt.contents[1] ) )
+    jobOrTraing = elt.contents[1]
+    trainingTAG = "[Formation]"
+    print( "%s " %( jobOrTraing ) )
+    if (jobOrTraing.startswith( trainingTAG ) ) : 
+        personnae.trainings.append( jobOrTraing[len(trainingTAG):len(jobOrTraing)] )
+    else : 
+        personnae.jobs.append( jobOrTraing )
     for item in elt.addins : 
         if (item.startswith( "talent:" ) ) : 
             if (item == "talent:*"):
                  skill = random.choice(list(skills.values()))
+                 addskill( skill )
             else : 
                 job = item[item.index(":")+1:item.index("=")]
                 val = item[item.index("=")+1:]
@@ -66,14 +94,19 @@ for elt in res :
                     for elt in jobs[ job ].skills : 
                         skill = skills[ elt ]
                         print( "\t%s\t%s\t%s" %( skill.name, skill.level, skill.possibilities ) )
+                        addskill( skill )
                 elif (val != "*") : 
                     skill = skills[ job ]
                 else : 
                     jobSkill = jobs[ job ]
                     skill = skills[ random.choice( jobSkill.skills ) ]
+                    addskill( skill )
             print( "\t%s\t%s\t%s" %( skill.name, skill.level, skill.possibilities ) )
         else :
             print( "\t%s +++++" %( item ) )
 
+print( personnae );
+
+generateLaTeX( personnae )
 
 ## TODO generate curriculum from chat is done here !!

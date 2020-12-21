@@ -7,7 +7,7 @@ Bases De Données	1	NoSQL;Base de données relationnelle;Indexation;Entrepôt de
 Shell	1	Bash;ksh;PowerShell
 Systèmes d'exploitation	1	Windows;Unix;Linux;Mac OS X;Android;iOS
 Systèmes	1	Windows;Unix;Linux;Mac OS X;Android;iOS
-Apache	1	Serveur Web Apache
+Apache	1	Serveur Web Apache;Apacke Kafka
 Big Data	1	Apache Kafka;Apache Solr;SciKit Learn;Pandas;
 Tests Unitaires	1	Selenium;JUnit
 Reverse Ingeniering	1	Ingénierie Inverse;Analyse logicielle;
