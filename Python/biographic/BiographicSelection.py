@@ -48,3 +48,28 @@ def selectBiographicElements( number ) :
         results.append( selectRandomBiographic( tables ) )
     return results
 
+##### ##### ##### ##### ##### 
+
+def addskill( skill, personnae ) : 
+    if (skill not in personnae.skills) : 
+        if (skill.possibilities == None) : 
+            personnae.skills.append( [ skill.name, "---" ] )
+        else:
+            personnae.skills.append( [ skill.name, ", ".join( skill.possibilities ) ] )
+
+def reworking( personnae ) : 
+    genericKey = "Divers"
+    skillsAsDict = { genericKey : [] }
+    reboot = True
+    while (reboot) : 
+        reboot = False
+        for skill in personnae.skills : 
+            if ( (skill[1] is "---") and (skill[0] not in skillsAsDict[ genericKey ] ) ) : 
+                skillsAsDict[ genericKey ].append( skill[0] )
+            if (skill[1] is "---") : 
+                personnae.skills.remove( skill )
+                reboot = True
+    print( personnae.skills )
+    print( skillsAsDict )
+    personnae.skills.append( [ genericKey, ", ".join( skillsAsDict[ genericKey ] ) ] )
+

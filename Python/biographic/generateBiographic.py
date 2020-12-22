@@ -17,6 +17,8 @@ import random
 
 from BiographicSelection import selectRandomBiographic
 from BiographicSelection import selectBiographicElements
+from BiographicSelection import addskill
+from BiographicSelection import reworking
 from BiographicDataLoad import BiographicDataLoad
 
 from Person import Person
@@ -59,38 +61,13 @@ personnae.cellphone = "06~12~34~56~78"
 personnae.webpage = personnae.pseudo + ".personnalbranding.com"
 
 personnae.title = "Title"
-personnae.generaltitle = "General Title"
+personnae.generaltitle = "GeneralTitle"
 personnae.speciality = "Speciality"
 
 numberOfResults = 10
 
 res = selectBiographicElements( numberOfResults )
 
-##### ##### ##### ##### ##### 
-
-def addskill( skill ) : 
-    if (skill not in personnae.skills) : 
-        if (skill.possibilities == None) : 
-            personnae.skills.append( [ skill.name, "---" ] )
-        else:
-            personnae.skills.append( [ skill.name, ", ".join( skill.possibilities ) ] )
-
-def reworking( personnae ) : 
-    genericKey = "Divers"
-    skillsAsDict = { genericKey : [] }
-    reboot = True
-    while (reboot) : 
-        reboot = False
-        for skill in personnae.skills : 
-            if ( (skill[1] is "---") and (skill[0] not in skillsAsDict[ genericKey ] ) ) : 
-                skillsAsDict[ genericKey ].append( skill[0] )
-            if (skill[1] is "---") : 
-                personnae.skills.remove( skill )
-                reboot = True
-    print( personnae.skills )
-    print( skillsAsDict )
-    personnae.skills.append( [ genericKey, ", ".join( skillsAsDict[ genericKey ] ) ] )
-    
 ##### ##### ##### ##### ##### 
 
 for elt in res : 
@@ -109,7 +86,7 @@ for elt in res :
         if (item.startswith( "talent:" ) ) : 
             if (item == "talent:*"):
                  skill = random.choice(list(skills.values()))
-                 addskill( skill )
+                 addskill( skill, personnae )
             else : 
                 job = item[item.index(":")+1:item.index("=")]
                 val = item[item.index("=")+1:]
@@ -118,13 +95,13 @@ for elt in res :
                     for elt in jobs[ job ].skills : 
                         skill = skills[ elt ]
                         print( "\t%s\t%s\t%s" %( skill.name, skill.level, skill.possibilities ) )
-                        addskill( skill )
+                        addskill( skill, personnae )
                 elif (val != "*") : 
                     skill = skills[ job ]
                 else : 
                     jobSkill = jobs[ job ]
                     skill = skills[ random.choice( jobSkill.skills ) ]
-                    addskill( skill )
+                    addskill( skill, personnae )
             print( "\t%s\t%s\t%s" %( skill.name, skill.level, skill.possibilities ) )
         else :
             print( "\t%s +++++" %( item ) )
@@ -137,4 +114,4 @@ print( personnae )
 
 generateLaTeX( personnae )
 
-## TODO generate curriculum from chat is done here !!
+## => go to directory : "make && make clean" to generate PDF !

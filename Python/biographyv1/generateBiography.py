@@ -62,10 +62,10 @@ for elt in res :
         else :
             print( "\t%s" %( item ) )
 
-## TODO avoid double results
-## TODO better treatment of jobs ('metiers')
-## TODO better treatment of equipments, software ('logiciels')
-## TODO better treatment of GodFather's ('Parrain')
-## TODO better treatment of debts (debtTo & debtFrom)
-## TODO better treatment of some elements ('credit', ...)
+## XXX avoid double results
+## XXX better treatment of jobs ('metiers')
+## XXX better treatment of equipments, software ('logiciels')
+## XXX better treatment of GodFather's ('Parrain')
+## XXX better treatment of debts (debtTo & debtFrom)
+## XXX better treatment of some elements ('credit', ...)
 

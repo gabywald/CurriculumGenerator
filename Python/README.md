@@ -2,7 +2,7 @@
 
 *Travaux en cours*
 
-__Si d'autres développeurs veulent participer au projet, n'hésitez pas à vous signaler !__
+__Si des développeurs veulent participer au projet, n'hésitez pas à vous signaler !__
 
 L'objectif ici étant principalement de réviser le Python, et plus spécifiquement le Python 3 : le code présent n'est pas significatif de travaux connexes. L'objectif est tout de mee qu'il puisse être repris facilement en Python ou dans un autre langage de programmation. 
 
