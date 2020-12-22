@@ -2,13 +2,13 @@ Java	1	Java 8;Java 11;Java Swing;Java EE;Spring;Hibernate;eBean;Micronaut
 Scripting	1	Python;Python3;Perl;Bash;Shell
 Web	1	PHP;HTML;HTML 5;CSS;JavaScript;ECMAScript
 XML	1	XML;XHTML;XSLT
-Langages de programmation	1	Java;C / C++;COBOL;FORTRAN;Rust;SmallTalk;Obkjective C;Python;Python3;Perl;Bash;Shell
+Langages de programmation	1	Java;C / C++;COBOL;FORTRAN;Rust;SmallTalk;Objective C;Python;Python3;Perl;Bash;Shell
 Bases De Données	1	NoSQL;Base de données relationnelle;Indexation;Entrepôt de données;Data Lake
 Shell	1	Bash;ksh;PowerShell
 Systèmes d'exploitation	1	Windows;Unix;Linux;Mac OS X;Android;iOS
 Systèmes	1	Windows;Unix;Linux;Mac OS X;Android;iOS
 Apache	1	Serveur Web Apache;Apacke Kafka
-Big Data	1	Apache Kafka;Apache Solr;SciKit Learn;Pandas;
+Big Data	1	Apache Kafka;Apache Solr;SciKit Learn;Pandas
 Tests Unitaires	1	Selenium;JUnit
 Reverse Ingeniering	1	Ingénierie Inverse;Analyse logicielle;
 Documentation	1	Javadoc;Pythondoc;Doxygen
