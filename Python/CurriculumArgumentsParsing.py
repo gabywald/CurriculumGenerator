@@ -3,8 +3,8 @@
 
 import argparse
 
-import JobBiographicTable
-JobBiographicTable.loadTables()
+import CurriculumBiographicTable
+CurriculumBiographicTable.loadTables()
 
 ##### ##### ##### ##### ##### ##### 
 ## Below is reading from arguments
@@ -125,6 +125,10 @@ parser.add_argument("-ya", "--allyes",
     help = "Automatically yes for generated elements / questions", 
     action = "store_true" )
 
+parser.add_argument("-bio", "--biographic", 
+    help = "Curriculum Generation in a Biographic way", 
+    action = "store_true" )
+
 def parsingArgs() :
     args = parser.parse_args()
     ## print( args )
@@ -150,11 +154,11 @@ def interactionSelection( elementsList, nbElements, allyes, strDom) :
     while ( len( elementsList ) < nbElements) : 
         futurevalue = None
         if (strDom == "Skills") : 
-            futurevalue = JobBiographicTable.selectRandomSkill()
+            futurevalue = CurriculumBiographicTable.selectRandomSkill()
         elif (strDom == "Job") : 
-            futurevalue = JobBiographicTable.selectRandomBiographic()
+            futurevalue = CurriculumBiographicTable.selectRandomBiographic()
         elif (strDom == "Training") : 
-            futurevalue = JobBiographicTable.selectRandomTraining()
+            futurevalue = CurriculumBiographicTable.selectRandomTraining()
         else : 
         	break
         ## TODO the negative choice by default ?

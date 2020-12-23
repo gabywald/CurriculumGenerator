@@ -17,34 +17,18 @@ import random
 
 from BiographicSelection import selectRandomBiographic
 from BiographicSelection import selectBiographicElements
+from BiographicSelection import preparingBiographicElements
 from BiographicSelection import addskill
 from BiographicSelection import reworking
 from BiographicDataLoad import BiographicDataLoad
 
 from Person import Person
 
-from CurriculumData import CVData
 from CurriculumLaTeXGenerator import generateLaTeX
+from CurriculumLaTeXGenerator import launcheMakePDFfromLaTeX
 
+from CurriculumData import CVData
 curriculumDataObj = CVData.loadConfig()
-
-## from BiographicTable import BiographicTable
-biotables = BiographicDataLoad.loadBiographicsTables()
-## from BiographicJob import BiographicJob
-jobs = BiographicDataLoad.loadJobsToSkills()
-## from BiographicSkill import BiographicSkill
-skills = BiographicDataLoad.loadSkills()
-
-## print( biotables )
-## print( selectRandomBiographic( biotables ) )
-
-## print( jobs )
-## for elt in jobs : 
-##     print( jobs[ elt ] )
-
-## print( skills )
-## for elt in skills : 
-##     print( skills[ elt ] )
 
 personnae = Person()
 
@@ -70,48 +54,13 @@ res = selectBiographicElements( numberOfResults )
 
 ##### ##### ##### ##### ##### 
 
-for elt in res : 
-    jobOrTrains = elt.contents[1]
-    moreselect = elt.contents[0][len("Table "):]
-    trainingTAG = "[Formation]"
-    print( "%s " %( jobOrTrains ) )
-    corporation  = CVData.getRandomCorporationName()
-    contractType = CVData.getRandomContractType()
-    if (jobOrTrains.startswith( trainingTAG ) ) : 
-        selected     = jobOrTrains[len(trainingTAG):]
-        personnae.trainings.append( [corporation[0], selected, corporation[1], corporation[0], contractType] )
-    else : 
-        personnae.jobs.append( [jobOrTrains, moreselect, corporation[1], corporation[0], contractType] )
-    for item in elt.addins : 
-        if (item.startswith( "talent:" ) ) : 
-            if (item == "talent:*"):
-                 skill = random.choice(list(skills.values()))
-                 addskill( skill, personnae )
-            else : 
-                job = item[item.index(":")+1:item.index("=")]
-                val = item[item.index("=")+1:]
-                skill = None
-                if (val == "all") : 
-                    for elt in jobs[ job ].skills : 
-                        skill = skills[ elt ]
-                        print( "\t%s\t%s\t%s" %( skill.name, skill.level, skill.possibilities ) )
-                        addskill( skill, personnae )
-                elif (val != "*") : 
-                    skill = skills[ job ]
-                else : 
-                    jobSkill = jobs[ job ]
-                    skill = skills[ random.choice( jobSkill.skills ) ]
-                    addskill( skill, personnae )
-            print( "\t%s\t%s\t%s" %( skill.name, skill.level, skill.possibilities ) )
-        else :
-            print( "\t%s +++++" %( item ) )
-
-print( personnae )
+personnae = preparingBiographicElements( res, personnae )
 
 reworking( personnae )
 
 print( personnae )
 
-generateLaTeX( personnae )
+texcurriculumDirectory = generateLaTeX( personnae )
+launcheMakePDFfromLaTeX( directory = texcurriculumDirectory )
 
 ## => go to directory : "make && make clean" to generate PDF !

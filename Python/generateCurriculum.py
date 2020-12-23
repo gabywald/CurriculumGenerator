@@ -18,7 +18,6 @@ import shutil
 import random
 
 import CurriculumArgumentsParsing
-import CurriculumGeneration
 import CurriculumLaTeXGenerator
 
 from Person import Person

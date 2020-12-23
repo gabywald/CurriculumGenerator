@@ -62,6 +62,7 @@ def loadTables() :
 
 def selectRandomBiographic() : 
     """Choose randomly an element from a randomly choosen JobBiographicTable. """
+    location     = random.choice( JobBiographicTablesDict.get("Localisation").contents )
     baseTable    = JobBiographicTablesDict.get("CurriculumGenerator")
     selected     = random.choice( baseTable.contents )
     choice       = JobBiographicTablesDict.get( selected )
@@ -70,7 +71,7 @@ def selectRandomBiographic() :
     corporation  = CVData.getRandomCorporationName()
     contractType    = CVData.getRandomContractType()
     print( selected + "::" + moreselect + " // " + corporation[1] + " ( " + corporation[0] + ", " + contractType + " )" )
-    return [selected, moreselect, corporation[1], corporation[0], contractType]
+    return [selected + " (" + location + ")", moreselect, corporation[1], corporation[0], contractType]
 
 def selectRandomTraining() : 
     """Choose randomly an elements from the Training table. """
