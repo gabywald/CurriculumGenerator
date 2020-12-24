@@ -3,8 +3,13 @@
 
 import argparse
 
+import random
+
 import CurriculumBiographicTable
 CurriculumBiographicTable.loadTables()
+
+from CurriculumData import CVData
+curriculumDataObj = CVData.loadConfig()
 
 ##### ##### ##### ##### ##### ##### 
 ## Below is reading from arguments
@@ -195,9 +200,6 @@ def askForStrNotEmpty( txtmsg ) :
 
 def interactiveCompletionSkillsJobsTraining( personnae, args ) : 
     ## ## ## ## ## SKILLS + JOBS + TRAININGS
-    personnae.skilleltnb = checkArgsAndReturn( args, 'skillelements', args.skillelements )
-    personnae.jobeltsnb = checkArgsAndReturn( args, 'jobelements', args.jobelements )
-    personnae.trainingeltsnb = checkArgsAndReturn( args, 'trainingelements', args.trainingelements )
     personnae.skills = checkList(args, 'listskillelements', args.listskillelements, personnae.skilleltnb, personnae.skills)
     personnae.jobs = checkList(args, 'listjobelements', args.listjobelements, personnae.jobeltsnb, personnae.jobs)
     personnae.trainings = checkList(args, 'listtrainingelements', args.listtrainingelements, personnae.trainingeltsnb, personnae.trainings)
@@ -247,6 +249,10 @@ def interactiveCompletionOf( personnae, args ) :
         personnae.jobeltsnb = random.randint(1, 20)
     if (args.randomtrainingelements) :
         personnae.trainingeltsnb = random.randint(1, 5)
+    ## ## ## ## ## Fixed numbers for {Skills;Jobs;Trainings} number of elements
+    personnae.skilleltnb = checkArgsAndReturn( args, 'skillelements', args.skillelements )
+    personnae.jobeltsnb = checkArgsAndReturn( args, 'jobelements', args.jobelements )
+    personnae.trainingeltsnb = checkArgsAndReturn( args, 'trainingelements', args.trainingelements )
     ## print ( personnae.skilleltnb )
     ## print ( personnae.jobeltsnb )
     ## print ( personnae.trainingeltsnb )

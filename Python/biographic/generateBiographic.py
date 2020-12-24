@@ -11,9 +11,9 @@ __email__ = "gabywald[at]laposte.net"
 __contact__ = "gabywald[at]laposte.net"
 __status__ = "Development"
 
-## ## ## ## ## Generate some Ideas from associated resources !
-
 import random
+
+## ## ## ## ## Generate some Ideas from associated resources !
 
 from BiographicSelection import selectRandomBiographic
 from BiographicSelection import selectBiographicElements
@@ -51,8 +51,6 @@ personnae.speciality = "Speciality"
 numberOfResults = 10
 
 res = selectBiographicElements( numberOfResults )
-
-##### ##### ##### ##### ##### 
 
 personnae = preparingBiographicElements( res, personnae )
 

@@ -96,6 +96,7 @@ optional arguments:
   -nei, --noextrainfo   NO quote / Citation
   -m, --make            Launch Making of PDF from TeX file
   -ya, --allyes         Automatically yes for generated elements / questions
+  -bio, --biographic    Curriculum Generation in a Biographic way
 
 END of help
 ```
@@ -250,17 +251,53 @@ Une liste des arguments est obtenue avec "./generateCurriculum.py --help".
 	- adresse e-mail par défault (à partir nom et prénom, '-em default') 
 	- NOQUOTE ('-nqc')
 	- NOEXTRAINFO ('-nei')
-	- compilation du CV
+	- compilation du CV ('-make')
 	- 5 expériences professionnelles ('-je 5')
 	- 3 formations ('-te 3')
 	- 10 compétences ('-se 10')
-	- acceptation automatique de la sélectyion aléatoire ('-ya')
+	- acceptation automatique de la sélection aléatoire ('-ya')
 	- liste prédéfinie des compétences ('-lse "Domain::A, B, C;Other::---"')
 	- liste prédéfinie des expériences professionnelles ('-lje "International::Recrutement::Publication::Panopticon::Stage"')
 	- liste prédéfinie des formations ('-lte "Autodidacte::Programmation::Bali;Autoformation::Création d'Entreprise::Night City"')
 	- Titre général du CV ('-gt "general title"')
 	- Titre ('-ti title')
 	- Spécialité ('-sp speciality')
+	
+* ./generateCurriculum.py -fn first -ln last -gt TITLE --title title -sp speciality -nq -ne --make --email default --allyes -se 0 -je 5 -te 5 -bio
+
+	- GÉNÉRATION BIOGRAPHIQUE ('-BIO') : __les nombres de jobs et trainings seront aditionnés et considérés globalement__ 
+	- prénom 'first' ('-fn first')
+	- nom 'last' ('-ln last')
+	- adresse e-mail par défault (à partir nom et prénom, '--email default') 
+	- NOQUOTE ('-nq')
+	- NOEXTRAINFO ('-ne')
+	- compilation du CV ('-make')
+	- 5 expériences professionnelles ('-je 5')
+	- 5 formations ('-te 5')
+	- 0 compétences ('-se 0')
+	- acceptation automatique de la sélection aléatoire ('--allyes')
+	- Titre général du CV ('-gt TITLE')
+	- Titre ('-ti title')
+	- Spécialité ('-sp speciality')
+
+* ./generateCurriculum.py -rfn -rln -gt TITLE --title title -sp speciality -nq -ne --make --email default --allyes -se 0 -je 5 -te 5 -bio
+
+	- GÉNÉRATION BIOGRAPHIQUE ('-BIO') : __les nombres de jobs et trainings seront aditionnés et considérés globalement__ 
+	- prénom aléatoire ('-rfn')
+	- nom aléatoire ('-rln')
+	- adresse e-mail par défault (à partir nom et prénom, '--email default') 
+	- NOQUOTE ('-nq')
+	- NOEXTRAINFO ('-ne')
+	- compilation du CV ('-make')
+	- 5 expériences professionnelles ('-je 5')
+	- 5 formations ('-te 5')
+	- 0 compétences ('-se 0')
+	- acceptation automatique de la sélection aléatoire ('--allyes')
+	- Titre général du CV ('-gt TITLE')
+	- Titre ('-ti title')
+	- Spécialité ('-sp speciality')
+
+
 
 ### generateFromParameterFile.py et generateParameterFile.py
 

@@ -21,24 +21,35 @@ import CurriculumArgumentsParsing
 import CurriculumLaTeXGenerator
 
 from Person import Person
-from CurriculumData import CVData
+
+from BiographicSelection import selectRandomBiographic
+from BiographicSelection import selectBiographicElements
+from BiographicSelection import preparingBiographicElements
+from BiographicSelection import addskill
+from BiographicSelection import reworking
+from BiographicDataLoad import BiographicDataLoad
 
 ## print('(debugging purposes) Number of arguments:', len(sys.argv), 'arguments.' )
 ## print('(debugging purposes) Argument List:', str(sys.argv) )
 
 args = CurriculumArgumentsParsing.parsingArgs()
 
-curriculumDataObj = CVData.loadConfig()
-
 personnae = Person()
 
 CurriculumArgumentsParsing.interactiveCompletionOf( personnae, args )
-CurriculumArgumentsParsing.interactiveCompletionSkillsJobsTraining( personnae, args )
+if (args.biographic) :
+    print( "Biographic Curriculum Generation" )
+    numberOfResults = personnae.trainingeltsnb + personnae.jobeltsnb
+    res = selectBiographicElements( numberOfResults )
+    personnae = preparingBiographicElements( res, personnae )
+    reworking( personnae )
+else : 
+    print( "NON-biographic Curriculum Generation" )
+    CurriculumArgumentsParsing.interactiveCompletionSkillsJobsTraining( personnae, args )
 
+## final show !!
 print( personnae )
-
 texcurriculumDirectory = CurriculumLaTeXGenerator.generateLaTeX( personnae )
-    
 ## Compiling TeX file to obtain PDF !
 if args.make : 
     CurriculumLaTeXGenerator.launcheMakePDFfromLaTeX( directory = texcurriculumDirectory )
