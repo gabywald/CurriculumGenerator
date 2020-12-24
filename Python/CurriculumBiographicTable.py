@@ -4,8 +4,8 @@
 import re
 import random
 
-import curriculumData
-from curriculumData import CVData
+import CurriculumData
+from CurriculumData import CVData
 
 class JobBiographicTable( object ) : 
     """This class defines Tables Definitions for 'biographic' elements for Curriculum generation. """
@@ -62,6 +62,7 @@ def loadTables() :
 
 def selectRandomBiographic() : 
     """Choose randomly an element from a randomly choosen JobBiographicTable. """
+    location     = random.choice( JobBiographicTablesDict.get("Localisation").contents )
     baseTable    = JobBiographicTablesDict.get("CurriculumGenerator")
     selected     = random.choice( baseTable.contents )
     choice       = JobBiographicTablesDict.get( selected )
@@ -69,8 +70,8 @@ def selectRandomBiographic() :
     ## domain       = random.choice( JobBiographicTablesDict.get("Domaine").contents )
     corporation  = CVData.getRandomCorporationName()
     contractType    = CVData.getRandomContractType()
-    ## print( selected + "::" + moreselect + " // " + corporation[1] + " ( " + corporation[0] + ", " + contractType + " )" )
-    return [selected, moreselect, corporation[1], corporation[0], contractType]
+    print( selected + "::" + moreselect + " // " + corporation[1] + " ( " + corporation[0] + ", " + contractType + " )" )
+    return [selected + " (" + location + ")", moreselect, corporation[1], corporation[0], contractType]
 
 def selectRandomTraining() : 
     """Choose randomly an elements from the Training table. """

@@ -1,0 +1,107 @@
+Table d'Orientation
+	Table Formation	[Formation]
+	Table SSII/ESN	[SSII/ESN]
+	Table PME	[PME]
+	Table StartUp	[StartUp]
+	Table GrandGroupe	[GrandGroupe]
+	Table International	[International]
+
+Table FinDeContrat
+	Démission
+	Rupture Conventionnelle
+	Départ Anticipé
+	Licenciement Économique
+	Licenciement Pour Faute
+
+Table SSII/ESN	[]	{}
+	Mission TMA -- Tierce Maintenance Applicative	{talent:*}
+	Mission en Finance	{talent:*}
+	Mission Banque	{talent:*}
+	Mission Assurance	{talent:*}
+	Intercontrat	{talent:*}
+	Intercontrat	[FinDeContrat]	{talent:*}
+
+Table PME	[]	{}
+	Analyse De Données	{talent:Analyste Bases De Données=*}
+	Développement logiciel interne	{talent:Développeur=*}
+	Refonte logiciel interne	{métier:Chef de Projet=+1;talent:Développeur=*;talent:Chef de Projet=*}
+	Maintenance logiciel interne	{talent:Développeur=*}
+	Adaptation et configuration d'un logiciel aux besoins internes	{talent:Technicien=*}
+
+Table StartUp	[]	{}
+	Projet BlockChain (Smart Contract...)	{talent:*}
+	Projet FinTech	{talent:*}
+	Projet Marketing	{talent:*}
+
+Table GrandGroupe	[]	{}
+	Analyse De Données	{talent:Analyste Bases De Données=*}
+	Logiciel RH	{métier:Chef de Projet=+1;talent:Chef de Projet=all;talent:*}
+	Logiciel RH	{métier:Architecte+1;talent:Architecte=all;talent:*}
+	Logiciel RH	{métier:Développeur=+1;talent:Développeur=all;talent:*}
+	Logiciel Comptabilité	{métier:Chef de Projet=+1;talent:*}
+	Logiciel Comptabilité	{métier:Architecte+1;talent:*}
+	Logiciel Comptabilité	{métier:Développeur=+1;talent:*}
+
+Table International	[]	{}
+	Développment local	{talent:*}
+	Recrutement	{talent:*}
+	Recherche Et Développement	{talent:*;talent:*;talent:*}
+
+Table Formation	[]	{}
+	[Formation]CPGE (Classe Préparatoire aux Grandes Écoles)	{Equipement=*;talent:*;talent:*}
+	[Formation]Prépa Intégrée	{Equipement=*;talent:*;talent:*}
+	[Formation]Grande École (Ingénieur)	{Equipement=*;talent:*;talent:*}
+	[Formation]Licence	{talent:*;talent:*}
+	[Formation]Licence Professionnelle	{talent:*;talent:*}
+	[Formation]Master Recherche	{Equipement=*;talent:*;talent:*}
+	[Formation]Master Professionnel	{Equipement=*;talent:*;talent:*}
+	[Formation]Doctorat	{talent:*;talent:*}
+	[Formation]Stage Ouvrier	{talent:*}
+	[Formation]Stage de fin d'études	{talent:*;talent:*}
+	[Formation]Baccalauréat Général	{talent:*}
+	[Formation]Baccalauréat Technique	{talent:*;talent:*}
+	[Formation]Baccalauréat Professionnel 	{talent:*;talent:*;talent:*}
+
+Table Domaine	[]	{}
+	Militaire
+	Pharmaceutique
+	Religieux
+	Logiciel
+	Publication
+	Édition
+	Livraison
+	Transports
+	Véhicules
+	Loisirs
+	Vente au détail
+	Fabrication
+	Communications
+	Énergie
+	Fournisseur de matériel
+	Publicitaire / Relations Publiques
+	Radio / Télévision
+	Équipement Informatique
+	Banque
+	Finance
+	Assurance
+	Criminel
+
+Table Localisation	[]	{}
+	Paris
+	Marseille
+	Lyon
+	Nantes
+	Bordeaux
+	Bali
+	Bangkok
+	Beijing
+	Tokyo
+	Seattle
+	Bamako
+	Moscou
+	Mexico
+	Hong Kong
+	Los Angeles
+	Night City
+	New York
+	San Francisco

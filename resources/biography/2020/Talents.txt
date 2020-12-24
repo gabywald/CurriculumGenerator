@@ -1,0 +1,133 @@
+Java	1	Java 8;Java 11;Java Swing;Java EE;Spring;Hibernate;eBean;Micronaut
+Scripting	1	Python;Python3;Perl;Bash;Shell
+Web	1	PHP;HTML;HTML 5;CSS;JavaScript;ECMAScript
+XML	1	XML;XHTML;XSLT
+Langages de programmation	1	Java;C / C++;COBOL;FORTRAN;Rust;SmallTalk;Objective C;Python;Python3;Perl;Bash;Shell
+Bases De Données	1	NoSQL;Base de données relationnelle;Indexation;Entrepôt de données;Data Lake
+Shell	1	Bash;ksh;PowerShell
+Systèmes d'exploitation	1	Windows;Unix;Linux;Mac OS X;Android;iOS
+Systèmes	1	Windows;Unix;Linux;Mac OS X;Android;iOS
+Apache	1	Serveur Web Apache;Apacke Kafka
+Big Data	1	Apache Kafka;Apache Solr;SciKit Learn;Pandas
+Tests Unitaires	1	Selenium;JUnit
+Reverse Ingeniering	1	Ingénierie Inverse;Analyse logicielle;
+Documentation	1	Javadoc;Pythondoc;Doxygen
+Conception	1	UML;MERISE;Analyse Fonctionnelle
+Développement logiciel	1	Cycle en V;Agile;Scrum;Kanban
+Modèles de développement	1	Modèle MVC;Cycle en V;Scrum;Agile;Kanban;Méthodes Agiles
+Outils	1	WebScrapping;Machine Learning;Intelligence Artificielle 
+Management	1	LeaderShip;Gestion d'équipe;Répartition de tâches;Gestion de Projet;Reporting
+Relationnel	1	Contacts;Prise de contacts
+Travail d'équipe	1	Rigueur et Méthode;Conduite de Réunion;Esprit d'analyse
+Rédaction	1	Cahier des charges;Spécifications;Tickets
+Méthodes Agiles	1	Scrum;Kanban;
+Transversalité	1	Contact;Planification;Conduite de réunions
+Design Pattern	1
+Architecture	1
+Développement logiciel	1
+Java 8	1
+Java 11	1
+Java Swing	1
+Java EE	1
+Spring	1
+Hibernate	1
+eBean	1
+Micronaut	1
+Python	1
+Python3	1
+Perl	1
+Bash	1
+Shell
+PHP	1
+HTML	1
+HTML 5	1
+CSS	1
+JavaScript	1
+ECMAScript
+XML	1
+XHTML	1
+XSLT
+Java	1
+C / C++	1
+C++	1
+C	1
+R	1
+MatLab	1
+Maintenance	1
+COBOL	1
+FORTRAN	1
+Rust	1
+SmallTalk	1
+Obkjective C	1
+Python	1
+Python3	1
+Perl	1
+Bash	1
+Shell	1
+SQL	1
+NoSQL	1
+Base de données relationnelle	1
+Indexation	1
+Entrepôt de données	1
+Data Lake
+Bash	1
+ksh	1
+PowerShell
+Windows	1
+Unix	1
+Linux	1
+Mac OS X	1
+Android	1
+iOS	1
+Windows	1
+Unix	1
+Linux	1
+Mac OS X	1
+Android	1
+iOS	1
+Serveur Web Apache	1
+Apache Kafka	1
+Apache Solr	1
+SciKit Learn	1
+Pandas	1
+Selenium	1
+JUnit
+Ingénierie Inverse	1
+Analyse logicielle	1
+Javadoc	1
+Pythondoc	1
+Doxygen
+UML	1
+MERISE	1
+Analyse Fonctionnelle
+Cycle en V	1
+Agile	1
+Scrum	1
+Kanban
+Modèle MVC	1
+Cycle en V	1
+Scrum	1
+Agile	1
+Kanban	1
+Méthodes Agiles
+WebScrapping	1
+Machine Learning	1
+Intelligence Artificielle 
+LeaderShip	1
+Gestion d'équipe	1
+Répartition de tâches	1
+Gestion de Projet	1
+Reporting
+Contacts	1
+Prise de contacts
+Rigueur et Méthode	1
+Conduite de Réunion	1
+Esprit d'analyse
+Cahier des charges	1
+Spécifications	1
+Tickets
+Scrum	1
+Kanban	1
+Contact	1
+Planification	1
+Conduite de réunions	1

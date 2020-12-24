@@ -1,0 +1,7 @@
+Ingénieur	Conception;Java;C++;C;Python;Perl;Design Pattern;Rust;Développement logiciel;Études;Systèmes
+Chef de Projet	Développement logiciel;Développement logiciel;Conception;Management;Architecture
+Architecte	Bases De Données;Conception;Bases De Données;SQL;Développement logiciel
+Formateur	Conception;Java;C++;C;Python;Perl;Design Pattern;Rust
+Technicien	Maintenance;Développement logiciel;Systèmes
+Développeur	Développement logiciel;Conception;Java;C++;C;Python;Perl;Design Pattern;Rust;R;MatLab
+Analyste Bases De Données	Bases De Données;Conception;Bases De Données;SQL

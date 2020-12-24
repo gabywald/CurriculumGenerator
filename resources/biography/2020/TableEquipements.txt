@@ -1,0 +1,28 @@
+Table Equipement
+	Ordinateur	[ordinateur]
+	Logiciel	[Logiciel]
+	Licence	[Licence]
+	Certification	[Certification]
+	Formation	[Formation]
+
+Table Ordinateur
+	Ordinateur Portable
+	Ordinateur Fixe
+	Ghost Computer (ordinateur dans le 'cloud')
+
+Table Logiciel
+	Logiciel de conception 3D
+	Logiciel de CAO
+
+Table Licence
+	Licence de Suite Bureautique (à vie)
+
+Table Certification
+	Certification Microsoft (au choix)
+	Certification Base De Données
+	Certification CyberSécurité
+
+Table Formation
+	Études d'ingénieur
+	Remise à niveau (langage de programmation au choix)
+

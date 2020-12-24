@@ -3,6 +3,8 @@ Visual Studio
 IntelliJ
 Maven
 Git
+GitHub
+GitLab
 SVN
 Jenkins
 Visual Studio

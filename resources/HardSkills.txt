@@ -5,7 +5,7 @@ XML	XML, XHTML, XSLT
 Langages de progtrammation	Java, C / C++, COBOL, FORTRAN, Rust, SmallTalk, Obkjective C, Python, Python3, Perl, Bash, Shell
 Bases de données	NoSQL, Base de données relationnelle, indexation, Entrepôt de données, Data Lake
 Shell	Bash, ksh, PowerShell
-Systèmes d'exploitation	Windows, Unix, Linux, Mac OS X, Androis, iOS
+Systèmes d'exploitation	Windows, Unix, Linux, Mac OS X, Android, iOS
 Apache	Serveur Web Apache
 Big Data	Apache Kafka, Apache Solr, SciKit Learn, Pandas, 
 Tests Unitaires	Selenium, JUnit
