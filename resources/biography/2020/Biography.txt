@@ -1,5 +1,6 @@
 Table d'Orientation
 	Table Formation	[Formation]
+	Table Formation	[Formation]
 	Table SSII/ESN	[SSII/ESN]
 	Table PME	[PME]
 	Table StartUp	[StartUp]
@@ -48,6 +49,7 @@ Table International	[]	{}
 	Recherche Et Développement	{talent:*;talent:*;talent:*}
 
 Table Formation	[]	{}
+	[Formation]Autodidacte	{Equipement=*;Equipement=*;talent:*;talent:*;talent:*;talent:*;talent:*}
 	[Formation]CPGE (Classe Préparatoire aux Grandes Écoles)	{Equipement=*;talent:*;talent:*}
 	[Formation]Prépa Intégrée	{Equipement=*;talent:*;talent:*}
 	[Formation]Grande École (Ingénieur)	{Equipement=*;talent:*;talent:*}
@@ -105,3 +107,29 @@ Table Localisation	[]	{}
 	Night City
 	New York
 	San Francisco
+
+Table Certification		[]	{}
+	[Certifications]Certification Microsoft (au choix)
+	[Certifications]Certification Base De Données
+	[Certifications]Certification CyberSécurité	{talent:CyberSécurité}
+	[Certifications]Langage de progammation	{talent:Langages de programmation}
+	[Certifications]Habilitation Défense / Secret Défense
+
+Table BenevolentTasks		[]	{}
+	[BenevolentTasks]Association Caritative
+	[BenevolentTasks]Association Humanitaire
+	[BenevolentTasks]Syndicat (étudiant, travail...)
+
+Table Realisations		[]	{}
+	[Realisations]Projets GitHub
+	[Realisations]
+	[Realisations]
+
+Table CentresDInteret		[]	{}
+	[CentresDInteret]Lectures (Policier, Science-Fiction, Littérature Classique, Philosophie, Essais, ... )
+	[CentresDInteret]Jeux Sociaux (Jeux de plateau, Jeux de Rôle, ... )
+	[CentresDInteret]Théatre (Classqiue, Contemporain, Moderne, ... )
+	[CentresDInteret]Danse (Classique, Hip-Hop, Swing, Acrobatique, Rock, ... )
+	[CentresDInteret]Musique (Classique, Rock, Metal, Électronique, Synthétique, ... )
+
+

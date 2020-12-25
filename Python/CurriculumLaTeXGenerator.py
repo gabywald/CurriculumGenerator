@@ -238,9 +238,13 @@ def generateLaTeX( personnae, cvColor = "blue", cvStyle = "classic" ):
         curriculumGenerationtest.write( "\n\n" )
         ## More header
         curriculumGenerationtest.write( getFancyStyle() + "\n\n" )
-        ## ## Get first items of sublits, to put in in keywords
-        lstSkills0 = list(list(zip(*personnae.skills))[0])
-        lstSkills1 = list(list(zip(*personnae.skills))[1])
+        ## ## Get first items of sublists, to put in in keywords
+        lstSkills0 = []
+        if (len(personnae.skills) > 0) :
+        	lstSkills0 = list(list(zip(*personnae.skills))[0])
+        lstSkills1 = []
+        if (len(personnae.skills) > 1) :
+        	lstSkills1 = list(list(zip(*personnae.skills))[1])
         curriculumGenerationtest.write( "\\def\\motsClefs{LaTeX;PDF;Python;Python3;" + ";".join( lstSkills0 ) + ";" + ";".join( lstSkills1 ) + "}\n\n" )
         curriculumGenerationtest.write( getHyperSetup() + "\n\n" )
         curriculumGenerationtest.write( getDefVariables() + "\n\n" )

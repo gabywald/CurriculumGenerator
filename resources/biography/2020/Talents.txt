@@ -2,7 +2,7 @@ Java	1	Java 8;Java 11;Java Swing;Java EE;Spring;Hibernate;eBean;Micronaut
 Scripting	1	Python;Python3;Perl;Bash;Shell
 Web	1	PHP;HTML;HTML 5;CSS;JavaScript;ECMAScript
 XML	1	XML;XHTML;XSLT
-Langages de programmation	1	Java;C / C++;COBOL;FORTRAN;Rust;SmallTalk;Objective C;Python;Python3;Perl;Bash;Shell
+Langages de programmation	1	Java;C / C++;C;C++;COBOL;FORTRAN;Rust;SmallTalk;Objective C;Python;Python3;Perl;Bash;Shell
 Bases De Données	1	NoSQL;Base de données relationnelle;Indexation;Entrepôt de données;Data Lake
 Shell	1	Bash;ksh;PowerShell
 Systèmes d'exploitation	1	Windows;Unix;Linux;Mac OS X;Android;iOS
@@ -13,17 +13,47 @@ Tests Unitaires	1	Selenium;JUnit
 Reverse Ingeniering	1	Ingénierie Inverse;Analyse logicielle;
 Documentation	1	Javadoc;Pythondoc;Doxygen
 Conception	1	UML;MERISE;Analyse Fonctionnelle
-Développement logiciel	1	Cycle en V;Agile;Scrum;Kanban
+Développement logiciel	1	Cycle en V;Agile;Scrum;Kanban;Software Craftmanship
 Modèles de développement	1	Modèle MVC;Cycle en V;Scrum;Agile;Kanban;Méthodes Agiles
 Outils	1	WebScrapping;Machine Learning;Intelligence Artificielle 
 Management	1	LeaderShip;Gestion d'équipe;Répartition de tâches;Gestion de Projet;Reporting
 Relationnel	1	Contacts;Prise de contacts
 Travail d'équipe	1	Rigueur et Méthode;Conduite de Réunion;Esprit d'analyse
 Rédaction	1	Cahier des charges;Spécifications;Tickets
-Méthodes Agiles	1	Scrum;Kanban;
+Méthodes Agiles	1	Scrum;Kanban
 Transversalité	1	Contact;Planification;Conduite de réunions
+Formation	1	Rédaction de support de cours;Pédagogie;LudoPédagogie
+Outils	1	Eclipse;Visual Studio;IntelliJ;Maven;Git;GitHub:GitLab;SVN;Jenkins;Visual Studio;Selenium;Mockito;MockNeat;JUnit;Scrum;Kanban;SVN (Subversion)
+CyberSécurité	1	PenTesting;Reverse Ingeeniering
+FinTech	1	Blockchain;Traçabilité;Performances
+Blockchain	1
+Traçabilité	1
+Performances	1
+PenTesting	1
+Reverse Ingeeniering	1
+Software Craftmanship	1
+Rédaction de support de cours	1
+Pédagogie	1
+LudoPédagogie	1
 Design Pattern	1
 Architecture	1
+Eclipse	1
+Visual Studio	1
+IntelliJ	1
+Maven	1
+Git	1
+GitHub	1
+GitLab	1
+SVN	1
+Jenkins	1
+Visual Studio	1
+Selenium	1
+Mockito	1
+MockNeat	1
+JUnit	1
+Scrum	1
+Kanban	1
+SVN (Subversion)	1
 Développement logiciel	1
 Java 8	1
 Java 11	1

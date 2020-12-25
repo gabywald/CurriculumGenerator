@@ -69,7 +69,7 @@ def selectRandomBiographic() :
     moreselect   = random.choice( choice.contents )
     ## domain       = random.choice( JobBiographicTablesDict.get("Domaine").contents )
     corporation  = CVData.getRandomCorporationName()
-    contractType    = CVData.getRandomContractType()
+    contractType = CVData.getRandomContractType()
     print( selected + "::" + moreselect + " // " + corporation[1] + " ( " + corporation[0] + ", " + contractType + " )" )
     return [selected + " (" + location + ")", moreselect, corporation[1], corporation[0], contractType]
 
