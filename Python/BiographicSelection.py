@@ -62,12 +62,12 @@ def preparingBiographicElements( res, personnae ) :
     for elt in res : 
         jobOrTrains = elt.contents[1]
         moreselect = elt.contents[0][len("Table "):]
-        trainingTAG = "[Formation]"
         print( "%s " %( jobOrTrains ) )
         corporation  = CVData.getRandomCorporationName()
         contractType = CVData.getRandomContractType()
         location     = random.choice( locations.contents )
         ## Training or Job
+        trainingTAG = "[Formation]"
         if (jobOrTrains.startswith( trainingTAG ) ) : 
             selected     = jobOrTrains[len(trainingTAG):]
             personnae.trainings.append( [corporation[0], selected, corporation[1] + " (" + location + ")", location, contractType] )

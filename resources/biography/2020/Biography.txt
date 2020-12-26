@@ -122,8 +122,8 @@ Table BenevolentTasks		[]	{}
 
 Table Realisations		[]	{}
 	[Realisations]Projets GitHub
-	[Realisations]
-	[Realisations]
+	[Realisations]Projets Personnels
+	[Realisations]Projets Étudiant
 
 Table CentresDInteret		[]	{}
 	[CentresDInteret]Lectures (Policier, Science-Fiction, Littérature Classique, Philosophie, Essais, ... )

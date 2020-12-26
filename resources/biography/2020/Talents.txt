@@ -10,11 +10,11 @@ Systèmes	1	Windows;Unix;Linux;Mac OS X;Android;iOS
 Apache	1	Serveur Web Apache;Apacke Kafka
 Big Data	1	Apache Kafka;Apache Solr;SciKit Learn;Pandas
 Tests Unitaires	1	Selenium;JUnit
-Reverse Ingeniering	1	Ingénierie Inverse;Analyse logicielle;
+Reverse Ingeniering	1	Ingénierie Inverse;Analyse logicielle
 Documentation	1	Javadoc;Pythondoc;Doxygen
 Conception	1	UML;MERISE;Analyse Fonctionnelle
 Développement logiciel	1	Cycle en V;Agile;Scrum;Kanban;Software Craftmanship
-Modèles de développement	1	Modèle MVC;Cycle en V;Scrum;Agile;Kanban;Méthodes Agiles
+Méthodes de développement	1	Modèle MVC;Cycle en V;Scrum;Agile;Kanban;Méthodes Agiles
 Outils	1	WebScrapping;Machine Learning;Intelligence Artificielle 
 Management	1	LeaderShip;Gestion d'équipe;Répartition de tâches;Gestion de Projet;Reporting
 Relationnel	1	Contacts;Prise de contacts

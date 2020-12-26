@@ -24,8 +24,6 @@ class CVData( object ) :
                  cvColor,
                  hardList,
                  softList,
-                 jobsList,
-                 toolList,
                  firstNameList,
                  lastNameList,
                  contractTypesList,
@@ -41,8 +39,6 @@ class CVData( object ) :
         self.cvColor                = cvColor
         self.hardList               = hardList
         self.softList               = softList
-        self.jobsList               = jobsList
-        self.toolList               = toolList
         self.firstNameList          = firstNameList
         self.lastNameList           = lastNameList
         self.contractTypesList      = contractTypesList
@@ -68,8 +64,6 @@ class CVData( object ) :
             ## print ( parser[ "paths" ].get( "hardList" ) )
             hardList                = readFileToList( parser[ "paths" ].get( "hardList" ) )
             softList                = readFileToList( parser[ "paths" ].get( "softList" ) )
-            jobsList                = readFileToList( parser[ "paths" ].get( "jobsList" ) )
-            toolList                = readFileToList( parser[ "paths" ].get( "toolList" ) )
             firstNameList           = readFileToList( parser[ "paths" ].get( "firstNameList" ) )
             lastNameList            = readFileToList( parser[ "paths" ].get( "lastNameList" ) )
             contractTypesList       = readFileToList( parser[ "paths" ].get( "contractTypesList" ) )
@@ -84,7 +78,7 @@ class CVData( object ) :
             # uplinkSurnames = readFileToList( parser[ "paths" ].get( "uplinkSurnames" ) )
             ## uplinkCompanyPartOne, uplinkCompanyPartTwo = [], []
             uplinkFornames, uplinkSurnames = [], []
-            self._instance = CVData( cvStyle, cvColor, hardList, softList, jobsList, toolList, 
+            self._instance = CVData( cvStyle, cvColor, hardList, softList, 
                             firstNameList, lastNameList, contractTypesList, 
                             corporationNames, corporationDomains, 
                             biographicTables, biographicJobs, 

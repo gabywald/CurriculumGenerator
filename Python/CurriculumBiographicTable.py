@@ -63,7 +63,7 @@ def loadTables() :
 def selectRandomBiographic() : 
     """Choose randomly an element from a randomly choosen JobBiographicTable. """
     location     = random.choice( JobBiographicTablesDict.get("Localisation").contents )
-    baseTable    = JobBiographicTablesDict.get("CurriculumGenerator")
+    baseTable    = JobBiographicTablesDict.get("d'Orientation")
     selected     = random.choice( baseTable.contents )
     choice       = JobBiographicTablesDict.get( selected )
     moreselect   = random.choice( choice.contents )
@@ -77,6 +77,9 @@ def selectRandomTraining() :
     """Choose randomly an elements from the Training table. """
     baseTable   = JobBiographicTablesDict.get("Formation")
     selected    = random.choice( baseTable.contents )
+    trainingTAG = "[Formation]"
+    if (selected.startswith( trainingTAG ) ) : 
+        selected     = selected[len(trainingTAG):]
     domain      = random.choice( JobBiographicTablesDict.get("Domaine").contents )
     location    = random.choice( JobBiographicTablesDict.get("Localisation").contents )
     ## print( selected + " // " + domain + " // " + location )
