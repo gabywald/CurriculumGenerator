@@ -39,7 +39,13 @@ personnae = Person()
 CurriculumArgumentsParsing.interactiveCompletionOf( personnae, args )
 if (args.biographic) :
     print( "Biographic Curriculum Generation" )
-    numberOfResults = personnae.trainingeltsnb + personnae.jobeltsnb
+    numberOfResults = 0
+    if (personnae.skilleltnb != None) : 
+        numberOfResults += personnae.skilleltnb
+    if (personnae.trainingeltsnb != None) : 
+        numberOfResults += personnae.trainingeltsnb
+    if (personnae.trainingeltsnb != None) : 
+        numberOfResults += personnae.jobeltsnb
     res = selectBiographicElements( numberOfResults )
     personnae = preparingBiographicElements( res, personnae )
     reworking( personnae )

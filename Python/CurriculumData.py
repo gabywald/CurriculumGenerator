@@ -4,6 +4,8 @@
 import configparser
 import random
 
+from BiographicDataLoad import BiographicDataLoad
+
 def readFileToList( filePath ) : 
     """Read file from path indicated in parameter and return it as a list of lines. """
     listToReturn = []
@@ -29,8 +31,6 @@ class CVData( object ) :
                  contractTypesList,
                  corporationNames,
                  corporationDomains,
-                 biographicTables, 
-                 biographicJobs, 
                  uplinkCompanyPartOne,
                  uplinkCompanyPartTwo,
                  uplinkFornames,
@@ -44,8 +44,6 @@ class CVData( object ) :
         self.contractTypesList      = contractTypesList
         self.corporationNames       = corporationNames
         self.corporationDomains     = corporationDomains
-        self.biographicTables       = biographicTables
-        self.biographicJobs         = biographicJobs
         self.uplinkCompanyPartOne   = uplinkCompanyPartOne
         self.uplinkCompanyPartTwo   = uplinkCompanyPartTwo
         self.uplinkFornames         = uplinkFornames
@@ -69,8 +67,6 @@ class CVData( object ) :
             contractTypesList       = readFileToList( parser[ "paths" ].get( "contractTypesList" ) )
             corporationNames        = readFileToList( parser[ "paths" ].get( "corporationNames" ) )
             corporationDomains      = readFileToList( parser[ "paths" ].get( "corporationDomains" ) )
-            biographicTables        = readFileToList( parser[ "paths" ].get( "biographicTablesTXT" ) )
-            biographicJobs          = readFileToList( parser[ "paths" ].get( "biographicJobsTXT" ) )
             ## some other sources
             uplinkCompanyPartOne = readFileToList( parser[ "paths" ].get( "uplinkCompanyPartOne" ) )
             uplinkCompanyPartTwo = readFileToList( parser[ "paths" ].get( "uplinkCompanyPartTwo" ) )
@@ -81,7 +77,6 @@ class CVData( object ) :
             self._instance = CVData( cvStyle, cvColor, hardList, softList, 
                             firstNameList, lastNameList, contractTypesList, 
                             corporationNames, corporationDomains, 
-                            biographicTables, biographicJobs, 
                             uplinkCompanyPartOne, uplinkCompanyPartTwo, uplinkFornames, uplinkSurnames )
         ## print( self._instance.corporationNames )
         return self._instance
@@ -102,8 +97,9 @@ class CVData( object ) :
     
     @classmethod
     def getRandomJob( self ) : 
-        selection = random.choice( self._instance.biographicJobs ).split( "\t" )
-        generalTitle = selection[0] + " " + random.choice( selection[1].split(";") )
+        selection = BiographicDataLoad.loadJobsToSkills()
+        choiceToMakeInside = list(selection.keys())
+        generalTitle = random.choice( choiceToMakeInside )
         title = generalTitle
-        speciality = random.choice( selection[2].split(";") )
+        speciality = random.choice( selection[ generalTitle ].skills )
         return [ generalTitle, title, speciality ]

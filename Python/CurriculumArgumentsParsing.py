@@ -156,6 +156,8 @@ def checkList( args, name, argsList, finalnbelts, finalList ) :
     return finalList
 
 def interactionSelection( elementsList, nbElements, allyes, strDom) : 
+    if (elementsList == None) : 
+        elementsList = []
     while ( len( elementsList ) < nbElements) : 
         futurevalue = None
         if (strDom == "Skills") : 
@@ -199,21 +201,32 @@ def askForStrNotEmpty( txtmsg ) :
     return data
 
 def interactiveCompletionSkillsJobsTraining( personnae, args ) : 
-    ## ## ## ## ## SKILLS + JOBS + TRAININGS
-    personnae.skills = checkList(args, 'listskillelements', args.listskillelements, personnae.skilleltnb, personnae.skills)
-    personnae.jobs = checkList(args, 'listjobelements', args.listjobelements, personnae.jobeltsnb, personnae.jobs)
-    personnae.trainings = checkList(args, 'listtrainingelements', args.listtrainingelements, personnae.trainingeltsnb, personnae.trainings)
-    ## ## ## ## ## ask for nbs
-    if (personnae.skilleltnb == None) : 
-        personnae.skilleltnb = askForInt( "Number of Skills elements ?" )
-    if (personnae.jobeltsnb == None) : 
-        personnae.jobeltsnb = askForInt( "Number of Jobs elements ?" )
-    if (personnae.trainingeltsnb == None) : 
-        personnae.trainingeltsnb = askForInt( "Number of Training elements ?" )
-    ## ## Interact with user to choose Skills / Jobs / Trainings (randomly generated)
-    interactionSelection( personnae.skills, personnae.skilleltnb, args.allyes, "Skills" )
-    interactionSelection( personnae.jobs, personnae.jobeltsnb, args.allyes, "Job" )
-    interactionSelection( personnae.trainings, personnae.trainingeltsnb, args.allyes, "Training" )
+    ## noelts = (len(args.skillelements) == 0) and (len(args.jobelements) == 0) and (len(args.trainingelements) == 0)
+    noelts = (args.skillelements == None) and (args.jobelements == None) and (args.trainingelements == None)
+    if (noelts) : 
+        ## ## ## ## ## SKILLS + JOBS + TRAININGS
+        personnae.skills = checkList(args, 'listskillelements', args.listskillelements, personnae.skilleltnb, personnae.skills)
+        personnae.jobs = checkList(args, 'listjobelements', args.listjobelements, personnae.jobeltsnb, personnae.jobs)
+        personnae.trainings = checkList(args, 'listtrainingelements', args.listtrainingelements, personnae.trainingeltsnb, personnae.trainings)
+        ## ## ## ## ## ask for nbs
+        if (personnae.skilleltnb == None) and (personnae.skills == None) : 
+            personnae.skilleltnb = askForInt( "Number of Skills elements ?" )
+        else : 
+            personnae.skilleltnb  = len(personnae.skills)
+        if (personnae.jobeltsnb == None) and (personnae.jobs == None) : 
+            personnae.jobeltsnb = askForInt( "Number of Jobs elements ?" )
+        else : 
+            personnae.jobeltsnb  = len(personnae.jobs)
+        if (personnae.trainingeltsnb == None) and (personnae.trainings == None) : 
+            personnae.trainingeltsnb = askForInt( "Number of Training elements ?" )
+        else : 
+            personnae.trainingeltsnb  = len(personnae.trainings)
+        ## ## Interact with user to choose Skills / Jobs / Trainings (randomly generated)
+        interactionSelection( personnae.skills, personnae.skilleltnb, args.allyes, "Skills" )
+        interactionSelection( personnae.jobs, personnae.jobeltsnb, args.allyes, "Job" )
+        interactionSelection( personnae.trainings, personnae.trainingeltsnb, args.allyes, "Training" )
+    else : 
+    	print("Lists are given ! ")
 
 def interactiveCompletionOf( personnae, args ) : 
     ## ## ## ## ## cvStyle and cvColor are random if argument indicates it, otherwise as selected
