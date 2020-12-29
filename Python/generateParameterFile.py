@@ -16,10 +16,10 @@ __status__ = "Development"
 import sys
 import random
 
-import curriculumMainFunctions
+import CurriculumArgumentsParsing
 
 from Person import Person
-from curriculumData import CVData
+from CurriculumData import CVData
 
 numberOfPersonnae = None
 
@@ -53,9 +53,9 @@ for i in range(0, numberOfPersonnae) :
     personnae.skilleltnb = random.randint(1, int(numberOfYears / 5) )
     personnae.jobeltsnb = random.randint(1, int(numberOfYears / 5) )
     personnae.trainingeltsnb = random.randint(1, int(numberOfYears / 5) )
-    curriculumMainFunctions.interactionSelection( personnae.skills, personnae.skilleltnb, True, "Skills" )
-    curriculumMainFunctions.interactionSelection( personnae.jobs, personnae.jobeltsnb, True, "Job" )
-    curriculumMainFunctions.interactionSelection( personnae.trainings, personnae.trainingeltsnb, True, "Training" )
+    CurriculumArgumentsParsing.interactionSelection( personnae.skills, personnae.skilleltnb, True, "Skills" )
+    CurriculumArgumentsParsing.interactionSelection( personnae.jobs, personnae.jobeltsnb, True, "Job" )
+    CurriculumArgumentsParsing.interactionSelection( personnae.trainings, personnae.trainingeltsnb, True, "Training" )
     ## General Title, Title and Speciality
     threePieces = curriculumDataObj.getRandomJob()
     personnae.generaltitle = "%s (%s)" %( threePieces[0], threePieces[2] )

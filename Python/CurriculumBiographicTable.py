@@ -7,6 +7,8 @@ import random
 import CurriculumData
 from CurriculumData import CVData
 
+from BiographicDataLoad import BiographicDataLoad
+
 class JobBiographicTable( object ) : 
     """This class defines Tables Definitions for 'biographic' elements for Curriculum generation. """
     
@@ -25,19 +27,19 @@ class JobBiographicTable( object ) :
         return str
 
 # A dictionnary of JobBiographicTable
-JobBiographicTablesDict = {}
+localDictionnary = {}
 
 def loadTables() : 
     """Load JobBiographicTables from the configuration. """
     curriculumDataObj = CVData.loadConfig();
-    tablesAsTXT  = curriculumDataObj.biographicTables
-    nextTable    = None
-    for line in tablesAsTXT:
+    tables     =  BiographicDataLoad.loadBiographicsTables()
+    nextTable  = None
+    for line in tables:
         resultTableHead       = re.match( "^Table (.*?)(\t(.*?))?$", line)
         resultTableContent    = re.match( "^\t(Table )?(.*?)(\t\[(.*?)\])?(\t\{(.*?)\})?$", line )
         if (resultTableHead != None) : 
             if (nextTable != None) : 
-                JobBiographicTablesDict[ nextTable.name ] = nextTable
+                localDictionnary[ nextTable.name ] = nextTable
             ## print( resultTableHead.groups() )
             ## print( resultTableHead.groups()[0] )
             nextTable = JobBiographicTable( resultTableHead.groups()[0], resultTableHead.groups()[1] )
@@ -53,32 +55,38 @@ def loadTables() :
                 nextTable.linksTo.append( "" )
     # Last Table insertion
     if (nextTable != None) : 
-        JobBiographicTablesDict[ nextTable.name ] = nextTable 
-    ## print( JobBiographicTablesDict )
+        localDictionnary[ nextTable.name ] = nextTable 
+    ## print( localDictionnary )
     ## print( "Available Tables: " )
-    ## for key in JobBiographicTablesDict : 
+    ## for key in localDictionnary : 
     ##     print ( "\t % s" % key )
-    return JobBiographicTablesDict
+    return localDictionnary
 
 def selectRandomBiographic() : 
     """Choose randomly an element from a randomly choosen JobBiographicTable. """
-    location     = random.choice( JobBiographicTablesDict.get("Localisation").contents )
-    baseTable    = JobBiographicTablesDict.get("CurriculumGenerator")
-    selected     = random.choice( baseTable.contents )
-    choice       = JobBiographicTablesDict.get( selected )
+    tables          = BiographicDataLoad.loadBiographicsTables()
+    for key in tables.keys() : 
+        localDictionnary[ key ] = tables[ key ]
+    location     = random.choice( localDictionnary.get("Localisation").contents )
+    baseTable    = localDictionnary.get("d'Orientation")
+    selected     = random.choice( baseTable.linksTo )
+    choice       = localDictionnary.get( selected )
     moreselect   = random.choice( choice.contents )
-    ## domain       = random.choice( JobBiographicTablesDict.get("Domaine").contents )
+    ## domain       = random.choice( localDictionnary.get("Domaine").contents )
     corporation  = CVData.getRandomCorporationName()
-    contractType    = CVData.getRandomContractType()
-    print( selected + "::" + moreselect + " // " + corporation[1] + " ( " + corporation[0] + ", " + contractType + " )" )
+    contractType = CVData.getRandomContractType()
+    ## print( selected + "::" + moreselect + " // " + corporation[1] + " ( " + corporation[0] + ", " + contractType + " )" )
     return [selected + " (" + location + ")", moreselect, corporation[1], corporation[0], contractType]
 
 def selectRandomTraining() : 
     """Choose randomly an elements from the Training table. """
-    baseTable   = JobBiographicTablesDict.get("Formation")
+    baseTable   = localDictionnary.get("Formation")
     selected    = random.choice( baseTable.contents )
-    domain      = random.choice( JobBiographicTablesDict.get("Domaine").contents )
-    location    = random.choice( JobBiographicTablesDict.get("Localisation").contents )
+    trainingTAG = "[Formation]"
+    if (selected.startswith( trainingTAG ) ) : 
+        selected     = selected[len(trainingTAG):]
+    domain      = random.choice( localDictionnary.get("Domaine").contents )
+    location    = random.choice( localDictionnary.get("Localisation").contents )
     ## print( selected + " // " + domain + " // " + location )
     return [ domain, selected, location ]
 

@@ -1,7 +1,9 @@
 Ingénieur	Conception;Java;C++;C;Python;Perl;Design Pattern;Rust;Développement logiciel;Études;Systèmes
-Chef de Projet	Développement logiciel;Développement logiciel;Conception;Management;Architecture
-Architecte	Bases De Données;Conception;Bases De Données;SQL;Développement logiciel
-Formateur	Conception;Java;C++;C;Python;Perl;Design Pattern;Rust
+Chef de Projet	Développement logiciel;Conception;Management;Architecture;Scripting;Travail d'équipe
+Architecte	Bases De Données;Conception;SQL;Développement logiciel;Rédaction
+Formateur	Conception;Java;C++;C;Python;Perl;Design Pattern;Rust;Rédaction;Documentation;Formation
 Technicien	Maintenance;Développement logiciel;Systèmes
-Développeur	Développement logiciel;Conception;Java;C++;C;Python;Perl;Design Pattern;Rust;R;MatLab
-Analyste Bases De Données	Bases De Données;Conception;Bases De Données;SQL
+Développeur	Développement logiciel;Scripting;Conception;Java;C++;C;Python;Perl;Design Pattern;Rust;R;MatLab
+Analyste Bases De Données	Bases De Données;Conception;SQL
+Lead Tech	Transversalité;Méthodes Agiles;Travail d'équipe
+Scrum Master	Transversalité;Méthodes Agiles;Travail d'équipe

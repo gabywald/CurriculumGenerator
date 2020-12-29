@@ -22,11 +22,7 @@ import CurriculumLaTeXGenerator
 
 from Person import Person
 
-from BiographicSelection import selectRandomBiographic
-from BiographicSelection import selectBiographicElements
-from BiographicSelection import preparingBiographicElements
-from BiographicSelection import addskill
-from BiographicSelection import reworking
+import BiographicSelection
 from BiographicDataLoad import BiographicDataLoad
 
 ## print('(debugging purposes) Number of arguments:', len(sys.argv), 'arguments.' )
@@ -39,17 +35,29 @@ personnae = Person()
 CurriculumArgumentsParsing.interactiveCompletionOf( personnae, args )
 if (args.biographic) :
     print( "Biographic Curriculum Generation" )
-    numberOfResults = personnae.trainingeltsnb + personnae.jobeltsnb
-    res = selectBiographicElements( numberOfResults )
-    personnae = preparingBiographicElements( res, personnae )
-    reworking( personnae )
+    numberOfResults = 0
+    if (personnae.skilleltnb != None) : 
+        numberOfResults += personnae.skilleltnb
+    if (personnae.trainingeltsnb != None) : 
+        numberOfResults += personnae.trainingeltsnb
+    if (personnae.trainingeltsnb != None) : 
+        numberOfResults += personnae.jobeltsnb
+    res = BiographicSelection.selectBiographicElements( numberOfResults )
+    personnae = BiographicSelection.preparingBiographicElements( res, personnae )
+    BiographicSelection.reworking( personnae )
 else : 
-    print( "NON-biographic Curriculum Generation" )
+    print( "NON-biographic Curriculum Generation !!" )
     CurriculumArgumentsParsing.interactiveCompletionSkillsJobsTraining( personnae, args )
+    
+personnae.recos.append( ["referent 1", "some text"] )
+personnae.certifs.append( BiographicSelection.selectRandomCertification() )
+personnae.btasks.append( BiographicSelection.selectRandomBenevolentTasks() )
+personnae.projs.append( BiographicSelection.selectRandomRealisations() )
+personnae.interests.append( BiographicSelection.selectRandomCentresDInteret() )
 
 ## final show !!
 print( personnae )
-texcurriculumDirectory = CurriculumLaTeXGenerator.generateLaTeX( personnae )
+texcurriculumDirectory = CurriculumLaTeXGenerator.generateLaTeX( personnae, args.color, args.style )
 ## Compiling TeX file to obtain PDF !
 if args.make : 
     CurriculumLaTeXGenerator.launcheMakePDFfromLaTeX( directory = texcurriculumDirectory )

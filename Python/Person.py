@@ -8,7 +8,8 @@ class Person( object ) :
                  cellphone       = None, address         = None, email        = None, 
                  webpage         = None, quote           = None, pseudo       = None, 
                  jobeltsnb       = None, trainingeltsnb  = None, skilleltnb   = None, 
-                 skills          = [], jobs              = [], trainings      = []):
+                 skills     = [], jobs      = [], trainings= [], recos        = [], 
+                 certifs    = [], btasks    = [], projs    = [], interests    = []):
         self.firstname      = firstname
         self.lastname       = lastname
         self.generaltitle   = generaltitle
@@ -30,6 +31,11 @@ class Person( object ) :
         self.jobs           = jobs
         self.trainings      = trainings
         self.tool           = []
+        self.recos			= recos
+        self.certifs        = certifs
+        self.btasks         = btasks
+        self.projs          = projs
+        self.interests      = interests
     
     ## implement it if bug need ! => print( [ <instance>] )
     # def __repr__(self) : 

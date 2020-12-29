@@ -21,7 +21,7 @@ import subprocess
 
 from pathlib import Path
 
-import curriculumData
+import ModuleHelper
 
 from Person import Person
 
@@ -42,7 +42,7 @@ if (len(sys.argv) < 2):
 
 path2file = sys.argv[1]
 
-fileContent = curriculumData.readFileToList( path2file );
+fileContent = ModuleHelper.readFileToList( path2file );
 
 ## print( fileContent )
 
@@ -60,6 +60,7 @@ for line in fileContent :
         lstskills = []
         lstjobs = []
         lsttrainings = []
+        isbiographic = False
         ## Parsing ListS {Skillms;Jobs;Trainings} !
         if (is_integer( lineSplitter[10] ) ) : 
             nbskills = int( lineSplitter[10] )
@@ -68,11 +69,15 @@ for line in fileContent :
             ## print( lstskills )
         if (is_integer( lineSplitter[11] ) ) : 
             nbjobs = int( lineSplitter[11] )
+        elif (lineSplitter[11] == "BIO" ) : 
+            isbiographic = True
         else : 
             lstjobs = lineSplitter[11].split( ";" )
             ## print( lstjobs )
         if (is_integer( lineSplitter[12] ) ) : 
             nbtrainings = int( lineSplitter[12] )
+        elif (lineSplitter[12] == "BIO" ) : 
+            isbiographic = True
         else : 
             lsttrainings = lineSplitter[12].split( ";" )
             ## print( lsttrainings )
@@ -98,7 +103,7 @@ for line in fileContent :
             trainings = lsttrainings )
         print( personnae )
         ## Build Command to call build of Curriculum !
-        cmd = "./mainScript.py "
+        cmd = "./generateCurriculum.py "
         cmd += "--style %s --color %s " %(cvStyle, cvColor)
         cmd += "-fn %s -ln %s " %(personnae.firstname, personnae.lastname)
         cmd += "--email %s --pseudo %s " %(personnae.email, personnae.pseudo)
@@ -114,7 +119,10 @@ for line in fileContent :
             cmd += "-lje \"%s\" " %( ";".join(personnae.jobs) )
         if ( len( personnae.trainings ) != 0) :
             cmd += "-lte \"%s\" " %( ";".join(personnae.trainings) )
-        if ( (personnae.jobeltsnb != 0) 
+        if (isbiographic) : 
+            cmd += "--skillelements %d " %( personnae.skilleltnb )
+            cmd += "--biographic "
+        elif ( (personnae.jobeltsnb != 0) 
                 and (personnae.trainingeltsnb != 0) 
                 and (personnae.skilleltnb != 0) ) : 
             cmd += "--jobelements %d " %( personnae.jobeltsnb )
@@ -123,7 +131,7 @@ for line in fileContent :
             cmd += "--allyes "
         else:
             cmd += ""
-        cmd+= "--make "
+        cmd += "--make "
         print ( cmd + "\n" )
         retcode = subprocess.call( cmd, shell=True )
         personnae = None
@@ -139,7 +147,7 @@ print( listing )
 for pdffile in listing:
     shutil.copy(pdffile, directory4outputs)
 
-listing2remove = glob.glob( "*_generate/" )
+listing2remove = glob.glob( "*_generate" )
 for dir2rm in listing2remove : 
     subprocess.call( dir2rm, shell=True )
 

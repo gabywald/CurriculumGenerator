@@ -2,27 +2,36 @@ Table Equipement
 	Ordinateur	[ordinateur]
 	Logiciel	[Logiciel]
 	Licence	[Licence]
-	Certification	[Certification]
 	Formation	[Formation]
+	Autre	[Autre]
 
 Table Ordinateur
 	Ordinateur Portable
 	Ordinateur Fixe
 	Ghost Computer (ordinateur dans le 'cloud')
+	Tablette interactive
+	Tablette évoluée
 
 Table Logiciel
 	Logiciel de conception 3D
 	Logiciel de CAO
+	Logiciel criminel (malware, spyware, ransomware, botnet, virus...)
+	Logiciel militaire (drone, conduite de drone, connexion satellite...)
+	Logiciel espion (keylogger...)
 
 Table Licence
 	Licence de Suite Bureautique (à vie)
-
-Table Certification
-	Certification Microsoft (au choix)
-	Certification Base De Données
-	Certification CyberSécurité
+	Licence de logiciel de CAO (à vie)
+	Licence de logiciel de base de données (à vie)
 
 Table Formation
 	Études d'ingénieur
+	Doctorat en science dure (biologie, physique, mathématiques...)
+	Doctorat en science molle (sociologie, économie, psychologie...)
 	Remise à niveau (langage de programmation au choix)
+	Validation des Acquis de l'Expérience (VAE)
 
+Table Autre
+	Drone d'observation
+	Matériel de mesures
+	

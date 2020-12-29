@@ -7,7 +7,7 @@ Euro Business Machines	Matériel Informatique
 Biotechnica	Ingénierie Génétique, Recherche Biochimique et Microbiologique
 Soviet World Oil Industries	Pétrochimie, Industrie Lourde, Énergie
 Network News 54	Journaux, Télévision
-BioMass Laboratories Group	Réalité Virtuelle, Lpoisirs Virtuels
+BioMass Laboratories Group	Réalité Virtuelle, Loisirs Virtuels
 Orbital Air	Jeux Vidéos
 Carolli	Robotique
 Brennan	Production de Motos
