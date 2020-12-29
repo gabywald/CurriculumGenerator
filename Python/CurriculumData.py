@@ -66,9 +66,11 @@ class CVData( object ) :
             ## uplinkCompanyPartOne, uplinkCompanyPartTwo = [], []
             uplinkFornames, uplinkSurnames = [], []
             self._instance = CVData( cvStyle, cvColor, hardList, softList, 
-                            firstNameList, lastNameList, contractTypesList, 
-                            corporationNames, corporationDomains, 
-                            uplinkCompanyPartOne, uplinkCompanyPartTwo, uplinkFornames, uplinkSurnames )
+                                    firstNameList, lastNameList, 
+                                    contractTypesList, 
+                                    corporationNames, corporationDomains, 
+                                    uplinkCompanyPartOne, uplinkCompanyPartTwo, 
+                                    uplinkFornames, uplinkSurnames )
         ## print( self._instance.corporationNames )
         return self._instance
     

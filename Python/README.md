@@ -305,11 +305,24 @@ Une liste des arguments est obtenue avec "./generateCurriculum.py --help".
 
  * _generateParameterFile.py_   Ce script est conçu pour générer le fichier d'entrée du script 'generateFromParameterFile.py'
  
- * Voir les Cas d'utilisation / Cas d'usage pour le lancemernt de ces scripts. 
+ * Voir les Cas d'utilisation / Cas d'usage pour le lancement de ces scripts. 
 
 ## "Biograph[y|ic] Generation"
 
+Voir les éléments développés dans les répertoires suivants : biographyv1, biographyv2, biographic ; ressources propres : biography (contemporain : '2020' ; original ; 'cyberage'). 
 
+Intégration faite dans le générateur général (racine Python) avec argument '-bio' / '--biographic', comme alternative pour générer le contenu. Les exemples de lancement avec arguments ont été complétés avec cet argument, exemples également dans le fichier d'entrée pour la génération en chaine avec un fichier. 
+
+**NOTE** : dans le cas de l'utilisation cet argument, les nombres de 'jobs' et 'trainings' sont additionnés pour une génération globale du profil. Quand cet argument est passé via un fichier (valeur 'BIO'), c'est le nombre de 'skills' qui est pris en compte !
+
+Reste à développer, plus facile avec cette façon de faire (biographique), complétion des parties suivantes : 
+ * Certification
+ * BenevolentTasks
+ * Realisations
+ * CentresDInteret
+ * ... 
+
+Le contenu est présent (et toujours remplaçable et / ou peut être complété). 
 
 ## Tutoriels et formations Python : 
 * https://docs.python.org/fr/3.8/tutorial/

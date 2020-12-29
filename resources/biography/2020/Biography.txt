@@ -108,27 +108,27 @@ Table Localisation	[]	{}
 	New York
 	San Francisco
 
-Table Certification		[]	{}
+Table Certification	[]	{}
 	[Certifications]Certification Microsoft (au choix)
 	[Certifications]Certification Base De Données
 	[Certifications]Certification CyberSécurité	{talent:CyberSécurité}
 	[Certifications]Langage de progammation	{talent:Langages de programmation}
 	[Certifications]Habilitation Défense / Secret Défense
 
-Table BenevolentTasks		[]	{}
+Table BenevolentTasks	[]	{}
 	[BenevolentTasks]Association Caritative
 	[BenevolentTasks]Association Humanitaire
 	[BenevolentTasks]Syndicat (étudiant, travail...)
 
-Table Realisations		[]	{}
+Table Realisations	[]	{}
 	[Realisations]Projets GitHub
 	[Realisations]Projets Personnels
 	[Realisations]Projets Étudiant
 
-Table CentresDInteret		[]	{}
+Table CentresDInteret	[]	{}
 	[CentresDInteret]Lectures (Policier, Science-Fiction, Littérature Classique, Philosophie, Essais, ... )
-	[CentresDInteret]Jeux Sociaux (Jeux de plateau, Jeux de Rôle, ... )
-	[CentresDInteret]Théatre (Classqiue, Contemporain, Moderne, ... )
+	[CentresDInteret]Jeux Sociaux (Jeux de plateau, Jeux de Rôle, Wargame, Stratégie, RolePlay, ... )
+	[CentresDInteret]Théatre (Classique, Contemporain, Moderne, ... )
 	[CentresDInteret]Danse (Classique, Hip-Hop, Swing, Acrobatique, Rock, ... )
 	[CentresDInteret]Musique (Classique, Rock, Metal, Électronique, Synthétique, ... )
 

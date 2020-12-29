@@ -6,3 +6,4 @@ Technicien	Maintenance;Développement logiciel;Systèmes
 Développeur	Développement logiciel;Scripting;Conception;Java;C++;C;Python;Perl;Design Pattern;Rust;R;MatLab
 Analyste Bases De Données	Bases De Données;Conception;SQL
 Lead Tech	Transversalité;Méthodes Agiles;Travail d'équipe
+Scrum Master	Transversalité;Méthodes Agiles;Travail d'équipe
