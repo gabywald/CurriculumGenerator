@@ -110,20 +110,22 @@ Table Localisation	[]	{}
 
 Table Certification	[]	{}
 	[Certifications]Certification Microsoft (au choix)
-	[Certifications]Certification Base De Données
-	[Certifications]Certification CyberSécurité	{talent:CyberSécurité}
-	[Certifications]Langage de progammation	{talent:Langages de programmation}
-	[Certifications]Habilitation Défense / Secret Défense
+	[Certifications]Certification Base De Données (...)
+	[Certifications]Certification CyberSécurité	 (...) {talent:CyberSécurité}
+	[Certifications]Langage de progammation	 (...) {talent:Langages de programmation}
+	[Certifications]Habilitation Défense / Secret Défense (...)
 
 Table BenevolentTasks	[]	{}
-	[BenevolentTasks]Association Caritative
-	[BenevolentTasks]Association Humanitaire
+	[BenevolentTasks]Association Caritative (...)
+	[BenevolentTasks]Association Humanitaire (...)
 	[BenevolentTasks]Syndicat (étudiant, travail...)
 
 Table Realisations	[]	{}
-	[Realisations]Projets GitHub
-	[Realisations]Projets Personnels
-	[Realisations]Projets Étudiant
+	[Realisations]Projets GitHub (...)
+	[Realisations]Projets Personnels (...)
+	[Realisations]Projets Étudiant (...)
+	[Realisations]Organisation (association étudiante, association caritative, ...)
+	[Realisations]Publications (Journal, Conférence, ...)
 
 Table CentresDInteret	[]	{}
 	[CentresDInteret]Lectures (Policier, Science-Fiction, Littérature Classique, Philosophie, Essais, ... )

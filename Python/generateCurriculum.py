@@ -50,7 +50,7 @@ if (args.biographic) :
     personnae = preparingBiographicElements( res, personnae )
     reworking( personnae )
 else : 
-    print( "NON-biographic Curriculum Generation" )
+    print( "NON-biographic Curriculum Generation !!" )
     CurriculumArgumentsParsing.interactiveCompletionSkillsJobsTraining( personnae, args )
 
 ## final show !!
