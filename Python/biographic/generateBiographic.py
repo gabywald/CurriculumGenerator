@@ -15,11 +15,7 @@ import random
 
 ## ## ## ## ## Generate some Ideas from associated resources !
 
-from BiographicSelection import selectRandomBiographic
-from BiographicSelection import selectBiographicElements
-from BiographicSelection import preparingBiographicElements
-from BiographicSelection import addskill
-from BiographicSelection import reworking
+import BiographicSelection
 from BiographicDataLoad import BiographicDataLoad
 
 from Person import Person
@@ -50,17 +46,17 @@ personnae.speciality = "Speciality"
 
 numberOfResults = 10
 
-res = selectBiographicElements( numberOfResults )
+res = BiographicSelection.selectBiographicElements( numberOfResults )
 
-personnae = preparingBiographicElements( res, personnae )
+personnae = BiographicSelection.preparingBiographicElements( res, personnae )
 
-reworking( personnae )
+BiographicSelection.reworking( personnae )
 
 personnae.recos.append( ["referent 1", "some text"] )
-personnae.certifs.append( ["referent 1", "some text"] )
-personnae.btasks.append( ["referent 1", "some text"] )
-personnae.projs.append( ["referent 1", "some text"] )
-personnae.interests.append( ["referent 1", "some text"] )
+personnae.certifs.append( BiographicSelection.selectRandomCertification() )
+personnae.btasks.append( BiographicSelection.selectRandomBenevolentTasks() )
+personnae.projs.append( BiographicSelection.selectRandomRealisations() )
+personnae.interests.append( BiographicSelection.selectRandomCentresDInteret() )
 
 print( personnae )
 

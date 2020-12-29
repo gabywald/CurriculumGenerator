@@ -62,12 +62,12 @@ def preparingBiographicElements( res, personnae ) :
     for elt in res : 
         jobOrTrains = elt.contents[1]
         moreselect = elt.contents[0][len("Table "):]
-        trainingTAG = "[Formation]"
         print( "%s " %( jobOrTrains ) )
         corporation  = CVData.getRandomCorporationName()
         contractType = CVData.getRandomContractType()
         location     = random.choice( locations.contents )
         ## Training or Job
+        trainingTAG = "[Formation]"
         if (jobOrTrains.startswith( trainingTAG ) ) : 
             selected     = jobOrTrains[len(trainingTAG):]
             personnae.trainings.append( [corporation[0], selected, corporation[1] + " (" + location + ")", location, contractType] )
@@ -121,4 +121,36 @@ def reworking( personnae ) :
     print( personnae.skills )
     print( skillsAsDict )
     personnae.skills.append( [ genericKey, ", ".join( skillsAsDict[ genericKey ] ) ] )
+
+##### ##### ##### ##### ##### 
+
+## occupations : "Certification" ; "BenevolentTasks" ; "Realisations" ; "CentresDInteret"
+
+def selectRandomOccupation( occupation ) : 
+    tables = BiographicDataLoad.loadBiographicsTables()
+    occupations = tables[ occupation ]
+    if (occupations != None) : 
+        selected = random.choice( occupations.contents )
+        dataOutput = selected.split(" -- ")
+        toRemove = "[" + occupation + "]"
+        dataOutput = [ dataOutput[0][len(toRemove):] , dataOutput[1] ]
+        return dataOutput
+    else : 
+        return [ occupation, "No Data" ]
+
+def selectRandomCertification( ) : 
+    return selectRandomOccupation( "Certifications" )
+
+def selectRandomBenevolentTasks( ) : 
+    return selectRandomOccupation( "BenevolentTasks" )
+    
+def selectRandomRealisations( ) : 
+    return selectRandomOccupation( "Realisations" )
+    
+def selectRandomCentresDInteret( ) : 
+    return selectRandomOccupation( "CentresDInteret" )
+
+
+
+
 

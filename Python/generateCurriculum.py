@@ -22,9 +22,7 @@ import CurriculumLaTeXGenerator
 
 from Person import Person
 
-from BiographicSelection import selectBiographicElements
-from BiographicSelection import preparingBiographicElements
-from BiographicSelection import reworking
+import BiographicSelection
 from BiographicDataLoad import BiographicDataLoad
 
 ## print('(debugging purposes) Number of arguments:', len(sys.argv), 'arguments.' )
@@ -44,18 +42,18 @@ if (args.biographic) :
         numberOfResults += personnae.trainingeltsnb
     if (personnae.trainingeltsnb != None) : 
         numberOfResults += personnae.jobeltsnb
-    res = selectBiographicElements( numberOfResults )
-    personnae = preparingBiographicElements( res, personnae )
-    reworking( personnae )
+    res = BiographicSelection.selectBiographicElements( numberOfResults )
+    personnae = BiographicSelection.preparingBiographicElements( res, personnae )
+    BiographicSelection.reworking( personnae )
 else : 
     print( "NON-biographic Curriculum Generation !!" )
     CurriculumArgumentsParsing.interactiveCompletionSkillsJobsTraining( personnae, args )
     
 personnae.recos.append( ["referent 1", "some text"] )
-personnae.certifs.append( ["referent 1", "some text"] )
-personnae.btasks.append( ["referent 1", "some text"] )
-personnae.projs.append( ["referent 1", "some text"] )
-personnae.interests.append( ["referent 1", "some text"] )
+personnae.certifs.append( BiographicSelection.selectRandomCertification() )
+personnae.btasks.append( BiographicSelection.selectRandomBenevolentTasks() )
+personnae.projs.append( BiographicSelection.selectRandomRealisations() )
+personnae.interests.append( BiographicSelection.selectRandomCentresDInteret() )
 
 ## final show !!
 print( personnae )

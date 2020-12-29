@@ -122,3 +122,35 @@ def reworking( personnae ) :
     print( skillsAsDict )
     personnae.skills.append( [ genericKey, ", ".join( skillsAsDict[ genericKey ] ) ] )
 
+##### ##### ##### ##### ##### 
+
+## occupations : "Certification" ; "BenevolentTasks" ; "Realisations" ; "CentresDInteret"
+
+def selectRandomOccupation( occupation ) : 
+    tables = BiographicDataLoad.loadBiographicsTables()
+    occupations = tables[ occupation ]
+    if (occupations != None) : 
+        selected = random.choice( occupations.contents )
+        dataOutput = selected.split(" -- ")
+        toRemove = "[" + occupation + "]"
+        dataOutput = [ dataOutput[0][len(toRemove):] , dataOutput[1] ]
+        return dataOutput
+    else : 
+        return [ occupation, "No Data" ]
+
+def selectRandomCertification( ) : 
+    return selectRandomOccupation( "Certifications" )
+
+def selectRandomBenevolentTasks( ) : 
+    return selectRandomOccupation( "BenevolentTasks" )
+    
+def selectRandomRealisations( ) : 
+    return selectRandomOccupation( "Realisations" )
+    
+def selectRandomCentresDInteret( ) : 
+    return selectRandomOccupation( "CentresDInteret" )
+
+
+
+
+
