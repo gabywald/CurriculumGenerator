@@ -4,18 +4,9 @@
 import configparser
 import random
 
-from BiographicDataLoad import BiographicDataLoad
+import ModuleHelper
 
-def readFileToList( filePath ) : 
-    """Read file from path indicated in parameter and return it as a list of lines. """
-    listToReturn = []
-    with open(filePath, 'r') as file : 
-        data         = file.read()
-        listToReturn = data.split( "\n" )
-        ## print( data )
-    ## print("End of file ", filePath)
-    ## print( listToReturn )
-    return listToReturn
+from BiographicDataLoad import BiographicDataLoad
 
 class CVData( object ) :
     """ Singleton class to regroup datas loaded from configuration. """
@@ -60,18 +51,18 @@ class CVData( object ) :
             cvStyle = parser[ "bases" ].get( "cvStyle" ).split(', ')
             cvColor = parser[ "bases" ].get( "cvColor" ).split(', ')
             ## print ( parser[ "paths" ].get( "hardList" ) )
-            hardList                = readFileToList( parser[ "paths" ].get( "hardList" ) )
-            softList                = readFileToList( parser[ "paths" ].get( "softList" ) )
-            firstNameList           = readFileToList( parser[ "paths" ].get( "firstNameList" ) )
-            lastNameList            = readFileToList( parser[ "paths" ].get( "lastNameList" ) )
-            contractTypesList       = readFileToList( parser[ "paths" ].get( "contractTypesList" ) )
-            corporationNames        = readFileToList( parser[ "paths" ].get( "corporationNames" ) )
-            corporationDomains      = readFileToList( parser[ "paths" ].get( "corporationDomains" ) )
+            hardList                = ModuleHelper.readFileToList( parser[ "paths" ].get( "hardList" ) )
+            softList                = ModuleHelper.readFileToList( parser[ "paths" ].get( "softList" ) )
+            firstNameList           = ModuleHelper.readFileToList( parser[ "paths" ].get( "firstNameList" ) )
+            lastNameList            = ModuleHelper.readFileToList( parser[ "paths" ].get( "lastNameList" ) )
+            contractTypesList       = ModuleHelper.readFileToList( parser[ "paths" ].get( "contractTypesList" ) )
+            corporationNames        = ModuleHelper.readFileToList( parser[ "paths" ].get( "corporationNames" ) )
+            corporationDomains      = ModuleHelper.readFileToList( parser[ "paths" ].get( "corporationDomains" ) )
             ## some other sources
-            uplinkCompanyPartOne = readFileToList( parser[ "paths" ].get( "uplinkCompanyPartOne" ) )
-            uplinkCompanyPartTwo = readFileToList( parser[ "paths" ].get( "uplinkCompanyPartTwo" ) )
-            # uplinkFornames = readFileToList( parser[ "paths" ].get( "uplinkFornames" ) )
-            # uplinkSurnames = readFileToList( parser[ "paths" ].get( "uplinkSurnames" ) )
+            uplinkCompanyPartOne = ModuleHelper.readFileToList( parser[ "paths" ].get( "uplinkCompanyPartOne" ) )
+            uplinkCompanyPartTwo = ModuleHelper.readFileToList( parser[ "paths" ].get( "uplinkCompanyPartTwo" ) )
+            # uplinkFornames = ModuleHelper.readFileToList( parser[ "paths" ].get( "uplinkFornames" ) )
+            # uplinkSurnames = ModuleHelper.readFileToList( parser[ "paths" ].get( "uplinkSurnames" ) )
             ## uplinkCompanyPartOne, uplinkCompanyPartTwo = [], []
             uplinkFornames, uplinkSurnames = [], []
             self._instance = CVData( cvStyle, cvColor, hardList, softList, 

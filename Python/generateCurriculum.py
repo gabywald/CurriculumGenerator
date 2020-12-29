@@ -55,7 +55,7 @@ else :
 
 ## final show !!
 print( personnae )
-texcurriculumDirectory = CurriculumLaTeXGenerator.generateLaTeX( personnae )
+texcurriculumDirectory = CurriculumLaTeXGenerator.generateLaTeX( personnae, args.color, args.style )
 ## Compiling TeX file to obtain PDF !
 if args.make : 
     CurriculumLaTeXGenerator.launcheMakePDFfromLaTeX( directory = texcurriculumDirectory )

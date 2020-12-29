@@ -21,7 +21,7 @@ import subprocess
 
 from pathlib import Path
 
-import CurriculumData
+import ModuleHelper
 
 from Person import Person
 
@@ -42,7 +42,7 @@ if (len(sys.argv) < 2):
 
 path2file = sys.argv[1]
 
-fileContent = CurriculumData.readFileToList( path2file );
+fileContent = ModuleHelper.readFileToList( path2file );
 
 ## print( fileContent )
 
