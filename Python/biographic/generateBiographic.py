@@ -56,6 +56,12 @@ personnae = preparingBiographicElements( res, personnae )
 
 reworking( personnae )
 
+personnae.recos.append( ["referent 1", "some text"] )
+personnae.certifs.append( ["referent 1", "some text"] )
+personnae.btasks.append( ["referent 1", "some text"] )
+personnae.projs.append( ["referent 1", "some text"] )
+personnae.interests.append( ["referent 1", "some text"] )
+
 print( personnae )
 
 texcurriculumDirectory = generateLaTeX( personnae )

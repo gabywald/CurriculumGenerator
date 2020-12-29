@@ -277,28 +277,32 @@ def generateLaTeX( personnae, cvColor = "blue", cvStyle = "classic" ):
         for eltTraining in personnae.trainings : 
             curriculumGenerationtest.write( "\t \\cventry{years}{%s}{%s}{%s}{\n %% grade \n}{\n %% description \n}\n\n" %(  eltTraining[1], eltTraining[0], eltTraining[2]  ) )
         curriculumGenerationtest.write( "\t %% \\cventry{Year}{Diploma}{School}{Location}    {}{}{}\n\n" )
-        ## Certifications ...
-        curriculumGenerationtest.write( "\\section{Licences et Certifications}\n" )
-        curriculumGenerationtest.write( "\t \\cventry{Year}{Diploma}{\\newline School}{Location}    {}{}{}\n\n" )
-        ## Bénévolat ...
-        ## ## ## TODO "Bénévolat" generation ??
-        curriculumGenerationtest.write( "\\section{Expériences de bénévolat}\n" )
-        curriculumGenerationtest.write( "\t \\cventry{years}{jobtitle}{institution}{localization}{status}{description}\n\n" )
         ## Recommandations ...
-        ## ## ## TODO "Recommandations" generation ??
-        curriculumGenerationtest.write( "%% \\section{Recommandations}\n" )
-        curriculumGenerationtest.write( "%% \t \\cvitem{ Item }{ Content }\n\n" )
+        if (len(personnae.recos) > 0) : 
+            curriculumGenerationtest.write( "\\section{Recommandations}\n" )
+            curriculumGenerationtest.write( "%% \t \\cvitem{ Recommendation }{ Content }\n\n" )
+            for elt in personnae.recos : 
+                curriculumGenerationtest.write( "\t \\cvitem{%s}{%s}\n" %(  elt[0], elt[1]  ) )
+        ## Certifications ...
+        if (len(personnae.certifs) > 0) : 
+            curriculumGenerationtest.write( "\\section{Licences et Certifications}\n" )
+            for elt in personnae.certifs : 
+                curriculumGenerationtest.write( "\t \\cvitem{%s}{%s}\n" %(  elt[0], elt[1]  ) )
+        ## Bénévolat ...
+        if (len(personnae.btasks) > 0) : 
+            curriculumGenerationtest.write( "\\section{Exp{\\'e}riences de b{\\'e}n{\\'e}volat}\n" )
+            for elt in personnae.btasks : 
+                curriculumGenerationtest.write( "\t \\cvitem{%s}{%s}\n" %(  elt[0], elt[1]  ) )
         ## Réalisations ...
-        ## ## ## TODO "Réalisations" generation ??
-        curriculumGenerationtest.write( "\\section{Réalisations}\n" )
-        curriculumGenerationtest.write( "\t \\cvitem{Projets}{ GitHub }\n" )
-        curriculumGenerationtest.write( "\t \\cvitem{Organisations}{ associations }\n" )
-        curriculumGenerationtest.write( "\t \\cvitem{Publications}{ citations }\n\n" )
+        if (len(personnae.projs) > 0) : 
+            curriculumGenerationtest.write( "\\section{R{\\'e}alisations}\n" )
+            for elt in personnae.projs : 
+                curriculumGenerationtest.write( "\t \\cvitem{%s}{%s}\n" %(  elt[0], elt[1]  ) )
         ## Out of Work / Centres d'intérêts
-        ## ## ## TODO "Interests out of the work" generation ??
-        curriculumGenerationtest.write( "\\section{Centres d'int{\\'e}r{\\^e}ts}\n" )
-        curriculumGenerationtest.write( "\t \\cvitem{Lectures}{ Science-Fiction, Policier, Fantasy... }\n" )
-        curriculumGenerationtest.write( "\t \\cvitem{Jeux Sociaux}{ Jeux de Rôle, Jeux de plateau, e-sport }\n" )
+        if (len(personnae.interests) > 0) : 
+            curriculumGenerationtest.write( "\\section{Centres d'int{\\'e}r{\\^e}ts}\n" )
+            for elt in personnae.interests : 
+                curriculumGenerationtest.write( "\t \\cvitem{%s}{%s}\n" %(  elt[0], elt[1]  ) )
         ## END of document 
         curriculumGenerationtest.write( "\\end{document}\n\n" )
     return texcurriculumDirectory

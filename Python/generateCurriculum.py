@@ -22,10 +22,8 @@ import CurriculumLaTeXGenerator
 
 from Person import Person
 
-from BiographicSelection import selectRandomBiographic
 from BiographicSelection import selectBiographicElements
 from BiographicSelection import preparingBiographicElements
-from BiographicSelection import addskill
 from BiographicSelection import reworking
 from BiographicDataLoad import BiographicDataLoad
 
@@ -52,6 +50,12 @@ if (args.biographic) :
 else : 
     print( "NON-biographic Curriculum Generation !!" )
     CurriculumArgumentsParsing.interactiveCompletionSkillsJobsTraining( personnae, args )
+    
+personnae.recos.append( ["referent 1", "some text"] )
+personnae.certifs.append( ["referent 1", "some text"] )
+personnae.btasks.append( ["referent 1", "some text"] )
+personnae.projs.append( ["referent 1", "some text"] )
+personnae.interests.append( ["referent 1", "some text"] )
 
 ## final show !!
 print( personnae )

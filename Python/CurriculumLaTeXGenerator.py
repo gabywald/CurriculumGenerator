@@ -282,7 +282,6 @@ def generateLaTeX( personnae, cvColor = "blue", cvStyle = "classic" ):
             curriculumGenerationtest.write( "\t \\cventry{years}{%s}{%s}{%s}{\n %% grade \n}{\n %% description \n}\n\n" %(  eltTraining[1], eltTraining[0], eltTraining[2]  ) )
         curriculumGenerationtest.write( "\t %% \\cventry{Year}{Diploma}{School}{Location}    {}{}{}\n\n" )
         ## Recommandations ...
-        ## ## ## TODO "Recommandations" generation ??
         if (len(personnae.recos) > 0) : 
             curriculumGenerationtest.write( "\\section{Recommandations}\n" )
             curriculumGenerationtest.write( "%% \t \\cvitem{ Recommendation }{ Content }\n\n" )
@@ -295,17 +294,17 @@ def generateLaTeX( personnae, cvColor = "blue", cvStyle = "classic" ):
                 curriculumGenerationtest.write( "\t \\cvitem{%s}{%s}\n" %(  elt[0], elt[1]  ) )
         ## Bénévolat ...
         if (len(personnae.btasks) > 0) : 
-            curriculumGenerationtest.write( "\\section{Exp{\\'e}riences de b{\\'e}n{\\'e}volat}}\n" )
+            curriculumGenerationtest.write( "\\section{Exp{\\'e}riences de b{\\'e}n{\\'e}volat}\n" )
             for elt in personnae.btasks : 
                 curriculumGenerationtest.write( "\t \\cvitem{%s}{%s}\n" %(  elt[0], elt[1]  ) )
         ## Réalisations ...
         if (len(personnae.projs) > 0) : 
-            curriculumGenerationtest.write( "\\section{Réalisations}}\n" )
+            curriculumGenerationtest.write( "\\section{R{\\'e}alisations}\n" )
             for elt in personnae.projs : 
                 curriculumGenerationtest.write( "\t \\cvitem{%s}{%s}\n" %(  elt[0], elt[1]  ) )
         ## Out of Work / Centres d'intérêts
         if (len(personnae.interests) > 0) : 
-            curriculumGenerationtest.write( "\\section{Centres d'int{\\'e}r{\\^e}ts}}\n" )
+            curriculumGenerationtest.write( "\\section{Centres d'int{\\'e}r{\\^e}ts}\n" )
             for elt in personnae.interests : 
                 curriculumGenerationtest.write( "\t \\cvitem{%s}{%s}\n" %(  elt[0], elt[1]  ) )
         ## END of document 
