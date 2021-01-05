@@ -86,7 +86,7 @@ Table Jackeur	[Donne accès au métier de jackeur. ]	{métier:Jackeur}
 	Un Jackeur a essayé de vous entuber. Vous essayerez de vous venger de lui. 
 	Un de vos amis Jackeur vous a laissé un programme BriseGlace (au choix) avant de partir dans l'espace. 	{logiciel:BriseGlace=*}
 	Vous travaillez pour un Jackeur fortuné qui vous paye en nature. Vous récupérez un programme au choix (sauf BriseGlace). 	{logiciel=*[except BriseGlace];EquipementCybernetique=*;métier:Jackeur=+1}
-	Vous devenez l'ami d'un Jackeur qui meurt après un combat en Matrice / Cyberespace. Vous récupérez sa Console. 	{XX}
+	Vous devenez l'ami d'un Jackeur qui meurt après un combat en Matrice / Cyberespace. Vous récupérez sa Console. 	{EquipementCybernetique=Console de CyberEspace}
 	Vous vous faites un ennemi d'un Jackeur. Il peut chercher à vous attaquer s'il vous rencontre dans la Matrice / le REZO. 
 	Vous avez une liaison avec un(e) Jackeur. 	 [Romance]
 	Vous contractez une dette vis-à-vis d'un Jackeur. Il peut vous demander son remboursement à tout moment. 	{debtTo:Jackeur}
