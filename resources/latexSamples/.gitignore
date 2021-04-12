@@ -1,3 +1,4 @@
-/sample1.aux
-/sample1.log
-/sample1.out
+*/*/*.aux
+*/*/*.log
+*/*/*.out
+
