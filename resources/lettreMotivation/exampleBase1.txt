@@ -17,7 +17,9 @@ Objet : Candidature au poste de (emploi)
 
 (Madame, Monsieur),
 
-Etant actuellement à la recherche d’un emploi, je me permets de vous proposer ma candidature au poste de (emploi).
+-- Etant actuellement à la recherche d’un emploi, je me permets de vous proposer ma candidature au poste de (emploi). 
+
+-- Etant actuellement à la recherche d’une nouvelle opportunité de carrière, je me permets de vous proposer ma candidature au poste de (emploi).
 
 En effet, mon profil correspond à la description recherchée sur l’offre d’emploi (préciser où l’annonce a été vue).
 
