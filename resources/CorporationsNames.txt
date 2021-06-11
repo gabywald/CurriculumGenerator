@@ -1,4 +1,4 @@
-Arasaka	Sécurité, Banque, Industrie
+Arasaka Corporation	Sécurité, Banque, Industrie
 Militech	Armement, Véhicule, Mercenariat
 Trauma Team International	Santé, secours aux personnes
 Matsushima-Kiroshi Optics	Industrie Optique
@@ -19,7 +19,7 @@ GROUPE RICHELIEU	Investissement Technologique
 ASCLEPIA <<Heal The World>>	Pharmaceutique
 WAKUWKU	Réseau Social
 SAIBEONMJA <<The Feature's Feature>>	Logiciels
-STAVRO's Guns	Armement
+STAVRO'S GUNS	Armement
 FIRST CORPORATED	Pharmaceutique
 ARCATEOM <<What is best in life?>>	Vente au détail
 ULKAWENA INDUSTRIES	Industrie
@@ -27,6 +27,9 @@ LUCRECIA	Fond d'Investissement
 EIKI	Energies
 LATIMER BERING	Industrie
 KATSU	Transports
-WINTER FASHION	Vêteemnts de mode
+WINTER FASHION	Vêtements de mode
 GLASSPERFECT	Mercenariat
 HONGSE	High Tech
+STARK INDUSTRIES <<Changing the world for a better future>>	Électronique, Loisirs, Armement
+WAYNE ENTERPRISES	Armement, Espace
+UMBRELLA CORPORATION	Pharmaceutique, Génétique, Biotechnologies
