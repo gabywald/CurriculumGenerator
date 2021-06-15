@@ -42,6 +42,14 @@ Pour les noms d'entreprises et slogans, secteurs d'acivités :
 
 ## Autres ressources et idées
 
+### "Fake Data Generation"
+
+  * https://semaphoreci.com/community/tutorials/generating-fake-data-for-python-unit-tests-with-faker Generating Fake Data for Python Unit Tests with Faker
+  * https://faker.readthedocs.io/en/master/ -- Welcome to Faker’s documentation!
+  * https://blogs.sap.com/2021/05/26/generate-custom-datasets-using-python-faker/ Generate custom datasets using Python Faker
+  * https://pypi.org/project/Faker/ Faker is a Python package that generates fake data for you. Whether you need to bootstrap your database, create good-looking XML documents, fill-in your persistence to stress test it, or anonymize data taken from a production service, Faker is for you.
+  * https://dzone.com/articles/generating-arbitrary-data-using-mockneat Generating and Mocking Data With MockNeat (equivalent of MockNeat in Python ?? => Faker)
+
 ### Sites de recrutement 
 
 * www.pole-emploi.fr
