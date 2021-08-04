@@ -22,6 +22,7 @@ class CVData( object ) :
                  contractTypesList,
                  corporationNames,
                  corporationDomains,
+                 corporation2021,
                  uplinkCompanyPartOne,
                  uplinkCompanyPartTwo,
                  uplinkFornames,
@@ -35,6 +36,7 @@ class CVData( object ) :
         self.contractTypesList      = contractTypesList
         self.corporationNames       = corporationNames
         self.corporationDomains     = corporationDomains
+        self.corporation2021        = corporation2021
         self.uplinkCompanyPartOne   = uplinkCompanyPartOne
         self.uplinkCompanyPartTwo   = uplinkCompanyPartTwo
         self.uplinkFornames         = uplinkFornames
@@ -58,6 +60,7 @@ class CVData( object ) :
             contractTypesList       = ModuleHelper.readFileToList( parser[ "paths" ].get( "contractTypesList" ) )
             corporationNames        = ModuleHelper.readFileToList( parser[ "paths" ].get( "corporationNames" ) )
             corporationDomains      = ModuleHelper.readFileToList( parser[ "paths" ].get( "corporationDomains" ) )
+            corporation2021         = ModuleHelper.readFileToList( parser[ "paths" ].get( "corporation2021s" ) )
             ## some other sources
             uplinkCompanyPartOne = ModuleHelper.readFileToList( parser[ "paths" ].get( "uplinkCompanyPartOne" ) )
             uplinkCompanyPartTwo = ModuleHelper.readFileToList( parser[ "paths" ].get( "uplinkCompanyPartTwo" ) )
@@ -69,6 +72,7 @@ class CVData( object ) :
                                     firstNameList, lastNameList, 
                                     contractTypesList, 
                                     corporationNames, corporationDomains, 
+                                    corporation2021, 
                                     uplinkCompanyPartOne, uplinkCompanyPartTwo, 
                                     uplinkFornames, uplinkSurnames )
         ## print( self._instance.corporationNames )
@@ -76,6 +80,9 @@ class CVData( object ) :
     
     @classmethod
     def getRandomCorporationName( self ) : 
+      if (random.randint(1, 100) > 1) : 
+        return random.choice( self._instance.corporation2021 ).split( "\t" )
+      else : 
         if (random.randint(1, 100) % 2 == 0) : 
             return random.choice( self._instance.corporationNames ).split( "\t" )
         else : 
