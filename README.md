@@ -62,7 +62,6 @@ Idées d'entreprises fictives utilisables, déjà référencées (par exemple su
   - Umbrella Corporation : https://www.linkedin.com/company/umbrella-corporation-uk/
   - Weyland-Yatani Corporation : https://www.linkedin.com/company/weyland-yutani-corporation/
   - Sirius Cybernetics Corporation : https://www.linkedin.com/company/sirius-cybernetics-corporation/
-  - Cyberdyne Systems Corporation : https://www.linkedin.com/company/cyberdyne-systems-corporation/
   - ... 
   
 Entreprises de fiction : https://www.forbes.com/sites/michaelnoer/2011/03/11/the-25-largest-fictional-companies/?sh=3f15b6925d81

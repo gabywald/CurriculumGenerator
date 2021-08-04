@@ -228,7 +228,7 @@ Une liste des arguments est obtenue avec "./generateCurriculum.py --help".
 	- 5 expériences professionnelles ('-je 5')
 	- 3 formations ('-te 3')
 	- 10 compétences ('-se 10')
-	- acceptation automatique de la sélectyion aléatoire ('-ya')
+	- acceptation automatique de la sélection aléatoire ('-ya')
 	- Pas d'information complémentaire ('-nei')
 
 * ./generateCurriculum.py -rfn -rln -em default -nqc -je 4 -te 3 -se 10 -ya -ei "42 ans"
