@@ -50,9 +50,17 @@ else :
     CurriculumArgumentsParsing.interactiveCompletionSkillsJobsTraining( personnae, args )
     
 personnae.recos.append( ["referent 1", "some text"] )
+
 personnae.certifs.append( BiographicSelection.selectRandomCertification() )
+personnae.certifs.append( BiographicSelection.selectRandomCertification() )
+personnae.certifs.append( BiographicSelection.selectRandomCertification() )
+
 personnae.btasks.append( BiographicSelection.selectRandomBenevolentTasks() )
+
 personnae.projs.append( BiographicSelection.selectRandomRealisations() )
+personnae.projs.append( BiographicSelection.selectRandomRealisations() )
+personnae.projs.append( BiographicSelection.selectRandomRealisations() )
+
 personnae.interests.append( BiographicSelection.selectRandomCentresDInteret() )
 
 ## final show !!

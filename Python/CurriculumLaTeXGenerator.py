@@ -140,7 +140,7 @@ def getFancyStyle() :
     str += "\t}\n"
     str += "\t\\fancyfoot[RO]{\n"
     str += "\t\t\\thepage /\\pageref{LastPage} \\hfill\n"
-    str += "\t\t\\includeLogoCC \\today -- \\emph{Curriculum Generator (Python)} \\hfill %% \\copyright\n"
+    str += "\t\t\\includeLogoCC \\today -- \\emph{\href{https://github.com/gabywald/CurriculumGenerator}{Curriculum Generator (Python)} par \href{https://www.linkedin.com/in/gabriel-chandesris/}{GabyWald} } \\hfill %% \\copyright\n"
     str += "\t\t\\includegraphics[width=0.5cm]{\\logoGliderRight }\n"
     str += "\t}\n"
     str += "\t\\renewcommand{\\headrulewidth}{0.25pt}\n"

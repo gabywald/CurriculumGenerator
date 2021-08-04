@@ -120,7 +120,7 @@ Table BenevolentTasks	[]	{}
 	[BenevolentTasks]Association Humanitaire -- (logistique, ...)
 	[BenevolentTasks]Association Diverse -- (étudiant, travail...)
 	[BenevolentTasks]Association Culturelle -- (amicale d'un.e auteur.e, ...)
-	[BenevolentTasks]Association Ludique -- (échecs, bridge, ...)
+	[BenevolentTasks]Association Ludique -- (échecs, bridge, Jeu de Rôle, Jeux Vidéo, Grandeur-Nature...)
 
 Table Realisations	[]	{}
 	[Realisations]Projets GitHub -- (...)

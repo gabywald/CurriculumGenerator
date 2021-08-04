@@ -81,13 +81,11 @@ def preparingBiographicElements( res, personnae ) :
           corporationLink = corporationLink.replace("_", "\_")
           corporationLink = corporationLink.replace("&", "\&")
           corporationLink = corporationLink.replace("%", "\%")
+          corporationLink = corporationLink.replace("#", "\#")
           corporationName += "\href{" + corporationLink + "}{"
         corporationName += corporation[0]
         if (corporationLOGO != "NOLOGO"):
-          # corporationLOGO = corporationLOGO.replace("_", "\_")
-          # corporationLOGO = corporationLOGO.replace("&", "\&")
-          # corporationLOGO = corporationLOGO.replace("%", "\%")
-          corporationName += "~\includegraphics[height=0.25cm]{../../resources/biography/2021/logos/" + corporationLOGO + "}~~"
+          corporationName += "~\includegraphics[height=0.25cm]{../../resources/2021/logos/" + corporationLOGO + "}~~"
         if (corporationLink != "-- "):
           corporationName += "}"
         corporationType = corporation[1]
