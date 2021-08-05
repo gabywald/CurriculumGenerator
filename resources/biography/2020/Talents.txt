@@ -88,7 +88,7 @@ COBOL	1
 FORTRAN	1
 Rust	1
 SmallTalk	1
-Obkjective C	1
+Objective C	1
 Python	1
 Python3	1
 Perl	1

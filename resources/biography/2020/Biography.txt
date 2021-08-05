@@ -44,7 +44,7 @@ Table GrandGroupe	[]	{}
 	Logiciel Comptabilité	{métier:Développeur=+1;talent:*}
 
 Table International	[]	{}
-	Développment local	{talent:*}
+	Développement local	{talent:*}
 	Recrutement	{talent:*}
 	Recherche Et Développement	{talent:*;talent:*;talent:*}
 

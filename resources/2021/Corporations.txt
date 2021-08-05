@@ -21,8 +21,9 @@ WINTER FASHION	Vêtements de mode	-- 	-- 	NOLOGO	NOLOCATION
 GLASSPERFECT	Mercenariat	-- 	-- 	NOLOGO	NOLOCATION
 HONGSE	High Tech	-- 	-- 	NOLOGO	NOLOCATION
 Aperture Science	Rideaux de douche	--	https://www.linkedin.com/company/aperture-science-enrichment-center/about/	ApertureScienceInnovators.png	NOLOCATION
-Cyberdyne Systems Corporation	Intelligence Artificielle, Robotiqque	--	https://www.linkedin.com/company/cyberdyne-systems-corporation/	NOLOGO	NOLOCATION
-Weyland-Yatani Corporation	Pharmaceutique, Génétique, Colonisation	--	https://www.linkedin.com/company/weyland-yutani-corporation/	NOLOGO	NOLOCATION
+Cyberdyne Systems Corporation	Intelligence Artificielle, Robotiqque	--	https://www.linkedin.com/company/cyberdyne-systems-corporation/	192261268_4163395560408024_2949464129711293154_n.jpg	NOLOCATION
+Union Aerospace Coporation	Espace, Aéronautique	-- https://www.linkedin.com/company/union-aerospace-corp/	1532580424994.jpeg	Ontario
+Weyland-Yatani Corporation	Pharmaceutique, Génétique, Colonisation	--	https://www.linkedin.com/company/weyland-yutani-corporation/	194444517_465339924763562_3869695845625425780_n.jpg	NOLOCATION
 Sirius Cybernetics Corporation	Cybernétique, Robotique	--	https://www.linkedin.com/company/sirius-cybernetics-corporation/	NOLOGO	NOLOCATION
 STARK INDUSTRIES <<Changing the world for a better future>>	Électronique, Loisirs, Armement	https://www.linkedin.com/company/stark-industries-llc/	https://www.linkedin.com/company/be-stark-industries/	StarkIndustriesSmaller.jpeg	NOLOCATION
 WAYNE ENTERPRISES	Armement, Espace	--	https://www.linkedin.com/company/wayne-enterprises-ltd/	WaynesEnterprises.png	NOLOCATION
@@ -31,9 +32,9 @@ Arasaka	Sécurité, Banque, Industrie	https://cyberpunk.fandom.com/fr/wiki/Arasa
 BioMass Laboratories Group, GMbH	Réalité Virtuelle, Loisirs Virtuels	https://cyberpunk.fandom.com/wiki/BioMass_Laboratories_Group	-- 	Corpo_biomass_laboratories_group,_gmbh.png	Berlin
 Biotechnica	Ingénierie Génétique, Recherche Biochimique et Microbiologique	https://cyberpunk.fandom.com/fr/wiki/Biotechnica	-- 	Logo_Biotechnica.png	NOLOCATION
 Consolidated Agriculture	Production Agricole	https://cyberpunk.fandom.com/wiki/ConAg	-- 	ConAg.png	NOLOCATION
-Diverse Media Systems	Médias, commiunications	https://cyberpunk.fandom.com/fr/wiki/Diverse_Media_Systems	--	DMS.png	NOLOCATION
+Diverse Media Systems	Médias, communications	https://cyberpunk.fandom.com/fr/wiki/Diverse_Media_Systems	--	DMS.png	NOLOCATION
 Euro-Business Machines Corporation	Matériel Informatique, électronique	https://cyberpunk.fandom.com/fr/wiki/Euro_Business_Machines	-- 	NOLOGO	NOLOCATION
-Fujiwara	Banque	https://cyberpunk.fandom.com/wiki/Fujiwara	-- 	NOLOGO	NOLOCATION
+Fujiwara	Banque	https://cyberpunk.fandom.com/wiki/Fujiwara	-- 	NOLOGO	Tokyo
 Hilliard Corporation	Finance	http://www.cyberpunk.asia/corpo.php?lng=fr#c51	-- 	NOLOGO	NOLOCATION
 Imperial Metropolitan Agriculture, PLC	Agriculture	https://cyberpunk.fandom.com/wiki/Imperial_Metropolitan_Agriculture_Nomad	-- 	NOLOGO	NOLOCATION
 InfoComp	Think-Tank, analyse et revente d'information	https://cyberpunk.fandom.com/wiki/InfoComp	-- 	NOLOGO	NOLOCATION
@@ -67,5 +68,5 @@ Trauma Team International	Santé, Secours aux Personnes	https://cyberpunk.fandom
 Tsunami Design Bureau	Bureau et Systèmes de Défense	https://cyberpunk.fandom.com/wiki/Tsunami_Defense_Systems	-- 	NOLOGO	NOLOCATION
 Utopian Corporation	Pharmaceutique, Nanotechnologies	https://cyberpunk.fandom.com/wiki/Utopian_Corporation	-- 	Corpo_utopian_corporation.png	NOLOCATION
 World News Service	Média International	https://cyberpunk.fandom.com/wiki/World_News_Service	-- 	WNS_News_logo_2077.png	NOLOCATION
-WorldSat Communications Network	Communication Sattelite	https://cyberpunk.fandom.com/wiki/WorldSat_Communications_Network	-- 	Corp_Logo_WCN2013.png	NOLOCATION
+WorldSat Communications Network	Communication Satellite	https://cyberpunk.fandom.com/wiki/WorldSat_Communications_Network	-- 	Corp_Logo_WCN2013.png	NOLOCATION
 ZetaTech	Conception de matériels informatiques et de logiciels	https://cyberpunk.fandom.com/fr/wiki/Zetatech	-- 	Logo_Zetatech.png	Cupertino
