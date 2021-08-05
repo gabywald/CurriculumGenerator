@@ -1,0 +1,189 @@
+%% HEADER PART 1 of LaTeX Curriculum file
+\documentclass[11pt,a4paper]{moderncv}
+\usepackage[french]{babel}
+\moderncvtheme[red]{classic}
+%% \moderncvstyle{...}
+%% \moderncvcolor{...}
+
+
+%% some variable definitions
+\def\titreGeneralNewLine{Recrutement et exfiltrations}
+\def\titreGeneral{Chargée de ressources humaines}
+\def\titreSpecialite{Recrutement de profils spécifiques et atypiques}
+\def\prenom{ Anna }
+\def\nom{ Carlsen }
+\def\prenomNom{\prenom ~\nom }
+\def\portable{06~12~34~56~78}
+
+\def\adressePhysique{ 1337 Grand Boulevard -- 61337 Section 42 }
+
+\def\eMail{anna.carlsen@gmx.com}
+
+%% \def\pageWeb{anna.carlsen.personnalbranding.com} 
+
+%% NOQUOTE
+%% NOEXTRAINFO
+
+
+%% Fancy Style Defintion (and collateral elements)
+\usepackage{lastpage}
+
+\def\logoGliderNorma{../../resources/latexSamples/img/logo_glider.png}
+\def\logoGliderRight{../../resources/latexSamples/img/logo-glider-right.png}
+\def\logoGliderLeftt{../../resources/latexSamples/img/logo-glider-left.png}
+\def\logoCreativeCommon{../../resources/latexSamples/img/CreativeCommonLogo.jpeg}
+\def\includeLogoGN{\includegraphics[width=0.50cm]{\logoGliderNorma }}
+\def\includeLogoGR{\includegraphics[width=0.50cm]{\logoGliderRight }}
+\def\includeLogoGL{\includegraphics[width=0.50cm]{\logoGliderLeftt }}
+\def\includeLogoCC{\includegraphics[width=0.25cm]{\logoCreativeCommon }}
+
+\pagestyle{fancy}
+\def\makestylefancyContent{%
+	\fancyhf{}
+	\fancyhead[LE]{
+		\includegraphics[width=0.5cm]{\logoGliderLeftt }
+		\hfill
+		\prenomNom 
+		\hfill
+		\titreGeneral  -- \titreSpecialite
+	}
+	\fancyfoot[LE]{
+	\includegraphics[width=0.5cm]{\logoGliderLeftt } \hfill
+		\includeLogoCC \today -- \emph{Curriculum Generator (Python)} \hfill %% \copyright
+		\thepage /\pageref{LastPage}
+	}
+
+	\fancyhead[RO]{
+		\titreGeneral  -- \titreSpecialite
+		\hfill
+		\prenomNom 
+		\hfill
+		\includegraphics[width=0.5cm]{\logoGliderRight }
+	}
+	\fancyfoot[RO]{
+		\thepage /\pageref{LastPage} \hfill
+		\includeLogoCC \today -- \emph{\href{https://github.com/gabywald/CurriculumGenerator}{Curriculum Generator (Python)} par \href{https://www.linkedin.com/in/gabriel-chandesris/}{GabyWald} } \hfill %% \copyright
+		\includegraphics[width=0.5cm]{\logoGliderRight }
+	}
+	\renewcommand{\headrulewidth}{0.25pt}
+	\renewcommand{\footrulewidth}{0.5pt}
+}%
+\makestylefancyContent
+
+
+\def\motsClefs{LaTeX;PDF;Conduite de réunions, Recrutement, RH, Ressources Humaines}
+
+%% Some SetUp
+\AfterPreamble{\hypersetup{
+		pdfauthor={\prenomNom},
+		pdftitle={\titreGeneral ~-- \titreSpecialite },
+		pdfsubject={\titreGeneral ~-- \titreSpecialite },
+		pdfkeywords={\motsClefs },
+		pdfproducer={PDFLaTeX (creation)},
+		pdfcreator={Curriculum Generator}
+		%% urlcolor=blue,
+}}
+
+\usepackage{vmargin}
+\setmarginsrb{1.0cm}{0.2cm}{1.0cm}{0.50cm}{15pt}{10pt}{15pt}{45pt}
+%% \setlength{\hintscolumnwidth}{2.25cm}
+
+
+%% Defines Some attempted Values
+\firstname{\prenom }
+\familyname{\nom }
+\title{\titreGeneral }
+%% \title{\titreGeneral \newline \titreSpecialite}
+\address{\adressePhysique }
+\email{\eMail }
+%% \homepage{\pageWeb }
+\mobile{\portable }
+\ifdefined\quotationCitation
+\quote{ \quotationCitation }\fi
+\ifdefined\extrainfoDATA
+\extrainfo{ \extrainfoDATA }\fi
+%% \phone{00 00 00 00 00}
+%% \fax{00 00 00 00 00}
+%% \photo[64pt][0.4pt]{img/logo_glider.png}
+%% \phone[mobile]{\portable } %% \phone[mobile]{06~12~34~56~78}
+%% \phone[fixed]{01~01~01~01~01}
+%% \phone[fax]{01~01~01~01~01}
+%% \social[linkedin]{LinkedInProfile}    %% https://www.linkedin.com/in/.../
+%% \social[github]{GitHubProfile}        %% https://github.com/...
+%% \social[facebook]{FaceBookProfile}    %% https://www.facebook.com/...
+%% \social[twitter]{TwitterPage}         %% https://twitter.com/...
+
+
+\begin{document}
+
+\maketitle
+
+%% \section{Introduction}
+	 IntroductionText~\\ 
+
+\section{Comp{\'e}tences}
+	%% \cvdoubleitem{ Item1 }{ Description1 }{ Item2 }{ Description2 }
+
+	 \cvcomputer{ Relationnel }{ Contacts, Prise de contacts }{ Divers }{ Analyse Fonctionnelle, Conduite de Réunions }
+	 \cvitem{Langues}{ Anglais, Français, Thaïlandais... }
+
+\section{Exp{\'e}rience professionnelle}
+
+	 \cventry{Depuis 2020}{\href{https://cyberpunk.fandom.com/wiki/Peak\_\%26\_Derrera}{Peak and Derrera~\includegraphics[height=0.25cm]{../../resources/2021/logos/Peak_&_Derrera_Logo_2020.png}~~} (Courtage de matériaux précieux)}{Développement local}{Long-Term Contract / CDI}{International (Bali)}{
+Recrutement des courtiers région Europe
+}
+
+	 \cventry{2016-2020}{\href{--}{MiliTech~\includegraphics[height=0.25cm]{../../resources/2021/logos/Logo_Militech_(2045).png}~~} (Armement, Véhicule, Mercenariat)}{Gestion des Ressources Humaines (Mercenaires)}{Long-Term Contract / CDI}{Los Angeles}{
+Définition de la politique de recrutement de mercenaires
+}
+
+	 \cventry{2013-2016}{\href{https://www.linkedin.com/company/cyberdyne-systems-corporation/}{Cyberdyne Systems Corporation~\includegraphics[height=0.25cm]{../../resources/2021/logos/192261268_4163395560408024_2949464129711293154_n.jpg}~~} (Intelligence Artificielle, Robotiqque)}{Développement local}{Freelance en Distanciel}{International (Bali)}{
+Recrutement de chercheurs
+}
+
+	 \cventry{2012-2013}{\href{https://kylexy.fandom.com/wiki/Madacorp}{MadaCorp <<Art, Science, Technology>>} (Recherche Et Développement)}{Recrutement de chercheurs}{Stage}{Seattle}{
+Recrutement de chercheurs
+}
+
+	 %% \cventry{years}{degree/job title}{institution/employer}{localization}{grade}{description}
+
+	 %% \cventry{DATUM}{TITRE}{ENTREPRISE}{CONTRAT}%
+	 %% 	{\newline INTITULE++}{%
+	 %% \begin{itemize}
+	 %% 	\item[$\rightarrow$] ELEMENTUN
+	 %% 	\item[$\bullet$] ELEMENTDEUXETPLUS
+	 %% \end{itemize}}
+
+\section{Formation}
+
+	 \cventry{2018}{Doctorat}{WAKUWKU}{Réseau Social (Seattle)}{
+ % grade 
+}{
+ % description 
+}
+
+	 \cventry{2013}{Licence}{\href{https://www.linkedin.com/company/be-stark-industries/}{STARK INDUSTRIES <<Changing the world for a better future>>~\includegraphics[height=0.25cm]{../../resources/2021/logos/StarkIndustriesSmaller.jpeg}~~}}{Électronique, Loisirs, Armement (Paris)}{
+ % grade 
+}{
+ % description 
+}
+
+	 \cventry{2010}{Baccalauréat Général}{\href{https://cyberpunk.fandom.com/wiki/WorldSat\_Communications\_Network}{WorldSat Communications Network~\includegraphics[height=0.25cm]{../../resources/2021/logos/Corp_Logo_WCN2013.png}~~}}{Communication Satellite (Paris)}{
+ % grade 
+}{
+ % description 
+}
+
+	 %% \cventry{Year}{Diploma}{School}{Location}    {}{}{}
+
+\section{Exp{\'e}riences de b{\'e}n{\'e}volat}
+	 \cvitem{Association Ludique}{(échecs, bridge, Jeu de Rôle, Jeux Vidéo, Grandeur-Nature...)}
+	
+\section{R{\'e}alisations}
+	 \cvitem{Projets Personnels}{(développement informatique, gestion associative, ...)}
+	 \cvitem{Organisation}{(association étudiante, association caritative, ...)}
+	 
+\section{Centres d'int{\'e}r{\^e}ts}
+	 \cvitem{Musique}{(Classique, Rock, Metal, Électronique, Synthétique, ... )}
+\end{document}
+
