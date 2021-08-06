@@ -1,5 +1,5 @@
 ## naming WITHOUT the extensions [.tex] or [.bib]
-LATEXFILE=Doinel.Antoine
+LATEXFILE=Adelont.Antoine
 
 ## the local software...
 CCPDFLA=pdflatex
