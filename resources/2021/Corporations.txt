@@ -32,7 +32,7 @@ Arasaka	Sécurité, Banque, Industrie	https://cyberpunk.fandom.com/fr/wiki/Arasa
 BioMass Laboratories Group, GMbH	Réalité Virtuelle, Loisirs Virtuels	https://cyberpunk.fandom.com/wiki/BioMass_Laboratories_Group	-- 	Corpo_biomass_laboratories_group,_gmbh.png	Berlin
 Biotechnica	Ingénierie Génétique, Recherche Biochimique et Microbiologique	https://cyberpunk.fandom.com/fr/wiki/Biotechnica	-- 	Logo_Biotechnica.png	NOLOCATION
 Consolidated Agriculture	Production Agricole	https://cyberpunk.fandom.com/wiki/ConAg	-- 	ConAg.png	NOLOCATION
-Diverse Media Systems	Médias, communications	https://cyberpunk.fandom.com/fr/wiki/Diverse_Media_Systems	--	DMS.png	NOLOCATION
+Diverse Media Systems	Médias, communications	https://cyberpunk.fandom.com/fr/wiki/Diverse_Media_Systems	-- 	DMS.png	NOLOCATION
 Euro-Business Machines Corporation	Matériel Informatique, électronique	https://cyberpunk.fandom.com/fr/wiki/Euro_Business_Machines	-- 	NOLOGO	NOLOCATION
 Fujiwara	Banque	https://cyberpunk.fandom.com/wiki/Fujiwara	-- 	NOLOGO	Tokyo
 Hilliard Corporation	Finance	http://www.cyberpunk.asia/corpo.php?lng=fr#c51	-- 	NOLOGO	NOLOCATION
@@ -51,21 +51,21 @@ MiliTech	Armement, Véhicule, Mercenariat	https://cyberpunk.fandom.com/fr/wiki/M
 Mitsubishi/Koridansu	Design et Construction (BTP)	https://cyberpunk.fandom.com/wiki/Mitsubishi/Koridansu	-- 	2019-12-28_(3).png	NOLOCATION
 Network News 54	Médias et Diffusion TéléVisuelle	https://cyberpunk.fandom.com/wiki/Network_News_54	-- 	54_News_logo_2077.png	NOLOCATION
 No-Ahme Caldwell Genetic Engineering and Biochemicals	Chimie, BioChimie et Génétique	https://cyberpunk-2036.obsidianportal.com/wikis/no-ahme-caldwell	-- 	NOLOGO	NOLOCATION
-Ocean Technology and Energy Corporation (OTEC)	Technologies sous-marines	https://cyberpunk.fandom.com/wiki/OTEC 	-- 	OTEC_Firestorm.png	NOLOCATION
+Ocean Technology and Energy Corporation (OTEC)	Technologies sous-marines	https://cyberpunk.fandom.com/wiki/OTEC	-- 	OTEC_Firestorm.png	NOLOCATION
 Orbital Air	Jeux Vidéo	https://cyberpunk.fandom.com/fr/wiki/Orbital_Air	-- 	Logo_Orbital_Air_(2077).png	NOLOCATION
 Peak and Derrera	Courtage de matériaux précieux	https://cyberpunk.fandom.com/wiki/Peak_%26_Derrera	-- 	Peak_&_Derrera_Logo_2020.png	NOLOCATION
 PetroChem	Carburants	https://cyberpunk.fandom.com/fr/wiki/Petrochem	-- 	NOLOGO	NOLOCATION
 Raven MicroCybernetics	Cybernétique, électronique, optique	https://cyberpunk.fandom.com/fr/wiki/Raven_Microcybernetics	-- 	Logo_Raven_Microcybernetics.png	NOLOCATION
 RepliTech	Génétique, BioTechnologie	https://cyberpunk.fandom.com/wiki/Replitech	-- 	Corpo_replitech.png	NOLOCATION
 Revolution Genetics, Inc.	Génétique, BioTechnologie	https://cyberpunk.fandom.com/wiki/Revolution_Genetics_Incorporated	-- 	Corpo_revolution_genetics_incorporated.png	NOLOCATION
-SegAtari	Jeux Vidéo, Robotique, armement	https://cyberpunk.fandom.com/wiki/Segotari	-- 	NOLOGO	NOLOCATION
+SegAtari	Jeux Vidéo, Robotique, armement	https://cyberpunk.fandom.com/wiki/Segotari	-- 	Corpo_segatari.png	NOLOCATION
 Soviet World Oil Industries	Pétrochimie, Industrie Lourde, Énergie	https://cyberpunk.fandom.com/fr/wiki/Soviet_World_Oil_Industries	-- 	NOLOGO	NOLOCATION
 Storm Technologies Inc.	Ordinateurs, Cybernétique, Armement et Véhicules	https://cyberpunk.fandom.com/wiki/Storm_Technologies_Incorporated	-- 	Storm_Technologies_Incorporated_.png	NOLOCATION
 Sungan Industries	Armement et Véhicules	https://cyberpunk.fandom.com/wiki/Sungan_Industries	-- 	NOLOGO	NOLOCATION
 Tanson Group	Armement et Véhicules	https://cyberpunk.fandom.com/wiki/Tanson_Group	-- 	NOLOGO	NOLOCATION
 Tiger Medicines Corporation	Pharmaceutique	https://cyberpunk.fandom.com/fr/wiki/Tiger_Medicines_Corporation	-- 	NOLOGO	NOLOCATION
 Trauma Team International	Santé, Secours aux Personnes	https://cyberpunk.fandom.com/fr/wiki/Trauma_Team_International	-- 	Trauma_International_(2077).png	NOLOCATION
-Tsunami Design Bureau	Bureau et Systèmes de Défense	https://cyberpunk.fandom.com/wiki/Tsunami_Defense_Systems	-- 	NOLOGO	NOLOCATION
+Tsunami Defense Systems	Bureau et Systèmes de Défense	https://cyberpunk.fandom.com/wiki/Tsunami_Defense_Systems	-- 	Corp_logo_tsunami2077.png	NOLOCATION
 Utopian Corporation	Pharmaceutique, Nanotechnologies	https://cyberpunk.fandom.com/wiki/Utopian_Corporation	-- 	Corpo_utopian_corporation.png	NOLOCATION
 World News Service	Média International	https://cyberpunk.fandom.com/wiki/World_News_Service	-- 	WNS_News_logo_2077.png	NOLOCATION
 WorldSat Communications Network	Communication Satellite	https://cyberpunk.fandom.com/wiki/WorldSat_Communications_Network	-- 	Corp_Logo_WCN2013.png	NOLOCATION

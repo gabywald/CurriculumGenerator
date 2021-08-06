@@ -1,25 +1,25 @@
 %% HEADER PART 1 of LaTeX Curriculum file
 \documentclass[11pt,a4paper]{moderncv}
 \usepackage[french]{babel}
-\moderncvtheme[red]{classic}
+\moderncvtheme[orange]{oldstyle}
 %% \moderncvstyle{...}
 %% \moderncvcolor{...}
 
 
 %% some variable definitions
-\def\titreGeneralNewLine{Recrutement et exfiltrations}
-\def\titreGeneral{Chargée de ressources humaines}
-\def\titreSpecialite{Recrutement de profils spécifiques et atypiques}
-\def\prenom{ Anna }
-\def\nom{ Carlsen }
+\def\titreGeneralNewLine{Développeur Java J2EE}
+\def\titreGeneral{Développement Java J2EE}
+\def\titreSpecialite{Java J2EE}
+\def\prenom{ Antoine }
+\def\nom{ Doinel }
 \def\prenomNom{\prenom ~\nom }
 \def\portable{06~12~34~56~78}
 
 \def\adressePhysique{ 1337 Grand Boulevard -- 61337 Section 42 }
 
-\def\eMail{anna.carlsen@gmx.com}
+\def\eMail{antoine.doinel@gmx.com}
 
-\def\pageWeb{anna.carlsen.personnalbranding.com} 
+\def\pageWeb{antoine.doinel.personnalbranding.com} 
 
 %% NOQUOTE
 %% NOEXTRAINFO
@@ -71,7 +71,7 @@
 \makestylefancyContent
 
 
-\def\motsClefs{LaTeX;PDF;Conduite de réunions, Recrutement, RH, Ressources Humaines}
+\def\motsClefs{LaTeX;PDF;Python;Python3;Big Data;FinTech;Rédaction;Bases De Données;Conception;Rédaction;Conception;Divers;Apache Kafka, Apache Solr, SciKit Learn, Pandas;Blockchain, Traçabilité, Performances;Cahier des charges, Spécifications, Tickets;NoSQL, Base de données relationnelle, Indexation, Entrepôt de données, Data Lake;UML, MERISE, Analyse Fonctionnelle;Cahier des charges, Spécifications, Tickets;UML, MERISE, Analyse Fonctionnelle;WebScrapping, R, Rédaction de support de cours, Java 8, SQL, Visual Studio, Micronaut, Android, Développement logiciel, Java, Cahier des charges, Design Pattern, Python, SVN, Maintenance, Gestion d'équipe, Maven}
 
 %% Some SetUp
 \AfterPreamble{\hypersetup{
@@ -114,6 +114,9 @@
 %% \social[twitter]{TwitterPage}         %% https://twitter.com/...
 
 
+% Largeur de la colonne pour les dates
+\setlength{\hintscolumnwidth}{5.00cm} %% 2.50cm
+
 \begin{document}
 
 \maketitle
@@ -124,25 +127,36 @@
 \section{Comp{\'e}tences}
 	%% \cvdoubleitem{ Item1 }{ Description1 }{ Item2 }{ Description2 }
 
-	 \cvcomputer{ Relationnel }{ Contacts, Prise de contacts }{ Divers }{ Analyse Fonctionnelle, Conduite de Réunions }
-	 \cvitem{Langues}{ Anglais, Français, Thaïlandais... }
+	 \cvcomputer{ Big Data }{ Apache Kafka, Apache Solr, SciKit Learn, Pandas }{ Bases De Données }{ NoSQL, Base de données relationnelles, Indexation, Entrepôt de données, Data Lake }
+	 \cvcomputer{ Rédaction }{ Cahier des charges, Spécifications, Tickets }{ Conception }{ UML, MERISE, Analyse Fonctionnelle }
 
 \section{Exp{\'e}rience professionnelle}
-
-	 \cventry{Depuis 2020}{\href{https://cyberpunk.fandom.com/wiki/Peak\_\%26\_Derrera}{Peak and Derrera~\includegraphics[height=0.25cm]{../../resources/2021/logos/Peak_&_Derrera_Logo_2020.png}~~} (Courtage de matériaux précieux)}{Développement local}{Long-Term Contract / CDI}{International (Bali)}{
-Recrutement des courtiers région Europe
+	 \cventry{Depuis 2019}{WAKUWKU (Réseau Social)}{Recherche Et Développement}{CDI}{PME (Evry)}{
+ JobDescription 
 }
 
-	 \cventry{2016-2020}{\href{--}{MiliTech~\includegraphics[height=0.25cm]{../../resources/2021/logos/Logo_Militech_(2045).png}~~} (Armement, Véhicule, Mercenariat)}{Gestion des Ressources Humaines (Mercenaires)}{Long-Term Contract / CDI}{Los Angeles}{
-Définition de la politique de recrutement de mercenaires
+	 \cventry{2018}{\href{https://cyberpunk.fandom.com/fr/wiki/Zetatech}{ZetaTech~\includegraphics[height=0.25cm]{../../resources/2021/logos/Logo_Zetatech.png}~~} (Conception de matériels informatiques et de logiciels)}{Mission Assurance}{Freelance}{SSII/ESN (Cupertino)}{
+ JobDescription 
 }
 
-	 \cventry{2013-2016}{\href{https://www.linkedin.com/company/cyberdyne-systems-corporation/}{Cyberdyne Systems Corporation~\includegraphics[height=0.25cm]{../../resources/2021/logos/192261268_4163395560408024_2949464129711293154_n.jpg}~~} (Intelligence Artificielle, Robotiqque)}{Développement local}{Freelance en Distanciel}{International (Bali)}{
-Recrutement de chercheurs
+	 \cventry{2018}{WAKUWKU (Réseau Social)}{Développement logiciel interne}{Intérim}{PME (Evry)}{
+ JobDescription 
 }
 
-	 \cventry{2012-2013}{\href{https://kylexy.fandom.com/wiki/Madacorp}{MadaCorp <<Art, Science, Technology>>} (Recherche Et Développement)}{Recrutement de chercheurs}{Stage}{Seattle}{
-Recrutement de chercheurs
+	 \cventry{2017}{HONGSE (High Tech)}{Projet Marketing}{CDD}{StartUp (Paris)}{
+ JobDescription 
+}
+
+	 \cventry{2016}{STAVRO'S GUNS (Armement)}{Mission Assurance}{Freelance}{SSII/ESN (Paris)}{
+ JobDescription 
+}
+
+	 \cventry{2016}{WINTER FASHION (Vêtements de mode)}{Adaptation et configuration d'un logiciel aux besoins internes}{Mission}{PME (Evry)}{
+ JobDescription 
+}
+
+	 \cventry{2015}{\href{https://cyberpunk.fandom.com/wiki/Segotari}{SegAtari ~\includegraphics[height=0.25cm]{../../resources/2021/logos/Corpo_segatari.png}~~ } (Jeux Vidéo, Robotique, armement)}{Accueil Téléphonique}{Stage}{StartUp (Paris)}{
+ JobDescription 
 }
 
 	 %% \cventry{years}{degree/job title}{institution/employer}{localization}{grade}{description}
@@ -155,20 +169,7 @@ Recrutement de chercheurs
 	 %% \end{itemize}}
 
 \section{Formation}
-
-	 \cventry{2018}{Doctorat}{WAKUWKU}{Réseau Social (Seattle)}{
- % grade 
-}{
- % description 
-}
-
-	 \cventry{2013}{Licence}{\href{https://www.linkedin.com/company/be-stark-industries/}{STARK INDUSTRIES <<Changing the world for a better future>>~\includegraphics[height=0.25cm]{../../resources/2021/logos/StarkIndustriesSmaller.jpeg}~~}}{Électronique, Loisirs, Armement (Paris)}{
- % grade 
-}{
- % description 
-}
-
-	 \cventry{2010}{Baccalauréat Général}{\href{https://cyberpunk.fandom.com/wiki/WorldSat\_Communications\_Network}{WorldSat Communications Network~\includegraphics[height=0.25cm]{../../resources/2021/logos/Corp_Logo_WCN2013.png}~~}}{Communication Satellite (Paris)}{
+	 \cventry{2019}{Grande École (Ingénieur)}{WAKUWKU}{Réseau Social (Evry Val d'Essonne)}{
  % grade 
 }{
  % description 
@@ -177,13 +178,7 @@ Recrutement de chercheurs
 	 %% \cventry{Year}{Diploma}{School}{Location}    {}{}{}
 
 \section{Exp{\'e}riences de b{\'e}n{\'e}volat}
-	 \cvitem{Association Ludique}{(échecs, bridge, Jeu de Rôle, Jeux Vidéo, Grandeur-Nature...)}
-	
-\section{R{\'e}alisations}
-	 \cvitem{Projets Personnels}{(développement informatique, gestion associative, ...)}
-	 \cvitem{Organisation}{(association étudiante, association caritative, ...)}
+	 \cvitem{Association Ludique}{ \href{https://www.ligue-ludique.fr/}{Ligue Ludique} }
 	 
-\section{Centres d'int{\'e}r{\^e}ts}
-	 \cvitem{Musique}{(Classique, Rock, Metal, Électronique, Synthétique, ... )}
 \end{document}
 
