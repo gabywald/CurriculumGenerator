@@ -270,6 +270,7 @@ def interactiveCompletionOf( personnae, args ) :
     ## print ( personnae.jobeltsnb )
     ## print ( personnae.trainingeltsnb )
     ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## 
+    ## TODO use Faker here (if needed !)
     ## ## ## ## ## Random Generation Part 1
     ## Random Generation of First Name
     if (args.randomfirstname) :
