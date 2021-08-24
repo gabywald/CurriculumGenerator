@@ -51,7 +51,10 @@ Pour les noms d'entreprises et slogans, secteurs d'acivités :
 
 Génération de fausses identités complètes pour tests (et fausses entreprises associées). 
 
-https://fr.wikipedia.org/wiki/Cat%C3%A9gorie:Entreprise_de_fiction Liste d'entreprises de fiction
+  * https://fr.wikipedia.org/wiki/Catégorie:Entreprise_de_fiction Liste d'entreprises de fiction
+  * https://fr.wikipedia.org/wiki/Liste_de_marques_fictives Liste de marques fictives
+  
+https://blogbuster.fr/social/linkedin-faux-profil.htm 
 
 Idées d'entreprises fictives utilisables, déjà référencées (par exemple sur LinkedIn) : 
   - Aperture Science Enrichment Center : https://www.linkedin.com/company/aperture-science-enrichment-center/about/
