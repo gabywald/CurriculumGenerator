@@ -1,27 +1,25 @@
 %% HEADER PART 1 of LaTeX Curriculum file
 \documentclass[11pt,a4paper]{moderncv}
 \usepackage[french]{babel}
-\moderncvtheme[red]{classic}
+\moderncvtheme[purple]{banking}
 %% \moderncvstyle{...}
 %% \moderncvcolor{...}
 
 
 %% some variable definitions
-\def\titreGeneralNewLine{Recrutement et exfiltrations}
-\def\titreGeneral{Chargée de ressources humaines}
-\def\titreSpecialite{Recrutement de profils spécifiques et atypiques}
-\def\prenom{ Anna }
-\def\nom{ Carlsen }
+\def\titreGeneralNewLine{Ingénieur Développement Python}
+\def\titreGeneral{DEV Python}
+\def\titreSpecialite{Python}
+\def\prenom{ Anne }
+\def\nom{ Legendre }
 \def\prenomNom{\prenom ~\nom }
 \def\portable{06~12~34~56~78}
 
-\def\adressePhysique{ Levallois-Perret }
+\def\adressePhysique{ 91000 Evry }
 
-\def\eMail{anna.carlsen@gmx.com}
+\def\eMail{anne.legendre@gmx.com}
 
-\def\pageWeb{anna.carlsen.personnalbranding.com} 
-
-\photo[100pt][0.4pt]{avatar-Anna-Carlsen.png} 
+\def\pageWeb{anne.legendre.personnalbranding.com} 
 
 %% NOQUOTE
 %% NOEXTRAINFO
@@ -73,7 +71,7 @@
 \makestylefancyContent
 
 
-\def\motsClefs{LaTeX;PDF;Conduite de réunions, Recrutement, RH, Ressources Humaines}
+\def\motsClefs{LaTeX;PDF;Python;Python3;FinTech;Tests Unitaires;Bases De Données;Conception;Rédaction;CyberSécurité;Tests Unitaires;Apache;Formation;Bases De Données;Conception;Rédaction;Divers;Blockchain, Traçabilité, Performances;Selenium, JUnit;NoSQL, Base de données relationnelles, Indexation, Entrepôt de données, Data Lake;UML, MERISE, Analyse Fonctionnelle;Cahier des charges, Spécifications, Tickets;PenTesting, Reverse Ingeeniering;Selenium, JUnit;Serveur Web Apache, Apacke Kafka;Rédaction de support de cours, Pédagogie, LudoPédagogie;NoSQL, Base de données relationnelles, Indexation, Entrepôt de données, Data Lake;UML, MERISE, Analyse Fonctionnelle;Cahier des charges, Spécifications, Tickets;iOS, Cycle en V, Linux, Git, Pandas, SQL, eBean, Répartition de tâches, Maintenance, C, Cahier des charges, Kanban, Visual Studio, R, Planification, Développement logiciel, Java EE, Agile, XML, Software Craftmanship}
 
 %% Some SetUp
 \AfterPreamble{\hypersetup{
@@ -120,31 +118,24 @@
 
 \maketitle
 
-%% \section{Introduction}
-
 \section{Comp{\'e}tences}
 	%% \cvdoubleitem{ Item1 }{ Description1 }{ Item2 }{ Description2 }
 
-	 \cvcomputer{ Relationnel }{ Contacts, Prise de contacts }{ Divers }{ Analyse Fonctionnelle, Conduite de Réunions }
-	 \cvitem{Langues}{ Anglais, Français, Allemand }
+	 \cvcomputer{ FinTech }{ Blockchain, Traçabilité, Performances }{ Rédaction }{ Cahier des charges, Spécifications, Tickets }
+	 \cvcomputer{ CyberSécurité }{ PenTesting, Reverse Ingeeniering }{ Formation }{ Rédaction de support de cours, Pédagogie }
+	 \cvcomputer{ Tests Unitaires }{ Selenium, JUnit }{ Apache }{ Serveur Web Apache, Apacke Kafka }
 
 \section{Exp{\'e}rience professionnelle}
 
-	 \cventry{Depuis 2020}{\href{https://cyberpunk.fandom.com/wiki/Peak\_\%26\_Derrera}{Peak and Derrera~\includegraphics[height=0.25cm]{../../resources/2021/logos/Peak_&_Derrera_Logo_2020.png}~~} (Courtage de matériaux précieux)}{Développement local}{Long-Term Contract / CDI}{International (Bali)}{
-Recrutement des courtiers région Europe
-}
+	 \cventry{Depuis 2016}{Replitech (Génétique, Biotechnologies)}{Analyse De Données}{Mission}{PME (Grigny)}{ --- }
 
-	 \cventry{2016-2020}{\href{--}{MiliTech~\includegraphics[height=0.25cm]{../../resources/2021/logos/Logo_Militech_(2045).png}~~} (Armement, Véhicule, Mercenariat)}{Gestion des Ressources Humaines (Mercenaires)}{Long-Term Contract / CDI}{Los Angeles}{
-Définition de la politique de recrutement de mercenaires
-}
+	 \cventry{2015}{GLASSPERFECT (Mercenariat)}{Développement d'outils appliqués}{CDD}{Mission à l'internartional)}{ --- }
 
-	 \cventry{2013-2016}{\href{https://www.linkedin.com/company/cyberdyne-systems-corporation/}{Cyberdyne Systems Corporation~\includegraphics[height=0.25cm]{../../resources/2021/logos/192261268_4163395560408024_2949464129711293154_n.jpg}~~} (Intelligence Artificielle, Robotique)}{Développement local}{Freelance en Distanciel}{International (Bali)}{
-Recrutement de chercheurs
-}
+	 \cventry{2014}{\href{https://cyberpunk.fandom.com/wiki/Revolution\_Genetics\_Incorporated}{Revolution Genetics, Inc.~\includegraphics[height=0.25cm]{../../resources/2021/logos/Corpo_revolution_genetics_incorporated.png}~~} (Génétique, BioTechnologie)}{Adaptation et configuration d'un logiciel aux besoins internes}{CDI}{PME (La Défense)}{ --- }
 
-	 \cventry{2012-2013}{\href{https://kylexy.fandom.com/wiki/Madacorp}{MadaCorp <<Art, Science, Technology>>} (Recherche Et Développement)}{Recrutement de chercheurs}{Stage}{Seattle}{
-Recrutement de chercheurs
-}
+	 \cventry{2010-2014}{\href{https://cyberpunk.fandom.com/wiki/Tanson\_Group}{Tanson Group} (Armement et Véhicules)}{Maintenance logiciel interne}{Freelance}{Nante}{ --- }
+
+	 \cventry{2009}{\href{https://cyberpunk-2036.obsidianportal.com/wikis/no-ahme-caldwell}{No-Ahme Caldwell Genetic Engineering and Biochemicals} (Chimie, BioChimie et Génétique)}{Logiciel RH}{Freelance}{Rennes}{ --- }
 
 	 %% \cventry{years}{degree/job title}{institution/employer}{localization}{grade}{description}
 
@@ -156,22 +147,39 @@ Recrutement de chercheurs
 	 %% \end{itemize}}
 
 \section{Formation}
+	 \cventry{2014}{Doctorat}{\href{https://cyberpunk.fandom.com/wiki/Tanson\_Group}{Tanson Group}}{Armement et Véhicules (Evry)}{
+ % grade 
+}{
+ % description 
+}
 
-	 \cventry{2018}{Doctorat}{\href{https://www.linkedin.com/company/arasaka-corporation/mycompany/}{Arasaka Corporation~\includegraphics[height=0.25cm]{../../resources/2021/logos/arasakaRED.png}}~~}{Paris}
-	 	{  }{ Recherche appliquée sur le recrutement avec mise en condition et situation de terrain. }
+	 \cventry{2009}{Master Recherche}{\href{https://cyberpunk.fandom.com/fr/wiki/Raven\_Microcybernetics}{Raven MicroCybernetics~\includegraphics[height=0.25cm]{../../resources/2021/logos/Logo_Raven_Microcybernetics.png}~~}}{Cybernétique, électronique, optique (Evry)}{
+ % grade 
+}{
+ % description 
+}
+	 \cventry{2006}{CPGE (Classe Préparatoire aux Grandes Écoles)}{\href{https://cyberpunk.fandom.com/fr/wiki/Zetatech}{ZetaTech~\includegraphics[height=0.25cm]{../../resources/2021/logos/Logo_Zetatech.png}~~}}{Matériels informatiques et de logiciels (Strassbourg)}{
+ % grade 
+}{
+ % description 
+}
 
-	 \cventry{2013}{Licence}{\href{https://www.linkedin.com/company/be-stark-industries/}{STARK INDUSTRIES <<Changing the world for a better future>>~\includegraphics[height=0.25cm]{../../resources/2021/logos/StarkIndustriesSmaller.jpeg}~~}}{Électronique, Loisirs, Armement (Paris)}
-	 	{  }{  }
-
-	 \cventry{2010}{Baccalauréat Général}{\href{https://cyberpunk.fandom.com/wiki/WorldSat\_Communications\_Network}{WorldSat Communications Network~\includegraphics[height=0.25cm]{../../resources/2021/logos/Corp_Logo_WCN2013.png}~~}}{Communication Satellite (Paris)}
-	 	{  }{  }
+	 \cventry{2003}{Baccalauréat Technique}{\href{https://cyberpunk.fandom.com/wiki/Merrill,\_Asukaga,\_\%26\_Finch}{Merrill, Asukaga, and Finch~\includegraphics[height=0.25cm]{../../resources/2021/logos/CP2077_A&F_Logo.png}~~}}{Finances et Investissements (Berlin)}{
+ % grade 
+}{
+ % description 
+}
 
 	 %% \cventry{Year}{Diploma}{School}{Location}    {}{}{}
 
+\section{Licences et Certifications}
+	 \cvitem{Langage de progammation}{Python, Java, Perl}
+
 \section{Exp{\'e}riences de b{\'e}n{\'e}volat}
-	 \cvitem{Association}{Jeux de société (\href{https://www.ligue-ludique.fr/}{Ligue Ludique}). }
-	
+	 \cvitem{Association Ludique}{Fédération Européenne eSport (Evry)}
+	 
 \section{Centres d'int{\'e}r{\^e}ts}
-	 \cvitem{Arts Corporels}{Danse classique et contemporaine. }
+	 \cvitem{Théatre}{Classique et Moderne}
+
 \end{document}
 
