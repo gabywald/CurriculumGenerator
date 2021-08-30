@@ -27,3 +27,6 @@ print( "" )
 print( fake2.credit_card_full( 'visa16' ) )
 ## print( fake2.credit_card_full( 'mastercard' ) )
 print( "*****" )
+
+for i in range(1, 100):
+  print( fake2.credit_card_full( 'visa16' ) )

@@ -1,5 +1,5 @@
 
-SUBDIRS=Anna-Carlsen_RH Angela-Bennett_DevJavaJ2EE Antoine-Adelont_DevJunior Anne-Legendre_DevPython Emmanuel-Colin_DevPython
+SUBDIRS=Alexandra-Faure_JavaPythonPerl Anna-Carlsen_RH Angela-Bennett_DevJavaJ2EE Antoine-Adelont_DevJunior Anne-Legendre_DevPython Emmanuel-Colin_DevPython
 
 all : $(SUBDIRS)
 	for d in $(SUBDIRS);	\
