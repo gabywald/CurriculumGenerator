@@ -51,7 +51,10 @@ Pour les noms d'entreprises et slogans, secteurs d'acivités :
 
 Génération de fausses identités complètes pour tests (et fausses entreprises associées). 
 
-https://fr.wikipedia.org/wiki/Cat%C3%A9gorie:Entreprise_de_fiction Liste d'entreprises de fiction
+  * https://fr.wikipedia.org/wiki/Catégorie:Entreprise_de_fiction Liste d'entreprises de fiction
+  * https://fr.wikipedia.org/wiki/Liste_de_marques_fictives Liste de marques fictives
+  
+https://blogbuster.fr/social/linkedin-faux-profil.htm 
 
 Idées d'entreprises fictives utilisables, déjà référencées (par exemple sur LinkedIn) : 
   - Aperture Science Enrichment Center : https://www.linkedin.com/company/aperture-science-enrichment-center/about/
@@ -62,7 +65,6 @@ Idées d'entreprises fictives utilisables, déjà référencées (par exemple su
   - Umbrella Corporation : https://www.linkedin.com/company/umbrella-corporation-uk/
   - Weyland-Yatani Corporation : https://www.linkedin.com/company/weyland-yutani-corporation/
   - Sirius Cybernetics Corporation : https://www.linkedin.com/company/sirius-cybernetics-corporation/
-  - Cyberdyne Systems Corporation : https://www.linkedin.com/company/cyberdyne-systems-corporation/
   - ... 
   
 Entreprises de fiction : https://www.forbes.com/sites/michaelnoer/2011/03/11/the-25-largest-fictional-companies/?sh=3f15b6925d81

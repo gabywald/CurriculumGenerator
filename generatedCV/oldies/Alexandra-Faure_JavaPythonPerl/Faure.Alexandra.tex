@@ -1,0 +1,184 @@
+%% HEADER PART 1 of LaTeX Curriculum file
+\documentclass[11pt,a4paper]{moderncv}
+\usepackage[french]{babel}
+\moderncvtheme[purple]{classic}
+%% \moderncvstyle{...}
+%% \moderncvcolor{...}
+
+
+%% some variable definitions
+\def\titreGeneralNewLine{Ingénieur Développement Python Java Perl}
+\def\titreGeneral{Développement Python et Java}
+\def\titreSpecialite{Java et Python}
+\def\prenom{ Alexandra }
+\def\nom{ Faure }
+\def\prenomNom{\prenom ~\nom }
+\def\portable{06~12~34~56~78}
+
+\def\adressePhysique{ 75016 Paris }
+
+\def\eMail{alexandra.faure@gmx.com}
+
+\def\pageWeb{alexandra.faure.personnalbranding.com} 
+
+\photo[100pt][0.4pt]{avatar-Alexandra-Faure.png} 
+
+%% NOQUOTE
+%% NOEXTRAINFO
+
+
+%% Fancy Style Defintion (and collateral elements)
+\usepackage{lastpage}
+
+\def\logoGliderNorma{../../resources/latexSamples/img/logo_glider.png}
+\def\logoGliderRight{../../resources/latexSamples/img/logo-glider-right.png}
+\def\logoGliderLeftt{../../resources/latexSamples/img/logo-glider-left.png}
+\def\logoCreativeCommon{../../resources/latexSamples/img/CreativeCommonLogo.jpeg}
+\def\includeLogoGN{\includegraphics[width=0.50cm]{\logoGliderNorma }}
+\def\includeLogoGR{\includegraphics[width=0.50cm]{\logoGliderRight }}
+\def\includeLogoGL{\includegraphics[width=0.50cm]{\logoGliderLeftt }}
+\def\includeLogoCC{\includegraphics[width=0.25cm]{\logoCreativeCommon }}
+
+\pagestyle{fancy}
+\def\makestylefancyContent{%
+	\fancyhf{}
+	\fancyhead[LE]{
+		\includegraphics[width=0.5cm]{\logoGliderLeftt }
+		\hfill
+		\prenomNom 
+		\hfill
+		\titreGeneral  -- \titreSpecialite
+	}
+	\fancyfoot[LE]{
+	\includegraphics[width=0.5cm]{\logoGliderLeftt } \hfill
+		\includeLogoCC \today -- \emph{Curriculum Generator (Python)} \hfill %% \copyright
+		\thepage /\pageref{LastPage}
+	}
+
+	\fancyhead[RO]{
+		\titreGeneral  -- \titreSpecialite
+		\hfill
+		\prenomNom 
+		\hfill
+		\includegraphics[width=0.5cm]{\logoGliderRight }
+	}
+	\fancyfoot[RO]{
+		\thepage /\pageref{LastPage} \hfill
+		\includeLogoCC \today -- \emph{\href{https://github.com/gabywald/CurriculumGenerator}{Curriculum Generator (Python)} par \href{https://www.linkedin.com/in/gabriel-chandesris/}{GabyWald} } \hfill %% \copyright
+		\includegraphics[width=0.5cm]{\logoGliderRight }
+	}
+	\renewcommand{\headrulewidth}{0.25pt}
+	\renewcommand{\footrulewidth}{0.5pt}
+}%
+\makestylefancyContent
+
+
+\def\motsClefs{LaTeX;PDF;Python;Python3;Bases De Données;Conception;Rédaction;Conception;Management;Scripting;Travail d'équipe;Conception;Management;Scripting;Travail d'équipe;Méthodes Agiles;Divers;NoSQL, Base de données relationnelles, Indexation, Entrepôt de données, Data Lake;UML, MERISE, Analyse Fonctionnelle;Cahier des charges, Spécifications, Tickets;UML, MERISE, Analyse Fonctionnelle;LeaderShip, Gestion d'équipe, Répartition de tâches, Gestion de Projet, Reporting;Python, Python3, Perl, Bash, Shell;Rigueur et Méthode, Conduite de Réunion, Esprit d'analyse;UML, MERISE, Analyse Fonctionnelle;LeaderShip, Gestion d'équipe, Répartition de tâches, Gestion de Projet, Reporting;Python, Python3, Perl, Bash, Shell;Rigueur et Méthode, Conduite de Réunion, Esprit d'analyse;Scrum, Kanban;Développement logiciel, Maven, Mockito, FORTRAN, SQL, Machine Learning, Architecture, Conduite de réunions, NoSQL, Linux, GitHub, Software Craftmanship, Javadoc, SciKit Learn, Scrum, Micronaut, Maintenance, Perl, Mac OS X, Pythondoc, Eclipse}
+
+%% Some SetUp
+\AfterPreamble{\hypersetup{
+		pdfauthor={\prenomNom},
+		pdftitle={\titreGeneral ~-- \titreSpecialite },
+		pdfsubject={\titreGeneral ~-- \titreSpecialite },
+		pdfkeywords={\motsClefs },
+		pdfproducer={PDFLaTeX (creation)},
+		pdfcreator={Curriculum Generator by Gaby Wald https://github.com/gabywald/CurriculumGenerator}
+		%% urlcolor=blue,
+}}
+
+\usepackage{vmargin}
+\setmarginsrb{1.0cm}{0.2cm}{1.0cm}{0.50cm}{15pt}{10pt}{15pt}{45pt}
+%% \setlength{\hintscolumnwidth}{2.25cm}
+
+
+%% Defines Some attempted Values
+\firstname{\prenom }
+\familyname{\nom }
+\title{\titreGeneral }
+%% \title{\titreGeneral \newline \titreSpecialite}
+\address{\adressePhysique }
+\email{\eMail }
+%% \homepage{\pageWeb }
+%% \mobile{\portable }
+\ifdefined\quotationCitation
+\quote{ \quotationCitation }\fi
+\ifdefined\extrainfoDATA
+\extrainfo{ \extrainfoDATA }\fi
+%% \phone{00 00 00 00 00}
+%% \fax{00 00 00 00 00}
+%% \photo[64pt][0.4pt]{img/logo_glider.png}
+%% \phone[mobile]{\portable } %% \phone[mobile]{06~12~34~56~78}
+%% \phone[fixed]{01~01~01~01~01}
+%% \phone[fax]{01~01~01~01~01}
+%% \social[linkedin]{LinkedInProfile}    %% https://www.linkedin.com/in/.../
+%% \social[github]{GitHubProfile}        %% https://github.com/...
+%% \social[facebook]{FaceBookProfile}    %% https://www.facebook.com/...
+%% \social[twitter]{TwitterPage}         %% https://twitter.com/...
+
+
+\begin{document}
+
+\maketitle
+
+\section{Comp{\'e}tences}
+	%% \cvdoubleitem{ Item1 }{ Description1 }{ Item2 }{ Description2 }
+
+	 \cvcomputer{ Bases De Données }{ NoSQL, Base de données relationnelles, Indexation, Entrepôt de données, Data Lake }{ Rédaction }{ Cahier des charges, Spécifications, Tickets }
+	 \cvcomputer{ Scripting }{ Python, Python3, Perl, Bash, Shell }{ Conception }{ UML, MERISE, Analyse Fonctionnelle }
+	 \cvcomputer{ Travail d'équipe }{ Rigueur et Méthode, Conduite de Réunion, Esprit d'analyse }{ Méthodes Agiles }{ Scrum, Kanban, Cycle en V }
+	 \cvcomputer{ Divers }{ Développement logiciel, Maven, Mockito, SQL, NoSQL, Linux, GitHub, Software Craftmanship }{ JAVA }{ Java 8-11, JEE, J2EE, Spring, Hibernate }
+
+\section{Exp{\'e}rience professionnelle}
+	 \cventry{Depuis 2019}{\href{https://www.linkedin.com/company/arasaka-corporation/}{Arasaka Corporation~\includegraphics[height=0.25cm]{../../resources/2021/logos/arasakaRED.png}} (Sécurité, Banque, Industrie)}
+	 	{Recherche et développement internes}{CDI}{Paris - La Défense}{ --- }
+	 	
+	 \cventry{2015--2018}{\href{https://cyberpunk.fandom.com/fr/wiki/Euro\_Business\_Machines}{Euro-Business Machines Corporation} (Matériel Informatique, électronique)}
+	 	{Recherche et développement internes}{CDI}{Paris - La Défense}{ --- }
+
+	 \cventry{2010--2015}{\href{https://cyberpunk.fandom.com/fr/wiki/International\_Electric\_Corporation}{International Electric Corporation} (Électronique et électroménager)}
+	 	{Projet BlockChain (Smart Contract)}{CDI}{Paris -- La Défense}{ --- }
+
+	 \cventry{2009--2010}{\href{https://cyberpunk.fandom.com/fr/wiki/Trauma\_Team\_International}{Trauma Team International~\includegraphics[height=0.25cm]{../../resources/2021/logos/Trauma_International_(2077).png}~~} (Santé, Secours aux Personnes)}
+	 	{Volontariat International}{Intérim}{Secteur EMEA, Triangle Paris-Berlin-Londres}{ --- }
+
+	 \cventry{2009}{ASCLEPIA <<Heal The World>> (Pharmaceutique)}{Développement local}{Intérim}{Paris)}{ --- }
+
+	 \cventry{2008}{\href{https://cyberpunk.fandom.com/fr/wiki/Raven\_Microcybernetics}{Raven MicroCybernetics~\includegraphics[height=0.25cm]{../../resources/2021/logos/Logo_Raven_Microcybernetics.png}~~} (Cybernétique, électronique, optique)}
+	 	{Logiciel RH}{Intérim}{GrandGroupe (New York)}{ --- }
+
+	 %% \cventry{years}{degree/job title}{institution/employer}{localization}{grade}{description}
+
+	 %% \cventry{DATUM}{TITRE}{ENTREPRISE}{CONTRAT}%
+	 %% 	{\newline INTITULE++}{%
+	 %% \begin{itemize}
+	 %% 	\item[$\rightarrow$] ELEMENTUN
+	 %% 	\item[$\bullet$] ELEMENTDEUXETPLUS
+	 %% \end{itemize}}
+
+\section{Formation}
+
+	 \cventry{2007--2009}{Doctorat}{\href{https://kylexy.fandom.com/wiki/Madacorp}{MadaCorp <<Art, Science, Technology>>}}{Recherche Et Développement (Seattle)}{
+ % grade 
+}{
+ % description 
+}
+
+	 \cventry{2006}{Master Recherche}{\href{http://www.cyberpunk.asia/corpo.php?lng=fr\#c51}{Hilliard Corporation}}{Finance (Los Angeles))}{
+ % grade 
+}{
+ % description 
+}
+
+	 \cventry{2006}{Master Professionnel}{\href{https://cyberpunk.fandom.com/wiki/OTEC}{Ocean Technology and Energy Corporation (OTEC)~\includegraphics[height=0.25cm]{../../resources/2021/logos/OTEC_Firestorm.png}~~}}{Technologies sous-marines (Los Angeles)}{
+ % grade 
+}{
+ % description 
+}
+
+	 %% \cventry{Year}{Diploma}{School}{Location}    {}{}{}
+
+\section{Centres d'int{\'e}r{\^e}ts}
+	 \cvitem{Musique}{Électronique et Synthétique}
+	 
+\end{document}
+

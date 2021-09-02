@@ -161,7 +161,7 @@ def getHyperSetup() :
     str += "\t\tpdfsubject={\\titreGeneral ~-- \\titreSpecialite },\n"
     str += "\t\tpdfkeywords={\\motsClefs },\n"
     str += "\t\tpdfproducer={PDFLaTeX (creation)},\n"
-    str += "\t\tpdfcreator={Curriculum Generator}\n"
+    str += "\t\tpdfcreator={Curriculum Generator by Gaby Wald https://github.com/gabywald/CurriculumGenerator}\n"
     str += "\t\t%% urlcolor=blue,\n"
     str += "}}\n\n"
     str += "\\usepackage{vmargin}\n"

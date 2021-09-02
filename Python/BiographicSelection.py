@@ -66,13 +66,36 @@ def preparingBiographicElements( res, personnae ) :
         corporation  = CVData.getRandomCorporationName()
         contractType = CVData.getRandomContractType()
         location     = random.choice( locations.contents )
+        print("lencorporation: " , len(corporation), "###\t", corporation)
+        corporationLink = "-- "
+        corporationLOGO = "NOLOGO"
+        if (len(corporation) == 6):
+          if (corporation[5] != "NOLOCATION"): 
+            location = corporation[5]
+          corporationLOGO = corporation[4]
+          corporationLink = corporation[2]
+          if (corporation[3] != "-- ") : 
+            corporationLink = corporation[3]
+        corporationName = ""
+        if (corporationLink != "-- "):
+          corporationLink = corporationLink.replace("_", "\_")
+          corporationLink = corporationLink.replace("&", "\&")
+          corporationLink = corporationLink.replace("%", "\%")
+          corporationLink = corporationLink.replace("#", "\#")
+          corporationName += "\href{" + corporationLink + "}{"
+        corporationName += corporation[0]
+        if (corporationLOGO != "NOLOGO"):
+          corporationName += "~\includegraphics[height=0.25cm]{../../resources/2021/logos/" + corporationLOGO + "}~~"
+        if (corporationLink != "-- "):
+          corporationName += "}"
+        corporationType = corporation[1]
         ## Training or Job
         trainingTAG = "[Formation]"
         if (jobOrTrains.startswith( trainingTAG ) ) : 
             selected     = jobOrTrains[len(trainingTAG):]
-            personnae.trainings.append( [corporation[0], selected, corporation[1] + " (" + location + ")", location, contractType] )
+            personnae.trainings.append( [corporationName, selected, corporationType + " (" + location + ")", location, contractType] )
         else : 
-            personnae.jobs.append( [jobOrTrains, moreselect + " (" + location + ")", corporation[1], corporation[0], contractType] )
+            personnae.jobs.append( [jobOrTrains, moreselect + " (" + location + ")", corporationType, corporationName, contractType] )
         for item in elt.addins : 
             if (item.startswith( "talent:" ) ) : 
                 if (item == "talent:*"):

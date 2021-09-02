@@ -1,0 +1,167 @@
+%% HEADER PART 1 of LaTeX Curriculum file
+\documentclass[11pt,a4paper]{moderncv}
+\usepackage[french]{babel}
+\moderncvtheme[purple]{oldstyle}
+%% \moderncvstyle{...}
+%% \moderncvcolor{...}
+
+
+%% some variable definitions
+\def\titreGeneralNewLine{Ingénieur Développement Python}
+\def\titreGeneral{Développement Python}
+\def\titreSpecialite{Python}
+\def\prenom{ Emmanuel }
+\def\nom{ Colin }
+\def\prenomNom{\prenom ~\nom }
+\def\portable{06~12~34~56~78}
+
+\def\adressePhysique{ 91000 Evry }
+
+\def\eMail{manu.colin@gmx.com} %% emmanuel.colin@gmx.com
+
+\def\pageWeb{emmanuel.colin.personnalbranding.com} 
+
+\photo[50pt][0.4pt]{avatar-Emmanuel-Colin.png} 
+
+%% NOQUOTE
+%% NOEXTRAINFO
+
+
+%% Fancy Style Defintion (and collateral elements)
+\usepackage{lastpage}
+
+\def\logoGliderNorma{../../resources/latexSamples/img/logo_glider.png}
+\def\logoGliderRight{../../resources/latexSamples/img/logo-glider-right.png}
+\def\logoGliderLeftt{../../resources/latexSamples/img/logo-glider-left.png}
+\def\logoCreativeCommon{../../resources/latexSamples/img/CreativeCommonLogo.jpeg}
+\def\includeLogoGN{\includegraphics[width=0.50cm]{\logoGliderNorma }}
+\def\includeLogoGR{\includegraphics[width=0.50cm]{\logoGliderRight }}
+\def\includeLogoGL{\includegraphics[width=0.50cm]{\logoGliderLeftt }}
+\def\includeLogoCC{\includegraphics[width=0.25cm]{\logoCreativeCommon }}
+
+\pagestyle{fancy}
+\def\makestylefancyContent{%
+	\fancyhf{}
+	\fancyhead[LE]{
+		\includegraphics[width=0.5cm]{\logoGliderLeftt }
+		\hfill
+		\prenomNom 
+		\hfill
+		\titreGeneral  -- \titreSpecialite
+	}
+	\fancyfoot[LE]{
+	\includegraphics[width=0.5cm]{\logoGliderLeftt } \hfill
+		\includeLogoCC \today -- \emph{Curriculum Generator (Python)} \hfill %% \copyright
+		\thepage /\pageref{LastPage}
+	}
+
+	\fancyhead[RO]{
+		\titreGeneral  -- \titreSpecialite
+		\hfill
+		\prenomNom 
+		\hfill
+		\includegraphics[width=0.5cm]{\logoGliderRight }
+	}
+	\fancyfoot[RO]{
+		\thepage /\pageref{LastPage} \hfill
+		\includeLogoCC \today -- \emph{\href{https://github.com/gabywald/CurriculumGenerator}{Curriculum Generator (Python)} par \href{https://www.linkedin.com/in/gabriel-chandesris/}{GabyWald} } \hfill %% \copyright
+		\includegraphics[width=0.5cm]{\logoGliderRight }
+	}
+	\renewcommand{\headrulewidth}{0.25pt}
+	\renewcommand{\footrulewidth}{0.5pt}
+}%
+\makestylefancyContent
+
+\def\motsClefs{LaTeX;PDF;Python;Python3;Scripting;Conception;Bases De Données;Conception;Divers;Python, Python3, Perl, Bash, Shell;UML, MERISE, Analyse Fonctionnelle;NoSQL, Base de données relationnelles, Indexation, Entrepôt de données, Data Lake;UML, MERISE, Analyse Fonctionnelle;HTML 5, Développement logiciel, Contacts, Java, C, Perl, Rust, MatLab, Conduite de Réunion, UML, Traçabilité, Reverse Ingeeniering, JavaScript, C / C++, C++, Design Pattern, Pédagogie, Spring, Javadoc, Pythondoc, R, Python, SVN (Subversion), Planification, ksh}
+
+%% Some SetUp
+\AfterPreamble{\hypersetup{
+		pdfauthor={\prenomNom},
+		pdftitle={\titreGeneral ~-- \titreSpecialite },
+		pdfsubject={\titreGeneral ~-- \titreSpecialite },
+		pdfkeywords={\motsClefs },
+		pdfproducer={PDFLaTeX (creation)},
+		pdfcreator={Curriculum Generator by Gaby Wald https://github.com/gabywald/CurriculumGenerator}
+		%% urlcolor=blue,
+}}
+
+\usepackage{vmargin}
+\setmarginsrb{1.0cm}{0.2cm}{1.0cm}{0.50cm}{15pt}{10pt}{15pt}{45pt}
+%% \setlength{\hintscolumnwidth}{2.25cm}
+
+
+%% Defines Some attempted Values
+\firstname{\prenom }
+\familyname{\nom }
+\title{\titreGeneral }
+%% \title{\titreGeneral \newline \titreSpecialite}
+\address{\adressePhysique }
+\email{\eMail }
+%% \homepage{\pageWeb }
+%% \mobile{\portable }
+\ifdefined\quotationCitation
+\quote{ \quotationCitation }\fi
+\ifdefined\extrainfoDATA
+\extrainfo{ \extrainfoDATA }\fi
+%% \phone{00 00 00 00 00}
+%% \fax{00 00 00 00 00}
+%% \photo[64pt][0.4pt]{img/logo_glider.png}
+%% \phone[mobile]{\portable } %% \phone[mobile]{06~12~34~56~78}
+%% \phone[fixed]{01~01~01~01~01}
+%% \phone[fax]{01~01~01~01~01}
+%% \social[linkedin]{LinkedInProfile}    %% https://www.linkedin.com/in/.../
+%% \social[github]{GitHubProfile}        %% https://github.com/...
+%% \social[facebook]{FaceBookProfile}    %% https://www.facebook.com/...
+%% \social[twitter]{TwitterPage}         %% https://twitter.com/...
+
+
+\begin{document}
+
+\maketitle
+
+\section{Exp{\'e}rience professionnelle}
+	 \cventry{Depuis 2019}{\href{https://www.linkedin.com/company/cyberdyne-systems-corporation/}{Cyberdyne Systems Corporation~\includegraphics[height=0.25cm]{../../resources/2021/logos/192261268_4163395560408024_2949464129711293154_n.jpg}~~} (Intelligence Artificielle, Robotique)}{Adaptation et configuration d'un logiciel aux besoins internes}{CDI}{PME (La Défense)}{ --- }
+
+	 \cventry{2017 à 2019}{\href{https://cyberpunk.fandom.com/fr/wiki/Militech}{MiliTech~\includegraphics[height=0.25cm]{../../resources/2021/logos/Logo_Militech_(2045).png}~~} (Armement, Véhicule, Mercenariat)}{Maintenance logiciel interne}{CDI}{PME (Mexico)}{ --- }
+
+	 \cventry{2016}{SAIBEONMJA <<The Feature's Feature>> (Logiciels)}{Projet Marketing}{CDI}{StartUp (Mexico)}{ --- }
+
+	 \cventry{2015}{\href{https://cyberpunk.fandom.com/fr/wiki/Biotechnica}{Biotechnica~\includegraphics[height=0.25cm]{../../resources/2021/logos/Logo_Biotechnica.png}~~} (Ingénierie Génétique, Recherche Biochimique et Microbiologique)}{Projet BlockChain (Smart Contract...)}{Intérim}{StartUp (Los Angeles)}{ --- }
+
+	 \cventry{2014}{\href{https://cyberpunk.fandom.com/wiki/Sungan\_Industries}{Sungan Industries} (Armement et Véhicules)}{Logiciel RH}{Mission}{PME (Los Angeles)}{ --- }
+
+	 \cventry{2010 à 2013}{\href{https://www.linkedin.com/company/aperture-science-enrichment-center/about/}{Aperture Science~\includegraphics[height=0.25cm]{../../resources/2021/logos/ApertureScienceInnovators.png}~~} (Rideaux de douche)}{Projet FinTech}{CDD}{StartUp (Los Angeles)}{ --- }
+
+	 \cventry{2009}{\href{https://cyberpunk.fandom.com/wiki/Peak\_\%26\_Derrera}{Peak and Derrera~\includegraphics[height=0.25cm]{../../resources/2021/logos/Peak_&_Derrera_Logo_2020.png}~~} (Courtage de matériaux précieux)}{Logiciel Comptabilité}{Mission}{GrandGroupe (Los Angeles)}{ --- }
+
+	 \cventry{2008}{\href{https://kylexy.fandom.com/wiki/Madacorp}{MadaCorp <<Art, Science, Technology>>} (Recherche Et Développement)}{Analyse De Données}{Intérim}{PME (Paris)}{ --- }
+
+	 \cventry{2005 à 2007}{\href{https://www.linkedin.com/company/umbrella-corporation-uk/}{UMBRELLA CORPORATION} (Pharmaceutique, Génétique, Biotechnologies)}{Mission TMA -- Tierce Maintenance Applicative}{CDI}{SSII/ESN (Paris)}{ --- }
+
+	 \cventry{2003 à 2005}{\href{https://cyberpunk.fandom.com/fr/wiki/Raven\_Microcybernetics}{Raven MicroCybernetics~\includegraphics[height=0.25cm]{../../resources/2021/logos/Logo_Raven_Microcybernetics.png}~~} (Cybernétique, électronique, optique)}{Projet FinTech}{CDI}{StartUp (Paris)}{ --- }
+
+	 %% \cventry{years}{degree/job title}{institution/employer}{localization}{grade}{description}
+
+	 %% \cventry{DATUM}{TITRE}{ENTREPRISE}{CONTRAT}%
+	 %% 	{\newline INTITULE++}{%
+	 %% \begin{itemize}
+	 %% 	\item[$\rightarrow$] ELEMENTUN
+	 %% 	\item[$\bullet$] ELEMENTDEUXETPLUS
+	 %% \end{itemize}}
+
+\section{Formation}
+	 \cventry{2003}{Master Professionnel}{\href{https://www.linkedin.com/company/arasaka-corporation/}{Arasaka Corporation~\includegraphics[height=0.25cm]{../../resources/2021/logos/arasakaRED.png}~~}}{Sécurité, Banque, Industrie (La Défense)}{
+ % grade 
+}{
+ % description 
+}
+
+	 %% \cventry{Year}{Diploma}{School}{Location}    {}{}{}
+
+\section{Exp{\'e}riences de b{\'e}n{\'e}volat et Centres d'int{\'e}r{\^e}ts }
+	 \cvitem{Association Humanitaire}{Groupe ONG Raven : opérations en zones sinistrées, soutien logistique et militaire. }
+	 
+	 \cvitem{Jeux Sociaux}{Association de WarGame Inter-Coporations (Raven, Arasaka, Militech). }
+	 
+\end{document}
+

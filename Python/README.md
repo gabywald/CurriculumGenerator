@@ -135,6 +135,12 @@ NOTE 2 : Couleur de CV parmi les suivantes {blue,orange,green,red,purple,grey,bl
 * 'jobs' : base::thématique::domaine d'activité::nom entreprise::type de contrat
 * 'trainings' : Type de Formation::Thématique::Localisation
 
+
+Titre colonne 1 | Titre colonne 1 | Titre colonne 1 
+ --- | --- | --- 
+Celule 1.1 | Celule 1.2 | Celule 1.3 
+Celule 2.1 | Celule 2.2 | Celule 2.3
+
 ### Script principal 'generateParameterFile.py'
 
 Un argument optionnel pour ce script : le nombre de profils à générer. 
@@ -164,28 +170,54 @@ Le fichier 'exportPersonnae.txt' est modifiable, ainsi que les fichiers '.tex', 
 ## "En l'état" (octobre -> décembre 2020)
 
 L'objectif premier étant (de mon côté, initiateur du projet) de réviser le Python et surtout Python 3 pour les éléments suivants : 
- * lecture de fichiers
- * écriture de fichier
- * passage de paramètres
- * utilisation de listes
- * utilisation de dictionnaire
- * utiliser la génération aléatoire (random)
- * Programmation Orientée Objet
- * ...
+  * lecture de fichiers
+  * écriture de fichier
+  * passage de paramètres
+  * utilisation de listes
+  * utilisation de dictionnaire
+  * utiliser la génération aléatoire (random)
+  * Programmation Orientée Objet
+  * ...
  
 La première partie étant faite (révisions Python 3, donc) ; ce qui reste à faire est d'affiner la génération des CV, plus sur le contenu : 
-* dates des étapes professionnelles ; 
-* gestion fine des formations (autodidactes acceptés !) ; 
-* gestion des centres d'intérêts ; 
+  * dates des étapes professionnelles ; 
+  * gestion fine des formations (autodidactes acceptés !) ; 
+  * gestion des centres d'intérêts ; 
 
 Plusieurs scripts pour aider à générer les CV, ainsi que plusieurs scripts d'entrée pour faciliter l'usage. 
 
 __Si d'autres développeurs veulent participer au projet, n'hésitez pas à vous signaler !__
 
 Revue en décembre 2020 : 
- * Renommage des scripts ( => "generate*") ; 
- * Ajout documentation (dans ce fichier README.md) ; 
- * ...
+  * Renommage des scripts ( => "generate*") ; 
+  * Ajout documentation (dans ce fichier README.md) ; 
+  * ...
+
+## Continuation (Août 2021)
+
+L'idée de base ici est d'utiliser quelques "Easter Eggs" repérés sur LinkedIn : des entreprises fictives de la 'Pop-Culture' qui ont une page 'officielle' sur le réseau social professionnel : univers de jeux (de rôle / vidéo) CyberPunk 2020 / 2007 / RED, Univers de Comics DC et Marvel... Sur cette idée de base vient se greffer l'idée de faire du test de recruteurs qui recherchent des profils particuliers sur la base de CV avec certaines compétences en fortes demandes. 
+
+Quelques contraintes : 
+  * pas de numéro de téléphone (ou substituable avec un certain type d'abonnement ?) ; 
+  * adresses e-mail jetables ou alias, ayant tout de même un style professionnel (type "prenom.nom@service.extension") ; 
+  * écoles de fiction (Université de Miskatonic, École de Magie / Sorcellerie tels "Hogwarts School of Witchcraft and Wizardry", Poudlard ou Beaux Bâtons...), cf. https://fr.wikipedia.org/wiki/Cat%C3%A9gorie:Université_de_fiction (Paris 14, Starfleet, ...) et https://en.wikipedia.org/wiki/Category:Fictional_universities_and_colleges () ; 
+  * Complétion d'éléments : Certification, BenevolentTasks, Realisations, CentresDInteret, ... ) ; 
+
+```
+./generateCurriculum.py -m -nqc -nei -s classic -c green -gt "General Title" -ti Title -sp Speciality -em default -rse -rje -rte -fn first -ln last -bio -je 0 -te 3 -se 5
+```
+
+Génération de différents à partir d'un fichier. 
+
+Types de profils voulus : 
+  * RH junior
+  * développeur junior, formation ingénieur
+  * développeur junior, formation académique
+  * développeur junior, autodidacte (ou école 42 ou reconversion)
+  * développeur médian
+  * développeur spécifique sur compétences "à la mode" (FullStack, DevOps, Java J2ee, JavaScript, "patate de baby-foot"...)
+
+Revue des CV générés (pour finaliser le contenu et la mise en page) et Uuilisation de https://www.avatar-gratuit.com/ pour quelques images de profil utilisables. 
 
 ## Exemples de lancement
 
@@ -228,7 +260,7 @@ Une liste des arguments est obtenue avec "./generateCurriculum.py --help".
 	- 5 expériences professionnelles ('-je 5')
 	- 3 formations ('-te 3')
 	- 10 compétences ('-se 10')
-	- acceptation automatique de la sélectyion aléatoire ('-ya')
+	- acceptation automatique de la sélection aléatoire ('-ya')
 	- Pas d'information complémentaire ('-nei')
 
 * ./generateCurriculum.py -rfn -rln -em default -nqc -je 4 -te 3 -se 10 -ya -ei "42 ans"
@@ -316,11 +348,11 @@ Intégration faite dans le générateur général (racine Python) avec argument 
 **NOTE** : dans le cas de l'utilisation cet argument, les nombres de 'jobs' et 'trainings' sont additionnés pour une génération globale du profil. Quand cet argument est passé via un fichier (valeur 'BIO'), c'est le nombre de 'skills' qui est pris en compte !
 
 Reste à développer, plus facile avec cette façon de faire (biographique), complétion des parties suivantes : 
- * Certification
- * BenevolentTasks
- * Realisations
- * CentresDInteret
- * ... 
+  * Certification
+  * BenevolentTasks
+  * Realisations
+  * CentresDInteret
+  * ... 
 
 Le contenu est présent (et toujours remplaçable et / ou peut être complété). 
 

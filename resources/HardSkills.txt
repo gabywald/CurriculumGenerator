@@ -2,8 +2,8 @@ Java	Java Swing, Java EE, Spring, Hibernate, eBean, Micronaut
 Scripting	Python, Python3, Perl, Bash, Shell
 Web	PHP, HTML, HTML 5, CSS, JavaScript, ECMAScript
 XML	XML, XHTML, XSLT
-Langages de progtrammation	Java, C / C++, COBOL, FORTRAN, Rust, SmallTalk, Obkjective C, Python, Python3, Perl, Bash, Shell
-Bases de données	NoSQL, Base de données relationnelle, indexation, Entrepôt de données, Data Lake
+Langages de progtrammation	Java, C / C++, COBOL, FORTRAN, Rust, SmallTalk, Objective C, Python, Python3, Perl, Bash, Shell
+Bases de données	NoSQL, Base de données relationnelles, indexation, Entrepôt de données, Data Lake
 Shell	Bash, ksh, PowerShell
 Systèmes d'exploitation	Windows, Unix, Linux, Mac OS X, Android, iOS
 Apache	Serveur Web Apache
