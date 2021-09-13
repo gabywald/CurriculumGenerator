@@ -36,7 +36,7 @@ Sur le sujet des SSII / ESN en informatique, un peu de lecture (et débat sur l'
 
 ## Notes
 
-### Tests LinkedIn Août 2021
+### Tests LinkedIn Août 2021 "Tests01"
 
 Quelques exemples de CV générés et retravaillés, puis mis sur LinkedIn courant Août 2021, en deux lots (les trois premiers vers le 10 aoû 2021, puis les trois suivants le 27 août 2021). Sans téléphone, uniquement courriels alias, essentiels des échanges via la messagerie LinkedIn. 
 
@@ -61,6 +61,9 @@ NOTES :
   * Reprise ultérieure des CV créés (changements de noms, email...) ? ; 
     * ... 
     * ... 
-    
+
+### Tests LinkedIn / ... "Tests02"
+
+
 
 
