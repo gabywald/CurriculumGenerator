@@ -29,7 +29,7 @@ Le contenu de ces fichiers est à adapter en fonction de l'usage, ils permettent
 
 ## Sources pour certains contenus
 
-Pour les noms d'entreprises et slogans, secteurs d'acivités : 
+Pour les noms d'entreprises et slogans, secteurs d'activités : 
 * Nanochrome, NanoChrome² et Nanodex (Par John Grümph)
 * CyberPunk 2020, CyberPunk Red (Mike Pondsmith et al.) à compléter avec données de la liste présente ici : https://cyberpunk.fandom.com/wiki/Category:Cyberpunk_2020_Corporations
 * GURPS CyberPunk, Séries TV *DarkAngel* et *Kyle XY*
@@ -54,8 +54,6 @@ Génération de fausses identités complètes pour tests (et fausses entreprises
   * https://fr.wikipedia.org/wiki/Catégorie:Entreprise_de_fiction Liste d'entreprises de fiction
   * https://fr.wikipedia.org/wiki/Liste_de_marques_fictives Liste de marques fictives
   
-https://blogbuster.fr/social/linkedin-faux-profil.htm 
-
 Idées d'entreprises fictives utilisables, déjà référencées (par exemple sur LinkedIn) : 
   - Aperture Science Enrichment Center : https://www.linkedin.com/company/aperture-science-enrichment-center/about/
   - Arasaka Corporation : https://www.linkedin.com/company/arasaka-corporation/mycompany/
@@ -71,25 +69,44 @@ Entreprises de fiction : https://www.forbes.com/sites/michaelnoer/2011/03/11/the
 12 famous fictional branding from television and film : https://en.99designs.ch/blog/creative-inspiration/famous-fictional-branding-from-television-and-film/
 Science fiction: How not to build a future society : https://www.bbc.com/future/article/20141127-nine-future-societies-to-avoid
 
+### Photos, Avatars... 
+
+L'intérêt ici est de recenser de quoi avoir une photo ou un avatar graphique pour portrait dans le CV (donc, suffisemment professionnel). 
+
+  * https://thispersondoesnotexist.com/
+  * https://www.avatar-gratuit.com/
+  * https://avatarmaker.com/
+  * https://face.co/
+  * http://www.hexatar.com/
+  * ... 
+
+Voir également du côté des générateurs génériques utilisant un GAN (Generative Adversarial Network) : https://thisxdoesnotexist.com/
+  * https://github.com/NVlabs/stylegan2
+  * https://github.com/lucidrains/stylegan2-pytorch
+  * https://github.com/lucidrains/lightweight-gan
+  
+
 ### Sites de recrutement 
 
-* www.pole-emploi.fr
-* www.apec.fr
-* fr.linkedin.com
-* www.talent.io
-* www.fiftytalents.com
-* www.cadremploi.fr
-* www.monster.fr
+  * www.pole-emploi.fr
+  * www.apec.fr
+  * fr.linkedin.com
+  * www.talent.io
+  * www.fiftytalents.com
+  * www.cadremploi.fr
+  * www.monster.fr
+
+Questionnement sur les faux comptes (notamment sur LinkedIn), utilisés par des escrocs : https://blogbuster.fr/social/linkedin-faux-profil.htm (déjà constaté personnellement : faux recruteurs, collecte de données personnelles, usurpation d'ientité...) dont ce n'est pas l'objectif ici !
 
 ### Lettres de motivation
 
-* https://www.journaldunet.fr/management/guide-du-management/1200753-lettre-de-motivation-exemple-modele-gratuit-a-telecharger-et-comment-la-faire/
-* www.himp.com ??
-* ...
+  * https://www.journaldunet.fr/management/guide-du-management/1200753-lettre-de-motivation-exemple-modele-gratuit-a-telecharger-et-comment-la-faire/
+  * www.himp.com ??
+  * ...
 
-### Un peu de "Web Scrapping" / "Web Scrapping"
+### Notions de "Web Scrapping" / "Web Scraping"
 
- * https://zenscrape.com/web-scraping-with-python/
- * https://devopscube.com/python-web-scrapping/
- * https://oxylabs.io/blog/python-web-scraping
+  * https://zenscrape.com/web-scraping-with-python/
+  * https://devopscube.com/python-web-scrapping/
+  * https://oxylabs.io/blog/python-web-scraping
 
