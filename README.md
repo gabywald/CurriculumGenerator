@@ -47,23 +47,25 @@ Pour les noms d'entreprises et slogans, secteurs d'activités :
   * https://pypi.org/project/Faker/ Faker is a Python package that generates fake data for you. Whether you need to bootstrap your database, create good-looking XML documents, fill-in your persistence to stress test it, or anonymize data taken from a production service, Faker is for you.
   * https://dzone.com/articles/generating-arbitrary-data-using-mockneat Generating and Mocking Data With MockNeat (equivalent of MockNeat in Python ?? => Faker)
 
-### Idées complémentaires : fausses entreprises
+### Idées complémentaires : fausses entreprises / entreprises de fiction
 
 Génération de fausses identités complètes pour tests (et fausses entreprises associées). 
 
   * https://fr.wikipedia.org/wiki/Catégorie:Entreprise_de_fiction Liste d'entreprises de fiction
   * https://fr.wikipedia.org/wiki/Liste_de_marques_fictives Liste de marques fictives
   
-Idées d'entreprises fictives utilisables, déjà référencées (par exemple sur LinkedIn) : 
-  - Aperture Science Enrichment Center : https://www.linkedin.com/company/aperture-science-enrichment-center/about/
-  - Arasaka Corporation : https://www.linkedin.com/company/arasaka-corporation/mycompany/
-  - Cyberdyne Systems Corporation : https://www.linkedin.com/company/cyberdyne-systems-corporation/
-  - Waynes Enterprises : https://www.linkedin.com/company/wayne-enterprises-ltd/
-  - Stark Industries : https://www.linkedin.com/company/stark-industries-llc/ ; https://www.linkedin.com/company/be-stark-industries/ ; ... 
-  - Umbrella Corporation : https://www.linkedin.com/company/umbrella-corporation-uk/
-  - Weyland-Yatani Corporation : https://www.linkedin.com/company/weyland-yutani-corporation/
-  - Sirius Cybernetics Corporation : https://www.linkedin.com/company/sirius-cybernetics-corporation/
-  - ... 
+### Idées d'entreprises fictives utilisables
+
+Entrteprises fictives référencées sur LinkedIn (pop-culture, CyberPunk 20XX et autres films, jeux vidéos...) : 
+  * [Aperture Science Enrichment Center](https://www.linkedin.com/company/aperture-science-enrichment-center/) -- CyberPunk 20XX
+  * [Arasaka Corporation](https://www.linkedin.com/company/arasaka-corporation/) -- CyberPunk 20XX
+  * [Cyberdyne Systems Corporation](https://www.linkedin.com/company/cyberdyne-systems-corporation/) -- Terminator
+  * [Waynes Enterprises](https://www.linkedin.com/company/wayne-enterprises-ltd/) -- Batman / DC Comics
+  * [Stark Industries](https://www.linkedin.com/company/stark-industries-llc/ ; https://www.linkedin.com/company/be-stark-industries/) -- Iron Man / Marvel
+  * [Umbrella Corporation](https://www.linkedin.com/company/umbrella-corporation-uk/) -- Resident Evil (films et jeux vidéos)
+  * [Weyland-Yatani Corporation](https://www.linkedin.com/company/weyland-yutani-corporation/) -- Alien (toute la série de films)
+  * [Sirius Cybernetics Corporation](https://www.linkedin.com/company/sirius-cybernetics-corporation/) -- The Hitchhiker's Guide to the Galaxy / Le Guide du Routard Galactique
+  * ... 
   
 Entreprises de fiction : https://www.forbes.com/sites/michaelnoer/2011/03/11/the-25-largest-fictional-companies/?sh=3f15b6925d81
 12 famous fictional branding from television and film : https://en.99designs.ch/blog/creative-inspiration/famous-fictional-branding-from-television-and-film/
@@ -110,3 +112,10 @@ Questionnement sur les faux comptes (notamment sur LinkedIn), utilisés par des 
   * https://devopscube.com/python-web-scrapping/
   * https://oxylabs.io/blog/python-web-scraping
 
+### Profils humoristiques et trolls vus sur LinkedIn
+
+  * [Bertrand Chanderlin sur LinkedIn](https://www.linkedin.com/in/bertrand%2Dchanderlin%2D2022/)
+  * [Bertrand Chanderlin sur Twitter](https://twitter.com/B_chanderlin)
+  * [Clement Berut](https://www.linkedin.com/in/cl%C3%A9ment-%F0%9F%A6%85-berut-%E2%9D%97-4207111b/)
+  * ... 
+  * ... 
