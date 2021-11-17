@@ -8,12 +8,12 @@ L'objectif ici étant principalement de réviser le Python, et plus spécifiquem
 
 ## Outils, technologies et autres éléments utilisés
 
-Ici, certains éléments sont précisés en détail, même si ils semble,net insignifiant à un développeur expérimenté ; de façon à ce qu'un débutant puisse s'y retrouver tout de même sans aucun à priori. 
+Ici, certains éléments sont précisés en détail, même si ils semblent insignifiant à un développeur expérimenté ; de façon à ce qu'un débutant puisse s'y retrouver tout de même sans aucun à priori. 
 
 * Python 3.8.5
 * __script principal__ : 'generateCurriculum.py'
 * Autre script d'entrée : 'generateFromParameterFile.py' (appelle le précédent à partir d'un fichier)
-* Autre script d'entrée : 'mainFileGenertor.py' (génère fichier pour le précédent)
+* Autre script d'entrée : 'mainFileGenerator.py' (génère fichier pour le précédent)
 * Eclipse / PyCharm
 * Shell Bash
 * UTF-8 (les sources pythons et les fichiers de configuration)
@@ -112,34 +112,36 @@ Les informations non fournies par les arguments sont demandés de façon 'intera
 
 ### Script principal 'generateFromParameterFile.py'
 
-Ce script attend un argument : le chemin d'aaccès au fichier d'entrée. 
+Ce script attend un argument : le chemin d'accès au fichier d'entrée. 
 
 Voir le fichier exemple :  _argumentParameterFileExample.txt_ . 
 
-Le format attendu est le suivant, chaque contenu de colonne est séparé par une tabulation ('\t') : 
+Le format attendu est le suivant, chaque contenu de colonne est séparé par une tabulation ('\t'), en une seule ligne par personne : 
 
+<table>
+	<!-- <tr><th></th></tr> -->
+	<tr>
+		<td>CVstyle</td>			<td>CVcolor</td>	<td>FirstName</td>	<td>LastName</td>		<td>Age</td>
+  		<td>PhysicalAddress</td>	<td>Pseudo</td>		<td>WebSite</td>	<td>email</td>			<td>quote</td>
+  		<td>skills</td>				<td>jobs</td>		<td>trainings</td>	<td>GeneralTitle</td>	<td>Title</td>	
+  		<td>Speciality</td>			
+	</tr>
+		<tr>
+		<td>NOTE 1</td>				<td>NOTE 2</td>		<td></td>			<td></td>				<td></td>
+  		<td></td>					<td></td>			<td></td>			<td></td>				<td></td>
+  		<td></td>					<td></td>			<td></td>			<td></td>				<td></td>
+  		<td></td>			
+	</tr>
+</table>
 
-----------------------------
-CVstyle|CVcolor|FirstName|LastName|Age|PhysicalAddress|Pseudo|WebSite|email|quote|skills|jobs|trainings|General Title|Title|Speciality
-:---|:---|:---|:---|:---|:---|:---|:---|:---|:---|:---|:---|:---|:---|:---|:---|:---
-Note 1 |Note 2 |	|	|	|	|	|	|	|	|	|	|	|	|	|	|	       
+NOTE 1 : Style de CV parmi les suivants {classic;casual;oldstyle;banking}
 
-----------------------------
-
-NOTE 1 : Style de CV parmi les suivants {classic,casual,oldstyle,banking}
-
-NOTE 2 : Couleur de CV parmi les suivantes {blue,orange,green,red,purple,grey,black}
+NOTE 2 : Couleur de CV parmi les suivantes {blue;orange;green;red;purple;grey;black}
 
 **Formats particuliers : skills, jobs, trainings** : si plusieurs fois pour un même élément, séparer par des ';' (point-virgules)
 * 'skills' : groupe de compétences::compétences associées
 * 'jobs' : base::thématique::domaine d'activité::nom entreprise::type de contrat
 * 'trainings' : Type de Formation::Thématique::Localisation
-
-
-Titre colonne 1 | Titre colonne 1 | Titre colonne 1 
- --- | --- | --- 
-Celule 1.1 | Celule 1.2 | Celule 1.3 
-Celule 2.1 | Celule 2.2 | Celule 2.3
 
 ### Script principal 'generateParameterFile.py'
 
@@ -200,7 +202,7 @@ L'idée de base ici est d'utiliser quelques "Easter Eggs" repérés sur LinkedIn
 Quelques contraintes : 
   * pas de numéro de téléphone (ou substituable avec un certain type d'abonnement ?) ; 
   * adresses e-mail jetables ou alias, ayant tout de même un style professionnel (type "prenom.nom@service.extension") ; 
-  * écoles de fiction (Université de Miskatonic, École de Magie / Sorcellerie tels "Hogwarts School of Witchcraft and Wizardry", Poudlard ou Beaux Bâtons...), cf. https://fr.wikipedia.org/wiki/Cat%C3%A9gorie:Université_de_fiction (Paris 14, Starfleet, ...) et https://en.wikipedia.org/wiki/Category:Fictional_universities_and_colleges () ; 
+  * écoles de fiction (Université de Miskatonic, École de Magie / Sorcellerie tels "Hogwarts School of Witchcraft and Wizardry", Poudlard ou Beaux Bâtons...), cf. https://fr.wikipedia.org/wiki/Catégorie:Université_de_fiction (Paris 14, Starfleet, ...) et https://en.wikipedia.org/wiki/Category:Fictional_universities_and_colleges () ; 
   * Complétion d'éléments : Certification, BenevolentTasks, Realisations, CentresDInteret, ... ) ; 
 
 ```
