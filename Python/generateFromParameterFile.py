@@ -62,24 +62,24 @@ for line in fileContent :
         lsttrainings = []
         isbiographic = False
         ## Parsing ListS {Skillms;Jobs;Trainings} !
-        if (is_integer( lineSplitter[10] ) ) : 
-            nbskills = int( lineSplitter[10] )
+        if (is_integer( lineSplitter[14] ) ) : 
+            nbskills = int( lineSplitter[14] )
         else : 
-            lstskills = lineSplitter[10].split( ";" )
+            lstskills = lineSplitter[14].split( ";" )
             ## print( lstskills )
-        if (is_integer( lineSplitter[11] ) ) : 
-            nbjobs = int( lineSplitter[11] )
+        if (is_integer( lineSplitter[15] ) ) : 
+            nbjobs = int( lineSplitter[15] )
         elif (lineSplitter[11] == "BIO" ) : 
             isbiographic = True
         else : 
-            lstjobs = lineSplitter[11].split( ";" )
+            lstjobs = lineSplitter[15].split( ";" )
             ## print( lstjobs )
-        if (is_integer( lineSplitter[12] ) ) : 
-            nbtrainings = int( lineSplitter[12] )
+        if (is_integer( lineSplitter[16] ) ) : 
+            nbtrainings = int( lineSplitter[16] )
         elif (lineSplitter[12] == "BIO" ) : 
             isbiographic = True
         else : 
-            lsttrainings = lineSplitter[12].split( ";" )
+            lsttrainings = lineSplitter[16].split( ";" )
             ## print( lsttrainings )
         ## Instanciate Person !
         personnae = Person( 
@@ -91,10 +91,10 @@ for line in fileContent :
             webpage = lineSplitter[7], 
             email = lineSplitter[8], 
             quote = lineSplitter[9], 
-            generaltitle = lineSplitter[13], 
-            title = lineSplitter[14], 
-            speciality = lineSplitter[15], 
-            cellphone = lineSplitter[16], 
+            generaltitle = lineSplitter[10], 
+            title = lineSplitter[11], 
+            speciality = lineSplitter[12], 
+            cellphone = lineSplitter[13], 
             jobeltsnb = nbjobs, 
             trainingeltsnb = nbtrainings, 
             skilleltnb = nbskills, 
@@ -147,7 +147,7 @@ print( listing )
 for pdffile in listing:
     shutil.copy(pdffile, directory4outputs)
 
-listing2remove = glob.glob( "*_generate" )
+listing2remove = glob.glob( "*_generate/" )
 for dir2rm in listing2remove : 
     subprocess.call( dir2rm, shell=True )
 

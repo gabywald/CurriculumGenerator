@@ -63,7 +63,7 @@ Entrteprises fictives référencées sur LinkedIn (pop-culture, CyberPunk 20XX e
   * [Waynes Enterprises](https://www.linkedin.com/company/wayne-enterprises-ltd/) -- Batman / DC Comics
   * [Stark Industries](https://www.linkedin.com/company/stark-industries-llc/ ; https://www.linkedin.com/company/be-stark-industries/) -- Iron Man / Marvel
   * [Umbrella Corporation](https://www.linkedin.com/company/umbrella-corporation-uk/) -- Resident Evil (films et jeux vidéos)
-  * [Weyland-Yatani Corporation](https://www.linkedin.com/company/weyland-yutani-corporation/) -- Alien (toute la série de films)
+  * [Weyland-Yutani Corporation](https://www.linkedin.com/company/weyland-yutani-corporation/) -- Alien (toute la série de films)
   * [Sirius Cybernetics Corporation](https://www.linkedin.com/company/sirius-cybernetics-corporation/) -- The Hitchhiker's Guide to the Galaxy / Le Guide du Routard Galactique
   * ... 
   

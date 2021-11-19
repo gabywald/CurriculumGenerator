@@ -66,4 +66,5 @@ for i in range(0, numberOfPersonnae) :
     str += personnae.export()
     numberOfYears = None
     print( str )
+    personnae = None
 

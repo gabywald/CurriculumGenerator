@@ -74,13 +74,13 @@ class Person( object ) :
         str += self.address + "\t" + self.pseudo + "\t"
         str += self.webpage + "\t" + self.email + "\t"
         str += self.quote + "\t"
-        str += ";".join( map("::".join, self.skills) ) + "\t"
-        str += ";".join( map("::".join, self.jobs) ) + "\t"
-        str += ";".join( map("::".join, self.trainings) ) + "\t"
         str += self.generaltitle + "\t"
         str += self.title + "\t"
         str += self.speciality + "\t"
         str += self.cellphone + "\t"
+        str += ";".join( map("::".join, self.skills) ) + "\t"
+        str += ";".join( map("::".join, self.jobs) ) + "\t"
+        str += ";".join( map("::".join, self.trainings) ) + "\t"
         return str
 
 

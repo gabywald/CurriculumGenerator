@@ -23,7 +23,7 @@ HONGSE	High Tech	-- 	-- 	NOLOGO	NOLOCATION
 Aperture Science	Rideaux de douche	--	https://www.linkedin.com/company/aperture-science-enrichment-center/about/	ApertureScienceInnovators.png	NOLOCATION
 Cyberdyne Systems Corporation	Intelligence Artificielle, Robotique	--	https://www.linkedin.com/company/cyberdyne-systems-corporation/	192261268_4163395560408024_2949464129711293154_n.jpg	NOLOCATION
 Union Aerospace Coporation	Espace, Aéronautique	-- https://www.linkedin.com/company/union-aerospace-corp/	1532580424994.jpeg	Ontario
-Weyland-Yatani Corporation	Pharmaceutique, Génétique, Colonisation	--	https://www.linkedin.com/company/weyland-yutani-corporation/	194444517_465339924763562_3869695845625425780_n.jpg	NOLOCATION
+Weyland-Yutani Corporation	Pharmaceutique, Génétique, Colonisation	--	https://www.linkedin.com/company/weyland-yutani-corporation/	194444517_465339924763562_3869695845625425780_n.jpg	NOLOCATION
 Sirius Cybernetics Corporation	Cybernétique, Robotique	--	https://www.linkedin.com/company/sirius-cybernetics-corporation/	NOLOGO	NOLOCATION
 STARK INDUSTRIES <<Changing the world for a better future>>	Électronique, Loisirs, Armement	https://www.linkedin.com/company/stark-industries-llc/	https://www.linkedin.com/company/be-stark-industries/	StarkIndustriesSmaller.jpeg	NOLOCATION
 WAYNE ENTERPRISES	Armement, Espace	--	https://www.linkedin.com/company/wayne-enterprises-ltd/	WaynesEnterprises.png	NOLOCATION

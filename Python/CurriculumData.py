@@ -84,7 +84,8 @@ class CVData( object ) :
         return random.choice( self._instance.corporation2021 ).split( "\t" )
       else : 
         if (random.randint(1, 100) % 2 == 0) : 
-            return random.choice( self._instance.corporationNames ).split( "\t" )
+            ## return random.choice( self._instance.corporationNames ).split( "\t" )
+            return random.choice( self._instance.corporation2021 ).split( "\t" )
         else : 
     	    elt1 = random.choice( self._instance.uplinkCompanyPartOne ) \
     	        + " " + random.choice( self._instance.uplinkCompanyPartTwo )
