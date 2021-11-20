@@ -150,7 +150,7 @@ def checkArgsAndReturn( args, name, argsValue ) :
 
 def checkList( args, name, argsList, finalnbelts, finalList ) : 
     if ( (hasattr(args, name)) and (argsList != None) ) :
-        finalnbelts = 0
+        ## finalnbelts = 0
         for elt in argsList.split(";") : 
             finalList.append( elt.split("::") )
     return finalList
@@ -202,8 +202,11 @@ def askForStrNotEmpty( txtmsg ) :
 
 def interactiveCompletionSkillsJobsTraining( personnae, args ) : 
     ## noelts = (len(args.skillelements) == 0) and (len(args.jobelements) == 0) and (len(args.trainingelements) == 0)
-    noelts = (args.skillelements == None) and (args.jobelements == None) and (args.trainingelements == None)
+    noelts = ( (args.skillelements == None) and (args.jobelements == None) and (args.trainingelements == None) )
+    if ( (personnae.skilleltnb + personnae.jobeltsnb + personnae.trainingeltsnb) > (len(personnae.skills) + len(personnae.jobs) + len(personnae.trainings))):
+        noelts = True
     if (noelts) : 
+        print( "SKILLS + JOBS + TRAININGS" )
         ## ## ## ## ## SKILLS + JOBS + TRAININGS
         personnae.skills = checkList(args, 'listskillelements', args.listskillelements, personnae.skilleltnb, personnae.skills)
         personnae.jobs = checkList(args, 'listjobelements', args.listjobelements, personnae.jobeltsnb, personnae.jobs)
@@ -211,14 +214,20 @@ def interactiveCompletionSkillsJobsTraining( personnae, args ) :
         ## ## ## ## ## ask for nbs
         if (personnae.skilleltnb == None) and (personnae.skills == None) : 
             personnae.skilleltnb = askForInt( "Number of Skills elements ?" )
+        elif (personnae.skilleltnb > len(personnae.skills)):
+            print( personnae.skilleltnb, "=>", len(personnae.skills) )
         else : 
             personnae.skilleltnb  = len(personnae.skills)
         if (personnae.jobeltsnb == None) and (personnae.jobs == None) : 
             personnae.jobeltsnb = askForInt( "Number of Jobs elements ?" )
+        elif (personnae.jobeltsnb > len(personnae.jobs)):
+            print( personnae.jobeltsnb, "=>", len(personnae.jobs) )
         else : 
             personnae.jobeltsnb  = len(personnae.jobs)
         if (personnae.trainingeltsnb == None) and (personnae.trainings == None) : 
             personnae.trainingeltsnb = askForInt( "Number of Training elements ?" )
+        elif (personnae.trainingeltsnb > len(personnae.trainings)):
+            print( personnae.trainingeltsnb, "=>", len(personnae.trainings) )
         else : 
             personnae.trainingeltsnb  = len(personnae.trainings)
         ## ## Interact with user to choose Skills / Jobs / Trainings (randomly generated)

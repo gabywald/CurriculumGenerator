@@ -78,6 +78,22 @@ def selectRandomBiographic() :
     ## print( selected + "::" + moreselect + " // " + corporation[1] + " ( " + corporation[0] + ", " + contractType + " )" )
     return [selected + " (" + location + ")", moreselect, corporation[1], corporation[0], contractType]
 
+def selectRandomBiographicMore() : 
+    """Choose randomly an element from a randomly choosen JobBiographicTable. """
+    tables          = BiographicDataLoad.loadBiographicsTables()
+    for key in tables.keys() : 
+        localDictionnary[ key ] = tables[ key ]
+    location     = random.choice( localDictionnary.get("Localisation").contents )
+    baseTable    = localDictionnary.get("d'Orientation")
+    selected     = random.choice( baseTable.linksTo )
+    choice       = localDictionnary.get( selected )
+    moreselect   = random.choice( choice.contents )
+    ## domain       = random.choice( localDictionnary.get("Domaine").contents )
+    corporation  = CVData.getRandomCorporationName()
+    contractType = CVData.getRandomContractType()
+    ## print( selected + "::" + moreselect + " // " + corporation[1] + " ( " + corporation[0] + ", " + contractType + " )" )
+    return [selected + " (" + location + ")", moreselect, corporation[1], corporation[0], contractType]
+
 def selectRandomTraining() : 
     """Choose randomly an elements from the Training table. """
     baseTable   = localDictionnary.get("Formation")

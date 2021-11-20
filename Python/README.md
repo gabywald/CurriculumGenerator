@@ -276,7 +276,7 @@ Une liste des arguments est obtenue avec "./generateCurriculum.py --help".
 	- 10 compétences ('-se 10')
 	- acceptation automatique de la sélection aléatoire ('-ya')
 	- Inforrmation en plus "42 ans" ('-ei "42 ans"')
-
+	
 * ./generateCurriculum.py -lse "Domain::A, B, C;Other::---" -rfn -rln -ti title -gt "general title" -sp speciality -nq -nei -se 1 -je 5 -te 3 --email default -ya -lje "International::Recrutement::Publication::Panopticon::Stage" -lte "Autodidacte::Programmation;Autoformation::Création d'Entreprise"
 
 
@@ -331,7 +331,21 @@ Une liste des arguments est obtenue avec "./generateCurriculum.py --help".
 	- Titre ('-ti title')
 	- Spécialité ('-sp speciality')
 
+* /generateCurriculum.py -ln lastname -fn firstname -gt GeneralTitle -ti Title -sp Speciality -nq -ne -em default -rse -rje -rte -se 5 -je 5 -te 3 -rse -rje -rte -ya -m
 
+	- prénom ('-fn firstname')
+	- nom ('-ln lastname')
+	- adresse e-mail par défault (à partir nom et prénom, '-em default') 
+	- NOQUOTE ('-nq')
+	- NOEXTRAINFO ('-ne')
+	- General Title ('-gt)
+	- Title ('-ti')
+	- Speciality ('-sp')
+	- 5 expériences professionnelles ('-je 5')
+	- 3 formations ('-te 3')
+	- 5 compétences ('-se 5')
+	- acceptation automatique de la sélection aléatoire ('-ya')
+	- compilation du CV ('-m')
 
 ### generateFromParameterFile.py et generateParameterFile.py
 

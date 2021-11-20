@@ -1,0 +1,191 @@
+%% HEADER PART 1 of LaTeX Curriculum file
+\documentclass[11pt,a4paper]{moderncv}
+\usepackage[french]{babel}
+\moderncvtheme[blue]{classic}
+%% \moderncvstyle{...}
+%% \moderncvcolor{...}
+
+%% ./generateCurriculum.py -ln lastname -fn firstname -gt GeneralTitle -ti Title -sp Speciality -nq -ne -em default -rse -rje -rte -se 3 -je 5 -te 2 -rse -rje -rte -ya -m
+
+%% some variable definitions
+\def\titreGeneralNewLine{GeneralTitle}
+\def\titreGeneral{Title}
+\def\titreSpecialite{Speciality}
+\def\prenom{ firstname }
+\def\nom{ lastname }
+\def\prenomNom{\prenom ~\nom }
+\def\portable{06~12~34~56~78}
+
+\def\adressePhysique{ 1337 Grand Boulevard -- 61337 Section 42 }
+
+\def\eMail{firstname.lastname@gmx.com}
+
+\def\pageWeb{firstname.lastname.personnalbranding.com} 
+
+%% NOQUOTE
+%% NOEXTRAINFO
+
+
+%% Fancy Style Defintion (and collateral elements)
+\usepackage{lastpage}
+
+\def\logoGliderNorma{../../resources/latexSamples/img/logo_glider.png}
+\def\logoGliderRight{../../resources/latexSamples/img/logo-glider-right.png}
+\def\logoGliderLeftt{../../resources/latexSamples/img/logo-glider-left.png}
+\def\logoCreativeCommon{../../resources/latexSamples/img/CreativeCommonLogo.jpeg}
+\def\includeLogoGN{\includegraphics[width=0.50cm]{\logoGliderNorma }}
+\def\includeLogoGR{\includegraphics[width=0.50cm]{\logoGliderRight }}
+\def\includeLogoGL{\includegraphics[width=0.50cm]{\logoGliderLeftt }}
+\def\includeLogoCC{\includegraphics[width=0.25cm]{\logoCreativeCommon }}
+
+\pagestyle{fancy}
+\def\makestylefancyContent{%
+	\fancyhf{}
+	\fancyhead[LE]{
+		\includegraphics[width=0.5cm]{\logoGliderLeftt }
+		\hfill
+		\prenomNom 
+		\hfill
+		\titreGeneral  -- \titreSpecialite
+	}
+	\fancyfoot[LE]{
+	\includegraphics[width=0.5cm]{\logoGliderLeftt } \hfill
+		\includeLogoCC \today -- \emph{Curriculum Generator (Python)} \hfill %% \copyright
+		\thepage /\pageref{LastPage}
+	}
+
+	\fancyhead[RO]{
+		\titreGeneral  -- \titreSpecialite
+		\hfill
+		\prenomNom 
+		\hfill
+		\includegraphics[width=0.5cm]{\logoGliderRight }
+	}
+	\fancyfoot[RO]{
+		\thepage /\pageref{LastPage} \hfill
+		\includeLogoCC \today -- \emph{\href{https://github.com/gabywald/CurriculumGenerator}{Curriculum Generator (Python)} par \href{https://www.linkedin.com/in/gabriel-chandesris/}{GabyWald} } \hfill %% \copyright
+		\includegraphics[width=0.5cm]{\logoGliderRight }
+	}
+	\renewcommand{\headrulewidth}{0.25pt}
+	\renewcommand{\footrulewidth}{0.5pt}
+}%
+\makestylefancyContent
+
+
+\def\motsClefs{LaTeX;PDF;Python;Python3;Apache;Shell;Tests Unitaires;Serveur Web Apache;Bash, ksh, PowerShell;Selenium, JUnit}
+
+%% Some SetUp
+\AfterPreamble{\hypersetup{
+		pdfauthor={\prenomNom},
+		pdftitle={\titreGeneral ~-- \titreSpecialite },
+		pdfsubject={\titreGeneral ~-- \titreSpecialite },
+		pdfkeywords={\motsClefs },
+		pdfproducer={PDFLaTeX (creation)},
+		pdfcreator={Curriculum Generator by Gaby Wald https://github.com/gabywald/CurriculumGenerator}
+		%% urlcolor=blue,
+}}
+
+\usepackage{vmargin}
+\setmarginsrb{1.0cm}{0.2cm}{1.0cm}{0.50cm}{15pt}{10pt}{15pt}{45pt}
+%% \setlength{\hintscolumnwidth}{2.25cm}
+
+
+%% Defines Some attempted Values
+\firstname{\prenom }
+\familyname{\nom }
+\title{\titreGeneral }
+%% \title{\titreGeneral \newline \titreSpecialite}
+\address{\adressePhysique }
+\email{\eMail }
+\homepage{\pageWeb }
+\mobile{\portable }
+\ifdefined\quotationCitation
+\quote{ \quotationCitation }\fi
+\ifdefined\extrainfoDATA
+\extrainfo{ \extrainfoDATA }\fi
+%% \phone{00 00 00 00 00}
+%% \fax{00 00 00 00 00}
+%% \photo[64pt][0.4pt]{img/logo_glider.png}
+%% \phone[mobile]{\portable } %% \phone[mobile]{06~12~34~56~78}
+%% \phone[fixed]{01~01~01~01~01}
+%% \phone[fax]{01~01~01~01~01}
+%% \social[linkedin]{LinkedInProfile}    %% https://www.linkedin.com/in/.../
+%% \social[github]{GitHubProfile}        %% https://github.com/...
+%% \social[facebook]{FaceBookProfile}    %% https://www.facebook.com/...
+%% \social[twitter]{TwitterPage}         %% https://twitter.com/...
+
+
+\begin{document}
+
+\maketitle
+
+%% \section{Introduction}
+	 %% IntroductionText~\\ 
+
+\section{Comp{\'e}tences}
+	%% \cvdoubleitem{ Item1 }{ Description1 }{ Item2 }{ Description2 }
+
+	 \cvcomputer{ Apache }{ Serveur Web Apache }		{ Shell }{ Bash, ksh, PowerShell }
+	 \cvcomputer{ Tests Unitaires }{ Selenium, JUnit }	{Langues}{ Anglais, Arabe, Chinois... }
+
+\section{Exp{\'e}rience professionnelle}
+	 \cventry{years}{Peak and Derrera (Courtage de matériaux précieux)}{International (Bordeaux)}{Mission}{Développement local}{
+ %% JobDescription 
+}
+
+	 \cventry{years}{Tsunami Defense Systems (Bureau et Systèmes de Défense)}{PME (Bamako)}{Intérim}{Analyse De Données}{
+ %% JobDescription 
+}
+
+	 \cventry{years}{Trauma Team International (Santé, Secours aux Personnes)}{International (Hong Kong)}{Intérim}{Recrutement}{
+ %% JobDescription 
+}
+
+	 \cventry{years}{WAYNE ENTERPRISES (Armement, Espace)}{PME (Hong Kong)}{Intérim}{Maintenance logiciel interne}{
+ %% JobDescription 
+}
+
+	 \cventry{years}{Biotechnica (Ingénierie Génétique, Recherche Biochimique et Microbiologique)}{Formation (Bamako)}{Mission}{[Formation]Master Recherche}{
+ %% JobDescription 
+}
+
+	 %% \cventry{years}{degree/job title}{institution/employer}{localization}{grade}{description}
+
+	 %% \cventry{DATUM}{TITRE}{ENTREPRISE}{CONTRAT}%
+	 %% 	{\newline INTITULE++}{%
+	 %% \begin{itemize}
+	 %% 	\item[$\rightarrow$] ELEMENTUN
+	 %% 	\item[$\bullet$] ELEMENTDEUXETPLUS
+	 %% \end{itemize}}
+
+\section{Formation}
+	 \cventry{years}{CPGE (Classe Préparatoire aux Grandes Écoles)}{Assurance}{Bordeaux}{
+ % grade 
+}{
+ % description 
+}
+
+	 \cventry{years}{Baccalauréat Technique}{Publication}{Tokyo}{
+ % grade 
+}{
+ % description 
+}
+
+	 %% \cventry{Year}{Diploma}{School}{Location}    {}{}{}
+
+\section{Recommandations}
+%% 	 \cvitem{ Recommendation }{ Content }
+
+	 \cvitem{referent 1}{some text}
+
+\section{Exp{\'e}riences de b{\'e}n{\'e}volat}
+	 \cvitem{Association Caritative}{(distribution de nourriture, logistique, ...)}
+
+\section{R{\'e}alisations}
+	 \cvitem{Organisation}{(association étudiante, association caritative, ...)}
+
+\section{Centres d'int{\'e}r{\^e}ts}
+	 \cvitem{Jeux Sociaux}{(Jeux de plateau, Jeux de Rôle, Wargame, Stratégie, RolePlay, ... )}
+
+\end{document}
+

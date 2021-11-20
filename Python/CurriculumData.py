@@ -91,6 +91,10 @@ class CVData( object ) :
     	        + " " + random.choice( self._instance.uplinkCompanyPartTwo )
     	    elt2 = random.choice( self._instance.corporationDomains )
     	    return [ elt1, elt2 ]
+    	    
+    @classmethod
+    def getRandomCorporation2021( self ) : 
+      return random.choice( self._instance.corporation2021 ).split( "\t" )
     
     @classmethod
     def getRandomContractType( self ) : 
