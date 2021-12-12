@@ -52,6 +52,54 @@ Pour les noms d'entreprises et slogans, secteurs d'activités :
   * https://pypi.org/project/Faker/ Faker is a Python package that generates fake data for you. Whether you need to bootstrap your database, create good-looking XML documents, fill-in your persistence to stress test it, or anonymize data taken from a production service, Faker is for you.
   * https://dzone.com/articles/generating-arbitrary-data-using-mockneat Generating and Mocking Data With MockNeat (equivalent of MockNeat in Python ?? => Faker)
 
+### Éléments de fausses identités
+
+  * See [arf.json of OSINT-Framework](https://github.com/lockfale/OSINT-Framework/blob/master/public/arf.json)
+  * [Fake Identity Generator](http://justdelete.me/fake-identity-generator/)
+  * [Fake Name Generator](https://www.fakenamegenerator.com/)
+
+```
+{First Name}{Middle Name (if apply)}{LastName}
+{Address}
+	Mother's maiden name
+	SSN
+	Geo coordinates
+Phone
+	Phone
+	Country code
+Birthday
+	Birthday
+	Age
+	Tropical zodiac
+Online
+	Email Address
+	Username
+	Password
+	Website
+	Browser user agent
+Finance
+	{Card Type}
+	Expires
+	CVV2
+Employment
+	Company
+	Occupation
+Physical characteristics
+	Height
+	Weight
+	Blood type
+Tracking numbers
+	UPS tracking number
+	Western Union MTCN
+	MoneyGram MTCN
+Other
+	Favorite color
+	Vehicle
+	GUID
+	QR Code
+```
+
+
 ### Idées complémentaires : fausses entreprises / entreprises de fiction
 
 Génération de fausses identités complètes pour tests (et fausses entreprises associées). 
