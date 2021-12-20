@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-# -*- coding: utf-8 -*- default is unicode in python3 ?
+# -*- coding: utf-8 -*-
 
 __author__ = "Gabriel Chandesris"
 __copyright__ = "CC Gabriel Chandesris (2020)"
