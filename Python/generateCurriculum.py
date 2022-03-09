@@ -34,21 +34,21 @@ personnae = Person()
 
 CurriculumArgumentsParsing.interactiveCompletionOf( personnae, args )
 if (args.biographic) :
-    print( "Biographic Curriculum Generation" )
-    numberOfResults = 0
-    if (personnae.skilleltnb != None) : 
-        numberOfResults += personnae.skilleltnb
-    if (personnae.trainingeltsnb != None) : 
-        numberOfResults += personnae.trainingeltsnb
-    if (personnae.trainingeltsnb != None) : 
-        numberOfResults += personnae.jobeltsnb
-    res = BiographicSelection.selectBiographicElements( numberOfResults )
-    personnae = BiographicSelection.preparingBiographicElements( res, personnae )
-    BiographicSelection.reworking( personnae )
+  print( "Biographic Curriculum Generation" )
+  numberOfResults = 0
+  if (personnae.skilleltnb != None) : 
+    numberOfResults += personnae.skilleltnb
+  if (personnae.trainingeltsnb != None) : 
+    numberOfResults += personnae.trainingeltsnb
+  if (personnae.trainingeltsnb != None) : 
+    numberOfResults += personnae.jobeltsnb
+  res = BiographicSelection.selectBiographicElements( numberOfResults )
+  personnae = BiographicSelection.preparingBiographicElements( res, personnae )
+  BiographicSelection.reworking( personnae )
 else : 
-    print( "NON-biographic Curriculum Generation !!" )
-    CurriculumArgumentsParsing.interactiveCompletionSkillsJobsTraining( personnae, args )
-    
+  print( "NON-biographic Curriculum Generation !!" )
+  CurriculumArgumentsParsing.interactiveCompletionSkillsJobsTraining( personnae, args )
+  
 personnae.recos.append( ["referent 1", "some text"] )
 
 personnae.certifs.append( BiographicSelection.selectRandomCertification() )
@@ -64,6 +64,6 @@ print( personnae )
 texcurriculumDirectory = CurriculumLaTeXGenerator.generateLaTeX( personnae, args.color, args.style )
 ## Compiling TeX file to obtain PDF !
 if args.make : 
-    CurriculumLaTeXGenerator.launcheMakePDFfromLaTeX( directory = texcurriculumDirectory )
+  CurriculumLaTeXGenerator.launcheMakePDFfromLaTeX( directory = texcurriculumDirectory )
 
 print("End of script")
