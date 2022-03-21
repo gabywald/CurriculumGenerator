@@ -72,6 +72,9 @@ parser.add_argument("-fn", "--firstname",
 parser.add_argument("-ln", "--lastname", 
   help = "Last Name", 
   type=str )
+parser.add_argument("-age", "--aging", 
+  help = "Age (in years)", 
+  type=int )
 parser.add_argument("-em", "--email", 
   help = "E-Mail", 
   type=str )
@@ -263,15 +266,16 @@ def interactiveCompletionOf( personnae, args ) :
   ## print( "CV STYLE : " + cvStyle )
   ## print( "CV COLOR : " + cvColor )
   ## ## ## ## ## Data From Arguments
-  personnae.firstname = checkArgsAndReturn( args, 'firstname', args.firstname )
-  personnae.lastname = checkArgsAndReturn( args, 'lastname', args.lastname )
+  personnae.firstname    = checkArgsAndReturn( args, 'firstname', args.firstname )
+  personnae.lastname     = checkArgsAndReturn( args, 'lastname', args.lastname )
+  personnae.age          = checkArgsAndReturn( args, 'aging', args.aging )
   personnae.generaltitle = checkArgsAndReturn( args, 'generaltitle', args.generaltitle )
-  personnae.title = checkArgsAndReturn( args, 'title', args.title )
-  personnae.speciality = checkArgsAndReturn( args, 'speciality', args.speciality )
-  personnae.email = checkArgsAndReturn( args, 'email', args.email )
-  personnae.address = checkArgsAndReturn( args, 'address', args.address )
-  personnae.webpage = checkArgsAndReturn( args, 'webpage', args.webpage )
-  personnae.cellphone = checkArgsAndReturn( args, 'cellphone', args.cellphone )
+  personnae.title        = checkArgsAndReturn( args, 'title', args.title )
+  personnae.speciality   = checkArgsAndReturn( args, 'speciality', args.speciality )
+  personnae.email        = checkArgsAndReturn( args, 'email', args.email )
+  personnae.address      = checkArgsAndReturn( args, 'address', args.address )
+  personnae.webpage      = checkArgsAndReturn( args, 'webpage', args.webpage )
+  personnae.cellphone    = checkArgsAndReturn( args, 'cellphone', args.cellphone )
   ## QUOTE
   if args.noquote : 
     personnae.quote = "NOQUOTE"
@@ -317,6 +321,9 @@ def interactiveCompletionOf( personnae, args ) :
     personnae.firstname = askForStrNotEmpty( "First Name? " )
   if (personnae.lastname == None) : 
     personnae.lastname = askForStrNotEmpty( "Last Name? " )
+  if (personnae.age == None) :
+    personnae.age = random.randint(20, 70) 
+    ## personnae.age = askForStrNotEmpty( "Age? " )
   if (personnae.generaltitle == None) : 
     personnae.generaltitle = askForStrNotEmpty( "General Title? " )
   if (personnae.title == None) : 

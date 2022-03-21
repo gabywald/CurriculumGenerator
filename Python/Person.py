@@ -18,35 +18,37 @@ class Person( object ) :
          generaltitle  = None, title           = None, speciality = None, 
          cellphone     = None, address         = None, email      = None, 
          webpage       = None, quote           = None, pseudo     = None, 
+         age           = None, 
          jobeltsnb     = None, trainingeltsnb  = None, skilleltnb = None, 
          skills   = [], jobs    = [], trainings= [], recos    = [], 
          certifs  = [], btasks  = [], projs  = [], interests  = []):
-    self.firstname    = firstname
-    self.lastname     = lastname
+    self.firstname      = firstname
+    self.lastname       = lastname
     self.generaltitle   = generaltitle
-    self.title      = title
-    self.speciality   = speciality
-    self.cellphone    = cellphone
-    self.address    = address
-    self.email      = email
-    self.webpage    = webpage
-    self.quote      = quote
-    self.extrainfo    = extrainfo
-    self.pseudo     = pseudo
-    self.skilleltnb   = skilleltnb
-    self.jobeltsnb    = jobeltsnb
+    self.title          = title
+    self.speciality     = speciality
+    self.cellphone      = cellphone
+    self.address        = address
+    self.email          = email
+    self.webpage        = webpage
+    self.quote          = quote
+    self.extrainfo      = extrainfo
+    self.pseudo         = pseudo
+    self.age            = age
+    self.skilleltnb     = skilleltnb
+    self.jobeltsnb      = jobeltsnb
     self.trainingeltsnb = trainingeltsnb
-    self.hardSkills   = []
-    self.softSkills   = []
-    self.skills     = skills
-    self.jobs       = jobs
-    self.trainings    = trainings
-    self.tool       = []
+    self.hardSkills     = []
+    self.softSkills     = []
+    self.skills         = skills
+    self.jobs           = jobs
+    self.trainings      = trainings
+    self.tool           = []
     self.recos			= recos
-    self.certifs    = certifs
-    self.btasks     = btasks
-    self.projs      = projs
-    self.interests    = interests
+    self.certifs        = certifs
+    self.btasks         = btasks
+    self.projs          = projs
+    self.interests      = interests
   
   ## implement it if bug need ! => print( [ <instance>] )
   # def __repr__(self) : 
@@ -65,6 +67,7 @@ class Person( object ) :
     str += "\t Quote: %s \n" % (self.quote)
     str += "\t Extra Info: %s \n" % (self.extrainfo)
     str += "\t Pseudo: %s \n" % (self.pseudo)
+    str += "\t Age: %s \n" % (self.age)
     str += "\t skilleltnb: %s \n" % (self.skilleltnb)
     str += "\t jobeltsnb: %s \n" % (self.jobeltsnb)
     str += "\t trainingeltsnb: %s \n" % (self.trainingeltsnb)
@@ -82,7 +85,7 @@ class Person( object ) :
   def export( self ) : 
     str = self.lastname + "\t" + self.firstname + "\t"
     str += self.extrainfo + "\t"
-    str += self.address + "\t" + self.pseudo + "\t"
+    str += self.address + "\t" + self.pseudo + "\t" + str(self.age) + "\t"
     str += self.webpage + "\t" + self.email + "\t"
     str += self.quote + "\t"
     str += self.generaltitle + "\t"
@@ -93,5 +96,4 @@ class Person( object ) :
     str += ";".join( map("::".join, self.jobs) ) + "\t"
     str += ";".join( map("::".join, self.trainings) ) + "\t"
     return str
-
 

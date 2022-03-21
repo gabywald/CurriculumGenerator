@@ -80,7 +80,7 @@ def getLaTeXHeaderPart1(color = "blue", style = "classic") :
 
 def getMinimalVariableDefinitions( general = "General Title", title = "Titre poste CV", 
                                     speciality = "", firstname = "Anne", lastname = "Onyme", 
-                                    cellphone = "06~00~00~00~00" ) : 
+                                    cellphone = "06~00~00~00~00", age = 42, pseudo = "Anne.Onyme" ) : 
     str = "%% some variable definitions\n"
     str += "\\def\\titreGeneralNewLine{" + general + "}\n"
     str += "\\def\\titreGeneral{" + title + "}\n"
@@ -89,6 +89,8 @@ def getMinimalVariableDefinitions( general = "General Title", title = "Titre pos
     str += "\\def\\nom{ " + lastname + " }\n"
     str += "\\def\\prenomNom{\\prenom ~\\nom }\n"
     str += "\\def\\portable{" + cellphone + "}\n"
+    str += "\\def\\pseudo{" + pseudo + "}\n"
+    str += "\\def\\ageing{" + f'{age}' + "}\n"
     return str
 
 def getAddressDefinition(address = "1337 Grand Boulevard -- 61337 Section") : 
@@ -238,7 +240,8 @@ def generateLaTeX( personnae, cvColor = "blue", cvStyle = "classic" ):
         curriculumGenerationtest.write( getMinimalVariableDefinitions( 
             firstname = personnae.firstname, lastname = personnae.lastname, 
             cellphone = personnae.cellphone, general = personnae.generaltitle, 
-            title = personnae.title, speciality = personnae.speciality
+            title = personnae.title, speciality = personnae.speciality, 
+            age = personnae.age, pseudo = personnae.pseudo
         ) + "\n" )
         curriculumGenerationtest.write( getAddressDefinition(address = personnae.address) + "\n" )
         curriculumGenerationtest.write( getEMailDefinition(email = personnae.email) + "\n" )
@@ -264,7 +267,7 @@ def generateLaTeX( personnae, cvColor = "blue", cvStyle = "classic" ):
         ## ## ## TODO "Introduction Text" generation ??
         curriculumGenerationtest.write( "%% \\section{Introduction}\n")
         curriculumGenerationtest.write( "\t IntroductionText~\\\\ \n\n" )
-        ## Compétences ...
+        ## Skills / Compétences ...
         curriculumGenerationtest.write( "\\section{Comp{\\'e}tences}\n" )
         curriculumGenerationtest.write( "\t%% \\cvdoubleitem{ Item1 }{ Description1 }{ Item2 }{ Description2 }\n\n" )
         for i in range(0, len(personnae.skills), 2) : 
@@ -276,6 +279,7 @@ def generateLaTeX( personnae, cvColor = "blue", cvStyle = "classic" ):
         # curriculumGenerationtest.write( "\t \\cvcomputer{ Item1 }{ Description1 }{ Item2 }{ Description2 }\n" )
         curriculumGenerationtest.write( "\n" )
         ## Professionnal Experiences
+        ## TODO compute years for jobs !
         curriculumGenerationtest.write( "\\section{Exp{\\'e}rience professionnelle}\n" )
         for eltJob in personnae.jobs : 
             curriculumGenerationtest.write( "\t \\cventry{years}{%s (%s)}{%s}{%s}{%s}{\n JobDescription \n}\n\n" %( eltJob[3], eltJob[2], eltJob[0], eltJob[4], eltJob[1] ) ) 
@@ -287,6 +291,7 @@ def generateLaTeX( personnae, cvColor = "blue", cvStyle = "classic" ):
         curriculumGenerationtest.write( "\t %% \t\\item[$\\bullet$] ELEMENTDEUXETPLUS\n" )
         curriculumGenerationtest.write( "\t %% \\end{itemize}}\n\n" )
         ## Training ...
+        ## TODO compute years for trainings !
         curriculumGenerationtest.write( "\\section{Formation}\n" )
         for eltTraining in personnae.trainings : 
             curriculumGenerationtest.write( "\t \\cventry{years}{%s}{%s}{%s}{\n %% grade \n}{\n %% description \n}\n\n" %(  eltTraining[1], eltTraining[0], eltTraining[2]  ) )
