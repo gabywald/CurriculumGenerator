@@ -331,7 +331,7 @@ Une liste des arguments est obtenue avec "./generateCurriculum.py --help".
 	- Titre ('-ti title')
 	- Spécialité ('-sp speciality')
 
-* /generateCurriculum.py -ln lastname -fn firstname -gt GeneralTitle -ti Title -sp Speciality -nq -ne -em default -rse -rje -rte -se 5 -je 5 -te 3 -rse -rje -rte -ya -m
+* ./generateCurriculum.py -ln lastname -fn firstname -gt GeneralTitle -ti Title -sp Speciality -nq -ne -em default -rse -rje -rte -se 5 -je 5 -te 3 -rse -rje -rte -ya -m
 
 	- prénom ('-fn firstname')
 	- nom ('-ln lastname')

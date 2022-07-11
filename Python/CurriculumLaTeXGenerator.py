@@ -273,6 +273,7 @@ def generateLaTeX( personnae, cvColor = "blue", cvStyle = "classic" ):
         for i in range(0, len(personnae.skills), 2) : 
             item1 = personnae.skills[ i + 0 ]
             item2 = testAndGetInList( i+1, personnae.skills, "---" )
+            # print( "SKILL", item1, item2 )
             curriculumGenerationtest.write( "\t \\cvcomputer{ %s }{ %s }{ %s }{ %s }\n" %( item1[0], item1[1], item2[0], item2[1], ) )
         curriculumGenerationtest.write( "\t \\cvitem{Langues}{ Anglais, Arabe, Chinois... }\n" )
         # curriculumGenerationtest.write( "\t \\cvdoubleitem{ Item1 }{ Description1 }{ Item2 }{ Description2 }\n" )
@@ -282,7 +283,8 @@ def generateLaTeX( personnae, cvColor = "blue", cvStyle = "classic" ):
         ## TODO compute years for jobs !
         curriculumGenerationtest.write( "\\section{Exp{\\'e}rience professionnelle}\n" )
         for eltJob in personnae.jobs : 
-            curriculumGenerationtest.write( "\t \\cventry{years}{%s (%s)}{%s}{%s}{%s}{\n JobDescription \n}\n\n" %( eltJob[3], eltJob[2], eltJob[0], eltJob[4], eltJob[1] ) ) 
+            # print( "eltJOB", eltJob )
+            curriculumGenerationtest.write( "\t \\cventry{years}{%s (%s)}{%s}{%s}{%s}{\n JobDescription \n}\n\n" %( eltJob[3], eltJob[2], eltJob[0], eltJob[4], eltJob[1] ) )
         curriculumGenerationtest.write( "\t %% \\cventry{years}{degree/job title}{institution/employer}{localization}{grade}{description}\n\n" )
         curriculumGenerationtest.write( "\t %% \\cventry{DATUM}{TITRE}{ENTREPRISE}{CONTRAT}%\n" )
         curriculumGenerationtest.write( "\t %% \t{\\newline INTITULE++}{%\n" )
@@ -294,6 +296,7 @@ def generateLaTeX( personnae, cvColor = "blue", cvStyle = "classic" ):
         ## TODO compute years for trainings !
         curriculumGenerationtest.write( "\\section{Formation}\n" )
         for eltTraining in personnae.trainings : 
+            # print( "eltTraining", eltTraining )
             curriculumGenerationtest.write( "\t \\cventry{years}{%s}{%s}{%s}{\n %% grade \n}{\n %% description \n}\n\n" %(  eltTraining[1], eltTraining[0], eltTraining[2]  ) )
         curriculumGenerationtest.write( "\t %% \\cventry{Year}{Diploma}{School}{Location}    {}{}{}\n\n" )
         ## Recommandations ...

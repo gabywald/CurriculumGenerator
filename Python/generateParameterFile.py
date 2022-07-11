@@ -49,6 +49,7 @@ for i in range(0, numberOfPersonnae) :
   personnae.quote = "NOQUOTE"
   numberOfYears = random.randint(20, 70)
   personnae.extrainfo = "%d ans" %( numberOfYears )
+  personnae.age = numberOfYears
   ## {Skills;Jobs;Trainings} elements
   personnae.skilleltnb = random.randint(1, int(numberOfYears / 5) )
   personnae.jobeltsnb = random.randint(1, int(numberOfYears / 5) )

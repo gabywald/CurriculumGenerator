@@ -61,26 +61,29 @@ for line in fileContent :
     lstjobs = []
     lsttrainings = []
     isbiographic = False
-    ## Parsing ListS {Skillms;Jobs;Trainings} !
-    if (is_integer( lineSplitter[14] ) ) : 
-      nbskills = int( lineSplitter[14] )
+    ## Parsing ListS {Skills;Jobs;Trainings} !
+    skillsDATA = lineSplitter[15]
+    if (is_integer( skillsDATA ) ) : 
+      nbskills = int( skillsDATA )
     else : 
-      lstskills = lineSplitter[14].split( ";" )
-      ## print( lstskills )
-    if (is_integer( lineSplitter[15] ) ) : 
-      nbjobs = int( lineSplitter[15] )
+      lstskills = skillsDATA.split( ";" )
+      print( lstskills )
+    jobsDATA = lineSplitter[16]
+    if (is_integer( jobsDATA ) ) : 
+      nbjobs = int( jobsDATA )
     elif (lineSplitter[11] == "BIO" ) : 
       isbiographic = True
     else : 
-      lstjobs = lineSplitter[15].split( ";" )
-      ## print( lstjobs )
-    if (is_integer( lineSplitter[16] ) ) : 
-      nbtrainings = int( lineSplitter[16] )
+      lstjobs = jobsDATA.split( ";" )
+      print( lstjobs )
+    trainingsDATA = lineSplitter[17]
+    if (is_integer( trainingsDATA ) ) : 
+      nbtrainings = int( trainingsDATA )
     elif (lineSplitter[12] == "BIO" ) : 
       isbiographic = True
     else : 
-      lsttrainings = lineSplitter[16].split( ";" )
-      ## print( lsttrainings )
+      lsttrainings = trainingsDATA.split( ";" )
+      print( lsttrainings )
     ## Instanciate Person !
     personnae = Person( 
       firstname = lineSplitter[2], 
@@ -88,13 +91,14 @@ for line in fileContent :
       extrainfo = lineSplitter[4], 
       address = lineSplitter[5], 
       pseudo = lineSplitter[6], 
-      webpage = lineSplitter[7], 
-      email = lineSplitter[8], 
-      quote = lineSplitter[9], 
-      generaltitle = lineSplitter[10], 
-      title = lineSplitter[11], 
-      speciality = lineSplitter[12], 
-      cellphone = lineSplitter[13], 
+      age = lineSplitter[7], 
+      webpage = lineSplitter[8], 
+      email = lineSplitter[9], 
+      quote = lineSplitter[10], 
+      generaltitle = lineSplitter[11], 
+      title = lineSplitter[12], 
+      speciality = lineSplitter[13], 
+      cellphone = lineSplitter[14], 
       jobeltsnb = nbjobs, 
       trainingeltsnb = nbtrainings, 
       skilleltnb = nbskills, 

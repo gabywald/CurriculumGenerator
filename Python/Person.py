@@ -85,7 +85,7 @@ class Person( object ) :
   def export( self ) : 
     str = self.lastname + "\t" + self.firstname + "\t"
     str += self.extrainfo + "\t"
-    str += self.address + "\t" + self.pseudo + "\t" + str(self.age) + "\t"
+    str += self.address + "\t" + self.pseudo + "\t" + f'{self.age}' + "\t"
     str += self.webpage + "\t" + self.email + "\t"
     str += self.quote + "\t"
     str += self.generaltitle + "\t"
