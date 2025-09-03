@@ -102,7 +102,7 @@ END of help
 ```
 
 NOTES : 
-* pour les éléments *se, *je et *te (Compétence, Travails, Formations // Skills / Jobs / Trainings), les listes fournies sont prioritaires sur les nombres et la sélection aléatoire ; 
+* pour les éléments *se, *je et *te (Compétence, Travails, Formations / Skills / Jobs / Trainings), les listes fournies sont prioritaires sur les nombres et la sélection aléatoire ; 
 * fonctionenent en binôme : {qc;nqc}, {ei;nei}, les négatifs sont prioritaires ; 
 * 'allyes' (ya) permet une sélection automatiques des éléments générés aléatoirement ; 
 * email et pseudo acceptent une valeur 'default' (généré à partir nom et prénom). 

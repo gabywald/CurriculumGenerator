@@ -118,6 +118,8 @@ Entreprises fictives référencées sur LinkedIn (pop-culture, CyberPunk 20XX et
   * [Umbrella Corporation](https://www.linkedin.com/company/umbrella-corporation-uk/) -- Resident Evil (films et jeux vidéos)
   * [Weyland-Yutani Corporation](https://www.linkedin.com/company/weyland-yutani-corporation/) -- Alien (toute la série de films, incluant Prometheus)
   * [Sirius Cybernetics Corporation](https://www.linkedin.com/company/sirius-cybernetics-corporation/) -- The Hitchhiker's Guide to the Galaxy / Le Guide du Routard Galactique de Douglas Adams
+  * [Tessier-Ashpool SA - Bioengineering a better human race. ](https://www.linkedin.com/company/tessier-ashpool-sa/) -- Roman 'Neuromancien' de William Gibson
+  * [Wintermute Group -- Services de recherche, Berne](https://www.linkedin.com/company/wintermutegroup/) "Leader In Neural Network Research" -- Roman 'Neuromancien' de William Gibson
   * ... 
 
 Plus d'autres par ici : 
