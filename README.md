@@ -2,9 +2,19 @@
 
 Pour générer des CV ("Curriculum Vitae") en LaTeX (et les traiter pour obtenir un PDF correspondant) ; utilisation de différents langages de programmation, idéalement des langages de script comme Python ou Perl. Cette idée afin de permettre de générer facilement un (ou plusieurs) CV, obtenir un bon exemple à réutiliser et tester sur les plate-formes de recrutement et / ou les processus de recrutement. 
 
-Utile tant professionnellement qu'en "Job Testing" (pour travailler sur les discriminations à l'embauche ?) ou construction de "légende" (un peu de StoryTelling ?) avec un historique contextualisé sous forme de biographie éventuelle. En d'autres termes : un outil qui permet de revoir le CV sous sa forme classique, mais généré à outrance via des outils informatiques dédiés. 
+## Objectifs et questions
 
-L'idée de base étant de réfléchir à ce qui fait un "bon CV" : 
+L'idée originelle étant de montrer la preuve de concept de CV de tests utilisables via les plate-formes de recrutement comme LinkedIn et / ou Monster (et beaucoup d'autres) avec des CV normalisés / standardisés. 
+
+Utile tant professionnellement pour réfléchir à bien construire son CV, qu'en "Job Testing" (pour travailler sur les discriminations à l'embauche ?) ou construction de StoryTelling (construction d'une "légende" ?) avec un historique contextualisé sous forme de biographie éventuelle. En d'autres termes : un outil qui permet de revoir le CV sous sa forme classique, mais généré à outrance via des outils informatiques dédiés. 
+
+Également en complément, une idée de tester le comportement des recruteurs, notamment des "cabinets de conseils" et "sociétés de services", qui souvent ne connaissent pas le domaine des profils recherchés et font des recherches de CV et profils uniquement par mots-clefs. 
+
+Questionnement sur les faux comptes (notamment sur LinkedIn), utilisés par des escrocs : https://blogbuster.fr/social/linkedin-faux-profil.htm (déjà constaté personnellement : faux recruteurs, collecte de données personnelles, usurpation d'identité...) dont ce n'est pas l'objectif ici !
+
+En réponse également aux recruteurs qui font des bases de données de candidats potentiels, notamment les sociétés de services (SSII / SS2I / ESN en France) ; et qui, notamment, proposent souvent des CV plus avantageux à leurs propsects et clients potentiels, souvent au-delà de la réalité et du possible !
+
+__L'idée de base étant de réfléchir à ce qui fait un "bon CV"__ : 
   * Intitulé(s) ; 
   * Compétences ; 
   * Expériences / Parcours ; 
@@ -13,7 +23,50 @@ L'idée de base étant de réfléchir à ce qui fait un "bon CV" :
   
 __Si d'autres développeurs veulent participer au projet, n'hésitez pas à vous signaler !__
 
+## Licence
+
 Licence : GPLv3
+
+## Biais possibles
+
+### Représentation et connaissances des recruteurs sur les "candidats"
+
+Geek / Nerd / "techniques" ... et autres clichés classqiues et canoniques !
+
+Termes abscons et faciles à confondre :  ...
+
+Que signifient tout ces acronymes et termes abscons ? 
+ - RHEL (Red Hat Enterprise Linux), un système d'exploitation (ce qui fait fonctionner un ordinateur en plus de l'électricité) ; 
+ - Java / JavaScript : deux langages de programmations bien différents !
+ - Shell / PowerShell : deux langages de scripts (un type de programmation), l'un pour linux et l'autre pour windows ; 
+
+...
+
+### Recherches via ces plate-formes
+
+Compétences et métiers plus demandés que d'autres (notamment en informatique), effets de modes. 
+Recherches uniquement par mots-clefs. 
+
+Définition d'une typologie de poste recherché en fonction du CV ou de combinaisons de mots-clefs de compétences et d'années d'expériences. 
+
+Arborescence de compétences ?
+
+### Typologie des recruteurs
+
+  * "Client final" (recrutement direct en contrat à terme, CDD, ou à long terme, CDI) ; 
+  * "Chasseur de tête" (sous-traitance RH) ; 
+  * "Sociétés de services" (intérim, prestation, conseil, forfait / régie, ESN / SSII : sous-traitance RH, encadrement et limitation des coût, "prêt" de main-d'oeuvre...) ; 
+
+Sur le sujet des SSII / ESN en informatique, un peu de lecture (et débat sur l'externalisation / sous-traitance et le fait que de nombreux "profils" partent plutôt en freelance / autoentrepreneurs aux environs de 2020) : 
+  * https://fr.wikipedia.org/wiki/Entreprise_de_services_du_numérique
+  * https://www.journaldunet.com/solutions/reseau-social-d-entreprise/1486816-esn-la-fin-d-un-modele/
+  * https://medium.com/@Vitolae/a-quoi-servent-encore-les-ssii-7514b25bf7f4
+  * https://www.reddit.com/r/france/comments/llfno2/une_ssii_pardon_une_esn_parmi_dautres/
+  * https://forum.canardpc.com/threads/105700-La-perception-des-ESN-%28SSII%29-%28avec-de-vrai-bouts-de-ressentiment-dedans%29
+  * https://forum.compagnons-devops.fr/t/les-esn-ex-ssii/1090
+  * https://www.developpez.net/forums/d1793122/emploi-etudes-informatique/emploi/difference-entre-esn-ssii/
+  * https://www.developpez.net/forums/d2112046/emploi-etudes-informatique/emploi/ssii/esn-restent-ssii/
+
 
 ## Fichiers sources pour des données de génération aléatoire : "resources/"
 
@@ -153,10 +206,6 @@ Voir également du côté des générateurs génériques utilisant un GAN (Gener
   * www.fiftytalents.com
   * www.cadremploi.fr
   * www.monster.fr
-
-Questionnement sur les faux comptes (notamment sur LinkedIn), utilisés par des escrocs : https://blogbuster.fr/social/linkedin-faux-profil.htm (déjà constaté personnellement : faux recruteurs, collecte de données personnelles, usurpation d'ientité...) dont ce n'est pas l'objectif ici !
-
-En réponse également aux recruteurs qui font des bases de données de candidats potentiels, notamment les sociétés de services (SSII / SS2I / ESN en France) ; et qui, notamment, proposent souvent des CV plus avantageux à leurs propsects et clients potentiels, souvent au-delà de la réalité et du possible !
 
 ### Lettres de motivation
 
