@@ -1,27 +1,26 @@
 %% HEADER PART 1 of LaTeX Curriculum file
 \documentclass[11pt,a4paper]{moderncv}
 \usepackage[french]{babel}
-\moderncvtheme[orange]{oldstyle}
+\moderncvtheme[blue]{classic}
 %% \moderncvstyle{...}
 %% \moderncvcolor{...}
 
+%% ./generateCurriculum.py -ln lastname -fn firstname -gt GeneralTitle -ti Title -sp Speciality -nq -ne -em default -rse -rje -rte -se 3 -je 5 -te 2 -rse -rje -rte -ya -m
 
 %% some variable definitions
-\def\titreGeneralNewLine{Développeur Java J2EE}
-\def\titreGeneral{Développement Java J2EE}
-\def\titreSpecialite{Java J2EE}
-\def\prenom{ Antoine }
-\def\nom{ Adelont }
+\def\titreGeneralNewLine{GeneralTitle}
+\def\titreGeneral{Title}
+\def\titreSpecialite{Speciality}
+\def\prenom{ firstname }
+\def\nom{ lastname }
 \def\prenomNom{\prenom ~\nom }
 \def\portable{06~12~34~56~78}
 
-\def\adressePhysique{ 75019 Paris }
+\def\adressePhysique{ 1337 Grand Boulevard -- 61337 Section 42 }
 
-\def\eMail{antoine.adelont@gmx.com}
+\def\eMail{firstname.lastname@gmx.com}
 
-\def\pageWeb{antoine.adelont.personnalbranding.com} 
-
-\photo[100pt][0.4pt]{avatar-Adelont-Antoine.png}
+\def\pageWeb{firstname.lastname.personnalbranding.com} 
 
 %% NOQUOTE
 %% NOEXTRAINFO
@@ -73,7 +72,7 @@
 \makestylefancyContent
 
 
-\def\motsClefs{LaTeX;PDF;Python;Python3;Big Data;FinTech;Rédaction;Bases De Données;Conception;Rédaction;Conception;Divers;Apache Kafka, Apache Solr, SciKit Learn, Pandas;Blockchain, Traçabilité, Performances;Cahier des charges, Spécifications, Tickets;NoSQL, Base de données relationnelle, Indexation, Entrepôt de données, Data Lake;UML, MERISE, Analyse Fonctionnelle;Cahier des charges, Spécifications, Tickets;UML, MERISE, Analyse Fonctionnelle;WebScrapping, R, Rédaction de support de cours, Java 8, SQL, Visual Studio, Micronaut, Android, Développement logiciel, Java, Cahier des charges, Design Pattern, Python, SVN, Maintenance, Gestion d'équipe, Maven}
+\def\motsClefs{LaTeX;PDF;Python;Python3;Apache;Shell;Tests Unitaires;Serveur Web Apache;Bash, ksh, PowerShell;Selenium, JUnit}
 
 %% Some SetUp
 \AfterPreamble{\hypersetup{
@@ -98,8 +97,8 @@
 %% \title{\titreGeneral \newline \titreSpecialite}
 \address{\adressePhysique }
 \email{\eMail }
-%% \homepage{\pageWeb }
-%% \mobile{\portable }
+\homepage{\pageWeb }
+\mobile{\portable }
 \ifdefined\quotationCitation
 \quote{ \quotationCitation }\fi
 \ifdefined\extrainfoDATA
@@ -116,43 +115,38 @@
 %% \social[twitter]{TwitterPage}         %% https://twitter.com/...
 
 
-% Largeur de la colonne pour les dates
-\setlength{\hintscolumnwidth}{5.00cm} %% 2.50cm
-
 \begin{document}
 
 \maketitle
 
 %% \section{Introduction}
-	 Passionné d'informatique et de développement logiciel, je recherche un poste où je puisse m'épanouir !
+	 %% IntroductionText~\\ 
 
 \section{Comp{\'e}tences}
 	%% \cvdoubleitem{ Item1 }{ Description1 }{ Item2 }{ Description2 }
 
-	 \cvcomputer{ Big Data }{ Apache Kafka, Apache Solr, SciKit Learn, Pandas }{ Bases De Données }{ NoSQL, Base de données relationnelles, Indexation, Entrepôt de données, Data Lake }
-	 \cvcomputer{ Rédaction }{ Cahier des charges, Spécifications, Tickets }{ Conception }{ UML, MERISE, Analyse Fonctionnelle }
+	 \cvcomputer{ Apache }{ Serveur Web Apache }		{ Shell }{ Bash, ksh, PowerShell }
+	 \cvcomputer{ Tests Unitaires }{ Selenium, JUnit }	{Langues}{ Anglais, Arabe, Chinois... }
 
 \section{Exp{\'e}rience professionnelle}
-	 \cventry{Depuis 2019}{WAKUWKU (Réseau Social)}{Recherche Et Développement}{CDI}{PME (Evry)}
-	 	{ }
+	 \cventry{years}{Peak and Derrera (Courtage de matériaux précieux)}{International (Bordeaux)}{Mission}{Développement local}{
+ %% JobDescription 
+}
 
-	 \cventry{2018}{\href{https://cyberpunk.fandom.com/fr/wiki/Zetatech}{ZetaTech~\includegraphics[height=0.25cm]{../../resources/2021/logos/Logo_Zetatech.png}~~} (Conception de matériels informatiques et de logiciels)}{Mission Assurance}{Freelance}{Paris}
-	 	{ }
+	 \cventry{years}{Tsunami Defense Systems (Bureau et Systèmes de Défense)}{PME (Bamako)}{Intérim}{Analyse De Données}{
+ %% JobDescription 
+}
 
-	 \cventry{2018}{WAKUWKU (Réseau Social)}{Développement logiciel interne}{Intérim}{PME (Evry)}
-	 	{ }
+	 \cventry{years}{Trauma Team International (Santé, Secours aux Personnes)}{International (Hong Kong)}{Intérim}{Recrutement}{
+ %% JobDescription 
+}
 
-	 \cventry{2017}{HONGSE (High Tech)}{Projet Marketing}{CDD}{StartUp (Paris)}
-	 	{ }
+	 \cventry{years}{WAYNE ENTERPRISES (Armement, Espace)}{PME (Hong Kong)}{Intérim}{Maintenance logiciel interne}{
+ %% JobDescription 
+}
 
-	 \cventry{2016}{STAVRO'S GUNS (Armement)}{Mission Assurance}{Freelance}{SSII/ESN (Paris)}
-	 	{ }
-
-	 \cventry{2016}{WINTER FASHION (Vêtements de mode)}{Adaptation et configuration d'un logiciel aux besoins internes}{Mission}{PME (Evry)}
-	 	{ }
-
-	 \cventry{2015}{\href{https://cyberpunk.fandom.com/wiki/Segotari}{SegAtari ~\includegraphics[height=0.25cm]{../../resources/2021/logos/Corpo_segatari.png}~~ } (Jeux Vidéo, Robotique, armement)}{Accueil Téléphonique}{Stage}{StartUp (Paris)}{
- JobDescription 
+	 \cventry{years}{Biotechnica (Ingénierie Génétique, Recherche Biochimique et Microbiologique)}{Formation (Bamako)}{Mission}{[Formation]Master Recherche}{
+ %% JobDescription 
 }
 
 	 %% \cventry{years}{degree/job title}{institution/employer}{localization}{grade}{description}
@@ -165,7 +159,13 @@
 	 %% \end{itemize}}
 
 \section{Formation}
-	 \cventry{2019}{Grande École (Ingénieur)}{WAKUWKU}{Réseau Social (Evry Val d'Essonne)}{
+	 \cventry{years}{CPGE (Classe Préparatoire aux Grandes Écoles)}{Assurance}{Bordeaux}{
+ % grade 
+}{
+ % description 
+}
+
+	 \cventry{years}{Baccalauréat Technique}{Publication}{Tokyo}{
  % grade 
 }{
  % description 
@@ -173,8 +173,19 @@
 
 	 %% \cventry{Year}{Diploma}{School}{Location}    {}{}{}
 
+\section{Recommandations}
+%% 	 \cvitem{ Recommendation }{ Content }
+
+	 \cvitem{referent 1}{some text}
+
 \section{Exp{\'e}riences de b{\'e}n{\'e}volat}
-	 \cvitem{Association Ludique}{ \href{https://www.ligue-ludique.fr/}{Ligue Ludique} }
-	 
+	 \cvitem{Association Caritative}{(distribution de nourriture, logistique, ...)}
+
+\section{R{\'e}alisations}
+	 \cvitem{Organisation}{(association étudiante, association caritative, ...)}
+
+\section{Centres d'int{\'e}r{\^e}ts}
+	 \cvitem{Jeux Sociaux}{(Jeux de plateau, Jeux de Rôle, Wargame, Stratégie, RolePlay, ... )}
+
 \end{document}
 

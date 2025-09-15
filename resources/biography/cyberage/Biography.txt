@@ -67,13 +67,13 @@ Table Espace-Venise	[Donne accès au métier de Cybertek, dans des domaines vari
 	Un(e) Phase II a failli vous tuer. Si vous le (la) croiser, vous essayerez de vous venger. 
 	Vous faites naufrage en pleine mer. Vous n'êtes récupéré(e) qu'un mois après, sur une île presque déserte. 	{RegneAnimal||RegneMineral||RegneVegetal+=1}
 
-Table Network	[Donne accès au métier d'holoreporter ou de pilote de voile solaire. ]	{métier:Holoreporter;métier:Pilote de Voile Solaire}
+Table Network	[Donne accès au métier d'holoreporter ou de pilote de voile solaire. ]	{métier:HoloReporter;métier:Pilote de Voile Solaire}
 	Vous participez à une action terroriste. 	{Parrain:Mercenaire;talent:Mercenaire=*}
 	Vous avez une liaison avec un(e) HoloReporter. 	[Romance]	{Parrain:HoloReporter}
 	Vous devenez Pilote de voile Solaire. 	{talent:Pilote=*;métier:Pilote de Voile Solaire=+1;EquipementCybernetique=*}
 	Vous participez à une Chasse. 	{EquipementCybernetique=*;talent:*}
 	vous êtes la cible d'une Chasse. Vous tuez votre Chasseur. 	{talent:*;talent:*}
-	Vous réalisez une vidéo sur un attentat terroriste qui est diffusé sur un Network. 	{talent:HoloReporter=*;métier:Holoreporter=+1;EquipementCybernetique=*}
+	Vous réalisez une vidéo sur un attentat terroriste qui est diffusé sur un Network. 	{talent:HoloReporter=*;métier:HoloReporter=+1;EquipementCybernetique=*}
 	Vous avez une liaison avec un(e) terroriste. 	[Romance]	{Parrain:Terrorisme Publicitaire}
 	Vous avez une liaison avec un(e) Pilote (Voile Solaire ou HoverTank). 	[Romance]	{Parrain:Pilote}
 	Vous contractez une dette vis-à-vis d'un groupe terroriste. Il peut vous demander son remboursement à tout moment. 	{debtTo:Terrorisme Publicitaire}

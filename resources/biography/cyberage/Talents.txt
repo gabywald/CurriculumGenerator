@@ -17,6 +17,7 @@ Connaissance du milieu des Jackeurs	-4
 Connaissance des médias	-4
 Connaissance des Jeux	-4
 Connaissance d'un milieu	-4	[showbiz;médias;terrorisme;yakuza;gangs;espace;mercenaires;jackeurs]
+Connaissance du milleu -Plongée-	-4
 Culture générale	-2
 Déplacement spatial	-4
 Droit mondial	X
