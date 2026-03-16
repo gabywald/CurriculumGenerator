@@ -2,6 +2,8 @@
 
 Pour générer des CV ("Curriculum Vitae") en LaTeX (et les traiter pour obtenir un PDF correspondant) ; utilisation de différents langages de programmation, idéalement des langages de script comme Python ou Perl. Cette idée afin de permettre de générer facilement un (ou plusieurs) CV, obtenir un bon exemple à réutiliser et tester sur les plate-formes de recrutement et / ou les processus de recrutement. 
 
+Évolutions possibles : voir section dédiée !
+
 ## Objectifs et questions
 
 L'idée originelle étant de montrer la preuve de concept de CV de tests utilisables via les plate-formes de recrutement comme LinkedIn et / ou Monster (et beaucoup d'autres) avec des CV normalisés / standardisés. 
@@ -100,7 +102,7 @@ Pour les noms d'entreprises et slogans, secteurs d'activités :
 ### "Fake Data Generation" (Faker, MockNeat...)
 
   * https://semaphoreci.com/community/tutorials/generating-fake-data-for-python-unit-tests-with-faker Generating Fake Data for Python Unit Tests with Faker
-  * https://faker.readthedocs.io/en/master/ -- Welcome to Faker’s documentation!
+  * https://faker.readthedocs.io/en/master/ -- Welcome to Faker's documentation!
   * https://blogs.sap.com/2021/05/26/generate-custom-datasets-using-python-faker/ Generate custom datasets using Python Faker
   * https://pypi.org/project/Faker/ Faker is a Python package that generates fake data for you. Whether you need to bootstrap your database, create good-looking XML documents, fill-in your persistence to stress test it, or anonymize data taken from a production service, Faker is for you.
   * https://dzone.com/articles/generating-arbitrary-data-using-mockneat Generating and Mocking Data With MockNeat (equivalent of MockNeat in Python ?? => Faker)
@@ -226,3 +228,35 @@ Voir également du côté des générateurs génériques utilisant un GAN (Gener
   * [Clement Berut](https://www.linkedin.com/in/cl%C3%A9ment-%F0%9F%A6%85-berut-%E2%9D%97-4207111b/)
   * ... 
   * ... 
+
+## Usages possibles de cet outil  et évolutions
+
+Voici une liste réaliste et variée d'**usages possibles** pour le projet **CurriculumGenerator** en 2026 et plus, en tenant compte de son état actuel (générateur Python/Perl => LaTeX => PDF, données textuelles dans `resources/`, génération semi-aléatoire ou dirigée, focus multi-langue et ATS).
+
+| N° | Usage principal | Description concrète | Niveau de faisabilité actuel | Difficulté d'adaptation | Public cible principal |
+| ----- | ----- | ----- | ----- | ----- | ----- |
+| 1  | **Génération de CV personnels rapides** | Remplir et modifier les fichiers texte => script => PDF propre en LaTeX | ★★★★☆ (déjà fonctionnel) | Faible | Développeurs, étudiants, LaTeX lovers |
+| 2  | **Création de multiples variantes pour candidatures** | Générer 5–10 versions d'un même CV (différents ordres de compétences, accent sur tel outil/projet, longueur différente) | ★★★★☆ | Faible à moyenne | Chercheurs d'emploi intensifs |
+| 3  | **Tests de parsing ATS / plateformes de recrutement** | Produire des CV "contrôlés" pour voir comment LinkedIn, Welcome to the Jungle, Indeed, Monster, SAP SuccessFactors, Workday… les interprètent | ★★★★★ (objectif originel du projet) | Faible | Recruteurs tech, consultants SIRH, passionnés RH-tech |
+| 4  | **Études / expériences sur les biais en recrutement** | Générer des CV identiques sauf nom/prénom/genre/âge/origine => soumettre et observer les réponses / taux de rappel | ★★★★☆ | Moyenne (script de batch + tracking) | Chercheurs en sociologie du travail, assos anti-discrimination, doctorants RH |
+| 5  | **Génération de faux profils pour tests / démos / pentest** | Créer des dizaines/centaines de faux CV plausibles pour tester un parseur interne, un chatbot RH, un outil de matching IA, une base de données anonymisée | ★★★★☆ | Moyenne (ajout Faker-like) | Développeurs d'outils RH, pentesters éthiques, éditeurs de logiciels SIRH |
+| 6  | **Création de CV thématiques / fictifs (Cyberpunk, SF, JdR)** | Utiliser les listes de ressources pour intégrer des entreprises fictives (Arasaka, Militech, Night City Corp…), compétences futuristes, outils imaginaires | ★★★☆☆ (très fun) | Faible | MJ / rôlistes, créateurs de lore, convention JdR, humour geek |
+| 7  | **Support pédagogique "structure d'un bon CV"** | Montrer aux étudiants / bootcampers comment le même contenu change selon l'ordre, les mots-clés, la mise en page => générer avant/après | ★★★★☆ | Moyenne | Formateurs dev, RH formateurs, écoles informatique |
+| 8  | **Génération massive pour A/B testing de design LaTeX** | Produire 50+ PDF avec variations (awesome-cv vs moderncv vs altacv, une colonne vs deux, couleurs vs monochrome…) et demander des retours | ★★★☆☆ | Moyenne | Designers de templates CV, créateurs de contenu "career advice" |
+| 9  | **Base pour un mini-projet "CV builder" open-source** | Transformer le script en CLI + YAML/JSON d'entrée + choix de template => fork moderne | ★★☆☆☆ (gros chantier) | Élevée | Contributeurs potentiels ?? |
+| 10 | **Critique / satire des pratiques RH** | Générer des CV absurdes mais keyword-stuffed pour montrer les limites du recrutement par mots-clés (ex: "JavaScript Java Python Perl Rust Go C++" partout) | ★★★★☆ | Faible | Posts LinkedIn/X satiriques, conférences "anti-bullshit jobs" |
+
+### Usages les plus immédiats (sans presque rien changer)
+- Usages personnels => ton CV perso en PDF LaTeX très propre et mis à jour rapidement
+- Tester 3-4 plateformes de recrutement avec la même base de données => voir ce qui passe / ce qui casse
+- Générer 20 CV aléatoires plausibles en 2 minutes pour une démo ou un article de blog
+- S'amuser à faire un CV "runner" Cyberpunk 2020 / 2077 avec Arasaka, Trauma Team, etc.
+
+### Usages qui demandent un petit coup de pouce (quelques heures / jours)
+- Ajouter un générateur Faker-like pour plus de variété et moins de répétition dans les noms/entreprises
+- Passer les données d'entrée en YAML => beaucoup plus lisible et maintenable
+- Ajouter un flag `--ats-mode` qui force police Arial/Times, enlève colonnes et icônes
+- Créer un script batch qui génère 100 CV et les nomme automatiquement (prenom-nom-date-langue-poste.pdf)
+
+Le projet reste petit et "artisanal", mais son orientation **génération contrôlée + test ATS + multi-langue + LaTeX** peut le rendre étonnamment polyvalent pour qui aime bidouiller.  
+
