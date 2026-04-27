@@ -46,7 +46,7 @@ def loadTables() :
   nextTable  = None
   for line in tables:
     resultTableHead     = re.match( "^Table (.*?)(\t(.*?))?$", line)
-    resultTableContent  = re.match( "^\t(Table )?(.*?)(\t\[(.*?)\])?(\t\{(.*?)\})?$", line )
+    resultTableContent  = re.match( "^\t(Table )?(.*?)(\t[(.*?)])?(\t{(.*?)})?$", line )
     if (resultTableHead != None) : 
       if (nextTable != None) : 
         localDictionnary[ nextTable.name ] = nextTable
