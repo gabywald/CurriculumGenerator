@@ -4,6 +4,26 @@ Pour générer des CV ("Curriculum Vitae") en LaTeX (et les traiter pour obtenir
 
 Évolutions possibles : voir section dédiée !
 
+## Démarrage rapide (TLDR)
+
+"TLDR : Too Long Didn't Read !"
+
+=> Répertoire Python (où figure également un README.md )
+
+Testé sous Python 3.12.3 et Ubuntu 24.04 [20250427] (et packages latex installés !). 
+
+```bash
+cd Pyth	on
+./generateCurriculum.py --help ## script 'intearactif' pour créer un CV (génère répertoire et fichier tex avec Makefile à lancer)
+./generateParameterFile.py > parameters.csv ## Génère un fichier CSV pour générer plusieurs CV, par défaut élaétoire entre 1 et 100, indiquer un paramètre entier / int pour choisir un nombre de profils à générer)
+## Modifiez le fichier selon vos besoin à partir des exemples !
+./generateFromParameterFile.py parameters.csv ## Utilise fichier CSV généré et modifé précédement pour créer les CV correspndants. 
+```
+
+N'hésitez pas à investiguer dans les autres répertoires : 
+ - 'generatedCV/Tests01/' : quelques exemples de tests de CV déjà générés en PDF, fichiers TeX / LaTeX modifiables !
+ - 'resources/latexSamples/generated/' : exemples basiques (Banking / Casual / Classic / OldStyle), fichiers LaTeX et PDF !
+
 ## Objectifs et questions
 
 L'idée originelle étant de montrer la preuve de concept de CV de tests utilisables via les plate-formes de recrutement comme LinkedIn et / ou Monster (et beaucoup d'autres) avec des CV normalisés / standardisés. 

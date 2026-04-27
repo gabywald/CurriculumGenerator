@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 __author__ = "Gabriel Chandesris"
-__copyright__ = "CC Gabriel Chandesris (2020)"
+__copyright__ = "CC Gabriel Chandesris (2020, 2026)"
 __credits__ = ""
 __licence__ = "GNU GENERAL PUBLIC LICENSE v3"
 __version__ = "1.0.0a"

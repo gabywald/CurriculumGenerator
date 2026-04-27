@@ -10,16 +10,18 @@ L'objectif ici étant principalement de réviser le Python, et plus spécifiquem
 
 Ici, certains éléments sont précisés en détail, même si ils semblent insignifiant à un développeur expérimenté ; de façon à ce qu'un débutant puisse s'y retrouver tout de même sans aucun à priori. 
 
-* Python 3.8.5
+* Python 3.12.3
 * __script principal__ : 'generateCurriculum.py'
 * Autre script d'entrée : 'generateFromParameterFile.py' (appelle le précédent à partir d'un fichier)
-* Autre script d'entrée : 'mainFileGenerator.py' (génère fichier pour le précédent)
+* Autre script d'entrée : 'generateParameterFile.py' (génère fichier pour le précédent)
 * Eclipse / PyCharm
 * Shell Bash
 * UTF-8 (les sources pythons et les fichiers de configuration)
 * pdflatex ("texlive-*") ; package "texlive-fonts-extra" in Ubuntu (for 'fontawesome' / "fonts-font-awesome" needed in case of 'casual' résumé style, https://www.ctan.org/pkg/fontawesome "Web-Related Icons")
 
-Testé sous Linux Ubuntu 20.04
+Testé sous Linux Ubuntu 24.04
+
+(anciennement Python 3.8.2 sous Ubuntu 20.04)
 
 ## Paramètres d'entrée
 
