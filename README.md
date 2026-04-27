@@ -13,7 +13,7 @@ Pour générer des CV ("Curriculum Vitae") en LaTeX (et les traiter pour obtenir
 Testé sous Python 3.12.3 et Ubuntu 24.04 [20250427] (et packages latex installés !). 
 
 ```bash
-cd Pyth	on
+cd Python
 ./generateCurriculum.py --help ## script 'intearactif' pour créer un CV (génère répertoire et fichier tex avec Makefile à lancer)
 ./generateParameterFile.py > parameters.csv ## Génère un fichier CSV pour générer plusieurs CV, par défaut élaétoire entre 1 et 100, indiquer un paramètre entier / int pour choisir un nombre de profils à générer)
 ## Modifiez le fichier selon vos besoin à partir des exemples !
@@ -119,6 +119,27 @@ Pour les noms d'entreprises et slogans, secteurs d'activités :
 
 ## Autres ressources et idées
 
+### Autres modèles ("templates") LaTeX disponibles par ailleurs
+
+  * https://www.latextemplates.com/cat/curricula-vitae 
+    - Developer CV 
+    - Medium Length Professional CV
+    - Stylish CV ; Freeman CV/Resume
+    - Awesome Resume/CV and Cover Letter
+    - Compact Academic CV
+    - Twenty Seconds Resume/CV
+    - ModernCV CV and Cover Letter
+    - Wenneker Resume/CV
+    - Wilson Resume/CV
+    - Cies Resume/CV
+    - Deedy Resume/CV
+    - Plasmati CV
+    - Classicthesis-Styled CV
+    - Long Professional CV
+    - Medium Length Graduate CV
+  * Faites et créez votre modèle ! 
+  * ...
+
 ### "Fake Data Generation" (Faker, MockNeat...)
 
   * https://semaphoreci.com/community/tutorials/generating-fake-data-for-python-unit-tests-with-faker Generating Fake Data for Python Unit Tests with Faker
@@ -195,6 +216,8 @@ Entreprises fictives référencées sur LinkedIn (pop-culture, CyberPunk 20XX et
   * [Sirius Cybernetics Corporation](https://www.linkedin.com/company/sirius-cybernetics-corporation/) -- The Hitchhiker's Guide to the Galaxy / Le Guide du Routard Galactique de Douglas Adams
   * [Tessier-Ashpool SA - Bioengineering a better human race. ](https://www.linkedin.com/company/tessier-ashpool-sa/) -- Roman 'Neuromancien' de William Gibson
   * [Wintermute Group -- Services de recherche, Berne](https://www.linkedin.com/company/wintermutegroup/) "Leader In Neural Network Research" -- Roman 'Neuromancien' de William Gibson
+  * [Hogwarts School of Witchcraft and Wizardry -- Draco dormiens nunquam titillandus](https://www.linkedin.com/company/hogwartsschool/) -- Mondes de Harry Potter
+  * [Hogwarts -- Learn about magic](https://www.linkedin.com/company/hogwarts-testing/) -- Mondes de Harry Potter
   * ... 
 
 Plus d'autres par ici : 
